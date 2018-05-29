@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C33E02D20BD695600784D63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E02C20BD695600784D63 /* AppDelegate.swift */; };
-		7C33E02F20BD695600784D63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E02E20BD695600784D63 /* ViewController.swift */; };
-		7C33E03220BD695600784D63 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03020BD695600784D63 /* Main.storyboard */; };
+		7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E02C20BD695600784D63 /* ApplicationDelegate.swift */; };
 		7C33E03420BD695700784D63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03320BD695700784D63 /* Assets.xcassets */; };
 		7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03520BD695700784D63 /* LaunchScreen.storyboard */; };
 		7C33E04220BD695700784D63 /* CarRecognitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E04120BD695700784D63 /* CarRecognitionTests.swift */; };
+		7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E06C20BD729B00784D63 /* Keys.podspec.json */; };
+		7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,15 +27,27 @@
 
 /* Begin PBXFileReference section */
 		7C33E02920BD695600784D63 /* CarRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C33E02C20BD695600784D63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7C33E02E20BD695600784D63 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7C33E03120BD695600784D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7C33E02C20BD695600784D63 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		7C33E03320BD695700784D63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C33E03620BD695700784D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C33E03820BD695700784D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C33E03D20BD695700784D63 /* CarRecognitionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarRecognitionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C33E04120BD695700784D63 /* CarRecognitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRecognitionTests.swift; sourceTree = "<group>"; };
 		7C33E04320BD695700784D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C33E05120BD6A5900784D63 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		7C33E05220BD6A5900784D63 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = SOURCE_ROOT; };
+		7C33E05320BD6A5900784D63 /* bitrise.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitrise.yml; sourceTree = SOURCE_ROOT; };
+		7C33E05420BD6A5A00784D63 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		7C33E05520BD6A5A00784D63 /* PULL_REQUEST_TEMPLATE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = PULL_REQUEST_TEMPLATE.md; sourceTree = SOURCE_ROOT; };
+		7C33E05620BD6A5A00784D63 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		7C33E05F20BD6E6100784D63 /* App-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Staging.xcconfig"; sourceTree = "<group>"; };
+		7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Test-Common.xcconfig"; sourceTree = "<group>"; };
+		7C33E06120BD6E6200784D63 /* App-Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Common.xcconfig"; sourceTree = "<group>"; };
+		7C33E06220BD6E6200784D63 /* App-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Development.xcconfig"; sourceTree = "<group>"; };
+		7C33E06920BD70C500784D63 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		7C33E06B20BD729B00784D63 /* CarRecognitionKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarRecognitionKeys.h; path = Pods/CocoaPodsKeys/CarRecognitionKeys.h; sourceTree = SOURCE_ROOT; };
+		7C33E06C20BD729B00784D63 /* Keys.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Keys.podspec.json; path = Pods/CocoaPodsKeys/Keys.podspec.json; sourceTree = SOURCE_ROOT; };
+		7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarRecognitionKeys.m; path = Pods/CocoaPodsKeys/CarRecognitionKeys.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +73,8 @@
 			children = (
 				7C33E02B20BD695600784D63 /* CarRecognition */,
 				7C33E04020BD695700784D63 /* CarRecognitionTests */,
+				7C33E05020BD6A4700784D63 /* Configurations */,
+				7C33E04F20BD6A3B00784D63 /* Other Files */,
 				7C33E02A20BD695600784D63 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,12 +91,9 @@
 		7C33E02B20BD695600784D63 /* CarRecognition */ = {
 			isa = PBXGroup;
 			children = (
-				7C33E02C20BD695600784D63 /* AppDelegate.swift */,
-				7C33E02E20BD695600784D63 /* ViewController.swift */,
-				7C33E03020BD695600784D63 /* Main.storyboard */,
-				7C33E03320BD695700784D63 /* Assets.xcassets */,
-				7C33E03520BD695700784D63 /* LaunchScreen.storyboard */,
-				7C33E03820BD695700784D63 /* Info.plist */,
+				7C33E04E20BD69A700784D63 /* Source Files */,
+				7C33E04D20BD69A200784D63 /* Resources */,
+				7C33E04C20BD699B00784D63 /* Supporting Files */,
 			);
 			path = CarRecognition;
 			sourceTree = "<group>";
@@ -94,6 +105,67 @@
 				7C33E04320BD695700784D63 /* Info.plist */,
 			);
 			path = CarRecognitionTests;
+			sourceTree = "<group>";
+		};
+		7C33E04C20BD699B00784D63 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C33E06920BD70C500784D63 /* Bridging-Header.h */,
+				7C33E03820BD695700784D63 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C33E04D20BD69A200784D63 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7C33E03320BD695700784D63 /* Assets.xcassets */,
+				7C33E03520BD695700784D63 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C33E04E20BD69A700784D63 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C33E02C20BD695600784D63 /* ApplicationDelegate.swift */,
+			);
+			path = "Source Files";
+			sourceTree = "<group>";
+		};
+		7C33E04F20BD6A3B00784D63 /* Other Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C33E06A20BD711F00784D63 /* CocoaPods Keys */,
+				7C33E05320BD6A5900784D63 /* bitrise.yml */,
+				7C33E05420BD6A5A00784D63 /* Cartfile */,
+				7C33E05220BD6A5900784D63 /* Gemfile */,
+				7C33E05120BD6A5900784D63 /* Podfile */,
+				7C33E05520BD6A5A00784D63 /* PULL_REQUEST_TEMPLATE.md */,
+				7C33E05620BD6A5A00784D63 /* README.md */,
+			);
+			path = "Other Files";
+			sourceTree = "<group>";
+		};
+		7C33E05020BD6A4700784D63 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				7C33E06120BD6E6200784D63 /* App-Common.xcconfig */,
+				7C33E06220BD6E6200784D63 /* App-Development.xcconfig */,
+				7C33E05F20BD6E6100784D63 /* App-Staging.xcconfig */,
+				7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		7C33E06A20BD711F00784D63 /* CocoaPods Keys */ = {
+			isa = PBXGroup;
+			children = (
+				7C33E06B20BD729B00784D63 /* CarRecognitionKeys.h */,
+				7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */,
+				7C33E06C20BD729B00784D63 /* Keys.podspec.json */,
+			);
+			path = "CocoaPods Keys";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +218,7 @@
 				TargetAttributes = {
 					7C33E02820BD695600784D63 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 					};
 					7C33E03C20BD695700784D63 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -178,8 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */,
+				7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */,
 				7C33E03420BD695700784D63 /* Assets.xcassets in Resources */,
-				7C33E03220BD695600784D63 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,8 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C33E02F20BD695600784D63 /* ViewController.swift in Sources */,
-				7C33E02D20BD695600784D63 /* AppDelegate.swift in Sources */,
+				7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */,
+				7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +294,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7C33E03020BD695600784D63 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7C33E03120BD695600784D63 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7C33E03520BD695700784D63 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -240,7 +305,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7C33E04420BD695700784D63 /* Debug */ = {
+		7C33E06320BD707D00784D63 /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -291,16 +356,60 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Development;
 		};
-		7C33E04520BD695700784D63 /* Release */ = {
+		7C33E06420BD707D00784D63 /* Development */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C33E06220BD6E6200784D63 /* App-Development.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/CarRecognition/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.CarRecognition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Development;
+		};
+		7C33E06520BD707D00784D63 /* Development */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9HJ69C5G9K;
+				INFOPLIST_FILE = CarRecognitionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.CarRecognitionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarRecognition.app/CarRecognition";
+			};
+			name = Development;
+		};
+		7C33E06620BD708800784D63 /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -334,64 +443,57 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Release;
+			name = Staging;
 		};
-		7C33E04720BD695700784D63 /* Debug */ = {
+		7C33E06720BD708800784D63 /* Staging */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C33E05F20BD6E6100784D63 /* App-Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				INFOPLIST_FILE = CarRecognition/Info.plist;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "$(SRCROOT)/CarRecognition/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.CarRecognition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = Staging;
 		};
-		7C33E04820BD695700784D63 /* Release */ = {
+		7C33E06820BD708800784D63 /* Staging */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				INFOPLIST_FILE = CarRecognition/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.CarRecognition;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		7C33E04A20BD695700784D63 /* Debug */ = {
-			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -409,28 +511,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarRecognition.app/CarRecognition";
 			};
-			name = Debug;
-		};
-		7C33E04B20BD695700784D63 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				INFOPLIST_FILE = CarRecognitionTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.CarRecognitionTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarRecognition.app/CarRecognition";
-			};
-			name = Release;
+			name = Staging;
 		};
 /* End XCBuildConfiguration section */
 
@@ -438,29 +519,29 @@
 		7C33E02420BD695600784D63 /* Build configuration list for PBXProject "CarRecognition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C33E04420BD695700784D63 /* Debug */,
-				7C33E04520BD695700784D63 /* Release */,
+				7C33E06320BD707D00784D63 /* Development */,
+				7C33E06620BD708800784D63 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Development;
 		};
 		7C33E04620BD695700784D63 /* Build configuration list for PBXNativeTarget "CarRecognition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C33E04720BD695700784D63 /* Debug */,
-				7C33E04820BD695700784D63 /* Release */,
+				7C33E06420BD707D00784D63 /* Development */,
+				7C33E06720BD708800784D63 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Development;
 		};
 		7C33E04920BD695700784D63 /* Build configuration list for PBXNativeTarget "CarRecognitionTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C33E04A20BD695700784D63 /* Debug */,
-				7C33E04B20BD695700784D63 /* Release */,
+				7C33E06520BD707D00784D63 /* Development */,
+				7C33E06820BD708800784D63 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Development;
 		};
 /* End XCConfigurationList section */
 	};

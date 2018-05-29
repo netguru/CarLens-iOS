@@ -1,0 +1,5 @@
+#
+# Cartfile
+#
+
+github "netguru/xcconfigs" == 0.5
