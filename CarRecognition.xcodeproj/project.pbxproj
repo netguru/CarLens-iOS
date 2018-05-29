@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				7C33E04120BD695700784D63 /* CarRecognitionTests.swift */,
-				7C33E04320BD695700784D63 /* Info.plist */,
+				7CFBB8CD20BD94D200058B97 /* Supporting Files */,
 			);
 			path = CarRecognitionTests;
 			sourceTree = "<group>";
@@ -166,6 +166,14 @@
 				7C33E06C20BD729B00784D63 /* Keys.podspec.json */,
 			);
 			path = "CocoaPods Keys";
+			sourceTree = "<group>";
+		};
+		7CFBB8CD20BD94D200058B97 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C33E04320BD695700784D63 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
