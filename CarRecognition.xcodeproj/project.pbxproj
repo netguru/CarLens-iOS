@@ -31,7 +31,7 @@
 		7C33E03320BD695700784D63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C33E03620BD695700784D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C33E03820BD695700784D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C33E03D20BD695700784D63 /* CarRecognitionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarRecognitionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C33E03D20BD695700784D63 /* CarRecognition Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CarRecognition Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C33E04120BD695700784D63 /* CarRecognitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRecognitionTests.swift; sourceTree = "<group>"; };
 		7C33E04320BD695700784D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C33E05120BD6A5900784D63 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
@@ -83,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				7C33E02920BD695600784D63 /* CarRecognition.app */,
-				7C33E03D20BD695700784D63 /* CarRecognitionTests.xctest */,
+				7C33E03D20BD695700784D63 /* CarRecognition Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 			);
 			name = CarRecognitionTests;
 			productName = CarRecognitionTests;
-			productReference = 7C33E03D20BD695700784D63 /* CarRecognitionTests.xctest */;
+			productReference = 7C33E03D20BD695700784D63 /* CarRecognition Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -369,21 +369,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06220BD6E6200784D63 /* App-Development.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/CarRecognition/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.CarRecognition;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Development;
 		};
@@ -391,21 +376,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				INFOPLIST_FILE = CarRecognitionTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.CarRecognitionTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarRecognition.app/CarRecognition";
 			};
 			name = Development;
 		};
@@ -473,21 +443,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E05F20BD6E6100784D63 /* App-Staging.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "$(SRCROOT)/CarRecognition/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.CarRecognition;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Staging;
 		};
@@ -495,21 +450,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				INFOPLIST_FILE = CarRecognitionTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.CarRecognitionTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CarRecognition.app/CarRecognition";
 			};
 			name = Staging;
 		};
