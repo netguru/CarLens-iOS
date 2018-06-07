@@ -5,24 +5,32 @@
 
 
 import UIKit
+import ARKit
+import SpriteKit
 
 internal final class LiveVideoView: View, ViewSetupable {
 
-    /// Button for test
-    lazy var testButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(Localizable.Common.confirm, for: .normal)
-        button.tintColor = .blue
-        return button.layoutable()
+    /// Augmented Reality scene view
+    lazy var sceneView: ARSKView = {
+        let view = ARSKView()
+        return view.layoutable()
+    }()
+    
+    /// SpriteKit 3D scene view
+    lazy var overlayScene: SKScene = {
+        let overlayScene = SKScene()
+        overlayScene.scaleMode = .aspectFill
+        return overlayScene
     }()
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        addSubview(testButton)
+        addSubview(sceneView)
+        sceneView.presentScene(overlayScene)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        testButton.constraintCenterToSuperview()
+        sceneView.constraintToSuperviewEdges()
     }
 }

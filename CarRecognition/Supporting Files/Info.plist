@@ -36,5 +36,7 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera is used for car detection</string>
 </dict>
 </plist>

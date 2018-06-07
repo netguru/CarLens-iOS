@@ -38,6 +38,7 @@
 		7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817E520C9368300B51C3D /* ApplicationFlowController.swift */; };
 		7CB817EA20C937EA00B51C3D /* LiveVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817E920C937EA00B51C3D /* LiveVideoViewController.swift */; };
 		7CB817EC20C937FB00B51C3D /* LiveVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817EB20C937FB00B51C3D /* LiveVideoView.swift */; };
+		7CB817EE20C93B6700B51C3D /* CarRecognizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		7CB817E520C9368300B51C3D /* ApplicationFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationFlowController.swift; sourceTree = "<group>"; };
 		7CB817E920C937EA00B51C3D /* LiveVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoViewController.swift; sourceTree = "<group>"; };
 		7CB817EB20C937FB00B51C3D /* LiveVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoView.swift; sourceTree = "<group>"; };
+		7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRecognizerService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB817C820C933CB00B51C3D /* HockeyAppService.swift */,
+				7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				7CB817D320C9353200B51C3D /* UIStackViewExtension.swift in Sources */,
 				7CB817C920C933CB00B51C3D /* HockeyAppService.swift in Sources */,
 				7CB817C220C9333C00B51C3D /* Loader.swift in Sources */,
+				7CB817EE20C93B6700B51C3D /* CarRecognizerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
