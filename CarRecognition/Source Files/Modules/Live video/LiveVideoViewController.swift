@@ -34,14 +34,12 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     }
     
     private func handleRecognition(result: [RecognizedCar]) {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .percent
-        
-        let highConfidence = result.filter { $0.confidence > 0.9 }
-        
-        guard let first = highConfidence.first, let percentageConfidence = numberFormatter.string(from: NSNumber(value: first.confidence)) else { return }
-        
-        customView.modelLabel.text = "\(first.car) (\(percentageConfidence))\nTotal detected above 90%: \(highConfidence.count)"
+        guard let first = result.first else { return }
+        if first.confidence > 0.6 {
+            customView.modelLabel.text = "\(first.car)\n(\(CRNumberFormatter.percentageFormatted(first.confidence)))"
+        } else {
+            customView.modelLabel.text = ""
+        }
     }
     
     /// SeeAlso: ARSessionDelegate

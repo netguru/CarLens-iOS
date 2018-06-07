@@ -26,7 +26,7 @@ internal final class LiveVideoView: View, ViewSetupable {
     /// Augmented Reality scene view
     lazy var modelLabel: UILabel = {
         let view = UILabel()
-        view.font = .systemFont(ofSize: 16)
+        view.font = .systemFont(ofSize: 26)
         view.numberOfLines = 0
         view.textAlignment = .center
         return view.layoutable()
@@ -44,7 +44,7 @@ internal final class LiveVideoView: View, ViewSetupable {
         sceneView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
         modelLabel.constraintToSuperviewEdges(excludingAnchors: [.top])
         NSLayoutConstraint.activate([
-            modelLabel.heightAnchor.constraint(equalToConstant: 50),
+            sceneView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
             sceneView.bottomAnchor.constraint(equalTo: modelLabel.topAnchor)
         ])
     }

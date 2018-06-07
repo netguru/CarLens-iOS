@@ -40,6 +40,7 @@
 		7CB817EC20C937FB00B51C3D /* LiveVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817EB20C937FB00B51C3D /* LiveVideoView.swift */; };
 		7CB817EE20C93B6700B51C3D /* CarRecognizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */; };
 		7CB817F620C95BB200B51C3D /* RecognizedCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F520C95BB200B51C3D /* RecognizedCar.swift */; };
+		7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		7CB817EB20C937FB00B51C3D /* LiveVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoView.swift; sourceTree = "<group>"; };
 		7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRecognizerService.swift; sourceTree = "<group>"; };
 		7CB817F520C95BB200B51C3D /* RecognizedCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedCar.swift; sourceTree = "<group>"; };
+		7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRNumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 		7CB817B420C9317B00B51C3D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7CB817F720C9685100B51C3D /* Formatter */,
 				7CB817BA20C931D500B51C3D /* Services */,
 				7CB817B920C931D000B51C3D /* Views */,
 				7CB817B820C931C400B51C3D /* Models */,
@@ -351,6 +354,14 @@
 				7CB817EB20C937FB00B51C3D /* LiveVideoView.swift */,
 			);
 			path = "Live video";
+			sourceTree = "<group>";
+		};
+		7CB817F720C9685100B51C3D /* Formatter */ = {
+			isa = PBXGroup;
+			children = (
+				7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */,
+			);
+			path = Formatter;
 			sourceTree = "<group>";
 		};
 		7CFBB8CD20BD94D200058B97 /* Supporting Files */ = {
@@ -488,6 +499,7 @@
 				7CB817C520C9336500B51C3D /* Localizable.swift in Sources */,
 				7CB817BC20C9320700B51C3D /* CrashLogger.swift in Sources */,
 				7CB817EC20C937FB00B51C3D /* LiveVideoView.swift in Sources */,
+				7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */,
 				7CB817DE20C935B200B51C3D /* TableViewCell.swift in Sources */,
 				7CB817EA20C937EA00B51C3D /* LiveVideoViewController.swift in Sources */,
 				7CB817E020C935B200B51C3D /* View.swift in Sources */,
