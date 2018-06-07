@@ -30,6 +30,6 @@ internal final class ApplicationFlowController {
     internal func startApp() {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-        window?.rootViewController = UIViewController()
+        window?.rootViewController = LiveVideoViewController(viewMaker: LiveVideoView())
     }
 }

@@ -100,7 +100,7 @@ internal extension UIView {
         }
     }
     
-    /// Constraint center the view to the superview
+    /// Constraint center of the view to the superview center
     ///
     /// - Parameters:
     ///   - axis: Axis that should be constraint
@@ -113,7 +113,7 @@ internal extension UIView {
         return constraintCenter(to: superview, axis: axis, withConstant: constant)
     }
     
-    /// Constraint center the view to the given view
+    /// Constraint center the view to the given view center
     ///
     /// - Parameters:
     ///   - view: View to constraint center to
