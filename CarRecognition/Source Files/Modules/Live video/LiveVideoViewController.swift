@@ -24,7 +24,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        customView.sceneView.session.run(ARWorldTrackingConfiguration())
+        customView.sceneView.session.run(AROrientationTrackingConfiguration())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
