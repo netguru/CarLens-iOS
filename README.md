@@ -10,12 +10,12 @@ Welcome to the **Car Regonition** project. It's an internal application made for
 ## Tools & Services
 
 * Tools:
-	* Xcode 9.3 with latest iOS SDK (11.2)
+	* Xcode 9.4 with latest iOS SDK (11.4)
 	* [Carthage](https://github.com/Carthage/Carthage) 0.29 or higher
 	* [CocoaPods](https://github.com/CocoaPods/CocoaPods) 1.5 or higher
 * Services:
-	* [JIRA](https://netguru.atlassian.net/secure/RapidBoard.jspa?rapidView=554&view=detail)
-	* [Bitrise](https://www.bitrise.io/app/[XXX])
+	* [JIRA](https://netguru.atlassian.net/secure/RapidBoard.jspa?rapidView=584&view=detail)
+	* [Bitrise](https://www.bitrise.io/app/c1dd582bc9a1724d)
 	* [HockeyApp - staging](https://rink.hockeyapp.net/apps/835da3422b11431181aa26898a1ac418)
 
 ## Configuration
