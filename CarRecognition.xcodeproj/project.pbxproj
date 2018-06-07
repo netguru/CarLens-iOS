@@ -39,6 +39,7 @@
 		7CB817EA20C937EA00B51C3D /* LiveVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817E920C937EA00B51C3D /* LiveVideoViewController.swift */; };
 		7CB817EC20C937FB00B51C3D /* LiveVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817EB20C937FB00B51C3D /* LiveVideoView.swift */; };
 		7CB817EE20C93B6700B51C3D /* CarRecognizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */; };
+		7CB817F620C95BB200B51C3D /* RecognizedCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F520C95BB200B51C3D /* RecognizedCar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		7CB817E920C937EA00B51C3D /* LiveVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoViewController.swift; sourceTree = "<group>"; };
 		7CB817EB20C937FB00B51C3D /* LiveVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoView.swift; sourceTree = "<group>"; };
 		7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRecognizerService.swift; sourceTree = "<group>"; };
+		7CB817F520C95BB200B51C3D /* RecognizedCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedCar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +304,7 @@
 		7CB817B820C931C400B51C3D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7CB817F520C95BB200B51C3D /* RecognizedCar.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
 				7CB817E120C935B200B51C3D /* FlowAwareViewController.swift in Sources */,
+				7CB817F620C95BB200B51C3D /* RecognizedCar.swift in Sources */,
 				7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */,
 				7CB817D320C9353200B51C3D /* UIStackViewExtension.swift in Sources */,
 				7CB817C920C933CB00B51C3D /* HockeyAppService.swift in Sources */,

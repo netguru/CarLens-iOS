@@ -9,7 +9,7 @@ import UIKit.UIDevice
 
 internal final class CarRecognizerService {
     
-    private let completionHandler: (String) -> ()
+    private let completionHandler: ([RecognizedCar]) -> ()
     
     private var currentBuffer: CVPixelBuffer?
     
@@ -32,7 +32,7 @@ internal final class CarRecognizerService {
     /// Initialize the recognizer
     ///
     /// - Parameter completionHandler: Handler that will be invoked after detection
-    init(completionHandler: @escaping (String) -> ()) {
+    init(completionHandler: @escaping ([RecognizedCar]) -> ()) {
         self.completionHandler = completionHandler
     }
 
@@ -57,11 +57,9 @@ internal final class CarRecognizerService {
             return
         }
         let classifications = results as! [VNClassificationObservation]
-        if let bestResult = classifications.first(where: { result in result.confidence > 0.90 }) {
-            print("\(bestResult.identifier), \(bestResult.confidence)")
-            DispatchQueue.main.async {
-                self.completionHandler("\(bestResult.identifier), \(bestResult.confidence)")
-            }
+        let rocognizedCars = classifications.map { RecognizedCar(car: $0.identifier, confidence: $0.confidence) }
+        DispatchQueue.main.async {
+            self.completionHandler(rocognizedCars)
         }
     }
 }
