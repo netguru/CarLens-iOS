@@ -5,6 +5,7 @@
 
 import CoreML
 import Vision
+import UIKit.UIDevice
 
 internal final class CarRecognizerService {
     
@@ -38,7 +39,8 @@ internal final class CarRecognizerService {
     func perform(on pixelBuffer: CVPixelBuffer) {
         guard isReadyForNextFrame else { return }
         self.currentBuffer = pixelBuffer
-        let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:])
+        let orientation = CGImagePropertyOrientation.up
+        let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: [:])
         DispatchQueue.global(qos: .userInitiated).async {
             do {
                 defer { self.currentBuffer = nil }
@@ -55,7 +57,11 @@ internal final class CarRecognizerService {
             return
         }
         let classifications = results as! [VNClassificationObservation]
-        print("!!Detected!!: \(classifications)")
-        completionHandler("Detected \(classifications)")
+        if let bestResult = classifications.first(where: { result in result.confidence > 0.90 }) {
+            print("\(bestResult.identifier), \(bestResult.confidence)")
+            DispatchQueue.main.async {
+                self.completionHandler("\(bestResult.identifier), \(bestResult.confidence)")
+            }
+        }
     }
 }

@@ -10,8 +10,8 @@ import ARKit
 
 internal final class LiveVideoViewController: TypedViewController<LiveVideoView>, ARSKViewDelegate, ARSessionDelegate {
     
-    private let carRecognizerService = CarRecognizerService(completionHandler: { result in
-        print("VC Detection result: \(result)")
+    private lazy var carRecognizerService = CarRecognizerService(completionHandler: { [weak self] result in
+        self?.customView.modelLabel.text = result
     })
     
     override func viewDidLoad() {
@@ -31,5 +31,10 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         super.viewWillDisappear(animated)
         
         customView.sceneView.session.pause()
+    }
+    
+    /// SeeAlso: ARSessionDelegate
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        carRecognizerService.perform(on: frame.capturedImage)
     }
 }
