@@ -51,7 +51,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     private func setupSession() {
         session = AVCaptureSession()
         guard let session = session else { return }
-        session.sessionPreset = .cif352x288
+        session.sessionPreset = .hd1280x720
         
         guard let backCamera = AVCaptureDevice.default(for: .video) else { return }
         guard let input = try? AVCaptureDeviceInput(device: backCamera) else { return }
@@ -76,7 +76,6 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
             customView.analyzeTimeLabel.text = CRTimeFormatter.intervalMilisecondsFormatted(result.analyzeDuration)
         } else {
             customView.modelLabel.text = ""
-            customView.analyzeTimeLabel.text = ""
         }
     }
 }
