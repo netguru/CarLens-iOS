@@ -5,8 +5,6 @@
 
 
 import UIKit
-import ARKit
-import SpriteKit
 
 internal final class LiveVideoView: View, ViewSetupable {
 
@@ -46,6 +44,7 @@ internal final class LiveVideoView: View, ViewSetupable {
     /// Label with time interval of last analyze
     lazy var analyzeTimeLabel: UILabel = {
         let view = UILabel()
+        view.bounds.size = CGSize(width: 10, height: 10)
         view.font = .systemFont(ofSize: 14)
         view.numberOfLines = 0
         view.textAlignment = .center
