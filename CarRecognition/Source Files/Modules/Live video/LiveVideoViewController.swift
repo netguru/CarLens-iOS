@@ -74,8 +74,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         
         let labels = [customView.modelFirstLabel, customView.modelSecondLabel, customView.modelThirdLabel]
         for (index, element) in result.cars.prefix(3).enumerated() {
-                labels[index].text = "\(element.car)\n(\(CRNumberFormatter.percentageFormatted(element.confidence)))"
-//                labels[index].text = "xxx"
+            labels[index].text = "\(element.car)\n(\(CRNumberFormatter.percentageFormatted(element.confidence)))"
         }
     }
 }
