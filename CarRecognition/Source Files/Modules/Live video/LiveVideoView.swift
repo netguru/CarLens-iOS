@@ -16,7 +16,7 @@ internal final class LiveVideoView: View, ViewSetupable {
         return view.layoutable()
     }()
     
-    /// First label with analyed car model
+    /// First label with analyzed car model
     lazy var modelFirstLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 26)
@@ -25,7 +25,7 @@ internal final class LiveVideoView: View, ViewSetupable {
         return view
     }()
     
-    /// Second label with analyed car model
+    /// Second label with analyzed car model
     lazy var modelSecondLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 22)
@@ -34,7 +34,7 @@ internal final class LiveVideoView: View, ViewSetupable {
         return view
     }()
     
-    /// Third label with analyed car model
+    /// Third label with analyzed car model
     lazy var modelThirdLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 18)
