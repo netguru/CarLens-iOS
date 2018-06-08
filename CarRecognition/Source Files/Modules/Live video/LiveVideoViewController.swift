@@ -70,12 +70,12 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     }
     
     private func handleRecognition(result: CarRecognizeResponse) {
-        guard let first = result.cars.first else { return }
-        if first.confidence > 0.6 {
-            customView.modelLabel.text = "\(first.car)\n(\(CRNumberFormatter.percentageFormatted(first.confidence)))"
-            customView.analyzeTimeLabel.text = CRTimeFormatter.intervalMilisecondsFormatted(result.analyzeDuration)
-        } else {
-            customView.modelLabel.text = ""
+        customView.analyzeTimeLabel.text = CRTimeFormatter.intervalMilisecondsFormatted(result.analyzeDuration)
+        
+        let labels = [customView.modelFirstLabel, customView.modelSecondLabel, customView.modelThirdLabel]
+        for (index, element) in result.cars.prefix(3).enumerated() {
+                labels[index].text = "\(element.car)\n(\(CRNumberFormatter.percentageFormatted(element.confidence)))"
+//                labels[index].text = "xxx"
         }
     }
 }

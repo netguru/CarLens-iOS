@@ -16,13 +16,31 @@ internal final class LiveVideoView: View, ViewSetupable {
         return view.layoutable()
     }()
     
-    /// Label with analyed car model
-    lazy var modelLabel: UILabel = {
+    /// First label with analyed car model
+    lazy var modelFirstLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 26)
         view.numberOfLines = 0
         view.textAlignment = .center
-        return view.layoutable()
+        return view
+    }()
+    
+    /// Second label with analyed car model
+    lazy var modelSecondLabel: UILabel = {
+        let view = UILabel()
+        view.font = .systemFont(ofSize: 22)
+        view.numberOfLines = 0
+        view.textAlignment = .center
+        return view
+    }()
+    
+    /// Third label with analyed car model
+    lazy var modelThirdLabel: UILabel = {
+        let view = UILabel()
+        view.font = .systemFont(ofSize: 18)
+        view.numberOfLines = 0
+        view.textAlignment = .center
+        return view
     }()
     
     /// Label with time interval of last analyze
@@ -34,19 +52,25 @@ internal final class LiveVideoView: View, ViewSetupable {
         return view.layoutable()
     }()
     
+    private lazy var modelStackView = UIStackView.make(
+        axis: .vertical,
+        with: [modelFirstLabel, modelSecondLabel, modelThirdLabel],
+        spacing: 30
+    ).layoutable()
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [previewView, modelLabel, analyzeTimeLabel].forEach(addSubview)
+        [previewView, modelStackView, analyzeTimeLabel].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         previewView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
-        modelLabel.constraintToSuperviewEdges(excludingAnchors: [.top])
+        modelStackView.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom], withInsets: .init(top: 16, left: 8, bottom: 16, right: 8))
         analyzeTimeLabel.constraintToSuperviewEdges(excludingAnchors: [.top])
         NSLayoutConstraint.activate([
             previewView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
-            previewView.bottomAnchor.constraint(equalTo: modelLabel.topAnchor)
+            previewView.bottomAnchor.constraint(equalTo: modelStackView.topAnchor)
         ])
     }
 }
