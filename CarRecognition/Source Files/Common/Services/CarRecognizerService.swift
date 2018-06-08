@@ -9,9 +9,17 @@ import UIKit.UIDevice
 
 internal final class CarRecognizerService {
     
-    private let completionHandler: ([RecognizedCar]) -> ()
+    /// Completion handler for recognized cars
+    var completionHandler: ((CarRecognizeResponse) -> ())?
+    
+    /// Indicates if recognizer is ready to analyze next frame
+    var isReadyForNextFrame: Bool {
+        return currentBuffer == nil
+    }
     
     private var currentBuffer: CVPixelBuffer?
+    
+    private var currectBufferStartAnalyzeDate = Date()
     
     private lazy var request: VNCoreMLRequest = { [unowned self] in
         guard let model = try? VNCoreMLModel(for: CarRecognitionModel().model) else {
@@ -24,18 +32,9 @@ internal final class CarRecognizerService {
         return request
     }()
     
-    /// Indicates if recognizer is ready to analyze next frame
-    var isReadyForNextFrame: Bool {
-        return currentBuffer == nil
-    }
-    
-    /// Initialize the recognizer
+    /// Perform ML analyze on given buffer. Will do the analyze only when finished last one.
     ///
-    /// - Parameter completionHandler: Handler that will be invoked after detection
-    init(completionHandler: @escaping ([RecognizedCar]) -> ()) {
-        self.completionHandler = completionHandler
-    }
-
+    /// - Parameter pixelBuffer: Pixel buffer to be analyzed
     func perform(on pixelBuffer: CVPixelBuffer) {
         guard isReadyForNextFrame else { return }
         self.currentBuffer = pixelBuffer
@@ -44,6 +43,7 @@ internal final class CarRecognizerService {
         DispatchQueue.global(qos: .userInitiated).async {
             do {
                 defer { self.currentBuffer = nil }
+                self.currectBufferStartAnalyzeDate = Date()
                 try handler.perform([self.request])
             } catch {
                 print("Vision request failed with error \"\(error)\"")
@@ -57,9 +57,11 @@ internal final class CarRecognizerService {
             return
         }
         let classifications = results as! [VNClassificationObservation]
+        let analyzeDuration = Date().timeIntervalSince(currectBufferStartAnalyzeDate)
         let rocognizedCars = classifications.map { RecognizedCar(car: $0.identifier, confidence: $0.confidence) }
+        let response = CarRecognizeResponse(cars: rocognizedCars, analyzeDuration: analyzeDuration)
         DispatchQueue.main.async {
-            self.completionHandler(rocognizedCars)
+            self.completionHandler?(response)
         }
     }
 }

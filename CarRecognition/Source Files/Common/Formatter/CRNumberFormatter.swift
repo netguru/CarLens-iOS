@@ -4,8 +4,6 @@
 //
 
 
-
-
 internal final class CRNumberFormatter {
     
     static private let numberFormatter = NumberFormatter()
