@@ -8,4 +8,5 @@ import UIKit.UIImage
 internal struct CarRecognizeResponse {
     let cars: [RecognizedCar]
     let analyzeDuration: TimeInterval
+    let analyzedImage: UIImage
 }

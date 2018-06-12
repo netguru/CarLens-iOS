@@ -12,7 +12,7 @@ internal final class CarDetailsView: View, ViewSetupable {
     lazy var modelLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 26)
-        view.numberOfLines = 1
+        view.numberOfLines = 2
         view.textAlignment = .center
         return view
     }()
@@ -52,7 +52,7 @@ internal final class CarDetailsView: View, ViewSetupable {
         stackView.constraintToSuperviewLayoutGuide()
         NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalTo: widthAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 100)
+            imageView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
     

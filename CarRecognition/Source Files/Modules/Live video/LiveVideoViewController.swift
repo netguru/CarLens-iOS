@@ -61,6 +61,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         let output = AVCaptureVideoDataOutput()
         output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInitiated))
         session.addOutput(output)
+        output.connection(with: .video)?.videoOrientation = .portrait
         
         videoPreviewLayer?.removeFromSuperlayer()
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)

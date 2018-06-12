@@ -24,5 +24,6 @@ internal final class CarDetailsViewController: TypedViewController<CarDetailsVie
         super.viewDidLoad()
         
         customView.modelLabel.text = "\(elementToAnalyze.car)\n(\(CRNumberFormatter.percentageFormatted(elementToAnalyze.confidence)))"
+        customView.imageView.image = recognizedCars.analyzedImage
     }
 }

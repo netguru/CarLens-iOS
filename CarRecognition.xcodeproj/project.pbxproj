@@ -22,6 +22,7 @@
 		7C5E56FC20CFE6CF00655C35 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */; };
 		7C5E56FF20CFFA6700655C35 /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56FE20CFFA6700655C35 /* CarDetailsView.swift */; };
 		7C5E570120CFFABE00655C35 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E570020CFFABE00655C35 /* CarDetailsViewController.swift */; };
+		7C5E570320D004D600655C35 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E570220D004D600655C35 /* UIImageExtension.swift */; };
 		7CB817AD20C92AD700B51C3D /* CarRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817AC20C92AD700B51C3D /* CarRecognitionModel.mlmodel */; };
 		7CB817B120C930E200B51C3D /* ApplicationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817B020C930E200B51C3D /* ApplicationKeys.swift */; };
 		7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817B220C9313500B51C3D /* ApplicationDependencies.swift */; };
@@ -96,6 +97,7 @@
 		7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7C5E56FE20CFFA6700655C35 /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
 		7C5E570020CFFABE00655C35 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
+		7C5E570220D004D600655C35 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		7CB817AC20C92AD700B51C3D /* CarRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognitionModel.mlmodel; sourceTree = "<group>"; };
 		7CB817B020C930E200B51C3D /* ApplicationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationKeys.swift; sourceTree = "<group>"; };
 		7CB817B220C9313500B51C3D /* ApplicationDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDependencies.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				7CB817D120C9353200B51C3D /* UIColorExtension.swift */,
 				7CB817D220C9353200B51C3D /* UIViewExtension+Constraint.swift */,
 				7CB817CF20C9353100B51C3D /* UIStackViewExtension.swift */,
+				7C5E570220D004D600655C35 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				7CB817B120C930E200B51C3D /* ApplicationKeys.swift in Sources */,
 				7CB817C520C9336500B51C3D /* Localizable.swift in Sources */,
 				7CB817BC20C9320700B51C3D /* CrashLogger.swift in Sources */,
+				7C5E570320D004D600655C35 /* UIImageExtension.swift in Sources */,
 				7CB817EC20C937FB00B51C3D /* LiveVideoView.swift in Sources */,
 				7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */,
 				7CB817DE20C935B200B51C3D /* TableViewCell.swift in Sources */,
