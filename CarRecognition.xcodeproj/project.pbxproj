@@ -13,6 +13,13 @@
 		7C33E04220BD695700784D63 /* CarRecognitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E04120BD695700784D63 /* CarRecognitionTests.swift */; };
 		7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E06C20BD729B00784D63 /* Keys.podspec.json */; };
 		7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */; };
+		7C5E56F420CFE31500655C35 /* URLSessionDataTaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56ED20CFE31500655C35 /* URLSessionDataTaskResponse.swift */; };
+		7C5E56F520CFE31500655C35 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56EE20CFE31500655C35 /* NetworkResponse.swift */; };
+		7C5E56F620CFE31500655C35 /* NetworkApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56EF20CFE31500655C35 /* NetworkApplication.swift */; };
+		7C5E56F720CFE31500655C35 /* URLRequestExtension+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56F020CFE31500655C35 /* URLRequestExtension+Networking.swift */; };
+		7C5E56F820CFE31500655C35 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56F120CFE31500655C35 /* NetworkRequest.swift */; };
+		7C5E56FA20CFE31500655C35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56F320CFE31500655C35 /* NetworkError.swift */; };
+		7C5E56FC20CFE6CF00655C35 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */; };
 		7CB817AD20C92AD700B51C3D /* CarRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817AC20C92AD700B51C3D /* CarRecognitionModel.mlmodel */; };
 		7CB817B120C930E200B51C3D /* ApplicationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817B020C930E200B51C3D /* ApplicationKeys.swift */; };
 		7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817B220C9313500B51C3D /* ApplicationDependencies.swift */; };
@@ -78,6 +85,13 @@
 		7C33E06B20BD729B00784D63 /* CarRecognitionKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarRecognitionKeys.h; path = Pods/CocoaPodsKeys/CarRecognitionKeys.h; sourceTree = SOURCE_ROOT; };
 		7C33E06C20BD729B00784D63 /* Keys.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Keys.podspec.json; path = Pods/CocoaPodsKeys/Keys.podspec.json; sourceTree = SOURCE_ROOT; };
 		7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarRecognitionKeys.m; path = Pods/CocoaPodsKeys/CarRecognitionKeys.m; sourceTree = SOURCE_ROOT; };
+		7C5E56ED20CFE31500655C35 /* URLSessionDataTaskResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskResponse.swift; sourceTree = "<group>"; };
+		7C5E56EE20CFE31500655C35 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		7C5E56EF20CFE31500655C35 /* NetworkApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkApplication.swift; sourceTree = "<group>"; };
+		7C5E56F020CFE31500655C35 /* URLRequestExtension+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequestExtension+Networking.swift"; sourceTree = "<group>"; };
+		7C5E56F120CFE31500655C35 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		7C5E56F320CFE31500655C35 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7CB817AC20C92AD700B51C3D /* CarRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognitionModel.mlmodel; sourceTree = "<group>"; };
 		7CB817B020C930E200B51C3D /* ApplicationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationKeys.swift; sourceTree = "<group>"; };
 		7CB817B220C9313500B51C3D /* ApplicationDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDependencies.swift; sourceTree = "<group>"; };
@@ -232,6 +246,19 @@
 			path = "CocoaPods Keys";
 			sourceTree = "<group>";
 		};
+		7C5E56EC20CFE2D000655C35 /* Networking Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7C5E56F120CFE31500655C35 /* NetworkRequest.swift */,
+				7C5E56EE20CFE31500655C35 /* NetworkResponse.swift */,
+				7C5E56EF20CFE31500655C35 /* NetworkApplication.swift */,
+				7C5E56F320CFE31500655C35 /* NetworkError.swift */,
+				7C5E56F020CFE31500655C35 /* URLRequestExtension+Networking.swift */,
+				7C5E56ED20CFE31500655C35 /* URLSessionDataTaskResponse.swift */,
+			);
+			path = "Networking Helpers";
+			sourceTree = "<group>";
+		};
 		7CB817A920C9275900B51C3D /* ML Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +357,8 @@
 		7CB817BA20C931D500B51C3D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7C5E56EC20CFE2D000655C35 /* Networking Helpers */,
+				7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */,
 				7CB817C820C933CB00B51C3D /* HockeyAppService.swift */,
 				7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */,
 			);
@@ -508,11 +537,13 @@
 				7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */,
 				7CB817DE20C935B200B51C3D /* TableViewCell.swift in Sources */,
 				7CB817EA20C937EA00B51C3D /* LiveVideoViewController.swift in Sources */,
+				7C5E56F520CFE31500655C35 /* NetworkResponse.swift in Sources */,
 				7CB817E020C935B200B51C3D /* View.swift in Sources */,
 				7CB817DF20C935B200B51C3D /* TypedViewController.swift in Sources */,
 				7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */,
 				7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */,
 				7CB817D420C9353200B51C3D /* BoolExtension.swift in Sources */,
+				7C5E56F720CFE31500655C35 /* URLRequestExtension+Networking.swift in Sources */,
 				7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,
 				7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */,
@@ -524,13 +555,18 @@
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
 				7CB817E120C935B200B51C3D /* FlowAwareViewController.swift in Sources */,
+				7C5E56F620CFE31500655C35 /* NetworkApplication.swift in Sources */,
 				7CB817F620C95BB200B51C3D /* RecognizedCar.swift in Sources */,
 				7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */,
 				7CB817D320C9353200B51C3D /* UIStackViewExtension.swift in Sources */,
 				7CB817C920C933CB00B51C3D /* HockeyAppService.swift in Sources */,
+				7C5E56F420CFE31500655C35 /* URLSessionDataTaskResponse.swift in Sources */,
 				7CB817FB20CA82B000B51C3D /* CarRecognizeResponse.swift in Sources */,
 				7CB817C220C9333C00B51C3D /* Loader.swift in Sources */,
+				7C5E56FC20CFE6CF00655C35 /* NetworkService.swift in Sources */,
+				7C5E56F820CFE31500655C35 /* NetworkRequest.swift in Sources */,
 				7CB817EE20C93B6700B51C3D /* CarRecognizerService.swift in Sources */,
+				7C5E56FA20CFE31500655C35 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
