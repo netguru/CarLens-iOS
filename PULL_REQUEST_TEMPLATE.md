@@ -1,5 +1,5 @@
 ### Ticket
-[IN-](https://netguru.atlassian.net/browse/CRAI-)
+[CRAI-](https://netguru.atlassian.net/browse/CRAI-)
 
 
 ### Task Description
