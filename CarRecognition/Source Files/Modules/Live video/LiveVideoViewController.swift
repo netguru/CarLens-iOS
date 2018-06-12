@@ -52,7 +52,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     private func setupSession() {
         session = AVCaptureSession()
         guard let session = session else { return }
-        session.sessionPreset = .hd1280x720
+        session.sessionPreset = .vga640x480
         
         guard let backCamera = AVCaptureDevice.default(for: .video) else { return }
         guard let input = try? AVCaptureDeviceInput(device: backCamera) else { return }
@@ -67,7 +67,6 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
         guard let videoPreviewLayer = videoPreviewLayer else { return }
         videoPreviewLayer.videoGravity = .resizeAspectFill
-        videoPreviewLayer.connection?.videoOrientation = .portrait
         customView.previewView.layer.addSublayer(videoPreviewLayer)
     }
     
