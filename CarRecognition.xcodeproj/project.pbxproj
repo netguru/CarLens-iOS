@@ -20,6 +20,8 @@
 		7C5E56F820CFE31500655C35 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56F120CFE31500655C35 /* NetworkRequest.swift */; };
 		7C5E56FA20CFE31500655C35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56F320CFE31500655C35 /* NetworkError.swift */; };
 		7C5E56FC20CFE6CF00655C35 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */; };
+		7C5E56FF20CFFA6700655C35 /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56FE20CFFA6700655C35 /* CarDetailsView.swift */; };
+		7C5E570120CFFABE00655C35 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E570020CFFABE00655C35 /* CarDetailsViewController.swift */; };
 		7CB817AD20C92AD700B51C3D /* CarRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817AC20C92AD700B51C3D /* CarRecognitionModel.mlmodel */; };
 		7CB817B120C930E200B51C3D /* ApplicationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817B020C930E200B51C3D /* ApplicationKeys.swift */; };
 		7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817B220C9313500B51C3D /* ApplicationDependencies.swift */; };
@@ -92,6 +94,8 @@
 		7C5E56F120CFE31500655C35 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		7C5E56F320CFE31500655C35 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		7C5E56FE20CFFA6700655C35 /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
+		7C5E570020CFFABE00655C35 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		7CB817AC20C92AD700B51C3D /* CarRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognitionModel.mlmodel; sourceTree = "<group>"; };
 		7CB817B020C930E200B51C3D /* ApplicationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationKeys.swift; sourceTree = "<group>"; };
 		7CB817B220C9313500B51C3D /* ApplicationDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDependencies.swift; sourceTree = "<group>"; };
@@ -259,6 +263,15 @@
 			path = "Networking Helpers";
 			sourceTree = "<group>";
 		};
+		7C5E56FD20CFF34A00655C35 /* Car details */ = {
+			isa = PBXGroup;
+			children = (
+				7C5E570020CFFABE00655C35 /* CarDetailsViewController.swift */,
+				7C5E56FE20CFFA6700655C35 /* CarDetailsView.swift */,
+			);
+			path = "Car details";
+			sourceTree = "<group>";
+		};
 		7CB817A920C9275900B51C3D /* ML Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				7CB817E820C937C700B51C3D /* Live video */,
+				7C5E56FD20CFF34A00655C35 /* Car details */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -542,6 +556,7 @@
 				7CB817DF20C935B200B51C3D /* TypedViewController.swift in Sources */,
 				7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */,
 				7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */,
+				7C5E56FF20CFFA6700655C35 /* CarDetailsView.swift in Sources */,
 				7CB817D420C9353200B51C3D /* BoolExtension.swift in Sources */,
 				7C5E56F720CFE31500655C35 /* URLRequestExtension+Networking.swift in Sources */,
 				7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */,
@@ -564,6 +579,7 @@
 				7CB817FB20CA82B000B51C3D /* CarRecognizeResponse.swift in Sources */,
 				7CB817C220C9333C00B51C3D /* Loader.swift in Sources */,
 				7C5E56FC20CFE6CF00655C35 /* NetworkService.swift in Sources */,
+				7C5E570120CFFABE00655C35 /* CarDetailsViewController.swift in Sources */,
 				7C5E56F820CFE31500655C35 /* NetworkRequest.swift in Sources */,
 				7CB817EE20C93B6700B51C3D /* CarRecognizerService.swift in Sources */,
 				7C5E56FA20CFE31500655C35 /* NetworkError.swift in Sources */,

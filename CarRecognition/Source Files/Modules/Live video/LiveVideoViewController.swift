@@ -18,6 +18,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        customView.checkDetailsButton.addTarget(self, action: #selector(didTapCheckDetailsButton), for: .touchUpInside)
         carRecognizerService.completionHandler = { [weak self] result in
             self?.handleRecognition(result: result)
         }
@@ -76,5 +77,11 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         for (index, element) in result.cars.prefix(3).enumerated() {
             labels[index].text = "\(element.car)\n(\(CRNumberFormatter.percentageFormatted(element.confidence)))"
         }
+    }
+    
+    @objc private func didTapCheckDetailsButton() {
+        guard let lastRecognition = carRecognizerService.lastTopRecognition else { return }
+        let carDetailsViewController = CarDetailsViewController(recognizedCars: lastRecognition)
+        navigationController?.pushViewController(carDetailsViewController, animated: true)
     }
 }

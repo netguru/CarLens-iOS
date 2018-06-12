@@ -17,6 +17,9 @@ internal final class CarRecognizerService {
         return currentBuffer == nil
     }
     
+    /// Value contains last recognized cars
+    var lastTopRecognition: CarRecognizeResponse?
+    
     private var currentBuffer: CVPixelBuffer?
     
     private var currectBufferStartAnalyzeDate = Date()
@@ -61,6 +64,7 @@ internal final class CarRecognizerService {
         let rocognizedCars = classifications.map { RecognizedCar(car: $0.identifier, confidence: $0.confidence) }
         let response = CarRecognizeResponse(cars: rocognizedCars, analyzeDuration: analyzeDuration)
         DispatchQueue.main.async {
+            self.lastTopRecognition = response
             self.completionHandler?(response)
         }
     }
