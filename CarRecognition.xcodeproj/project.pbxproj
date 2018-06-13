@@ -53,8 +53,8 @@
 		7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */; };
 		7CB817FB20CA82B000B51C3D /* CarRecognizeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817FA20CA82B000B51C3D /* CarRecognizeResponse.swift */; };
 		7CB817FD20CA865700B51C3D /* CRTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817FC20CA865700B51C3D /* CRTimeFormatter.swift */; };
-		7CE428FC20D1108E00539FC6 /* CarSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FB20D1108E00539FC6 /* CarSearchRequest.swift */; };
-		7CE428FE20D1109D00539FC6 /* CarSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FD20D1109D00539FC6 /* CarSearchResponse.swift */; };
+		7CE428FC20D1108E00539FC6 /* CarsSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FB20D1108E00539FC6 /* CarsSearchRequest.swift */; };
+		7CE428FE20D1109D00539FC6 /* CarsSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FD20D1109D00539FC6 /* CarsSearchResponse.swift */; };
 		7CE4290020D111F600539FC6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FF20D111F600539FC6 /* Car.swift */; };
 /* End PBXBuildFile section */
 
@@ -131,8 +131,8 @@
 		7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRNumberFormatter.swift; sourceTree = "<group>"; };
 		7CB817FA20CA82B000B51C3D /* CarRecognizeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRecognizeResponse.swift; sourceTree = "<group>"; };
 		7CB817FC20CA865700B51C3D /* CRTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRTimeFormatter.swift; sourceTree = "<group>"; };
-		7CE428FB20D1108E00539FC6 /* CarSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSearchRequest.swift; sourceTree = "<group>"; };
-		7CE428FD20D1109D00539FC6 /* CarSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSearchResponse.swift; sourceTree = "<group>"; };
+		7CE428FB20D1108E00539FC6 /* CarsSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsSearchRequest.swift; sourceTree = "<group>"; };
+		7CE428FD20D1109D00539FC6 /* CarsSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsSearchResponse.swift; sourceTree = "<group>"; };
 		7CE428FF20D111F600539FC6 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -435,8 +435,8 @@
 		7CE428FA20D10F3900539FC6 /* Car search */ = {
 			isa = PBXGroup;
 			children = (
-				7CE428FB20D1108E00539FC6 /* CarSearchRequest.swift */,
-				7CE428FD20D1109D00539FC6 /* CarSearchResponse.swift */,
+				7CE428FB20D1108E00539FC6 /* CarsSearchRequest.swift */,
+				7CE428FD20D1109D00539FC6 /* CarsSearchResponse.swift */,
 			);
 			path = "Car search";
 			sourceTree = "<group>";
@@ -581,7 +581,7 @@
 				7CB817DE20C935B200B51C3D /* TableViewCell.swift in Sources */,
 				7CB817EA20C937EA00B51C3D /* LiveVideoViewController.swift in Sources */,
 				7C5E56F520CFE31500655C35 /* NetworkResponse.swift in Sources */,
-				7CE428FE20D1109D00539FC6 /* CarSearchResponse.swift in Sources */,
+				7CE428FE20D1109D00539FC6 /* CarsSearchResponse.swift in Sources */,
 				7CB817E020C935B200B51C3D /* View.swift in Sources */,
 				7CB817DF20C935B200B51C3D /* TypedViewController.swift in Sources */,
 				7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */,
@@ -593,7 +593,7 @@
 				7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,
 				7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */,
-				7CE428FC20D1108E00539FC6 /* CarSearchRequest.swift in Sources */,
+				7CE428FC20D1108E00539FC6 /* CarsSearchRequest.swift in Sources */,
 				7CB817D620C9353200B51C3D /* UIViewExtension+Constraint.swift in Sources */,
 				7CB817AD20C92AD700B51C3D /* CarRecognitionModel.mlmodel in Sources */,
 				7CB817C020C9332000B51C3D /* ViewSetupable.swift in Sources */,

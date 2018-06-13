@@ -27,7 +27,8 @@ internal final class CarTypeSearchView: View, ViewSetupable {
     /// TextView with fetched informations
     lazy var textView: UITextView = {
         let view = UITextView()
-        view.font = .systemFont(ofSize: 12)
+        view.textAlignment = .center
+        view.font = .systemFont(ofSize: 16)
         view.isEditable = false
         return view.layoutable()
     }()

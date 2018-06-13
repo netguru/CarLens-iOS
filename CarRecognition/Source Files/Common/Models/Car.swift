@@ -6,48 +6,48 @@
 
 internal struct Car: Decodable {
     
-    let id: Int
-    let make: String
-    let name: String
-    let trim: String
-    let year: Int
-    let body: String
-    let enginePosition: String
-    let engineCC: Int
-    let engineCylinder: Int
-    let engineType: String
-    let engineValvesPerCylinder: Int
-    let enginePowerPS: Int
-    let enginePowerRPM: String
-    let engineTorqueNm: Int
-    let engineTorqueRPM: String
-    let engineBoreMm: String
-    let engineStrokeMm: String
-    let engineCompression: Double
-    let engineFuel: String
-    let topSpeedKph: String
-    let accelerate0to100kph: String
-    let drive: String
-    let transmissionType: String
-    let seats: String
-    let doors: Int
-    let weightKg: String
-    let lengthMm: String
-    let widthMm: String
-    let heightMm: String
-    let wheelbaseMm: String
-    let lkmHeavy: Double
-    let lkmMixed: Double
-    let lkmCity: Double
-    let fuelCap: Int
-    let soldInUS: Int
-    let co2: String
-    let makeCountry: String
+    let id: String?
+    let make: String?
+    let name: String?
+    let trim: String?
+    let year: String?
+    let body: String?
+    let enginePosition: String?
+    let engineCC: String?
+    let engineCylinder: String?
+    let engineType: String?
+    let engineValvesPerCylinder: String?
+    let enginePowerPS: String?
+    let enginePowerRPM: String?
+    let engineTorqueNm: String?
+    let engineTorqueRPM: String?
+    let engineBoreMm: String?
+    let engineStrokeMm: String?
+    let engineCompression: String?
+    let engineFuel: String?
+    let topSpeedKph: String?
+    let accelerate0to100kph: String?
+    let drive: String?
+    let transmissionType: String?
+    let seats: String?
+    let doors: String?
+    let weightKg: String?
+    let lengthMm: String?
+    let widthMm: String?
+    let heightMm: String?
+    let wheelbaseMm: String?
+    let lkmHeavy: String?
+    let lkmMixed: String?
+    let lkmCity: String?
+    let fuelCap: String?
+    let soldInUS: String?
+    let co2: String?
+    let makeCountry: String?
     
     enum CodingKeys: String, CodingKey {
         
         case id = "model_id"
-        case make = "model_make_id"
+        case make = "make_display"
         case name = "model_name"
         case trim = "model_trim"
         case year = "model_year"
@@ -83,5 +83,11 @@ internal struct Car: Decodable {
         case soldInUS = "model_sold_in_us"
         case co2 = "model_co2"
         case makeCountry = "make_country"
+    }
+}
+
+extension Car: CustomStringConvertible {
+    var description: String {
+        return "\(make ?? ""), \(name ?? ""), \(year ?? ""), Engine: \(engineCC ?? "")cc, HP: \(enginePowerPS ?? "") "
     }
 }

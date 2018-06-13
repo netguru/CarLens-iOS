@@ -45,8 +45,20 @@ internal final class DefaultNetworkService: NetworkService {
     func perform<Request>(request: Request, responseHandler: @escaping (NetworkResponseResult<Request.Response>) -> ()) where Request: NetworkRequest {
         let urlRequest = URLRequest(request: request)
         let task = self.session.dataTask(with: urlRequest) { [weak self] data, response, error in
+            
+            
+            // carQuery API uses wrong JSON format - it needs fixing before parsing.
+            var normalizedData = data
+            if let data = data, let responseString = String(data: data, encoding: .utf8) {
+                var normalizedString = responseString
+                normalizedString = String(normalizedString.dropFirst(2))
+                normalizedString = String(normalizedString.dropLast(2))
+                normalizedData = normalizedString.data(using: .utf8)
+            }
+            
+            
             let wrappedResponse = HTTPURLResponseWrapper(response: response)
-            let response = URLSessionDataTaskResponse(data: data, response: wrappedResponse, error: error)
+            let response = URLSessionDataTaskResponse(data: normalizedData, response: wrappedResponse, error: error)
             self?.handle(dataTaskResponse: response, for: request, responseHandler: responseHandler)
         }
         task.resume()
