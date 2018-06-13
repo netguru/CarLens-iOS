@@ -1,12 +1,12 @@
 //
-//  CarDetailsView.swift
+//  CarTypeSearchView.swift
 //  CarRecognition
 //
 
 
 import UIKit
 
-internal final class CarDetailsView: View, ViewSetupable {
+internal final class CarTypeSearchView: View, ViewSetupable {
     
     /// Label with analyzed car model
     lazy var modelLabel: UILabel = {

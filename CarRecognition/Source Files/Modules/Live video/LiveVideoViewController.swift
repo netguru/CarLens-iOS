@@ -81,7 +81,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     
     @objc private func didTapCheckDetailsButton() {
         guard let lastRecognition = carRecognizerService.lastTopRecognition else { return }
-        let carDetailsViewController = CarDetailsViewController(recognizedCars: lastRecognition)
+        let carDetailsViewController = CarTypeSearchViewController(recognizedCars: lastRecognition)
         navigationController?.pushViewController(carDetailsViewController, animated: true)
     }
 }

@@ -1,10 +1,10 @@
 //
-//  CarDetailsViewController.swift
+//  CarTypeSearchViewController.swift
 //  CarRecognition
 //
 
 
-internal final class CarDetailsViewController: TypedViewController<CarDetailsView> {
+internal final class CarTypeSearchViewController: TypedViewController<CarTypeSearchView> {
     
     private let networkService: NetworkService = DefaultNetworkService()
     
@@ -16,7 +16,7 @@ internal final class CarDetailsViewController: TypedViewController<CarDetailsVie
         self.recognizedCars = recognizedCars
         guard let firstCar = recognizedCars.cars.first else { fatalError("Not enough data provided") }
         self.elementToAnalyze = firstCar
-        super.init(viewMaker: CarDetailsView())
+        super.init(viewMaker: CarTypeSearchView())
     }
     
     /// SeeAlso: UIViewController
