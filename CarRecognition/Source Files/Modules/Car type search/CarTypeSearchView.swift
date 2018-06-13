@@ -24,12 +24,9 @@ internal final class CarTypeSearchView: View, ViewSetupable {
         return view
     }()
     
-    /// TextView with fetched informations
-    lazy var textView: UITextView = {
-        let view = UITextView()
-        view.textAlignment = .center
-        view.font = .systemFont(ofSize: 16)
-        view.isEditable = false
+    /// TableView with found car models
+    lazy var tableView: UITableView = {
+        let view = UITableView()
         return view.layoutable()
     }()
     
@@ -38,7 +35,7 @@ internal final class CarTypeSearchView: View, ViewSetupable {
         with: [
             modelLabel,
             imageView,
-            textView,
+            tableView,
         ],
         spacing: 5
         ).layoutable()

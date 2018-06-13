@@ -56,6 +56,9 @@
 		7CE428FC20D1108E00539FC6 /* CarsSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FB20D1108E00539FC6 /* CarsSearchRequest.swift */; };
 		7CE428FE20D1109D00539FC6 /* CarsSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FD20D1109D00539FC6 /* CarsSearchResponse.swift */; };
 		7CE4290020D111F600539FC6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FF20D111F600539FC6 /* Car.swift */; };
+		7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */; };
+		7CE4290420D13A9B00539FC6 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */; };
+		7CE4290720D13EA900539FC6 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290620D13EA900539FC6 /* CarDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +137,9 @@
 		7CE428FB20D1108E00539FC6 /* CarsSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsSearchRequest.swift; sourceTree = "<group>"; };
 		7CE428FD20D1109D00539FC6 /* CarsSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsSearchResponse.swift; sourceTree = "<group>"; };
 		7CE428FF20D111F600539FC6 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
+		7CE4290620D13EA900539FC6 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,13 +277,13 @@
 			path = "Networking Helpers";
 			sourceTree = "<group>";
 		};
-		7C5E56FD20CFF34A00655C35 /* Car details */ = {
+		7C5E56FD20CFF34A00655C35 /* Car type search */ = {
 			isa = PBXGroup;
 			children = (
 				7C5E570020CFFABE00655C35 /* CarTypeSearchViewController.swift */,
 				7C5E56FE20CFFA6700655C35 /* CarTypeSearchView.swift */,
 			);
-			path = "Car details";
+			path = "Car type search";
 			sourceTree = "<group>";
 		};
 		7CB817A920C9275900B51C3D /* ML Models */ = {
@@ -303,7 +309,8 @@
 			isa = PBXGroup;
 			children = (
 				7CB817E820C937C700B51C3D /* Live video */,
-				7C5E56FD20CFF34A00655C35 /* Car details */,
+				7C5E56FD20CFF34A00655C35 /* Car type search */,
+				7CE4290520D13DFA00539FC6 /* Car details */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -350,11 +357,13 @@
 		7CB817B720C931B800B51C3D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */,
 				7CB817D020C9353100B51C3D /* BoolExtension.swift */,
 				7CB817D120C9353200B51C3D /* UIColorExtension.swift */,
 				7CB817D220C9353200B51C3D /* UIViewExtension+Constraint.swift */,
 				7CB817CF20C9353100B51C3D /* UIStackViewExtension.swift */,
 				7C5E570220D004D600655C35 /* UIImageExtension.swift */,
+				7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,6 +448,14 @@
 				7CE428FD20D1109D00539FC6 /* CarsSearchResponse.swift */,
 			);
 			path = "Car search";
+			sourceTree = "<group>";
+		};
+		7CE4290520D13DFA00539FC6 /* Car details */ = {
+			isa = PBXGroup;
+			children = (
+				7CE4290620D13EA900539FC6 /* CarDetailsViewController.swift */,
+			);
+			path = "Car details";
 			sourceTree = "<group>";
 		};
 		7CFBB8CD20BD94D200058B97 /* Supporting Files */ = {
@@ -572,11 +589,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB817BE20C932E500B51C3D /* AlertPresentable.swift in Sources */,
+				7CE4290420D13A9B00539FC6 /* NSObjectExtension.swift in Sources */,
 				7CB817B120C930E200B51C3D /* ApplicationKeys.swift in Sources */,
 				7CB817C520C9336500B51C3D /* Localizable.swift in Sources */,
 				7CB817BC20C9320700B51C3D /* CrashLogger.swift in Sources */,
 				7C5E570320D004D600655C35 /* UIImageExtension.swift in Sources */,
 				7CB817EC20C937FB00B51C3D /* LiveVideoView.swift in Sources */,
+				7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */,
 				7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */,
 				7CB817DE20C935B200B51C3D /* TableViewCell.swift in Sources */,
 				7CB817EA20C937EA00B51C3D /* LiveVideoViewController.swift in Sources */,
@@ -614,6 +633,7 @@
 				7C5E570120CFFABE00655C35 /* CarTypeSearchViewController.swift in Sources */,
 				7C5E56F820CFE31500655C35 /* NetworkRequest.swift in Sources */,
 				7CB817EE20C93B6700B51C3D /* CarRecognizerService.swift in Sources */,
+				7CE4290720D13EA900539FC6 /* CarDetailsViewController.swift in Sources */,
 				7C5E56FA20CFE31500655C35 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

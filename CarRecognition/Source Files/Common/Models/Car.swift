@@ -84,10 +84,52 @@ internal struct Car: Decodable {
         case co2 = "model_co2"
         case makeCountry = "make_country"
     }
+    
+    var arrayDescription: [(description: String, value: String?)] {
+        return [
+            (description: CodingKeys.id.rawValue, value: id),
+            (description: CodingKeys.make.rawValue, value: make),
+            (description: CodingKeys.name.rawValue, value: name),
+            (description: CodingKeys.trim.rawValue, value: trim),
+            (description: CodingKeys.year.rawValue, value: year),
+            (description: CodingKeys.body.rawValue, value: body),
+            (description: CodingKeys.enginePosition.rawValue, value: enginePosition),
+            (description: CodingKeys.engineCC.rawValue, value: engineCC),
+            (description: CodingKeys.engineCylinder.rawValue, value: engineCylinder),
+            (description: CodingKeys.engineType.rawValue, value: engineType),
+            (description: CodingKeys.engineValvesPerCylinder.rawValue, value: engineValvesPerCylinder),
+            (description: CodingKeys.enginePowerPS.rawValue, value: enginePowerPS),
+            (description: CodingKeys.enginePowerRPM.rawValue, value: enginePowerRPM),
+            (description: CodingKeys.engineTorqueNm.rawValue, value: engineTorqueNm),
+            (description: CodingKeys.engineTorqueRPM.rawValue, value: engineTorqueRPM),
+            (description: CodingKeys.engineBoreMm.rawValue, value: engineBoreMm),
+            (description: CodingKeys.engineStrokeMm.rawValue, value: engineStrokeMm),
+            (description: CodingKeys.engineCompression.rawValue, value: engineCompression),
+            (description: CodingKeys.engineFuel.rawValue, value: engineFuel),
+            (description: CodingKeys.topSpeedKph.rawValue, value: topSpeedKph),
+            (description: CodingKeys.accelerate0to100kph.rawValue, value: accelerate0to100kph),
+            (description: CodingKeys.drive.rawValue, value: drive),
+            (description: CodingKeys.transmissionType.rawValue, value: transmissionType),
+            (description: CodingKeys.seats.rawValue, value: seats),
+            (description: CodingKeys.doors.rawValue, value: doors),
+            (description: CodingKeys.weightKg.rawValue, value: weightKg),
+            (description: CodingKeys.lengthMm.rawValue, value: lengthMm),
+            (description: CodingKeys.widthMm.rawValue, value: widthMm),
+            (description: CodingKeys.heightMm.rawValue, value: heightMm),
+            (description: CodingKeys.wheelbaseMm.rawValue, value: wheelbaseMm),
+            (description: CodingKeys.lkmHeavy.rawValue, value: lkmHeavy),
+            (description: CodingKeys.lkmMixed.rawValue, value: lkmMixed),
+            (description: CodingKeys.lkmCity.rawValue, value: lkmCity),
+            (description: CodingKeys.fuelCap.rawValue, value: fuelCap),
+            (description: CodingKeys.soldInUS.rawValue, value: soldInUS),
+            (description: CodingKeys.co2.rawValue, value: co2),
+            (description: CodingKeys.makeCountry.rawValue, value: makeCountry)
+        ]
+    }
 }
 
 extension Car: CustomStringConvertible {
     var description: String {
-        return "\(make ?? ""), \(name ?? ""), \(year ?? ""), Engine: \(engineCC ?? "")cc, HP: \(enginePowerPS ?? "") "
+        return "\(make ?? "") \(name ?? ""), \(year ?? ""), \(engineCC ?? "")cc, \(enginePowerPS ?? "") HP"
     }
 }
