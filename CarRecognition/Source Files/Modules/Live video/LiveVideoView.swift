@@ -50,10 +50,24 @@ internal final class LiveVideoView: View, ViewSetupable {
         return view.layoutable()
     }()
     
+    /// Button for checking details of detected car
+    lazy var checkDetailsButton: UIButton = {
+        let view = UIButton(type: .system)
+        view.setTitle("Check details", for: .normal)
+        view.titleLabel?.font = .systemFont(ofSize: 18)
+        return view.layoutable()
+    }()
+    
     private lazy var modelStackView = UIStackView.make(
         axis: .vertical,
-        with: [modelFirstLabel, modelSecondLabel, modelThirdLabel],
-        spacing: 30
+        with: [
+            modelFirstLabel,
+            modelSecondLabel,
+            modelThirdLabel,
+            .separator(axis: .vertical, thickness: 5),
+            checkDetailsButton
+        ],
+        spacing: 15
     ).layoutable()
     
     /// - SeeAlso: ViewSetupable

@@ -12,7 +12,7 @@ internal class TypedViewController<View: UIView>: FlowAwareViewController {
     /// Custom View
     let customView: View
     
-    /// Initializes view controller with given View Model
+    /// Initializes view controller with given View
     ///
     /// - Parameter viewMaker: Maker for the UIView
     init(viewMaker: @escaping @autoclosure () -> View) {

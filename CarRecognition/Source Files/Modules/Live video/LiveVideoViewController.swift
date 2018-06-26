@@ -18,6 +18,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        customView.checkDetailsButton.addTarget(self, action: #selector(didTapCheckDetailsButton), for: .touchUpInside)
         carRecognizerService.completionHandler = { [weak self] result in
             self?.handleRecognition(result: result)
         }
@@ -51,7 +52,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     private func setupSession() {
         session = AVCaptureSession()
         guard let session = session else { return }
-        session.sessionPreset = .hd1280x720
+        session.sessionPreset = .vga640x480
         
         guard let backCamera = AVCaptureDevice.default(for: .video) else { return }
         guard let input = try? AVCaptureDeviceInput(device: backCamera) else { return }
@@ -60,12 +61,12 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         let output = AVCaptureVideoDataOutput()
         output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInitiated))
         session.addOutput(output)
+        output.connection(with: .video)?.videoOrientation = .portrait
         
         videoPreviewLayer?.removeFromSuperlayer()
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
         guard let videoPreviewLayer = videoPreviewLayer else { return }
         videoPreviewLayer.videoGravity = .resizeAspectFill
-        videoPreviewLayer.connection?.videoOrientation = .portrait
         customView.previewView.layer.addSublayer(videoPreviewLayer)
     }
     
@@ -76,5 +77,11 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         for (index, element) in result.cars.prefix(3).enumerated() {
             labels[index].text = "\(element.car)\n(\(CRNumberFormatter.percentageFormatted(element.confidence)))"
         }
+    }
+    
+    @objc private func didTapCheckDetailsButton() {
+        guard let lastRecognition = carRecognizerService.lastTopRecognition else { return }
+        let carDetailsViewController = CarTypeSearchViewController(recognizedCars: lastRecognition)
+        navigationController?.pushViewController(carDetailsViewController, animated: true)
     }
 }
