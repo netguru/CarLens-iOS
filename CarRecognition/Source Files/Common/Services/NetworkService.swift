@@ -55,7 +55,6 @@ internal final class DefaultNetworkService: NetworkService {
                 normalizedData = normalizedString.data(using: .utf8)
             }
             
-            
             let wrappedResponse = HTTPURLResponseWrapper(response: response)
             let response = URLSessionDataTaskResponse(data: normalizedData, response: wrappedResponse, error: error)
             self?.handle(dataTaskResponse: response, for: request, responseHandler: responseHandler)
