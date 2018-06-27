@@ -5,14 +5,21 @@
 
 
 import UIKit
+import ARKit
 
 internal final class LiveVideoView: View, ViewSetupable {
 
-    /// Augmented Reality scene view
-    lazy var previewView: UIView = {
-        let view = UIView()
+    /// View with camera preview
+    lazy var previewView: ARSKView = {
+        let view = ARSKView()
+        view.showsFPS = true
+        view.showsFields = true
+        view.presentScene(sceneView)
         return view.layoutable()
     }()
+    
+    /// Augmented Reality scene presented on the camera preview
+    lazy var sceneView = SKScene()
     
     /// First label with analyzed car model
     lazy var modelFirstLabel: UILabel = {

@@ -48,7 +48,7 @@
 		7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817E520C9368300B51C3D /* ApplicationFlowController.swift */; };
 		7CB817EA20C937EA00B51C3D /* LiveVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817E920C937EA00B51C3D /* LiveVideoViewController.swift */; };
 		7CB817EC20C937FB00B51C3D /* LiveVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817EB20C937FB00B51C3D /* LiveVideoView.swift */; };
-		7CB817EE20C93B6700B51C3D /* CarRecognizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */; };
+		7CB817EE20C93B6700B51C3D /* CarClassificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817ED20C93B6700B51C3D /* CarClassificationService.swift */; };
 		7CB817F620C95BB200B51C3D /* RecognizedCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F520C95BB200B51C3D /* RecognizedCar.swift */; };
 		7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */; };
 		7CB817FB20CA82B000B51C3D /* CarRecognizeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817FA20CA82B000B51C3D /* CarRecognizeResponse.swift */; };
@@ -129,7 +129,7 @@
 		7CB817E520C9368300B51C3D /* ApplicationFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationFlowController.swift; sourceTree = "<group>"; };
 		7CB817E920C937EA00B51C3D /* LiveVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoViewController.swift; sourceTree = "<group>"; };
 		7CB817EB20C937FB00B51C3D /* LiveVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveVideoView.swift; sourceTree = "<group>"; };
-		7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRecognizerService.swift; sourceTree = "<group>"; };
+		7CB817ED20C93B6700B51C3D /* CarClassificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarClassificationService.swift; sourceTree = "<group>"; };
 		7CB817F520C95BB200B51C3D /* RecognizedCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognizedCar.swift; sourceTree = "<group>"; };
 		7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRNumberFormatter.swift; sourceTree = "<group>"; };
 		7CB817FA20CA82B000B51C3D /* CarRecognizeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRecognizeResponse.swift; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 				7C5E56EC20CFE2D000655C35 /* Networking Helpers */,
 				7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */,
 				7CB817C820C933CB00B51C3D /* HockeyAppService.swift */,
-				7CB817ED20C93B6700B51C3D /* CarRecognizerService.swift */,
+				7CB817ED20C93B6700B51C3D /* CarClassificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -632,7 +632,7 @@
 				7C5E56FC20CFE6CF00655C35 /* NetworkService.swift in Sources */,
 				7C5E570120CFFABE00655C35 /* CarTypeSearchViewController.swift in Sources */,
 				7C5E56F820CFE31500655C35 /* NetworkRequest.swift in Sources */,
-				7CB817EE20C93B6700B51C3D /* CarRecognizerService.swift in Sources */,
+				7CB817EE20C93B6700B51C3D /* CarClassificationService.swift in Sources */,
 				7CE4290720D13EA900539FC6 /* CarDetailsViewController.swift in Sources */,
 				7C5E56FA20CFE31500655C35 /* NetworkError.swift in Sources */,
 			);

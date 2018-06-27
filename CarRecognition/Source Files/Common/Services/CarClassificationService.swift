@@ -5,9 +5,9 @@
 
 import CoreML
 import Vision
-import UIKit.UIDevice
+import UIKit.UIImage
 
-internal final class CarRecognizerService {
+internal final class CarClassificationService {
     
     /// Completion handler for recognized cars
     var completionHandler: ((CarRecognizeResponse) -> ())?
@@ -41,7 +41,7 @@ internal final class CarRecognizerService {
     func perform(on pixelBuffer: CVPixelBuffer) {
         guard isReadyForNextFrame else { return }
         self.currentBuffer = pixelBuffer
-        let orientation = CGImagePropertyOrientation.up
+        let orientation = CGImagePropertyOrientation.right
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: [:])
         DispatchQueue.global(qos: .userInitiated).async {
             do {

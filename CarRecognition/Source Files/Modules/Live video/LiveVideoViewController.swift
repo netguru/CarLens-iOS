@@ -5,21 +5,18 @@
 
 
 import UIKit
-import AVFoundation
+import SpriteKit
+import ARKit
 
-internal final class LiveVideoViewController: TypedViewController<LiveVideoView>, AVCaptureVideoDataOutputSampleBufferDelegate {
+internal final class LiveVideoViewController: TypedViewController<LiveVideoView>, ARSessionDelegate {
     
-    private var session: AVCaptureSession?
-    
-    private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    
-    private let carRecognizerService = CarRecognizerService()
+    private let classificationService = CarClassificationService()
     
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         customView.checkDetailsButton.addTarget(self, action: #selector(didTapCheckDetailsButton), for: .touchUpInside)
-        carRecognizerService.completionHandler = { [weak self] result in
+        classificationService.completionHandler = { [weak self] result in
             self?.handleRecognition(result: result)
         }
     }
@@ -28,46 +25,28 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupSession()
-        session?.startRunning()
     }
     
     /// SeeAlso: UIViewController
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        session?.stopRunning()
+        customView.previewView.session.pause()
     }
     
     /// SeeAlso: UIViewController
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        videoPreviewLayer?.frame = customView.previewView.bounds
-    }
-    
-    /// SeeAlso: AVCaptureVideoDataOutputSampleBufferDelegate
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        carRecognizerService.perform(on: imageBuffer)
+        customView.sceneView.size = customView.previewView.bounds.size
     }
     
     private func setupSession() {
-        session = AVCaptureSession()
-        guard let session = session else { return }
-        session.sessionPreset = .vga640x480
+        customView.previewView.session.delegate = self
         
-        guard let backCamera = AVCaptureDevice.default(for: .video) else { return }
-        guard let input = try? AVCaptureDeviceInput(device: backCamera) else { return }
-        session.addInput(input)
-        
-        let output = AVCaptureVideoDataOutput()
-        output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInitiated))
-        session.addOutput(output)
-        output.connection(with: .video)?.videoOrientation = .portrait
-        
-        videoPreviewLayer?.removeFromSuperlayer()
-        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
-        guard let videoPreviewLayer = videoPreviewLayer else { return }
-        videoPreviewLayer.videoGravity = .resizeAspectFill
-        customView.previewView.layer.addSublayer(videoPreviewLayer)
+        let configuration = ARWorldTrackingConfiguration()
+        if #available(iOS 11.3, *) {
+            configuration.isAutoFocusEnabled = true
+        }
+        customView.previewView.session.run(configuration)
     }
     
     private func handleRecognition(result: CarRecognizeResponse) {
@@ -80,8 +59,13 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     }
     
     @objc private func didTapCheckDetailsButton() {
-        guard let lastRecognition = carRecognizerService.lastTopRecognition else { return }
+        guard let lastRecognition = classificationService.lastTopRecognition else { return }
         let carDetailsViewController = CarTypeSearchViewController(recognizedCars: lastRecognition)
         navigationController?.pushViewController(carDetailsViewController, animated: true)
+    }
+    
+    /// SeeAlso: ARSessionDelegate
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        classificationService.perform(on: frame.capturedImage)
     }
 }
