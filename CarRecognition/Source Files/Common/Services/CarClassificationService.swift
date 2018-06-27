@@ -10,7 +10,7 @@ import UIKit.UIImage
 internal final class CarClassificationService {
     
     /// Completion handler for recognized cars
-    var completionHandler: ((CarRecognizeResponse) -> ())?
+    var completionHandler: ((CarClassifierResponse) -> ())?
     
     /// Indicates if recognizer is ready to analyze next frame
     var isReadyForNextFrame: Bool {
@@ -18,7 +18,7 @@ internal final class CarClassificationService {
     }
     
     /// Value contains last recognized cars
-    var lastTopRecognition: CarRecognizeResponse?
+    var lastTopRecognition: CarClassifierResponse?
     
     private var currentBuffer: CVPixelBuffer?
     
@@ -63,7 +63,7 @@ internal final class CarClassificationService {
         let rocognizedCars = classifications.map { RecognizedCar(car: $0.identifier, confidence: $0.confidence) }
         let analyzeDuration = Date().timeIntervalSince(currectBufferStartAnalyzeDate)
         let analyzedImage = UIImage(pixelBuffer: currentBuffer) ?? UIImage()
-        let response = CarRecognizeResponse(cars: rocognizedCars, analyzeDuration: analyzeDuration, analyzedImage: analyzedImage)
+        let response = CarClassifierResponse(cars: rocognizedCars, analyzeDuration: analyzeDuration, analyzedImage: analyzedImage)
         DispatchQueue.main.async {
             self.lastTopRecognition = response
             self.completionHandler?(response)

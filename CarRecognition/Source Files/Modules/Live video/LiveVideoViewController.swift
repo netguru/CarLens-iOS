@@ -54,7 +54,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         customView.previewView.session.run(configuration)
     }
     
-    private func handleRecognition(result: CarRecognizeResponse) {
+    private func handleRecognition(result: CarClassifierResponse) {
         customView.analyzeTimeLabel.text = CRTimeFormatter.intervalMilisecondsFormatted(result.analyzeDuration)
         
         let labels = [customView.modelFirstLabel, customView.modelSecondLabel, customView.modelThirdLabel]
@@ -63,7 +63,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         }
     }
     
-    private func handleRecognitionInAR(result: CarRecognizeResponse) {
+    private func handleRecognitionInAR(result: CarClassifierResponse) {
         guard
             let mostConfidentRecognition = result.cars.first,
             mostConfidentRecognition.car != "not car",

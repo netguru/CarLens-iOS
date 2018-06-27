@@ -1,11 +1,11 @@
 //
-//  CarRecognizeResponse.swift
+//  CarClassifierResponse.swift
 //  CarRecognition
 //
 
 import UIKit.UIImage
 
-internal struct CarRecognizeResponse {
+internal struct CarClassifierResponse {
     let cars: [RecognizedCar]
     let analyzeDuration: TimeInterval
     let analyzedImage: UIImage

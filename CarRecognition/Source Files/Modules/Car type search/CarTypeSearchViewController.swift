@@ -10,13 +10,13 @@ internal final class CarTypeSearchViewController: TypedViewController<CarTypeSea
     
     private let networkService: NetworkService = DefaultNetworkService()
     
-    private let recognizedCars: CarRecognizeResponse
+    private let recognizedCars: CarClassifierResponse
     
     private let elementToAnalyze: RecognizedCar
     
     private var fetchedCars = [Car]()
     
-    init(recognizedCars: CarRecognizeResponse) {
+    init(recognizedCars: CarClassifierResponse) {
         self.recognizedCars = recognizedCars
         guard let firstCar = recognizedCars.cars.first else { fatalError("Not enough data provided") }
         self.elementToAnalyze = firstCar
@@ -31,7 +31,7 @@ internal final class CarTypeSearchViewController: TypedViewController<CarTypeSea
         customView.tableView.delegate = self
         customView.tableView.register(cell: UITableViewCell.self)
         
-        customView.modelLabel.text = "\(elementToAnalyze.car)\n(\(CRNumberFormatter.percentageFormatted(elementToAnalyze.confidence)))"
+        customView.modelLabel.text = elementToAnalyze.descriptionWithConfidence
         customView.imageView.image = recognizedCars.analyzedImage
         
         fetchData()
