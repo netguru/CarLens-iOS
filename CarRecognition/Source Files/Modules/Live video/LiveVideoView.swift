@@ -12,11 +12,12 @@ internal final class LiveVideoView: View, ViewSetupable {
     /// View with camera preview
     lazy var previewView: ARSKView = {
         let view = ARSKView()
-        view.showsFPS = true
-        view.showsFields = true
-        view.presentScene(SKScene())
+        view.presentScene(sceneView)
         return view.layoutable()
     }()
+    
+    /// Augmented Reality scene presented on the camera preview
+    lazy var sceneView = SKScene()
     
     /// First label with analyzed car model
     lazy var modelFirstLabel: UILabel = {

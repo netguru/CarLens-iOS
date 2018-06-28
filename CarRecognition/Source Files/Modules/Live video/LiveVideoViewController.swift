@@ -36,6 +36,12 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         customView.previewView.session.pause()
     }
     
+    /// SeeAlso: UIViewController
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        customView.sceneView.size = customView.previewView.bounds.size
+    }
+    
     private func setupSession() {
         customView.previewView.delegate = self
         customView.previewView.session.delegate = self
@@ -67,7 +73,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
             return
         }
         let hitTests = customView.previewView.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.featurePoint])
-        guard let possibleCarHit = hitTests.first(where: { $0.distance > 0.4 }) else {
+        guard let possibleCarHit = hitTests.first(where: { $0.distance > 0.1 }) else {
             print("Hit test failed or detected object is to close to the phone")
             return
         }
@@ -76,7 +82,8 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
             return
         }
         var translation = matrix_identity_float4x4
-        translation.columns.3.z = Float(-possibleCarHit.distance)
+        translation.columns.3.z = Float(-possibleCarHit.distance) - 1 // - 1 to put the label 1m inside the car
+        translation.columns.3.x = -1 // -1 to put the label 1m above the car
         let transform = simd_mul(lastCapturedFrame.camera.transform, translation)
         let anchor = ARAnchor(transform: transform)
         addedAnchors[anchor] = mostConfidentRecognition
@@ -101,7 +108,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         labelNode.fontName = UIFont.boldSystemFont(ofSize: 70).fontName
-        labelNode.fontSize = 70
+        labelNode.fontSize = 10
         labelNode.fontColor = .red
         return labelNode
     }
