@@ -73,7 +73,7 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
             return
         }
         let hitTests = customView.previewView.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.featurePoint])
-        guard let possibleCarHit = hitTests.first(where: { $0.distance > 0.1 }) else {
+        guard let possibleCarHit = hitTests.first(where: { $0.distance > 0.4 }) else {
             print("Hit test failed or detected object is to close to the phone")
             return
         }
