@@ -13,6 +13,11 @@ internal struct RecognizedCar: Equatable {
         return "\(car)\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
     }
     
+    /// Splitted model name from the car phrase
+    var splittedModelName: String {
+        return String(car.split(separator: " ").last ?? "")
+    }
+    
     public static func == (lhs: RecognizedCar, rhs: RecognizedCar) -> Bool {
         return lhs.car == rhs.car
     }

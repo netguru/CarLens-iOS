@@ -104,12 +104,24 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
     /// SeeAlso: ARSKViewDelegate
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
         guard let model = addedAnchors[anchor] else { return nil }
-        let labelNode = SKLabelNode(text: model.car)
+        
+        let labelNode = SKLabelNode(text: model.splittedModelName)
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
-        labelNode.fontName = UIFont.boldSystemFont(ofSize: 70).fontName
-        labelNode.fontSize = 10
-        labelNode.fontColor = .red
-        return labelNode
+        labelNode.fontColor = .black
+        labelNode.fontSize = 70
+        
+        let backgroundSize = CGSize(width: labelNode.frame.size.width * 1.4, height: labelNode.frame.size.height * 1.5)
+        
+        let roundedShapeNode = SKShapeNode(rectOf: backgroundSize, cornerRadius: backgroundSize.height / 2)
+        roundedShapeNode.fillColor = .white
+        let cropNode = SKCropNode()
+        cropNode.maskNode = roundedShapeNode
+        
+        let backgroundNode = SKSpriteNode(color: .white, size: backgroundSize)
+        
+        cropNode.addChild(backgroundNode)
+        backgroundNode.addChild(labelNode)
+        return cropNode
     }
 }
