@@ -14,12 +14,9 @@ internal final class LiveVideoView: View, ViewSetupable {
         let view = ARSKView()
         view.showsFPS = true
         view.showsFields = true
-        view.presentScene(sceneView)
+        view.presentScene(SKScene())
         return view.layoutable()
     }()
-    
-    /// Augmented Reality scene presented on the camera preview
-    lazy var sceneView = SKScene()
     
     /// First label with analyzed car model
     lazy var modelFirstLabel: UILabel = {

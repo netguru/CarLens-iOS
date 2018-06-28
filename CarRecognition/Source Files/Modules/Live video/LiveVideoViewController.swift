@@ -36,12 +36,6 @@ internal final class LiveVideoViewController: TypedViewController<LiveVideoView>
         customView.previewView.session.pause()
     }
     
-    /// SeeAlso: UIViewController
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        customView.sceneView.size = customView.previewView.bounds.size
-    }
-    
     private func setupSession() {
         customView.previewView.delegate = self
         customView.previewView.session.delegate = self
