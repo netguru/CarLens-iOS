@@ -1,5 +1,5 @@
 //
-//  LiveVideoViewController.swift
+//  RecognitionViewController.swift
 //  CarRecognition
 //
 
@@ -8,11 +8,16 @@ import UIKit
 import SpriteKit
 import ARKit
 
-internal final class LiveVideoViewController: TypedViewController<LiveVideoView>, ARSessionDelegate, ARSKViewDelegate {
+internal final class RecognitionViewController: TypedViewController<RecognitionView>, ARSessionDelegate, ARSKViewDelegate {
     
-    private let classificationService = CarClassificationService()
+    private let classificationService: CarClassificationService
     
     private var addedAnchors: [ARAnchor: RecognizedCar] = [:]
+    
+    init(classificationService: CarClassificationService) {
+        self.classificationService = classificationService
+        super.init(viewMaker: RecognitionView())
+    }
     
     /// SeeAlso: UIViewController
     override func viewDidLoad() {

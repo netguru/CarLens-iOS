@@ -11,6 +11,8 @@ internal final class ApplicationFlowController {
     
     private weak var window: UIWindow?
     
+    private var rootFlowController: FlowController?
+    
     private let dependencies: ApplicationDependencies
     
     /// Initializes Main Flow Controllers
@@ -27,10 +29,18 @@ internal final class ApplicationFlowController {
     }
     
     /// Call after application was loaded, it will set proper view controller as window root
-    internal func startApp() {
+    func startApp() {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-        let viewController = LiveVideoViewController(viewMaker: LiveVideoView())
-        window?.rootViewController = UINavigationController(rootViewController: viewController)
+        changeRootFlowController(to: makeRecognitionFlowController())
+    }
+    
+    private func makeRecognitionFlowController() -> FlowController {
+        return RecognitionFlowController(dependencies: dependencies)
+    }
+    
+    private func changeRootFlowController(to flowController: FlowController) {
+        rootFlowController = flowController
+        window?.rootViewController = flowController.rootViewController
     }
 }

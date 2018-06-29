@@ -1,5 +1,5 @@
 //
-//  LiveVideoView.swift
+//  RecognitionView.swift
 //  CarRecognition
 //
 
@@ -7,7 +7,7 @@
 import UIKit
 import ARKit
 
-internal final class LiveVideoView: View, ViewSetupable {
+internal final class RecognitionView: View, ViewSetupable {
 
     /// View with camera preview
     lazy var previewView: ARSKView = {
