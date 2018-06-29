@@ -8,9 +8,9 @@ import UIKit
 
 internal final class CarDetailsViewController: TypedViewController<UITableView>, UITableViewDataSource {
     
-    private let car: Car
+    private let car: APICar
     
-    init(car: Car) {
+    init(car: APICar) {
         self.car = car
         super.init(viewMaker: UITableView())
     }

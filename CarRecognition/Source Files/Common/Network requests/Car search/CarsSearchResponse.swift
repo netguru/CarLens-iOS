@@ -6,7 +6,7 @@
 
 internal struct CarsSearchResponse: NetworkResponse {
     
-    let cars: [Car]
+    let cars: [APICar]
     
     enum CodingKeys: String, CodingKey {
         case cars = "Trims"

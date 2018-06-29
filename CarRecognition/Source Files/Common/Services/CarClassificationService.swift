@@ -60,13 +60,11 @@ internal final class CarClassificationService {
             return
         }
         let classifications = results as! [VNClassificationObservation]
-        let rocognizedCars = classifications.map { RecognizedCar(car: $0.identifier, confidence: $0.confidence) }
+        let rocognizedCars = classifications.compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence) }
         let analyzeDuration = Date().timeIntervalSince(currectBufferStartAnalyzeDate)
         let analyzedImage = UIImage(pixelBuffer: currentBuffer) ?? UIImage()
         let response = CarClassifierResponse(cars: rocognizedCars, analyzeDuration: analyzeDuration, analyzedImage: analyzedImage)
-        DispatchQueue.main.async {
-            self.lastTopRecognition = response
-            self.completionHandler?(response)
-        }
+        lastTopRecognition = response
+        completionHandler?(response)
     }
 }

@@ -12,9 +12,9 @@ internal final class CarTypeSearchViewController: TypedViewController<CarTypeSea
     
     private let recognizedCars: CarClassifierResponse
     
-    private let elementToAnalyze: RecognizedCar
+    private let elementToAnalyze: RecognitionResult
     
-    private var fetchedCars = [Car]()
+    private var fetchedCars = [APICar]()
     
     init(recognizedCars: CarClassifierResponse) {
         self.recognizedCars = recognizedCars
@@ -31,7 +31,7 @@ internal final class CarTypeSearchViewController: TypedViewController<CarTypeSea
         customView.tableView.delegate = self
         customView.tableView.register(cell: UITableViewCell.self)
         
-        customView.modelLabel.text = elementToAnalyze.descriptionWithConfidence
+        customView.modelLabel.text = elementToAnalyze.description
         customView.imageView.image = recognizedCars.analyzedImage
         
         fetchData()
@@ -46,7 +46,7 @@ internal final class CarTypeSearchViewController: TypedViewController<CarTypeSea
     }
     
     private func fetchData() {
-        let request = CarsSearchRequest(keyword: elementToAnalyze.car)
+        let request = CarsSearchRequest(keyword: elementToAnalyze.car.description)
         networkService.perform(request: request) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {

@@ -30,7 +30,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     
     private let neededConfidenceToPinLabel: Float = 0.99
     
-    private var addedAnchors: [ARAnchor: RecognizedCar] = [:]
+    private var addedAnchors: [ARAnchor: RecognitionResult] = [:]
     
     /// Callback called when new augemented reality frame was captured
     var didCapturedARFrame: ((ARFrame) -> ())?
@@ -59,7 +59,6 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     func handleRecognition(result: CarClassifierResponse) {
         guard
             let mostConfidentRecognition = result.cars.first,
-            mostConfidentRecognition.car != "not car",
             mostConfidentRecognition.confidence >= neededConfidenceToPinLabel,
             !addedAnchors.contains(where: { $0.value == mostConfidentRecognition})
         else {
@@ -102,7 +101,8 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
 
     /// SeeAlso: ARSKViewDelegate
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        guard let model = addedAnchors[anchor] else { return nil }
-        return SKNodeFactory.car(labeled: model.splittedModelName)
+        guard let element = addedAnchors[anchor] else { return nil }
+        guard case let Car.known(_, model) = element.car else { return nil }
+        return SKNodeFactory.car(labeled: model.capitalized)
     }
 }

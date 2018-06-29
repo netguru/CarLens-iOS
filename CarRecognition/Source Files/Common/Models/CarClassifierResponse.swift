@@ -6,7 +6,8 @@
 import UIKit.UIImage
 
 internal struct CarClassifierResponse {
-    let cars: [RecognizedCar]
+    
+    let cars: [RecognitionResult]
     let analyzeDuration: TimeInterval
     let analyzedImage: UIImage
 }

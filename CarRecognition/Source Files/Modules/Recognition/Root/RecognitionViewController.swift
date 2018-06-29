@@ -43,8 +43,10 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             self?.classificationService.perform(on: frame.capturedImage)
         }
         classificationService.completionHandler = { [weak self] result in
-            self?.handleRecognition(result: result)
-            self?.augmentedRealityViewController.handleRecognition(result: result)
+            DispatchQueue.main.async {
+                self?.handleRecognition(result: result)
+                self?.augmentedRealityViewController.handleRecognition(result: result)
+            }
         }
     }
     
@@ -59,7 +61,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         
         let labels = [customView.modelFirstLabel, customView.modelSecondLabel, customView.modelThirdLabel]
         for (index, element) in result.cars.prefix(3).enumerated() {
-            labels[index].text = element.descriptionWithConfidence
+            labels[index].text = element.description
         }
     }
     
