@@ -38,7 +38,6 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        customView.checkDetailsButton.addTarget(self, action: #selector(didTapCheckDetailsButton), for: .touchUpInside)
         augmentedRealityViewController.didCapturedARFrame = { [weak self] frame in
             self?.classificationService.perform(on: frame.capturedImage)
         }
@@ -59,13 +58,9 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     private func handleRecognition(result: CarClassifierResponse) {
         customView.analyzeTimeLabel.text = CRTimeFormatter.intervalMilisecondsFormatted(result.analyzeDuration)
         
-        let labels = [customView.modelFirstLabel, customView.modelSecondLabel, customView.modelThirdLabel]
-        for (index, element) in result.cars.prefix(3).enumerated() {
+        let labels = [customView.modelFirstLabel, customView.modelSecondLabel]
+        for (index, element) in result.cars.prefix(2).enumerated() {
             labels[index].text = element.description
         }
-    }
-    
-    @objc private func didTapCheckDetailsButton() {
-        eventTriggered?(.didTapSelectModel)
     }
 }

@@ -15,7 +15,8 @@ internal final class RecognitionView: View, ViewSetupable {
     /// First label with analyzed car model
     lazy var modelFirstLabel: UILabel = {
         let view = UILabel()
-        view.font = .systemFont(ofSize: 26)
+        view.font = .systemFont(ofSize: 22)
+        view.textColor = .white
         view.numberOfLines = 0
         view.textAlignment = .center
         return view
@@ -24,16 +25,8 @@ internal final class RecognitionView: View, ViewSetupable {
     /// Second label with analyzed car model
     lazy var modelSecondLabel: UILabel = {
         let view = UILabel()
-        view.font = .systemFont(ofSize: 22)
-        view.numberOfLines = 0
-        view.textAlignment = .center
-        return view
-    }()
-    
-    /// Third label with analyzed car model
-    lazy var modelThirdLabel: UILabel = {
-        let view = UILabel()
         view.font = .systemFont(ofSize: 18)
+        view.textColor = .white
         view.numberOfLines = 0
         view.textAlignment = .center
         return view
@@ -43,16 +36,9 @@ internal final class RecognitionView: View, ViewSetupable {
     lazy var analyzeTimeLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 14)
+        view.textColor = .white
         view.numberOfLines = 0
         view.textAlignment = .center
-        return view.layoutable()
-    }()
-    
-    /// Button for checking details of detected car
-    lazy var checkDetailsButton: UIButton = {
-        let view = UIButton(type: .system)
-        view.setTitle("Check details", for: .normal)
-        view.titleLabel?.font = .systemFont(ofSize: 18)
         return view.layoutable()
     }()
     
@@ -60,12 +46,9 @@ internal final class RecognitionView: View, ViewSetupable {
         axis: .vertical,
         with: [
             modelFirstLabel,
-            modelSecondLabel,
-            modelThirdLabel,
-            .separator(axis: .vertical, thickness: 5),
-            checkDetailsButton
+            modelSecondLabel
         ],
-        spacing: 15
+        spacing: 5
     ).layoutable()
     
     /// - SeeAlso: ViewSetupable
@@ -75,12 +58,8 @@ internal final class RecognitionView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        augmentedRealityContainer.constraintToSuperviewEdges(excludingAnchors: [.bottom])
-        modelStackView.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom], withInsets: .init(top: 16, left: 8, bottom: 16, right: 8))
+        augmentedRealityContainer.constraintToSuperviewEdges()
+        modelStackView.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 22, right: 8))
         analyzeTimeLabel.constraintToSuperviewEdges(excludingAnchors: [.top])
-        NSLayoutConstraint.activate([
-            augmentedRealityContainer.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
-            augmentedRealityContainer.bottomAnchor.constraint(equalTo: modelStackView.topAnchor)
-        ])
     }
 }
