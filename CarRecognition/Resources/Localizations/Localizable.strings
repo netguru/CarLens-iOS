@@ -10,6 +10,9 @@
 "yes" = "Yes";
 "no" = "No";
 
+// Common
+"car.not.supported" = "Not supported car";
+
 // Error
 "error.title" = "Error";
 "error.unknown.error.occurred" = "Unknown error occurred";
