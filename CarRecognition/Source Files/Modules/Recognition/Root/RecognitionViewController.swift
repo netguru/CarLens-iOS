@@ -10,6 +10,16 @@ import ARKit
 
 internal final class RecognitionViewController: TypedViewController<RecognitionView>, ARSessionDelegate, ARSKViewDelegate {
     
+    /// Enum describing events that can be triggered by this controller
+    ///
+    /// - didTapSelectModel: send when user want to select the specific model
+    enum Event {
+        case didTapSelectModel
+    }
+    
+    /// Callback with triggered event
+    var eventTriggered: ((Event) -> ())?
+    
     private let classificationService: CarClassificationService
     
     private var addedAnchors: [ARAnchor: RecognizedCar] = [:]
@@ -96,9 +106,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     @objc private func didTapCheckDetailsButton() {
-        guard let lastRecognition = classificationService.lastTopRecognition else { return }
-        let carDetailsViewController = CarTypeSearchViewController(recognizedCars: lastRecognition)
-        navigationController?.pushViewController(carDetailsViewController, animated: true)
+        eventTriggered?(.didTapSelectModel)
     }
     
     /// SeeAlso: ARSessionDelegate
