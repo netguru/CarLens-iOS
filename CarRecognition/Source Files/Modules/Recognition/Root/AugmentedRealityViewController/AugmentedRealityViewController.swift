@@ -10,6 +10,12 @@ import ARKit
 
 internal final class AugmentedRealityViewController: TypedViewController<AugmentedRealityView>, ARSessionDelegate, ARSKViewDelegate {
     
+    /// Possiblle errors that can occur during applying AR labels
+    enum CarARLabelError: Error {
+        case hitTestFailed
+        case noRecentFrameFound
+    }
+    
     private var nodeShift: NodeShift {
         #if ENV_DEVELOPMENT
             return NodeShift(depth: 0, elevation: 0)
@@ -56,7 +62,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// Handles results of the classification
     ///
     /// - Parameter result: Classification result
-    func handleRecognition(result: CarClassifierResponse) {
+    func handleRecognition(result: CarClassifierResponse, errorHandler: ((CarARLabelError) -> ())? = nil) {
         guard
             let mostConfidentRecognition = result.cars.first,
             mostConfidentRecognition.confidence >= neededConfidenceToPinLabel,
@@ -66,11 +72,11 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         }
         let hitTests = customView.previewView.hitTest(pointForHitTest, types: [.featurePoint])
         guard let possibleCarHit = hitTests.first(where: { $0.distance > minimumDistanceFromDevice }) else {
-            print("Hit test failed or detected object is to close to the phone")
+            errorHandler?(.hitTestFailed)
             return
         }
         guard let lastCapturedFrame = customView.previewView.session.currentFrame else {
-            print("No recent AR frame found")
+            errorHandler?(.noRecentFrameFound)
             return
         }
         var translation = matrix_identity_float4x4
