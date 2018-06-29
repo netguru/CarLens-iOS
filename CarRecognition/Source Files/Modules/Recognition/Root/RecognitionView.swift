@@ -9,15 +9,8 @@ import ARKit
 
 internal final class RecognitionView: View, ViewSetupable {
 
-    /// View with camera preview
-    lazy var previewView: ARSKView = {
-        let view = ARSKView()
-        view.presentScene(sceneView)
-        return view.layoutable()
-    }()
-    
-    /// Augmented Reality scene presented on the camera preview
-    lazy var sceneView = SKScene()
+    /// Container for augmented reality view controller content
+    lazy var augmentedRealityContainer = UIView().layoutable()
     
     /// First label with analyzed car model
     lazy var modelFirstLabel: UILabel = {
@@ -77,17 +70,17 @@ internal final class RecognitionView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [previewView, modelStackView, analyzeTimeLabel].forEach(addSubview)
+        [augmentedRealityContainer, modelStackView, analyzeTimeLabel].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        previewView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
+        augmentedRealityContainer.constraintToSuperviewEdges(excludingAnchors: [.bottom])
         modelStackView.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom], withInsets: .init(top: 16, left: 8, bottom: 16, right: 8))
         analyzeTimeLabel.constraintToSuperviewEdges(excludingAnchors: [.top])
         NSLayoutConstraint.activate([
-            previewView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
-            previewView.bottomAnchor.constraint(equalTo: modelStackView.topAnchor)
+            augmentedRealityContainer.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1),
+            augmentedRealityContainer.bottomAnchor.constraint(equalTo: modelStackView.topAnchor)
         ])
     }
 }

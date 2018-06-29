@@ -20,6 +20,16 @@ internal final class ApplicationFactory {
     ///
     /// - Returns: Created controller
     func recognitionViewController() -> RecognitionViewController {
-        return RecognitionViewController(classificationService: CarClassificationService())
+        return RecognitionViewController(
+            augmentedRealityViewController: augmentedRealityViewController(),
+            classificationService: CarClassificationService()
+        )
+    }
+    
+    /// Creates controller with live augmented readlity camera preview
+    ///
+    /// - Returns: Created controller
+    func augmentedRealityViewController() -> AugmentedRealityViewController {
+        return AugmentedRealityViewController(viewMaker: AugmentedRealityView())
     }
 }

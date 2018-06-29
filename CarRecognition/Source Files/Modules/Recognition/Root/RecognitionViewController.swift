@@ -8,7 +8,7 @@ import UIKit
 import SpriteKit
 import ARKit
 
-internal final class RecognitionViewController: TypedViewController<RecognitionView>, ARSessionDelegate, ARSKViewDelegate {
+internal final class RecognitionViewController: TypedViewController<RecognitionView> {
     
     /// Enum describing events that can be triggered by this controller
     ///
@@ -22,9 +22,15 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     private let classificationService: CarClassificationService
     
-    private var addedAnchors: [ARAnchor: RecognizedCar] = [:]
+    private let augmentedRealityViewController: AugmentedRealityViewController
     
-    init(classificationService: CarClassificationService) {
+    /// Initializes view controller with given dependencies
+    ///
+    /// - Parameters:
+    ///   - augmentedRealityViewController: View controller with AR live preview
+    ///   - classificationService: Classification service used to recognize objects
+    init(augmentedRealityViewController: AugmentedRealityViewController, classificationService: CarClassificationService) {
+        self.augmentedRealityViewController = augmentedRealityViewController
         self.classificationService = classificationService
         super.init(viewMaker: RecognitionView())
     }
@@ -33,40 +39,19 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     override func viewDidLoad() {
         super.viewDidLoad()
         customView.checkDetailsButton.addTarget(self, action: #selector(didTapCheckDetailsButton), for: .touchUpInside)
+        augmentedRealityViewController.didCapturedARFrame = { [weak self] frame in
+            self?.classificationService.perform(on: frame.capturedImage)
+        }
         classificationService.completionHandler = { [weak self] result in
             self?.handleRecognition(result: result)
-            self?.handleRecognitionInAR(result: result)
+            self?.augmentedRealityViewController.handleRecognition(result: result)
         }
     }
     
-    /// SeeAlso: UIViewController
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupSession()
-    }
-    
-    /// SeeAlso: UIViewController
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        customView.previewView.session.pause()
-    }
-    
-    /// SeeAlso: UIViewController
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        customView.sceneView.size = customView.previewView.bounds.size
-    }
-    
-    private func setupSession() {
-        customView.previewView.delegate = self
-        customView.previewView.session.delegate = self
-        
-        let configuration = ARWorldTrackingConfiguration()
-        if #available(iOS 11.3, *) {
-            configuration.planeDetection = [.vertical]
-            configuration.isAutoFocusEnabled = true
-        }
-        customView.previewView.session.run(configuration)
+    /// - SeeAlso: UIViewController
+    override func loadView() {
+        super.loadView()
+        add(augmentedRealityViewController, inside: customView.augmentedRealityContainer)
     }
     
     private func handleRecognition(result: CarClassifierResponse) {
@@ -78,63 +63,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         }
     }
     
-    private func handleRecognitionInAR(result: CarClassifierResponse) {
-        guard
-            let mostConfidentRecognition = result.cars.first,
-            mostConfidentRecognition.car != "not car",
-            mostConfidentRecognition.confidence >= 0.99,
-            !addedAnchors.contains(where: { $0.value == mostConfidentRecognition})
-        else {
-            return
-        }
-        let hitTests = customView.previewView.hitTest(CGPoint(x: 0.5, y: 0.5), types: [.featurePoint])
-        guard let possibleCarHit = hitTests.first(where: { $0.distance > 0.4 }) else {
-            print("Hit test failed or detected object is to close to the phone")
-            return
-        }
-        guard let lastCapturedFrame = customView.previewView.session.currentFrame else {
-            print("No recent AR frame found")
-            return
-        }
-        var translation = matrix_identity_float4x4
-        translation.columns.3.z = Float(-possibleCarHit.distance) - 1 // - 1 to put the label 1m inside the car
-        translation.columns.3.x = -1 // -1 to put the label 1m above the car
-        let transform = simd_mul(lastCapturedFrame.camera.transform, translation)
-        let anchor = ARAnchor(transform: transform)
-        addedAnchors[anchor] = mostConfidentRecognition
-        customView.previewView.session.add(anchor: anchor)
-    }
-    
     @objc private func didTapCheckDetailsButton() {
         eventTriggered?(.didTapSelectModel)
-    }
-    
-    /// SeeAlso: ARSessionDelegate
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        classificationService.perform(on: frame.capturedImage)
-    }
-    
-    /// SeeAlso: ARSKViewDelegate
-    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        guard let model = addedAnchors[anchor] else { return nil }
-        
-        let labelNode = SKLabelNode(text: model.splittedModelName)
-        labelNode.horizontalAlignmentMode = .center
-        labelNode.verticalAlignmentMode = .center
-        labelNode.fontColor = .black
-        labelNode.fontSize = 70
-        
-        let backgroundSize = CGSize(width: labelNode.frame.size.width * 1.4, height: labelNode.frame.size.height * 1.5)
-        
-        let roundedShapeNode = SKShapeNode(rectOf: backgroundSize, cornerRadius: backgroundSize.height / 2)
-        roundedShapeNode.fillColor = .white
-        let cropNode = SKCropNode()
-        cropNode.maskNode = roundedShapeNode
-        
-        let backgroundNode = SKSpriteNode(color: .white, size: backgroundSize)
-        
-        cropNode.addChild(backgroundNode)
-        backgroundNode.addChild(labelNode)
-        return cropNode
     }
 }
