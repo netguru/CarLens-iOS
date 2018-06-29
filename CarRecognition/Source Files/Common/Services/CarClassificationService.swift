@@ -44,21 +44,14 @@ internal final class CarClassificationService {
         let orientation = CGImagePropertyOrientation.right
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: [:])
         DispatchQueue.global(qos: .userInitiated).async {
-            do {
-                defer { self.currentBuffer = nil }
-                self.currectBufferStartAnalyzeDate = Date()
-                try handler.perform([self.request])
-            } catch {
-                print("Vision request failed with error \"\(error)\"")
-            }
+            defer { self.currentBuffer = nil }
+            self.currectBufferStartAnalyzeDate = Date()
+            try? handler.perform([self.request])
         }
     }
     
     private func handleDetection(request: VNRequest, error: Error?) {
-        guard let results = request.results, let currentBuffer = currentBuffer else {
-            print("Unable to classify image, error: \(String(describing: error?.localizedDescription))")
-            return
-        }
+        guard let results = request.results, let currentBuffer = currentBuffer else { return }
         let classifications = results as! [VNClassificationObservation]
         let rocognizedCars = classifications.compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence) }
         let analyzeDuration = Date().timeIntervalSince(currectBufferStartAnalyzeDate)

@@ -17,7 +17,11 @@ internal final class SKNodeFactory {
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         labelNode.fontColor = .black
-        labelNode.fontSize = 70
+        #if ENV_DEVELOPMENT
+            labelNode.fontSize = 10
+        #else
+            labelNode.fontSize = 70
+        #endif
         
         let backgroundSize = CGSize(width: labelNode.frame.size.width * 1.4, height: labelNode.frame.size.height * 1.5)
         let roundedShapeNode = SKShapeNode(rectOf: backgroundSize, cornerRadius: backgroundSize.height / 2)
