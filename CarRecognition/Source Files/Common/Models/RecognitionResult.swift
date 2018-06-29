@@ -21,7 +21,8 @@ internal struct RecognitionResult: Equatable, CustomStringConvertible {
         return "\(car.description)\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
     }
     
-    public static func == (lhs: RecognitionResult, rhs: RecognitionResult) -> Bool {
+    /// SeeAlso: Equatable
+    static func == (lhs: RecognitionResult, rhs: RecognitionResult) -> Bool {
         return lhs.car == rhs.car
     }
 }
