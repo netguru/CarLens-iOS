@@ -66,14 +66,14 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     func handleRecognition(result: CarClassifierResponse, errorHandler: ((CarARLabelError) -> ())? = nil) {
         guard let mostConfidentRecognition = result.cars.first else { return }
         let normalizedConfidence = inputNormalizationService.normalize(value: Double(mostConfidentRecognition.confidence))
-        customView.detectionViewfinderView.update(progress: CGFloat(normalizedConfidence))
+        try? customView.detectionViewfinderView.update(progress: CGFloat(normalizedConfidence))
         handlePinAddingIfNeeded(for: mostConfidentRecognition, normalizedConfidence: normalizedConfidence, errorHandler: errorHandler)
     }
     
     private func handlePinAddingIfNeeded(for result: RecognitionResult, normalizedConfidence: Double, errorHandler: ((CarARLabelError) -> ())? = nil) {
         guard
             normalizedConfidence >= neededConfidenceToPinLabel,
-            !addedAnchors.contains(where: { $0.value == result})
+            !addedAnchors.contains(where: { $0.value == result })
         else { return }
         let hitTests = customView.previewView.hitTest(pointForHitTest, types: [.featurePoint])
         guard let possibleCarHit = hitTests.first(where: { $0.distance > minimumDistanceFromDevice }) else {

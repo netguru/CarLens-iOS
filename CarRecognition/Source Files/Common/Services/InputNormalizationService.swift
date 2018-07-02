@@ -12,8 +12,11 @@ internal final class InputNormalizationService {
     
     /// Initializes the normalizer
     ///
-    /// - Parameter numberOfValues: Number of last saved values that will be used for normalization
+    /// - Parameter numberOfValues: Number of last saved values that will be used for normalization. Must be greater than 0.
     init(numberOfValues: Int) {
+        guard numberOfValues > 0 else {
+            fatalError("Cannot initialize normalizer with value \(numberOfValues). It must be greater than 0")
+        }
         self.numberOfValuesToAverageCalculation = numberOfValues
     }
     
