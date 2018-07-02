@@ -105,33 +105,6 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         customView.previewView.session.run(configuration)
     }
     
-    
-    
-    
-    
-    
-    
-//    func handleRecognition(result: CarClassifierResponse, errorHandler: ((CarARLabelError) -> ())? = nil) {
-//        guard let mostConfidentRecognition = result.cars.first else { return }
-//        handleViewfinder(for: mostConfidentRecognition, errorHandler: errorHandler)
-//        handlePinAddingIfNeeded(for: mostConfidentRecognition, errorHandler: errorHandler)
-//    }
-//
-//    private func handleViewfinder(for result: RecognitionResult, errorHandler: ((CarARLabelError) -> ())? = nil) {
-//        let normalizedConfidence = inputNormalizationService.normalize(value: Double(result.confidence))
-//        customView.detectionViewfinderView.update(progress: CGFloat(normalizedConfidence))
-//    }
-//
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
     /// SeeAlso: ARSessionDelegate
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         didCapturedARFrame?(frame)
