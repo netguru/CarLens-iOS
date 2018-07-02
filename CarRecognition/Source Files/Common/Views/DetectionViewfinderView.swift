@@ -30,10 +30,4 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     func setupConstraints() {
         viewfinderAnimationView.constraintToSuperviewEdges()
     }
-    
-    /// - SeeAlso: ViewSetupable
-    func setupProperties() {
-        viewfinderAnimationView.loopAnimation = true
-        viewfinderAnimationView.play(fromProgress: 0, toProgress: 1.5, withCompletion: nil)
-    }
 }

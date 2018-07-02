@@ -1,0 +1,61 @@
+//
+//  InputNormalizationServiceTests.swift
+//  CarRecognitionTests
+//
+
+
+@testable import CarRecognition
+import XCTest
+
+final class InputNormalizationServiceTests: XCTestCase {
+    
+    var sut: InputNormalizationService!
+    
+    func testInitialValueWithDefaultInitializer() {
+        sut = InputNormalizationService()
+        let result = sut.normalize(value: 0.3)
+        XCTAssertEqual(result, 0.01)
+    }
+    
+    func testInitialValueWithCustomInitializer() {
+        sut = InputNormalizationService(numberOfValues: 10)
+        let result = sut.normalize(value: 0.3)
+        XCTAssertEqual(result, 0.03)
+    }
+    
+    func test15thWithDefaultInitializer() {
+        sut = InputNormalizationService()
+        var result = 0.0
+        for _ in 0..<15 {
+            result = sut.normalize(value: 0.5)
+        }
+        XCTAssertEqual(result, 0.25, accuracy: 2)
+    }
+    
+    func test30thWithDefaultInitializer() {
+        sut = InputNormalizationService()
+        var result = 0.0
+        for _ in 0..<30 {
+            result = sut.normalize(value: 0.5)
+        }
+        XCTAssertEqual(result, 0.5, accuracy: 2)
+    }
+    
+    func test5thWithCustomInitializer() {
+        sut = InputNormalizationService(numberOfValues: 10)
+        var result = 0.0
+        for _ in 0..<5 {
+            result = sut.normalize(value: 0.5)
+        }
+        XCTAssertEqual(result, 0.25, accuracy: 2)
+    }
+    
+    func test10thWithCustomInitializer() {
+        sut = InputNormalizationService(numberOfValues: 10)
+        var result = 0.0
+        for _ in 0..<10 {
+            result = sut.normalize(value: 0.5)
+        }
+        XCTAssertEqual(result, 0.5, accuracy: 2)
+    }
+}
