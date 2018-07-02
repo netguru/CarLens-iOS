@@ -40,7 +40,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     
     private var addedAnchors: [ARAnchor: RecognitionResult] = [:]
     
-    private let inputNormalizationService = InputNormalizationService()
+    private let inputNormalizationService = InputNormalizationService(numberOfValues: 30)
     
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {

@@ -13,7 +13,7 @@ internal final class InputNormalizationService {
     /// Initializes the normalizer
     ///
     /// - Parameter numberOfValues: Number of last saved values that will be used for normalization
-    init(numberOfValues: Int = 30) {
+    init(numberOfValues: Int) {
         self.numberOfValuesToAverageCalculation = numberOfValues
     }
     
