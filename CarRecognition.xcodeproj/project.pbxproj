@@ -13,6 +13,7 @@
 		7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E06C20BD729B00784D63 /* Keys.podspec.json */; };
 		7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */; };
 		7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */; };
+		7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */; };
 		7C5E56F420CFE31500655C35 /* URLSessionDataTaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56ED20CFE31500655C35 /* URLSessionDataTaskResponse.swift */; };
 		7C5E56F520CFE31500655C35 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56EE20CFE31500655C35 /* NetworkResponse.swift */; };
 		7C5E56F620CFE31500655C35 /* NetworkApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56EF20CFE31500655C35 /* NetworkApplication.swift */; };
@@ -108,6 +109,7 @@
 		7C33E06C20BD729B00784D63 /* Keys.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Keys.podspec.json; path = Pods/CocoaPodsKeys/Keys.podspec.json; sourceTree = SOURCE_ROOT; };
 		7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarRecognitionKeys.m; path = Pods/CocoaPodsKeys/CarRecognitionKeys.m; sourceTree = SOURCE_ROOT; };
 		7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarARConfiguration.swift; sourceTree = "<group>"; };
+		7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAnchorExtension.swift; sourceTree = "<group>"; };
 		7C5E56ED20CFE31500655C35 /* URLSessionDataTaskResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskResponse.swift; sourceTree = "<group>"; };
 		7C5E56EE20CFE31500655C35 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		7C5E56EF20CFE31500655C35 /* NetworkApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkApplication.swift; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				7CB817CF20C9353100B51C3D /* UIStackViewExtension.swift */,
 				7C5E570220D004D600655C35 /* UIImageExtension.swift */,
 				7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */,
+				7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				7C77741920E65398007B3851 /* Car.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,
 				7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */,
+				7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */,
 				7CE428FC20D1108E00539FC6 /* CarsSearchRequest.swift in Sources */,
 				7CB817D620C9353200B51C3D /* UIViewExtension+Constraint.swift in Sources */,
 				7CB817C020C9332000B51C3D /* ViewSetupable.swift in Sources */,
