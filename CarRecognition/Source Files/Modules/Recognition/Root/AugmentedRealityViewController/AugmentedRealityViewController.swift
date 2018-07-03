@@ -12,35 +12,20 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     
     /// Possiblle errors that can occur during applying AR labels
     enum CarARLabelError: Error {
+        case pinAlreadyAdded
         case hitTestFailed
+        case hitTestTooClose
+        case hitTestTooFar
         case noRecentFrameFound
     }
     /// Callback called when new augemented reality frame was captured
     var didCapturedARFrame: ((ARFrame) -> ())?
     
-    private var nodeShift: NodeShift {
-        #if ENV_DEVELOPMENT
-            return NodeShift(depth: 0, elevation: 0)
-        #else
-            return NodeShift(depth: 1, elevation: 1)
-        #endif
-    }
-    
-    private var minimumDistanceFromDevice: CGFloat {
-        #if ENV_DEVELOPMENT
-            return 0.1
-        #else
-            return 0.5
-        #endif
-    }
-    
-    private let pointForHitTest = CGPoint(x: 0.5, y: 0.5)
-    
-    private let neededConfidenceToPinLabel: Double = 0.99
+    private let config = CarARConfiguration()
     
     private var addedAnchors: [ARAnchor: RecognitionResult] = [:]
     
-    private let inputNormalizationService = InputNormalizationService(numberOfValues: 30)
+    private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: config.normalizationCount)
     
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
@@ -71,26 +56,45 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     }
     
     private func handlePinAddingIfNeeded(for result: RecognitionResult, normalizedConfidence: Double, errorHandler: ((CarARLabelError) -> ())? = nil) {
-        guard
-            normalizedConfidence >= neededConfidenceToPinLabel,
-            !addedAnchors.contains(where: { $0.value == result })
-        else { return }
-        let hitTests = customView.previewView.hitTest(pointForHitTest, types: [.featurePoint])
-        guard let possibleCarHit = hitTests.first(where: { $0.distance > minimumDistanceFromDevice }) else {
+        guard normalizedConfidence >= config.neededConfidenceToPinLabel else { return }
+        let hitTests = customView.previewView.hitTest(config.pointForHitTest, types: [.featurePoint])
+        guard hitTests.count > 0 else {
             errorHandler?(.hitTestFailed)
+            return
+        }
+        guard let possibleCarHit = hitTests.first(where: { $0.distance > config.minimumDistanceFromDevice }) else {
+            errorHandler?(.hitTestTooClose)
+            return
+        }
+        guard possibleCarHit.distance < config.maximumDistanceFromDevice else {
+            errorHandler?(.hitTestTooFar)
             return
         }
         guard let lastCapturedFrame = customView.previewView.session.currentFrame else {
             errorHandler?(.noRecentFrameFound)
             return
         }
-        var translation = matrix_identity_float4x4
-        translation.columns.3.z = Float(-possibleCarHit.distance) - nodeShift.depth
-        translation.columns.3.x = -nodeShift.elevation
-        let transform = simd_mul(lastCapturedFrame.camera.transform, translation)
-        let anchor = ARAnchor(transform: transform)
-        addedAnchors[anchor] = result
-        customView.previewView.session.add(anchor: anchor)
+        let anchor = ARAnchor(from: possibleCarHit, camera: lastCapturedFrame.camera, nodeShift: config.nodeShift)
+        if shouldAdd(anchor: anchor) {
+            addedAnchors[anchor] = result
+            customView.previewView.session.add(anchor: anchor)
+        } else {
+            errorHandler?(.pinAlreadyAdded)
+        }
+    }
+    
+    /// Checks if new node at given anchor could be added.
+    /// It shouldn't allow adding two anchors too close to each other.
+    ///
+    /// - Parameter anchor: Proposed anchor to add
+    /// - Returns: Boolean indicating if new node can be addded
+    private func shouldAdd(anchor: ARAnchor) -> Bool {
+        for existingAnchor in addedAnchors.keys {
+            if existingAnchor.distance(from: anchor) < config.minimumDistanceBetweenNodes {
+                return false
+            }
+        }
+        return true
     }
     
     private func setupSession() {
