@@ -14,6 +14,8 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     enum CarARLabelError: Error {
         case pinAlreadyAdded
         case hitTestFailed
+        case hitTestTooClose
+        case hitTestTooFar
         case noRecentFrameFound
     }
     /// Callback called when new augemented reality frame was captured
@@ -35,21 +37,29 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         #endif
     }
     
+    private var maximumDistanceFromDevice: CGFloat {
+        #if ENV_DEVELOPMENT
+        return 2
+        #else
+        return 5
+        #endif
+    }
+    
     private var minimumDistanceBetweenNodes: Float {
         #if ENV_DEVELOPMENT
         return 0.2
         #else
-        return 1.5
+        return 2.0
         #endif
     }
     
     private let pointForHitTest = CGPoint(x: 0.5, y: 0.5)
     
-    private let neededConfidenceToPinLabel: Double = 0.99
+    private let neededConfidenceToPinLabel: Double = 0.95
     
     private var addedAnchors: [ARAnchor: RecognitionResult] = [:]
     
-    private let inputNormalizationService = InputNormalizationService(numberOfValues: 30)
+    private let inputNormalizationService = InputNormalizationService(numberOfValues: 20)
     
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
@@ -82,8 +92,16 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     private func handlePinAddingIfNeeded(for result: RecognitionResult, normalizedConfidence: Double, errorHandler: ((CarARLabelError) -> ())? = nil) {
         guard normalizedConfidence >= neededConfidenceToPinLabel else { return }
         let hitTests = customView.previewView.hitTest(pointForHitTest, types: [.featurePoint])
-        guard let possibleCarHit = hitTests.first(where: { $0.distance > minimumDistanceFromDevice }) else {
+        guard hitTests.count > 0 else {
             errorHandler?(.hitTestFailed)
+            return
+        }
+        guard let possibleCarHit = hitTests.first(where: { $0.distance > minimumDistanceFromDevice }) else {
+            errorHandler?(.hitTestTooClose)
+            return
+        }
+        guard possibleCarHit.distance < maximumDistanceFromDevice else {
+            errorHandler?(.hitTestTooFar)
             return
         }
         guard let lastCapturedFrame = customView.previewView.session.currentFrame else {
@@ -104,6 +122,11 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         }
     }
     
+    /// Checks if new node at given anchor could be added.
+    /// It shouldn't allow adding two anchors too close to each other.
+    ///
+    /// - Parameter anchor: Proposed anchor to add
+    /// - Returns: Boolean indicating if new node can be addded
     private func shouldAdd(anchor: ARAnchor) -> Bool {
         for existingAnchor in addedAnchors.keys {
             let distance = simd_distance(existingAnchor.transform.columns.3, anchor.transform.columns.3)
