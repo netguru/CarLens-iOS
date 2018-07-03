@@ -12,6 +12,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     
     /// Possiblle errors that can occur during applying AR labels
     enum CarARLabelError: Error {
+        case pinAlreadyAdded
         case hitTestFailed
         case noRecentFrameFound
     }
@@ -31,6 +32,14 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
             return 0.1
         #else
             return 0.5
+        #endif
+    }
+    
+    private var minimumDistanceBetweenNodes: Float {
+        #if ENV_DEVELOPMENT
+        return 0.2
+        #else
+        return 1.5
         #endif
     }
     
@@ -71,10 +80,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     }
     
     private func handlePinAddingIfNeeded(for result: RecognitionResult, normalizedConfidence: Double, errorHandler: ((CarARLabelError) -> ())? = nil) {
-        guard
-            normalizedConfidence >= neededConfidenceToPinLabel,
-            !addedAnchors.contains(where: { $0.value == result })
-        else { return }
+        guard normalizedConfidence >= neededConfidenceToPinLabel else { return }
         let hitTests = customView.previewView.hitTest(pointForHitTest, types: [.featurePoint])
         guard let possibleCarHit = hitTests.first(where: { $0.distance > minimumDistanceFromDevice }) else {
             errorHandler?(.hitTestFailed)
@@ -89,8 +95,23 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         translation.columns.3.x = -nodeShift.elevation
         let transform = simd_mul(lastCapturedFrame.camera.transform, translation)
         let anchor = ARAnchor(transform: transform)
-        addedAnchors[anchor] = result
-        customView.previewView.session.add(anchor: anchor)
+        
+        if shouldAdd(anchor: anchor) {
+            addedAnchors[anchor] = result
+            customView.previewView.session.add(anchor: anchor)
+        } else {
+            errorHandler?(.pinAlreadyAdded)
+        }
+    }
+    
+    private func shouldAdd(anchor: ARAnchor) -> Bool {
+        for existingAnchor in addedAnchors.keys {
+            let distance = simd_distance(existingAnchor.transform.columns.3, anchor.transform.columns.3)
+            if distance < minimumDistanceBetweenNodes {
+                return false
+            }
+        }
+        return true
     }
     
     private func setupSession() {
