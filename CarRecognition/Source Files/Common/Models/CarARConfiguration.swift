@@ -25,10 +25,10 @@ internal struct CarARConfiguration {
     let pointForHitTest = CGPoint(x: 0.5, y: 0.5)
     
     /// Minimum confidence nedded to pin the label
-    let neededConfidenceToPinLabel: Double = 0.95
+    let neededConfidenceToPinLabel = 0.95
     
     /// Number of last values that should be normalized
-    let normalizationCount: Int = 20
+    let normalizationCount = 20
     
     init() {
         #if ENV_DEVELOPMENT
