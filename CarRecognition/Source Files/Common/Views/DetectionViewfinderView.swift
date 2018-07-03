@@ -15,6 +15,16 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     
     private lazy var viewfinderAnimationView = LOTAnimationView(name: "viewfinder_bracket").layoutable()
     
+    private lazy var informationLabel: UILabel = {
+        let view = UILabel()
+        view.font = .systemFont(ofSize: 16, weight: .semibold)
+        view.textColor = .white
+        view.numberOfLines = 1
+        view.textAlignment = .center
+        view.text = "Put car in the center"
+        return view.layoutable()
+    }()
+    
     /// Updates the detection progress
     ///
     /// - Parameter progress: Progress of the detection. Must be value between 0 and 1
@@ -27,11 +37,16 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        addSubview(viewfinderAnimationView)
+        [viewfinderAnimationView, informationLabel].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        viewfinderAnimationView.constraintToSuperviewEdges()
+        viewfinderAnimationView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
+        NSLayoutConstraint.activate([
+            viewfinderAnimationView.bottomAnchor.constraint(equalTo: informationLabel.topAnchor, constant: 30),
+            informationLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            informationLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ])
     }
 }
