@@ -74,12 +74,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
             errorHandler?(.noRecentFrameFound)
             return
         }
-        var translation = matrix_identity_float4x4
-        translation.columns.3.z = Float(-possibleCarHit.distance) - config.nodeShift.depth
-        translation.columns.3.x = -config.nodeShift.elevation
-        let transform = simd_mul(lastCapturedFrame.camera.transform, translation)
-        let anchor = ARAnchor(transform: transform)
-        
+        let anchor = ARAnchor(from: possibleCarHit, camera: lastCapturedFrame.camera, nodeShift: config.nodeShift)
         if shouldAdd(anchor: anchor) {
             addedAnchors[anchor] = result
             customView.previewView.session.add(anchor: anchor)
