@@ -95,8 +95,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// - Returns: Boolean indicating if new node can be addded
     private func shouldAdd(anchor: ARAnchor) -> Bool {
         for existingAnchor in addedAnchors.keys {
-            let distance = existingAnchor.distance(from: anchor)
-            if distance < config.minimumDistanceBetweenNodes {
+            if existingAnchor.distance(from: anchor) < config.minimumDistanceBetweenNodes {
                 return false
             }
         }
