@@ -15,6 +15,8 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         case hitTestFailed
         case noRecentFrameFound
     }
+    /// Callback called when new augemented reality frame was captured
+    var didCapturedARFrame: ((ARFrame) -> ())?
     
     private var nodeShift: NodeShift {
         #if ENV_DEVELOPMENT
@@ -34,12 +36,11 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     
     private let pointForHitTest = CGPoint(x: 0.5, y: 0.5)
     
-    private let neededConfidenceToPinLabel: Float = 0.99
+    private let neededConfidenceToPinLabel: Double = 0.99
     
     private var addedAnchors: [ARAnchor: RecognitionResult] = [:]
     
-    /// Callback called when new augemented reality frame was captured
-    var didCapturedARFrame: ((ARFrame) -> ())?
+    private let inputNormalizationService = InputNormalizationService(numberOfValues: 30)
     
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
@@ -63,13 +64,17 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     ///
     /// - Parameter result: Classification result
     func handleRecognition(result: CarClassifierResponse, errorHandler: ((CarARLabelError) -> ())? = nil) {
+        guard let mostConfidentRecognition = result.cars.first else { return }
+        let normalizedConfidence = inputNormalizationService.normalize(value: Double(mostConfidentRecognition.confidence))
+        try? customView.detectionViewfinderView.update(progress: CGFloat(normalizedConfidence))
+        handlePinAddingIfNeeded(for: mostConfidentRecognition, normalizedConfidence: normalizedConfidence, errorHandler: errorHandler)
+    }
+    
+    private func handlePinAddingIfNeeded(for result: RecognitionResult, normalizedConfidence: Double, errorHandler: ((CarARLabelError) -> ())? = nil) {
         guard
-            let mostConfidentRecognition = result.cars.first,
-            mostConfidentRecognition.confidence >= neededConfidenceToPinLabel,
-            !addedAnchors.contains(where: { $0.value == mostConfidentRecognition})
-        else {
-            return
-        }
+            normalizedConfidence >= neededConfidenceToPinLabel,
+            !addedAnchors.contains(where: { $0.value == result })
+        else { return }
         let hitTests = customView.previewView.hitTest(pointForHitTest, types: [.featurePoint])
         guard let possibleCarHit = hitTests.first(where: { $0.distance > minimumDistanceFromDevice }) else {
             errorHandler?(.hitTestFailed)
@@ -84,7 +89,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         translation.columns.3.x = -nodeShift.elevation
         let transform = simd_mul(lastCapturedFrame.camera.transform, translation)
         let anchor = ARAnchor(transform: transform)
-        addedAnchors[anchor] = mostConfidentRecognition
+        addedAnchors[anchor] = result
         customView.previewView.session.add(anchor: anchor)
     }
     

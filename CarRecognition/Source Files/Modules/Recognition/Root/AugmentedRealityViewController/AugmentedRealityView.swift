@@ -19,13 +19,24 @@ internal final class AugmentedRealityView: View, ViewSetupable {
     /// Augmented Reality scene presented on the camera preview
     lazy var sceneView = SKScene()
     
+    /// View with animated bracket showing detection progress
+    lazy var detectionViewfinderView = DetectionViewfinderView().layoutable()
+    
+    private lazy var dimmView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        return view.layoutable()
+    }()
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        addSubview(previewView)
+        [previewView, dimmView, detectionViewfinderView].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
+        dimmView.constraintToSuperviewEdges()
         previewView.constraintToSuperviewEdges()
+        detectionViewfinderView.constraintCenterToSuperview()
     }
 }

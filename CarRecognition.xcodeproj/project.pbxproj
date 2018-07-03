@@ -10,7 +10,6 @@
 		7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E02C20BD695600784D63 /* ApplicationDelegate.swift */; };
 		7C33E03420BD695700784D63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03320BD695700784D63 /* Assets.xcassets */; };
 		7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03520BD695700784D63 /* LaunchScreen.storyboard */; };
-		7C33E04220BD695700784D63 /* CarRecognitionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E04120BD695700784D63 /* CarRecognitionTests.swift */; };
 		7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E06C20BD729B00784D63 /* Keys.podspec.json */; };
 		7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */; };
 		7C5E56F420CFE31500655C35 /* URLSessionDataTaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56ED20CFE31500655C35 /* URLSessionDataTaskResponse.swift */; };
@@ -69,6 +68,10 @@
 		7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */; };
 		7CE4290420D13A9B00539FC6 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */; };
 		7CE4290720D13EA900539FC6 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290620D13EA900539FC6 /* CarDetailsViewController.swift */; };
+		7CF269D320EA432100DCC27D /* DetectionViewfinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */; };
+		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
+		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
+		7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +91,6 @@
 		7C33E03620BD695700784D63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C33E03820BD695700784D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C33E03D20BD695700784D63 /* CarRecognition Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CarRecognition Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C33E04120BD695700784D63 /* CarRecognitionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRecognitionTests.swift; sourceTree = "<group>"; };
 		7C33E04320BD695700784D63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C33E05120BD6A5900784D63 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		7C33E05220BD6A5900784D63 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = SOURCE_ROOT; };
@@ -160,6 +162,10 @@
 		7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		7CE4290620D13EA900539FC6 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
+		7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionViewfinderView.swift; sourceTree = "<group>"; };
+		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
+		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
+		7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +219,7 @@
 		7C33E04020BD695700784D63 /* CarRecognitionTests */ = {
 			isa = PBXGroup;
 			children = (
-				7C33E04120BD695700784D63 /* CarRecognitionTests.swift */,
+				7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */,
 				7CFBB8CD20BD94D200058B97 /* Supporting Files */,
 			);
 			path = CarRecognitionTests;
@@ -231,6 +237,7 @@
 		7C33E04D20BD69A200784D63 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7CF269D420EA452800DCC27D /* Lottie animations */,
 				7CB817C320C9335300B51C3D /* Localizations */,
 				7CB817A920C9275900B51C3D /* ML Models */,
 				7C33E03320BD695700784D63 /* Assets.xcassets */,
@@ -437,6 +444,7 @@
 				7CB817CA20C9348D00B51C3D /* Cells */,
 				7CB817CB20C934A900B51C3D /* SeparatorView.swift */,
 				7CB817CD20C934DE00B51C3D /* DefaultLoader.swift */,
+				7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,6 +456,7 @@
 				7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */,
 				7CB817C820C933CB00B51C3D /* HockeyAppService.swift */,
 				7CB817ED20C93B6700B51C3D /* CarClassificationService.swift */,
+				7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -510,6 +519,14 @@
 				7CE4290620D13EA900539FC6 /* CarDetailsViewController.swift */,
 			);
 			path = "Car details";
+			sourceTree = "<group>";
+		};
+		7CF269D420EA452800DCC27D /* Lottie animations */ = {
+			isa = PBXGroup;
+			children = (
+				7CF269D520EA454000DCC27D /* viewfinder_bracket.json */,
+			);
+			path = "Lottie animations";
 			sourceTree = "<group>";
 		};
 		7CFBB8CD20BD94D200058B97 /* Supporting Files */ = {
@@ -604,6 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */,
+				7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */,
 				7CB817C720C9337000B51C3D /* Localizable.strings in Resources */,
 				7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */,
 				7C33E03420BD695700784D63 /* Assets.xcassets in Resources */,
@@ -627,6 +645,7 @@
 			);
 			inputPaths = (
 				"$(_CARTHAGE_BUILD_PATH)/HockeySDK.framework",
+				"$(_CARTHAGE_BUILD_PATH)/Lottie.framework",
 			);
 			name = "Carthage script";
 			outputPaths = (
@@ -681,6 +700,7 @@
 				7CB817E220C935B200B51C3D /* KeyboardAwareViewController.swift in Sources */,
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
 				7CA34DF920E3AEB0000E309B /* CarRecognitionModel.mlmodel in Sources */,
+				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
 				7CB817E120C935B200B51C3D /* FlowAwareViewController.swift in Sources */,
 				7C5E56F620CFE31500655C35 /* NetworkApplication.swift in Sources */,
@@ -693,6 +713,7 @@
 				7C5E56F420CFE31500655C35 /* URLSessionDataTaskResponse.swift in Sources */,
 				7CB817FB20CA82B000B51C3D /* CarClassifierResponse.swift in Sources */,
 				7CB817C220C9333C00B51C3D /* Loader.swift in Sources */,
+				7CF269D320EA432100DCC27D /* DetectionViewfinderView.swift in Sources */,
 				7C5E56FC20CFE6CF00655C35 /* NetworkService.swift in Sources */,
 				7C5E570120CFFABE00655C35 /* CarTypeSearchViewController.swift in Sources */,
 				7C5E56F820CFE31500655C35 /* NetworkRequest.swift in Sources */,
@@ -706,7 +727,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C33E04220BD695700784D63 /* CarRecognitionTests.swift in Sources */,
+				7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
