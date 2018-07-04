@@ -69,6 +69,7 @@
 		7CEDA77B20ECD5FA00DF3AF0 /* CarsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77A20ECD5FA00DF3AF0 /* CarsListView.swift */; };
 		7CEDA77E20ED044F00DF3AF0 /* gliscor-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CEDA77D20ED044F00DF3AF0 /* gliscor-gothic.ttf */; };
 		7CEDA78020ED04DE00DF3AF0 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77F20ED04DE00DF3AF0 /* UIFontExtension.swift */; };
+		7CEDA78420ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA78320ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift */; };
 		7CF269D320EA432100DCC27D /* DetectionViewfinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */; };
 		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
@@ -164,6 +165,7 @@
 		7CEDA77A20ECD5FA00DF3AF0 /* CarsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListView.swift; sourceTree = "<group>"; };
 		7CEDA77D20ED044F00DF3AF0 /* gliscor-gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gliscor-gothic.ttf"; sourceTree = "<group>"; };
 		7CEDA77F20ED04DE00DF3AF0 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		7CEDA78320ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSpecificationChartConfiguration.swift; sourceTree = "<group>"; };
 		7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionViewfinderView.swift; sourceTree = "<group>"; };
 		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				7CB817FA20CA82B000B51C3D /* CarClassifierResponse.swift */,
 				7C77741220E64EC8007B3851 /* NodeShift.swift */,
 				7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */,
+				7CEDA78320ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				7CB817C020C9332000B51C3D /* ViewSetupable.swift in Sources */,
 				7C93D49220E62C8200AF6FFC /* FlowController.swift in Sources */,
 				7CB817FD20CA865700B51C3D /* CRTimeFormatter.swift in Sources */,
+				7CEDA78420ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift in Sources */,
 				7C93D49920E6316900AF6FFC /* AugmentedRealityViewController.swift in Sources */,
 				7CB817E220C935B200B51C3D /* KeyboardAwareViewController.swift in Sources */,
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,

@@ -15,6 +15,10 @@
 "recognition.car.not.supported" = "We do not support this car at the moment";
 "recognition.recognizing" = "Recognizing...";
 
+// Car card
+"car.card.accelerate.0.to.60.mph" = "0 to 60 mph";
+"car.card.top.speed" = "Top speed";
+
 // Error
 "error.title" = "Error";
 "error.unknown.error.occurred" = "Unknown error occurred";

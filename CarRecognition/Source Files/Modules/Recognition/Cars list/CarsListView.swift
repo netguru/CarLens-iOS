@@ -15,10 +15,12 @@ internal final class CarsListView: View, ViewSetupable {
         return view.layoutable()
     }()
     
+    
     private lazy var testStackView: UIStackView = .make(
         axis: .vertical,
         with: [
-            FullOvalProgressView(),
+            FullOvalProgressView(state: .accelerate(9), invalidateChartInstantly: true),
+            FullOvalProgressView(state: .topSpeed(94), invalidateChartInstantly: true),
             PartOvalProgressView(),
             HorizontalProgressChartView(),
             HorizontalStarsView()

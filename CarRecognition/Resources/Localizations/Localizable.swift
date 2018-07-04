@@ -25,6 +25,11 @@ internal struct Localizable {
         static let recognizing = localized("recognition.recognizing")
     }
     
+    struct CarCard {
+        static let accelerate0to60mph = localized("car.card.accelerate.0.to.60.mph")
+        static let topSpeed = localized("car.card.top.speed")
+    }
+    
     struct Error {
         static let title = localized("error.title")
         static let unknownErrorOccurred = localized("error.unknown.error.occurred")
