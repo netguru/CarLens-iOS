@@ -63,6 +63,7 @@
 		7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */; };
 		E89D791820ECB230006D2D8D /* CarCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791620ECB22F006D2D8D /* CarCardViewController.swift */; };
 		E89D791920ECB230006D2D8D /* CarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791720ECB22F006D2D8D /* CarCardView.swift */; };
+		E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationServiceTests.swift; sourceTree = "<group>"; };
 		E89D791620ECB22F006D2D8D /* CarCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardViewController.swift; sourceTree = "<group>"; };
 		E89D791720ECB22F006D2D8D /* CarCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardView.swift; sourceTree = "<group>"; };
+		E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +381,7 @@
 				7C5E570220D004D600655C35 /* UIImageExtension.swift */,
 				7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */,
 				7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */,
+				E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */,
 				7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */,
 				7CB817D620C9353200B51C3D /* UIViewExtension+Constraint.swift in Sources */,
+				E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */,
 				7CB817C020C9332000B51C3D /* ViewSetupable.swift in Sources */,
 				7C93D49220E62C8200AF6FFC /* FlowController.swift in Sources */,
 				E89D791920ECB230006D2D8D /* CarCardView.swift in Sources */,

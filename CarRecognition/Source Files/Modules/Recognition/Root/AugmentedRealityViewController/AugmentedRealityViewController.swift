@@ -35,6 +35,8 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
        
         setupSession()
         
+        
+        /// TEMP
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // change 2 to desired number of seconds
             self.handleCardSlidingIfNeeded(normalizedConfidence: 1.0)
         }
@@ -92,26 +94,23 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     }
     
     private func handleCardSlidingIfNeeded(normalizedConfidence: Double) {
-        guard normalizedConfidence >= config.neededConfidenceToPinLabel else { return }
+        guard normalizedConfidence >= config.neededConfidenceToPinLabel, !cardDidSlideIn else {
+            return
+        }
         
         let carCardView = CarCardViewController(viewMaker: CarCardView())
         
-        // 2- Add bottomSheetVC as a child view
         addChildViewController(carCardView)
         view.addSubview(carCardView.view)
         carCardView.didMove(toParentViewController: self)
-        
-        // 3- Adjust bottomSheet frame and initial position.
-        guard !cardDidSlideIn else { return }
-        
+    
         cardDidSlideIn = true
 
         let height = UIScreen.main.bounds.height / 2
         let width  = UIScreen.main.bounds.width
         
         carCardView.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + height, width: width, height: height)
-        
-        carCardView.setupAnimation()
+        carCardView.animateIn()
     }
     
     /// Checks if new node at given anchor could be added.
