@@ -67,6 +67,7 @@
 		7CEDA77620ECD36400DF3AF0 /* HorizontalStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77520ECD36400DF3AF0 /* HorizontalStarsView.swift */; };
 		7CEDA77920ECD5F100DF3AF0 /* CarsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77820ECD5F100DF3AF0 /* CarsListViewController.swift */; };
 		7CEDA77B20ECD5FA00DF3AF0 /* CarsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77A20ECD5FA00DF3AF0 /* CarsListView.swift */; };
+		7CEDA77E20ED044F00DF3AF0 /* gliscor-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CEDA77D20ED044F00DF3AF0 /* gliscor-gothic.ttf */; };
 		7CF269D320EA432100DCC27D /* DetectionViewfinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */; };
 		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
@@ -160,6 +161,7 @@
 		7CEDA77520ECD36400DF3AF0 /* HorizontalStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStarsView.swift; sourceTree = "<group>"; };
 		7CEDA77820ECD5F100DF3AF0 /* CarsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListViewController.swift; sourceTree = "<group>"; };
 		7CEDA77A20ECD5FA00DF3AF0 /* CarsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListView.swift; sourceTree = "<group>"; };
+		7CEDA77D20ED044F00DF3AF0 /* gliscor-gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gliscor-gothic.ttf"; sourceTree = "<group>"; };
 		7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionViewfinderView.swift; sourceTree = "<group>"; };
 		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
@@ -235,8 +237,9 @@
 		7C33E04D20BD69A200784D63 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7CF269D420EA452800DCC27D /* Lottie animations */,
 				7CB817C320C9335300B51C3D /* Localizations */,
+				7CEDA77C20ED03B400DF3AF0 /* Fonts */,
+				7CF269D420EA452800DCC27D /* Lottie animations */,
 				7CB817A920C9275900B51C3D /* ML Models */,
 				7C33E03320BD695700784D63 /* Assets.xcassets */,
 				7C33E03520BD695700784D63 /* LaunchScreen.storyboard */,
@@ -482,6 +485,14 @@
 			path = "Cars list";
 			sourceTree = "<group>";
 		};
+		7CEDA77C20ED03B400DF3AF0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7CEDA77D20ED044F00DF3AF0 /* gliscor-gothic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		7CF269D420EA452800DCC27D /* Lottie animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +602,7 @@
 				7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */,
 				7CBF004F20ECBD5100127A9F /* full_oval_progress.json in Resources */,
 				7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */,
+				7CEDA77E20ED044F00DF3AF0 /* gliscor-gothic.ttf in Resources */,
 				7CB817C720C9337000B51C3D /* Localizable.strings in Resources */,
 				7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */,
 				7C33E03420BD695700784D63 /* Assets.xcassets in Resources */,
