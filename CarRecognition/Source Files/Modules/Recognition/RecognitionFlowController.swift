@@ -28,11 +28,21 @@ internal final class RecognitionFlowController: FlowController {
     
     private func makeRecognitionViewController() -> RecognitionViewController {
         let viewController = applicationFactory.recognitionViewController()
-        viewController.eventTriggered = { event in
+        viewController.eventTriggered = { [unowned self] event in
             switch event {
-            case .didTapSelectModel:
-                // TODO: Open controller with available models
-                break
+            case .didTapShowCarsList:
+                viewController.present(self.makeCarsListViewController(), animated: true)
+            }
+        }
+        return viewController
+    }
+    
+    private func makeCarsListViewController() -> CarsListViewController {
+        let viewController = applicationFactory.carsListViewController()
+        viewController.eventTriggered = { [unowned viewController] event in
+            switch event {
+            case .didTapDismiss:
+                viewController.dismiss(animated: true)
             }
         }
         return viewController
