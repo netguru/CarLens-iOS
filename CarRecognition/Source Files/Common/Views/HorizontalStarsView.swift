@@ -26,6 +26,8 @@ internal final class HorizontalStarsView: View, ViewSetupable {
         animationView.loopAnimation = true
         animationView.play(toProgress: 1.0, withCompletion: nil)
         
-        backgroundColor = .gray
+        // TODO: For debuging purposes. Remove when lottie will be fully working
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1
     }
 }

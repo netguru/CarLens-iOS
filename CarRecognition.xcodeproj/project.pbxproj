@@ -70,6 +70,7 @@
 		7CEDA77E20ED044F00DF3AF0 /* gliscor-gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CEDA77D20ED044F00DF3AF0 /* gliscor-gothic.ttf */; };
 		7CEDA78020ED04DE00DF3AF0 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77F20ED04DE00DF3AF0 /* UIFontExtension.swift */; };
 		7CEDA78420ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA78320ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift */; };
+		7CEDA78620ED4EF900DF3AF0 /* NSAttributedStringFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA78520ED4EF900DF3AF0 /* NSAttributedStringFactory.swift */; };
 		7CF269D320EA432100DCC27D /* DetectionViewfinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */; };
 		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
@@ -166,6 +167,7 @@
 		7CEDA77D20ED044F00DF3AF0 /* gliscor-gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "gliscor-gothic.ttf"; sourceTree = "<group>"; };
 		7CEDA77F20ED04DE00DF3AF0 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		7CEDA78320ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSpecificationChartConfiguration.swift; sourceTree = "<group>"; };
+		7CEDA78520ED4EF900DF3AF0 /* NSAttributedStringFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringFactory.swift; sourceTree = "<group>"; };
 		7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionViewfinderView.swift; sourceTree = "<group>"; };
 		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				7C77741520E650EC007B3851 /* SKNodeFactory.swift */,
+				7CEDA78520ED4EF900DF3AF0 /* NSAttributedStringFactory.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				7C5E570320D004D600655C35 /* UIImageExtension.swift in Sources */,
 				7CB817EC20C937FB00B51C3D /* RecognitionView.swift in Sources */,
 				7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */,
+				7CEDA78620ED4EF900DF3AF0 /* NSAttributedStringFactory.swift in Sources */,
 				7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */,
 				7CB817DE20C935B200B51C3D /* TableViewCell.swift in Sources */,
 				7CEDA77420ECD35400DF3AF0 /* HorizontalProgressChartView.swift in Sources */,

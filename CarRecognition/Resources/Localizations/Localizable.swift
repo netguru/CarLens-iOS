@@ -28,6 +28,7 @@ internal struct Localizable {
     struct CarCard {
         static let accelerate0to60mph = localized("car.card.accelerate.0.to.60.mph")
         static let topSpeed = localized("car.card.top.speed")
+        static let mph = localized("car.card.mph")
     }
     
     struct Error {

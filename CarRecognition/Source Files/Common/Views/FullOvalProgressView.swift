@@ -23,10 +23,12 @@ internal final class FullOvalProgressView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
-        animationView.clipsToBounds = false
         animationView.loopAnimation = true
         animationView.play(toProgress: 1.0, withCompletion: nil)
         
-        backgroundColor = .gray
+        // TODO: For debuging purposes. Remove when lottie will be fully working
+        animationView.clipsToBounds = false
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1
     }
 }

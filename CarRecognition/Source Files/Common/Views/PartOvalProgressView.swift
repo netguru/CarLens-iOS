@@ -55,10 +55,12 @@ internal final class PartOvalProgressView: View, ViewSetupable {
             formatter.unitsStyle = .short
             formatter.allowedUnits = .second
             
-            valueLabel.text = (formatter.string(from: accelerate) ?? "") + "."
+            let valueText = (formatter.string(from: accelerate) ?? "") + "."
+            valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
             titleLabel.text = Localizable.CarCard.accelerate0to60mph.uppercased()
         case .topSpeed(let topSpeed):
-            valueLabel.text = "\(topSpeed) mph"
+            let valueText = "\(topSpeed) \(Localizable.CarCard.mph)"
+            valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
             titleLabel.text = Localizable.CarCard.topSpeed.uppercased()
         }
         if invalidateChartInstantly {
@@ -95,6 +97,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         valueLabel.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
         titleLabel.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 4, right: 8))
         NSLayoutConstraint.activate([
+            animationView.widthAnchor.constraint(equalTo: heightAnchor),
             titleLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 4),
             valueLabel.centerYAnchor.constraint(equalTo: animationView.centerYAnchor)
         ])
@@ -102,12 +105,12 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
-        animationView.clipsToBounds = false
         animationView.loopAnimation = true
         animationView.play(toProgress: 1.0, withCompletion: nil)
         
-        valueLabel.text = "94 mph"
-        titleLabel.text = "TOP SPEED"
-        backgroundColor = .gray
+        // TODO: For debuging purposes. Remove when lottie will be fully working
+        animationView.clipsToBounds = false
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1
     }
 }

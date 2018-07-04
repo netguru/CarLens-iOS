@@ -18,6 +18,7 @@
 // Car card
 "car.card.accelerate.0.to.60.mph" = "0 to 60 mph";
 "car.card.top.speed" = "Top speed";
+"car.card.mph" = "mph";
 
 // Error
 "error.title" = "Error";
