@@ -19,6 +19,6 @@ internal extension UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.axis = axis
         stackView.spacing = spacing
-        return stackView
+        return stackView.layoutable()
     }
 }
