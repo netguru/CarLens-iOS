@@ -8,9 +8,20 @@ import UIKit
 
 internal final class CarCardViewController: TypedViewController<CarCardView> {
 
-    let animator = UIViewPropertyAnimator(duration: 1.0, curve: .linear)
+    /// Animator for entry animations
+    private let exitAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .linear)
+    
+    /// Animator for exit animations
+    private let entryAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .linear)
+    
+    /// Car instance
+    private let car: Car
 
-    /// SeeAlso: UIViewController
+    init(viewMaker: @autoclosure @escaping () -> CarCardView, car: Car) {
+        self.car = car
+        super.init(viewMaker: viewMaker)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,37 +29,37 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     }
 
     private func setupProperties() {
-        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(handlePan))
-        view.addGestureRecognizer(gesture)
+        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        view.addGestureRecognizer(gestureRecognizer)
         view.backgroundColor = .clear
     }
 
-    /// Target for panGesture recognizer
-    @objc func handlePan(recognizer: UIPanGestureRecognizer) {
+    /// Target for UIPanGestureRecogniser recognizer
+    @objc func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
-            animator.addAnimations {
-                self.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + self.view.frame.height, width: self.view.frame.width, height: self.view.frame.height)
+            exitAnimator.addAnimations {
+                let frame = self.view.frame
+                self.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + frame.height, width: frame.width, height: frame.height)
             }
-            animator.pausesOnCompletion = true
-            animator.pauseAnimation()
+            exitAnimator.pausesOnCompletion = true
+            exitAnimator.pauseAnimation()
         case .changed:
             let translation = recognizer.translation(in: view)
-            animator.fractionComplete = translation.y / view.frame.height
+            exitAnimator.fractionComplete = translation.y / view.frame.height
         case .ended:
-            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            exitAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         default: break
         }
     }
-}
-
-extension CarCardViewController {
+    
+    /// Animates card view from bottom of screen to desired position
     func animateIn() {
-        let animator = UIViewPropertyAnimator(duration: 1.0, curve: .linear) {
+        entryAnimator.addAnimations {
             let frame = self.view.frame
-            let yComponent: CGFloat = UIScreen.main.bounds.height / 2
+            let yComponent = UIScreen.main.bounds.height / 2
             self.view.frame = CGRect(x: 0, y: yComponent, width: frame.width, height: frame.height)
         }
-        animator.startAnimation()
+        entryAnimator.startAnimation()
     }
 }

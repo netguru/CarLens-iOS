@@ -34,8 +34,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         super.viewWillAppear(animated)
        
         setupSession()
-        
-        
+
         /// TEMP
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // change 2 to desired number of seconds
             self.handleCardSlidingIfNeeded(normalizedConfidence: 1.0)
@@ -98,7 +97,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
             return
         }
         
-        let carCardView = CarCardViewController(viewMaker: CarCardView())
+        let carCardView = CarCardViewController(viewMaker: CarCardView(), car: .known(make: .nissan, model: "GT-R"))
         
         addChildViewController(carCardView)
         view.addSubview(carCardView.view)
