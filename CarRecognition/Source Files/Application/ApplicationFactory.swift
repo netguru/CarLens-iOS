@@ -32,4 +32,11 @@ internal final class ApplicationFactory {
     func augmentedRealityViewController() -> AugmentedRealityViewController {
         return AugmentedRealityViewController(viewMaker: AugmentedRealityView())
     }
+    
+    /// Creates controller with list of available cars to discover
+    ///
+    /// - Returns: Created controller
+    func carsListViewController() -> CarsListViewController {
+        return CarsListViewController(viewMaker: CarsListView())
+    }
 }

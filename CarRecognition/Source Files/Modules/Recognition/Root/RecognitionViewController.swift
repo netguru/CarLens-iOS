@@ -12,9 +12,9 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     /// Enum describing events that can be triggered by this controller
     ///
-    /// - didTapSelectModel: send when user want to select the specific model
+    /// - didTapShowCarsList: send when user want to see the list of available cars
     enum Event {
-        case didTapSelectModel
+        case didTapShowCarsList
     }
     
     /// Callback with triggered event
@@ -38,6 +38,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        customView.carsListButton.addTarget(self, action: #selector(carsListButtonTapAction), for: .touchUpInside)
         augmentedRealityViewController.didCapturedARFrame = { [weak self] frame in
             self?.classificationService.perform(on: frame.capturedImage)
         }
@@ -58,5 +59,9 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     private func handleRecognition(result: CarClassifierResponse) {
         customView.analyzeTimeLabel.text = CRTimeFormatter.intervalMilisecondsFormatted(result.analyzeDuration)   
         customView.detectedModelLabel.text = result.cars.first?.description ?? ""
+    }
+    
+    @objc private func carsListButtonTapAction() {
+        eventTriggered?(.didTapShowCarsList)
     }
 }
