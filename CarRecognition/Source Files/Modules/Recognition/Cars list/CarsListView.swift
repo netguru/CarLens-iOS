@@ -23,7 +23,7 @@ internal final class CarsListView: View, ViewSetupable {
             PartOvalProgressView(state: .topSpeed(94), invalidateChartInstantly: false),
             HorizontalProgressChartView(state: .power(115), invalidateChartInstantly: false),
             HorizontalProgressChartView(state: .engine(1588), invalidateChartInstantly: false),
-            HorizontalStarsView()
+            HorizontalStarsView(starCount: 2, invalidateChartInstantly: false)
         ],
         spacing: 20
     )
@@ -31,6 +31,8 @@ internal final class CarsListView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         addSubview(recognizeButton)
+        
+        testStackView.alignment = .center
         addSubview(testStackView)
     }
     
