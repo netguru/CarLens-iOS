@@ -40,7 +40,7 @@ internal enum Car: Equatable, CustomStringConvertible {
         case .known(let make, let model):
             return "\(make.description) \(model.description.capitalized)"
         case .other:
-            return Localizable.Car.notSupported
+            return Localizable.Recognition.carNotSupported
         }
     }
 }

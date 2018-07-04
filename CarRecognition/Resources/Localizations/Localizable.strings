@@ -10,8 +10,10 @@
 "yes" = "Yes";
 "no" = "No";
 
-// Common
-"car.not.supported" = "Not supported car";
+// Recognition
+"recognition.put.car.in.center" = "Put car in the center";
+"recognition.car.not.supported" = "We do not support this car at the moment";
+"recognition.recognizing" = "Recognizing...";
 
 // Error
 "error.title" = "Error";

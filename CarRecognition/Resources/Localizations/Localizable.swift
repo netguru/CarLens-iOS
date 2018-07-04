@@ -19,8 +19,10 @@ internal struct Localizable {
         static let no = localized("no")
     }
     
-    struct Car {
-        static let notSupported = localized("car.not.supported")
+    struct Recognition {
+        static let putCarInCenter = localized("recognition.put.car.in.center")
+        static let carNotSupported = localized("recognition.car.not.supported")
+        static let recognizing = localized("recognition.recognizing")
     }
     
     struct Error {

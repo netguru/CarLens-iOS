@@ -9,6 +9,13 @@ import Lottie
 
 internal final class DetectionViewfinderView: View, ViewSetupable {
     
+    /// Available state supported by the view
+    enum State {
+        case recognizing(progress: Double)
+        case recognized(car: Car)
+    }
+    
+    /// Error that can occur durning updating state
     enum DetectionViewfinderViewError: Error {
         case wrongValueProvided
     }
@@ -21,18 +28,29 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
         view.textColor = .white
         view.numberOfLines = 1
         view.textAlignment = .center
-        view.text = "Put car in the center"
+        view.text = " "
         return view.layoutable()
     }()
     
-    /// Updates the detection progress
+    /// Updates the detection state
     ///
-    /// - Parameter progress: Progress of the detection. Must be value between 0 and 1
-    func update(progress: CGFloat) throws {
-        guard progress >= 0 && progress <= 1 else {
-            throw DetectionViewfinderViewError.wrongValueProvided
+    /// - Parameter state: State of the detection
+    func update(state: State) throws {
+        switch state {
+        case .recognizing(let progress):
+            guard progress >= 0 && progress <= 1 else {
+                throw DetectionViewfinderViewError.wrongValueProvided
+            }
+            viewfinderAnimationView.animationProgress = CGFloat(progress)
+            if progress < 0.1 {
+                informationLabel.text = Localizable.Recognition.putCarInCenter
+            } else {
+                informationLabel.text = Localizable.Recognition.recognizing
+            }
+        case .recognized(let car):
+            guard case Car.other = car else { return }
+            informationLabel.text = Localizable.Recognition.carNotSupported
         }
-        viewfinderAnimationView.animationProgress = progress
     }
     
     /// - SeeAlso: ViewSetupable
