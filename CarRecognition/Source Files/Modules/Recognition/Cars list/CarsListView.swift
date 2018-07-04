@@ -15,30 +15,13 @@ internal final class CarsListView: View, ViewSetupable {
         return view.layoutable()
     }()
     
-    private lazy var testStackView: UIStackView = .make(
-        axis: .vertical,
-        with: [
-            FullOvalProgressView(currentNumber: 3, maximumNumber: 9, invalidateChartInstantly: false),
-            PartOvalProgressView(state: .accelerate(9), invalidateChartInstantly: false),
-            PartOvalProgressView(state: .topSpeed(94), invalidateChartInstantly: false),
-            HorizontalProgressChartView(state: .power(115), invalidateChartInstantly: false),
-            HorizontalProgressChartView(state: .engine(1588), invalidateChartInstantly: false),
-            HorizontalStarsView(starCount: 2, invalidateChartInstantly: false)
-        ],
-        spacing: 20
-    )
-    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         addSubview(recognizeButton)
-        
-        testStackView.alignment = .center
-        addSubview(testStackView)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        testStackView.constraintCenterToSuperview()
         recognizeButton.constraintToConstant(.init(width: 80, height: 80))
         NSLayoutConstraint.activate([
             recognizeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -27),
