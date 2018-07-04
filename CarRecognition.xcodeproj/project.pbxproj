@@ -61,8 +61,8 @@
 		7CBF005120ECBD5100127A9F /* horizontal-stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF004D20ECBD5100127A9F /* horizontal-stars.json */; };
 		7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */; };
 		7CE4290420D13A9B00539FC6 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */; };
-		7CEDA77020ECD32D00DF3AF0 /* FullOvalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA76F20ECD32D00DF3AF0 /* FullOvalProgressView.swift */; };
-		7CEDA77220ECD34100DF3AF0 /* PartOvalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77120ECD34100DF3AF0 /* PartOvalProgressView.swift */; };
+		7CEDA77020ECD32D00DF3AF0 /* PartOvalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA76F20ECD32D00DF3AF0 /* PartOvalProgressView.swift */; };
+		7CEDA77220ECD34100DF3AF0 /* FullOvalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77120ECD34100DF3AF0 /* FullOvalProgressView.swift */; };
 		7CEDA77420ECD35400DF3AF0 /* HorizontalProgressChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77320ECD35400DF3AF0 /* HorizontalProgressChartView.swift */; };
 		7CEDA77620ECD36400DF3AF0 /* HorizontalStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77520ECD36400DF3AF0 /* HorizontalStarsView.swift */; };
 		7CEDA77920ECD5F100DF3AF0 /* CarsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA77820ECD5F100DF3AF0 /* CarsListViewController.swift */; };
@@ -157,8 +157,8 @@
 		7CBF004D20ECBD5100127A9F /* horizontal-stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "horizontal-stars.json"; sourceTree = "<group>"; };
 		7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
-		7CEDA76F20ECD32D00DF3AF0 /* FullOvalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullOvalProgressView.swift; sourceTree = "<group>"; };
-		7CEDA77120ECD34100DF3AF0 /* PartOvalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOvalProgressView.swift; sourceTree = "<group>"; };
+		7CEDA76F20ECD32D00DF3AF0 /* PartOvalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOvalProgressView.swift; sourceTree = "<group>"; };
+		7CEDA77120ECD34100DF3AF0 /* FullOvalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullOvalProgressView.swift; sourceTree = "<group>"; };
 		7CEDA77320ECD35400DF3AF0 /* HorizontalProgressChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalProgressChartView.swift; sourceTree = "<group>"; };
 		7CEDA77520ECD36400DF3AF0 /* HorizontalStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalStarsView.swift; sourceTree = "<group>"; };
 		7CEDA77820ECD5F100DF3AF0 /* CarsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListViewController.swift; sourceTree = "<group>"; };
@@ -429,8 +429,8 @@
 				7CB817CB20C934A900B51C3D /* SeparatorView.swift */,
 				7CB817CD20C934DE00B51C3D /* DefaultLoader.swift */,
 				7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */,
-				7CEDA76F20ECD32D00DF3AF0 /* FullOvalProgressView.swift */,
-				7CEDA77120ECD34100DF3AF0 /* PartOvalProgressView.swift */,
+				7CEDA77120ECD34100DF3AF0 /* FullOvalProgressView.swift */,
+				7CEDA76F20ECD32D00DF3AF0 /* PartOvalProgressView.swift */,
 				7CEDA77320ECD35400DF3AF0 /* HorizontalProgressChartView.swift */,
 				7CEDA77520ECD36400DF3AF0 /* HorizontalStarsView.swift */,
 			);
@@ -655,8 +655,8 @@
 				7CB817C520C9336500B51C3D /* Localizable.swift in Sources */,
 				7CEDA77B20ECD5FA00DF3AF0 /* CarsListView.swift in Sources */,
 				7CB817BC20C9320700B51C3D /* CrashLogger.swift in Sources */,
-				7CEDA77220ECD34100DF3AF0 /* PartOvalProgressView.swift in Sources */,
-				7CEDA77020ECD32D00DF3AF0 /* FullOvalProgressView.swift in Sources */,
+				7CEDA77220ECD34100DF3AF0 /* FullOvalProgressView.swift in Sources */,
+				7CEDA77020ECD32D00DF3AF0 /* PartOvalProgressView.swift in Sources */,
 				7C5E570320D004D600655C35 /* UIImageExtension.swift in Sources */,
 				7CB817EC20C937FB00B51C3D /* RecognitionView.swift in Sources */,
 				7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */,
