@@ -15,13 +15,26 @@ internal final class CarsListView: View, ViewSetupable {
         return view.layoutable()
     }()
     
+    private lazy var testStackView: UIStackView = .make(
+        axis: .vertical,
+        with: [
+            FullOvalProgressView(),
+            PartOvalProgressView(),
+            HorizontalProgressChartView(),
+            HorizontalStarsView()
+        ],
+        spacing: 20
+    )
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         addSubview(recognizeButton)
+        addSubview(testStackView)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
+        testStackView.constraintCenterToSuperview()
         recognizeButton.constraintToConstant(.init(width: 80, height: 80))
         NSLayoutConstraint.activate([
             recognizeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -27),
@@ -31,6 +44,6 @@ internal final class CarsListView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
-        backgroundColor = UIColor(hex: 0xE9EEF0)
+        backgroundColor = .crBackgroundGray
     }
 }

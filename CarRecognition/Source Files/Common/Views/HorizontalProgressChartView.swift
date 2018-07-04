@@ -25,5 +25,7 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
     func setupProperties() {
         animationView.loopAnimation = true
         animationView.play(toProgress: 1.0, withCompletion: nil)
+        
+        backgroundColor = .gray
     }
 }

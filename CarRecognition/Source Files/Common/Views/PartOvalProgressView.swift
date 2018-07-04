@@ -23,7 +23,10 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
+        animationView.clipsToBounds = false
         animationView.loopAnimation = true
         animationView.play(toProgress: 1.0, withCompletion: nil)
+        
+        backgroundColor = .gray
     }
 }
