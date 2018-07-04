@@ -1,0 +1,29 @@
+//
+//  HorizontalProgressChartView.swift
+//  CarRecognition
+//
+
+
+import UIKit
+import Lottie
+
+internal final class HorizontalProgressChartView: View, ViewSetupable {
+    
+    private lazy var animationView = LOTAnimationView(name: "horizontal-progress-chart").layoutable()
+    
+    /// - SeeAlso: ViewSetupable
+    func setupViewHierarchy() {
+        addSubview(animationView)
+    }
+    
+    /// - SeeAlso: ViewSetupable
+    func setupConstraints() {
+        animationView.constraintToSuperviewEdges()
+    }
+    
+    /// - SeeAlso: ViewSetupable
+    func setupProperties() {
+        animationView.loopAnimation = true
+        animationView.play(toProgress: 1.0, withCompletion: nil)
+    }
+}

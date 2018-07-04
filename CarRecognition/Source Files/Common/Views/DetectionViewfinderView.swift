@@ -28,7 +28,7 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
         view.textColor = .white
         view.numberOfLines = 1
         view.textAlignment = .center
-        view.text = " "
+        view.text = Localizable.Recognition.putCarInCenter
         return view.layoutable()
     }()
     
