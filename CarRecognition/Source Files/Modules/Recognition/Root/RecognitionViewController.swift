@@ -56,11 +56,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     private func handleRecognition(result: CarClassifierResponse) {
-        customView.analyzeTimeLabel.text = CRTimeFormatter.intervalMilisecondsFormatted(result.analyzeDuration)
-        
-        let labels = [customView.modelFirstLabel, customView.modelSecondLabel]
-        for (index, element) in result.cars.prefix(2).enumerated() {
-            labels[index].text = element.description
-        }
+        customView.analyzeTimeLabel.text = CRTimeFormatter.intervalMilisecondsFormatted(result.analyzeDuration)   
+        customView.detectedModelLabel.text = result.cars.first?.description ?? ""
     }
 }

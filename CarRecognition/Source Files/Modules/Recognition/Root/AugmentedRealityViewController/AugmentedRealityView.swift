@@ -37,6 +37,6 @@ internal final class AugmentedRealityView: View, ViewSetupable {
     func setupConstraints() {
         dimmView.constraintToSuperviewEdges()
         previewView.constraintToSuperviewEdges()
-        detectionViewfinderView.constraintCenterToSuperview()
+        detectionViewfinderView.constraintCenterToSuperview(withConstant: .init(x: 0, y: -50))
     }
 }

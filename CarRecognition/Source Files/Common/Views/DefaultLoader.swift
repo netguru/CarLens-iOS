@@ -61,7 +61,7 @@ internal class DefaultLoader: Loader {
         NSLayoutConstraint.activate([
             background.widthAnchor.constraint(equalTo: baseView.widthAnchor, multiplier: 0.4),
             background.heightAnchor.constraint(equalTo: background.widthAnchor)
-            ])
+        ])
         return background
     }
 }

@@ -14,15 +14,6 @@
 		7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */; };
 		7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */; };
 		7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */; };
-		7C5E56F420CFE31500655C35 /* URLSessionDataTaskResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56ED20CFE31500655C35 /* URLSessionDataTaskResponse.swift */; };
-		7C5E56F520CFE31500655C35 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56EE20CFE31500655C35 /* NetworkResponse.swift */; };
-		7C5E56F620CFE31500655C35 /* NetworkApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56EF20CFE31500655C35 /* NetworkApplication.swift */; };
-		7C5E56F720CFE31500655C35 /* URLRequestExtension+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56F020CFE31500655C35 /* URLRequestExtension+Networking.swift */; };
-		7C5E56F820CFE31500655C35 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56F120CFE31500655C35 /* NetworkRequest.swift */; };
-		7C5E56FA20CFE31500655C35 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56F320CFE31500655C35 /* NetworkError.swift */; };
-		7C5E56FC20CFE6CF00655C35 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */; };
-		7C5E56FF20CFFA6700655C35 /* CarTypeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E56FE20CFFA6700655C35 /* CarTypeSearchView.swift */; };
-		7C5E570120CFFABE00655C35 /* CarTypeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E570020CFFABE00655C35 /* CarTypeSearchViewController.swift */; };
 		7C5E570320D004D600655C35 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E570220D004D600655C35 /* UIImageExtension.swift */; };
 		7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741220E64EC8007B3851 /* NodeShift.swift */; };
 		7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741520E650EC007B3851 /* SKNodeFactory.swift */; };
@@ -64,12 +55,8 @@
 		7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */; };
 		7CB817FB20CA82B000B51C3D /* CarClassifierResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817FA20CA82B000B51C3D /* CarClassifierResponse.swift */; };
 		7CB817FD20CA865700B51C3D /* CRTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817FC20CA865700B51C3D /* CRTimeFormatter.swift */; };
-		7CE428FC20D1108E00539FC6 /* CarsSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FB20D1108E00539FC6 /* CarsSearchRequest.swift */; };
-		7CE428FE20D1109D00539FC6 /* CarsSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FD20D1109D00539FC6 /* CarsSearchResponse.swift */; };
-		7CE4290020D111F600539FC6 /* APICar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE428FF20D111F600539FC6 /* APICar.swift */; };
 		7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */; };
 		7CE4290420D13A9B00539FC6 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */; };
-		7CE4290720D13EA900539FC6 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290620D13EA900539FC6 /* CarDetailsViewController.swift */; };
 		7CF269D320EA432100DCC27D /* DetectionViewfinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */; };
 		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
@@ -110,15 +97,6 @@
 		7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarRecognitionKeys.m; path = Pods/CocoaPodsKeys/CarRecognitionKeys.m; sourceTree = SOURCE_ROOT; };
 		7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarARConfiguration.swift; sourceTree = "<group>"; };
 		7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAnchorExtension.swift; sourceTree = "<group>"; };
-		7C5E56ED20CFE31500655C35 /* URLSessionDataTaskResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskResponse.swift; sourceTree = "<group>"; };
-		7C5E56EE20CFE31500655C35 /* NetworkResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
-		7C5E56EF20CFE31500655C35 /* NetworkApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkApplication.swift; sourceTree = "<group>"; };
-		7C5E56F020CFE31500655C35 /* URLRequestExtension+Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequestExtension+Networking.swift"; sourceTree = "<group>"; };
-		7C5E56F120CFE31500655C35 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
-		7C5E56F320CFE31500655C35 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		7C5E56FE20CFFA6700655C35 /* CarTypeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypeSearchView.swift; sourceTree = "<group>"; };
-		7C5E570020CFFABE00655C35 /* CarTypeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTypeSearchViewController.swift; sourceTree = "<group>"; };
 		7C5E570220D004D600655C35 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		7C77741220E64EC8007B3851 /* NodeShift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeShift.swift; sourceTree = "<group>"; };
 		7C77741520E650EC007B3851 /* SKNodeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeFactory.swift; sourceTree = "<group>"; };
@@ -160,12 +138,8 @@
 		7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRNumberFormatter.swift; sourceTree = "<group>"; };
 		7CB817FA20CA82B000B51C3D /* CarClassifierResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarClassifierResponse.swift; sourceTree = "<group>"; };
 		7CB817FC20CA865700B51C3D /* CRTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRTimeFormatter.swift; sourceTree = "<group>"; };
-		7CE428FB20D1108E00539FC6 /* CarsSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsSearchRequest.swift; sourceTree = "<group>"; };
-		7CE428FD20D1109D00539FC6 /* CarsSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsSearchResponse.swift; sourceTree = "<group>"; };
-		7CE428FF20D111F600539FC6 /* APICar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICar.swift; sourceTree = "<group>"; };
 		7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
-		7CE4290620D13EA900539FC6 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionViewfinderView.swift; sourceTree = "<group>"; };
 		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
@@ -295,28 +269,6 @@
 			path = "CocoaPods Keys";
 			sourceTree = "<group>";
 		};
-		7C5E56EC20CFE2D000655C35 /* Networking Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				7C5E56F120CFE31500655C35 /* NetworkRequest.swift */,
-				7C5E56EE20CFE31500655C35 /* NetworkResponse.swift */,
-				7C5E56EF20CFE31500655C35 /* NetworkApplication.swift */,
-				7C5E56F320CFE31500655C35 /* NetworkError.swift */,
-				7C5E56F020CFE31500655C35 /* URLRequestExtension+Networking.swift */,
-				7C5E56ED20CFE31500655C35 /* URLSessionDataTaskResponse.swift */,
-			);
-			path = "Networking Helpers";
-			sourceTree = "<group>";
-		};
-		7C5E56FD20CFF34A00655C35 /* Car type search */ = {
-			isa = PBXGroup;
-			children = (
-				7C5E570020CFFABE00655C35 /* CarTypeSearchViewController.swift */,
-				7C5E56FE20CFFA6700655C35 /* CarTypeSearchView.swift */,
-			);
-			path = "Car type search";
-			sourceTree = "<group>";
-		};
 		7C77741720E65196007B3851 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,8 +282,6 @@
 			children = (
 				7C93D49420E62CE600AF6FFC /* RecognitionFlowController.swift */,
 				7CB817E820C937C700B51C3D /* Root */,
-				7C5E56FD20CFF34A00655C35 /* Car type search */,
-				7CE4290520D13DFA00539FC6 /* Car details */,
 			);
 			path = Recognition;
 			sourceTree = "<group>";
@@ -379,7 +329,6 @@
 				7C77741720E65196007B3851 /* Factories */,
 				7CB817F720C9685100B51C3D /* Formatter */,
 				7CB817BA20C931D500B51C3D /* Services */,
-				7CE428F920D10F2100539FC6 /* Network requests */,
 				7CB817B920C931D000B51C3D /* Views */,
 				7CB817B820C931C400B51C3D /* Models */,
 				7CB817B720C931B800B51C3D /* Extensions */,
@@ -437,7 +386,6 @@
 				7C77741C20E65AD1007B3851 /* CarMake.swift */,
 				7CB817F520C95BB200B51C3D /* RecognitionResult.swift */,
 				7CB817FA20CA82B000B51C3D /* CarClassifierResponse.swift */,
-				7CE428FF20D111F600539FC6 /* APICar.swift */,
 				7C77741220E64EC8007B3851 /* NodeShift.swift */,
 				7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */,
 			);
@@ -458,8 +406,6 @@
 		7CB817BA20C931D500B51C3D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				7C5E56EC20CFE2D000655C35 /* Networking Helpers */,
-				7C5E56FB20CFE6CF00655C35 /* NetworkService.swift */,
 				7CB817C820C933CB00B51C3D /* HockeyAppService.swift */,
 				7CB817ED20C93B6700B51C3D /* CarClassificationService.swift */,
 				7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */,
@@ -500,31 +446,6 @@
 				7CB817FC20CA865700B51C3D /* CRTimeFormatter.swift */,
 			);
 			path = Formatter;
-			sourceTree = "<group>";
-		};
-		7CE428F920D10F2100539FC6 /* Network requests */ = {
-			isa = PBXGroup;
-			children = (
-				7CE428FA20D10F3900539FC6 /* Car search */,
-			);
-			path = "Network requests";
-			sourceTree = "<group>";
-		};
-		7CE428FA20D10F3900539FC6 /* Car search */ = {
-			isa = PBXGroup;
-			children = (
-				7CE428FB20D1108E00539FC6 /* CarsSearchRequest.swift */,
-				7CE428FD20D1109D00539FC6 /* CarsSearchResponse.swift */,
-			);
-			path = "Car search";
-			sourceTree = "<group>";
-		};
-		7CE4290520D13DFA00539FC6 /* Car details */ = {
-			isa = PBXGroup;
-			children = (
-				7CE4290620D13EA900539FC6 /* CarDetailsViewController.swift */,
-			);
-			path = "Car details";
 			sourceTree = "<group>";
 		};
 		7CF269D420EA452800DCC27D /* Lottie animations */ = {
@@ -681,25 +602,19 @@
 				7CB817EA20C937EA00B51C3D /* RecognitionViewController.swift in Sources */,
 				7C77741D20E65AD1007B3851 /* CarMake.swift in Sources */,
 				7C93D49D20E6367000AF6FFC /* UIViewControllerExtension.swift in Sources */,
-				7C5E56F520CFE31500655C35 /* NetworkResponse.swift in Sources */,
-				7CE428FE20D1109D00539FC6 /* CarsSearchResponse.swift in Sources */,
 				7CB817E020C935B200B51C3D /* View.swift in Sources */,
 				7CB817DF20C935B200B51C3D /* TypedViewController.swift in Sources */,
 				7C93D49020E627EB00AF6FFC /* ApplicationFactory.swift in Sources */,
 				7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */,
 				7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */,
 				7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */,
-				7C5E56FF20CFFA6700655C35 /* CarTypeSearchView.swift in Sources */,
 				7CB817D420C9353200B51C3D /* BoolExtension.swift in Sources */,
-				7C5E56F720CFE31500655C35 /* URLRequestExtension+Networking.swift in Sources */,
-				7CE4290020D111F600539FC6 /* APICar.swift in Sources */,
 				7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */,
 				7C93D49B20E6317300AF6FFC /* AugmentedRealityView.swift in Sources */,
 				7C77741920E65398007B3851 /* Car.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,
 				7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */,
 				7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */,
-				7CE428FC20D1108E00539FC6 /* CarsSearchRequest.swift in Sources */,
 				7CB817D620C9353200B51C3D /* UIViewExtension+Constraint.swift in Sources */,
 				7CB817C020C9332000B51C3D /* ViewSetupable.swift in Sources */,
 				7C93D49220E62C8200AF6FFC /* FlowController.swift in Sources */,
@@ -711,23 +626,16 @@
 				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
 				7CB817E120C935B200B51C3D /* FlowAwareViewController.swift in Sources */,
-				7C5E56F620CFE31500655C35 /* NetworkApplication.swift in Sources */,
 				7CB817F620C95BB200B51C3D /* RecognitionResult.swift in Sources */,
 				7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */,
 				7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */,
 				7CB817D320C9353200B51C3D /* UIStackViewExtension.swift in Sources */,
 				7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */,
 				7CB817C920C933CB00B51C3D /* HockeyAppService.swift in Sources */,
-				7C5E56F420CFE31500655C35 /* URLSessionDataTaskResponse.swift in Sources */,
 				7CB817FB20CA82B000B51C3D /* CarClassifierResponse.swift in Sources */,
 				7CB817C220C9333C00B51C3D /* Loader.swift in Sources */,
 				7CF269D320EA432100DCC27D /* DetectionViewfinderView.swift in Sources */,
-				7C5E56FC20CFE6CF00655C35 /* NetworkService.swift in Sources */,
-				7C5E570120CFFABE00655C35 /* CarTypeSearchViewController.swift in Sources */,
-				7C5E56F820CFE31500655C35 /* NetworkRequest.swift in Sources */,
 				7CB817EE20C93B6700B51C3D /* CarClassificationService.swift in Sources */,
-				7CE4290720D13EA900539FC6 /* CarDetailsViewController.swift in Sources */,
-				7C5E56FA20CFE31500655C35 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
