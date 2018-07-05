@@ -32,7 +32,6 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
         setupSession()
     }
     

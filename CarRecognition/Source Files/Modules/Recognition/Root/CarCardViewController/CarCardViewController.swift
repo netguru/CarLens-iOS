@@ -22,17 +22,22 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     /// Car instance
     private let car: Car
 
+    /// Initializes view controller with given View and car
+    ///
+    /// - Parameter viewMaker: Maker for the UIView
+    /// - Parameter car: detected model of car
     init(viewMaker: @autoclosure @escaping () -> CarCardView, car: Car) {
         self.car = car
         super.init(viewMaker: viewMaker)
     }
     
+    /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupProperties()
     }
 
+    /// Sets up properties of view controller
     private func setupProperties() {
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         view.addGestureRecognizer(gestureRecognizer)
