@@ -15,10 +15,11 @@ internal extension UIStackView {
     ///   - views: View that should be embeded into the stack view
     ///   - spacing: Spacing of the stack view (0 by default)
     /// - Returns: Created stack view
-    static func make(axis: UILayoutConstraintAxis, with views: [UIView], spacing: CGFloat = 0) -> UIStackView {
+    static func make(axis: UILayoutConstraintAxis, with views: [UIView], spacing: CGFloat = 0, distribution: UIStackViewDistribution = .fill) -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.axis = axis
         stackView.spacing = spacing
+        stackView.distribution = distribution
         return stackView.layoutable()
     }
 }

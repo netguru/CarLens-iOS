@@ -93,7 +93,8 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
             return
         }
         /// TEMP: - Just a temporary Ford Fiesta that will be changed by the detected car in the future
-        let carCardView = CarCardViewController(viewMaker: CarCardView(), car: .known(make: .ford, model: "Fiesta"))
+        let car = Car.known(make: .volkswagen, model: "Passat")
+        let carCardView = CarCardViewController(viewMaker: CarCardView(car: car))
 
         addChildViewController(carCardView)
         view.addSubview(carCardView.view)

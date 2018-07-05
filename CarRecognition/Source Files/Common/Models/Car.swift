@@ -3,6 +3,7 @@
 //  CarRecognition
 //
 
+import UIKit
 
 /// Describes supported cars
 internal enum Car: Equatable, CustomStringConvertible {
@@ -41,6 +42,49 @@ internal enum Car: Equatable, CustomStringConvertible {
             return "\(make.description) \(model.description.capitalized)"
         case .other:
             return Localizable.Recognition.carNotSupported
+        }
+    }
+
+    var brand: String {
+        switch self {
+        case .known(let make, _):
+            return make.description
+        case .other:
+            return Localizable.Recognition.carNotSupported
+        }
+    }
+
+    var model: String {
+        switch self {
+        case .known(_, let model):
+            return model
+        case .other:
+            return Localizable.Recognition.carNotSupported
+        }
+    }
+    
+    var image: UIImage {
+        switch self {
+        case .known(let make, let model):
+            switch make {
+            case .ford:
+                return #imageLiteral(resourceName: "FordFiesta")
+            case .hodna:
+                return #imageLiteral(resourceName: "HondaCivic")
+            case .nissan:
+                return #imageLiteral(resourceName: "NissanQashqai")
+            case .toyota:
+                return model == "Camry" ? #imageLiteral(resourceName: "ToyotaCamry") : #imageLiteral(resourceName: "ToyotaCorolla")
+            case .volkswagen:
+                switch model {
+                case "Golf": return #imageLiteral(resourceName: "VolkswagenGolf")
+                case "Passat": return #imageLiteral(resourceName: "VolkswagenPassat")
+                case "Tiguan": return #imageLiteral(resourceName: "VolkswagenTiguan")
+                default: return #imageLiteral(resourceName: "VolkswagenPassat_locked")
+                }
+            }
+        case .other:
+            return #imageLiteral(resourceName: "VolkswagenPassat_locked")
         }
     }
 }

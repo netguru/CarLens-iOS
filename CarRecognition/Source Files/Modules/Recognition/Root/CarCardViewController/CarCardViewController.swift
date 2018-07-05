@@ -18,18 +18,6 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
 
     /// Animator for exit animations
     private let exitAnimator = UIViewPropertyAnimator(duration: 0.7, curve: .linear)
-
-    /// Car instance
-    private let car: Car
-
-    /// Initializes view controller with given View and car
-    ///
-    /// - Parameter viewMaker: Maker for the UIView
-    /// - Parameter car: detected model of car
-    init(viewMaker: @autoclosure @escaping () -> CarCardView, car: Car) {
-        self.car = car
-        super.init(viewMaker: viewMaker)
-    }
     
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
