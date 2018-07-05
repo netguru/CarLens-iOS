@@ -93,6 +93,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         guard normalizedConfidence >= config.neededConfidenceToPinLabel, !cardDidSlideIn else {
             return
         }
+        /// TEMP: - Just a temporary Ford Fiesta that will be changed by the detected car in the future
         let carCardView = CarCardViewController(viewMaker: CarCardView(), car: .known(make: .ford, model: "Fiesta"))
 
         addChildViewController(carCardView)
