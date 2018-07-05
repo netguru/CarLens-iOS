@@ -48,11 +48,7 @@ internal final class FullOvalProgressView: View, ViewSetupable {
     /// - Parameter animated: Indicating if invalidation should be animated
     func invalidateChart(animated: Bool) {
         let progress = Double(currentNumber) / Double(maximumNumber)
-        if animated {
-            animationView.play(toProgress: CGFloat(progress))
-        } else {
-            animationView.animationProgress = CGFloat(progress)
-        }
+        animationView.set(progress: CGFloat(progress), animated: animated)
     }
             
     /// - SeeAlso: ViewSetupable

@@ -75,11 +75,7 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         case .engine(let engine):
             progress = Double(engine) / Double(chartConfig.referenceEngineVolume)
         }
-        if animated {
-            animationView.play(toProgress: CGFloat(progress))
-        } else {
-            animationView.animationProgress = CGFloat(progress)
-        }
+        animationView.set(progress: CGFloat(progress), animated: animated)
     }
     
     /// - SeeAlso: ViewSetupable

@@ -59,6 +59,7 @@
 		7CBF004F20ECBD5100127A9F /* full_oval_progress.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF004B20ECBD5100127A9F /* full_oval_progress.json */; };
 		7CBF005020ECBD5100127A9F /* part_oval_progress.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF004C20ECBD5100127A9F /* part_oval_progress.json */; };
 		7CBF005120ECBD5100127A9F /* horizontal-stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF004D20ECBD5100127A9F /* horizontal-stars.json */; };
+		7CD6212720EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6212620EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift */; };
 		7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */; };
 		7CE4290420D13A9B00539FC6 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */; };
 		7CEDA77020ECD32D00DF3AF0 /* PartOvalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA76F20ECD32D00DF3AF0 /* PartOvalProgressView.swift */; };
@@ -156,6 +157,7 @@
 		7CBF004B20ECBD5100127A9F /* full_oval_progress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = full_oval_progress.json; sourceTree = "<group>"; };
 		7CBF004C20ECBD5100127A9F /* part_oval_progress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = part_oval_progress.json; sourceTree = "<group>"; };
 		7CBF004D20ECBD5100127A9F /* horizontal-stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "horizontal-stars.json"; sourceTree = "<group>"; };
+		7CD6212620EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOTAnimationViewExtension.swift; sourceTree = "<group>"; };
 		7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		7CEDA76F20ECD32D00DF3AF0 /* PartOvalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOvalProgressView.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */,
 				7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */,
 				7CEDA77F20ED04DE00DF3AF0 /* UIFontExtension.swift */,
+				7CD6212620EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */,
 				7CB817D420C9353200B51C3D /* BoolExtension.swift in Sources */,
 				7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */,
+				7CD6212720EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift in Sources */,
 				7C93D49B20E6317300AF6FFC /* AugmentedRealityView.swift in Sources */,
 				7C77741920E65398007B3851 /* Car.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,

@@ -79,11 +79,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         case .topSpeed(let topSpeed):
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
         }
-        if animated {
-            animationView.play(toProgress: CGFloat(progress))
-        } else {
-            animationView.animationProgress = CGFloat(progress)
-        }
+        animationView.set(progress: CGFloat(progress), animated: animated)
     }
     
     /// - SeeAlso: ViewSetupable
