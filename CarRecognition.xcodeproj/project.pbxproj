@@ -10,6 +10,7 @@
 		7C21A13E20EE7ABF001E5714 /* CarListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */; };
 		7C21A14020EE807B001E5714 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A13F20EE807B001E5714 /* UICollectionViewExtension.swift */; };
 		7C21A14220EE819F001E5714 /* CarListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A14120EE819F001E5714 /* CarListFlowLayout.swift */; };
+		7C21A14420EE8770001E5714 /* CarListLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A14320EE8770001E5714 /* CarListLayoutAttributes.swift */; };
 		7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E02C20BD695600784D63 /* ApplicationDelegate.swift */; };
 		7C33E03420BD695700784D63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03320BD695700784D63 /* Assets.xcassets */; };
 		7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03520BD695700784D63 /* LaunchScreen.storyboard */; };
@@ -98,6 +99,7 @@
 		7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C21A13F20EE807B001E5714 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		7C21A14120EE819F001E5714 /* CarListFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListFlowLayout.swift; sourceTree = "<group>"; };
+		7C21A14320EE8770001E5714 /* CarListLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListLayoutAttributes.swift; sourceTree = "<group>"; };
 		7C33E02920BD695600784D63 /* CarRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C33E02C20BD695600784D63 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		7C33E03320BD695700784D63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -445,7 +447,6 @@
 		7CB817B920C931D000B51C3D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7CB817CA20C9348D00B51C3D /* Cells */,
 				7CB817CB20C934A900B51C3D /* SeparatorView.swift */,
 				7CB817CD20C934DE00B51C3D /* DefaultLoader.swift */,
 				7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */,
@@ -476,14 +477,6 @@
 			path = Localizations;
 			sourceTree = "<group>";
 		};
-		7CB817CA20C9348D00B51C3D /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		7CB817E820C937C700B51C3D /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,9 +500,11 @@
 		7CEDA77720ECD5A700DF3AF0 /* Cars list */ = {
 			isa = PBXGroup;
 			children = (
-				7C21A14120EE819F001E5714 /* CarListFlowLayout.swift */,
 				7CEDA77820ECD5F100DF3AF0 /* CarsListViewController.swift */,
 				7CEDA77A20ECD5FA00DF3AF0 /* CarsListView.swift */,
+				7C21A14120EE819F001E5714 /* CarListFlowLayout.swift */,
+				7C21A14320EE8770001E5714 /* CarListLayoutAttributes.swift */,
+				7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */,
 			);
 			path = "Cars list";
 			sourceTree = "<group>";
@@ -730,6 +725,7 @@
 				7CA34DF920E3AEB0000E309B /* CarRecognitionModel.mlmodel in Sources */,
 				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
+				7C21A14420EE8770001E5714 /* CarListLayoutAttributes.swift in Sources */,
 				7CB817E120C935B200B51C3D /* FlowAwareViewController.swift in Sources */,
 				7CB817F620C95BB200B51C3D /* RecognitionResult.swift in Sources */,
 				7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */,

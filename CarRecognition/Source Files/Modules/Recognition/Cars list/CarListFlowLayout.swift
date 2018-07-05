@@ -31,6 +31,35 @@ internal final class CarListFlowLayout: UICollectionViewFlowLayout {
     }
     
     /// SeeAlso: UICollectionViewFlowLayout
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
+    }
+    
+    override public class var layoutAttributesClass: AnyClass {
+        return CarListLayoutAttributes.self
+    }
+    
+    /// SeeAlso: UICollectionViewFlowLayout
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        guard let collectionView = collectionView, let allAttributes = super.layoutAttributesForElements(in: rect) else { return nil }
+        
+        for attributes in allAttributes {
+            let collectionCenter = collectionView.bounds.size.width / 2
+            let offset = collectionView.contentOffset.x
+            let normalizedCenter = attributes.center.x - offset
+            
+            let maxDistance = itemSize.width + minimumLineSpacing
+            let distanceFromCenter = min(collectionCenter - normalizedCenter, maxDistance)
+            let ratio = (maxDistance - abs(distanceFromCenter)) / maxDistance
+            let normalizedRatio = min(1, max(0, ratio))
+
+            guard let attributes = attributes as? CarListLayoutAttributes else { continue }
+            attributes.progress = Double(normalizedRatio)
+        }
+        return allAttributes
+    }
+    
+    /// SeeAlso: UICollectionViewFlowLayout
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         guard let collectionView = collectionView, let layoutAttributes = layoutAttributesForElements(in: collectionView.bounds) else {
             return .init(x: 0, y: 0)

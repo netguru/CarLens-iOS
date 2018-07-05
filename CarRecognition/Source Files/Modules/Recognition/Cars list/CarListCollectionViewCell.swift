@@ -10,7 +10,12 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     
     private lazy var topView = UIView().layoutable()
     
-    private lazy var cardView = UIView().layoutable()
+    private lazy var cardView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        return view.layoutable()
+    }()
     
     /// - SeeAlso: UICollectionViewCell.init
     override init(frame: CGRect) {
@@ -21,6 +26,12 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     /// - SeeAlso: UICollectionViewCell.init
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func animateViews(toProgress progress: Double) {
+        print("animate to progress: \(progress)")
+        let offset = topView.bounds.height - (CGFloat(progress) * topView.bounds.height)
+        cardView.transform = .init(translationX: 0, y: -offset)
     }
     
     /// - SeeAlso: ViewSetupable
@@ -34,14 +45,19 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
         cardView.constraintToSuperviewEdges(excludingAnchors: [.top])
         NSLayoutConstraint.activate([
             cardView.topAnchor.constraint(equalTo: topView.bottomAnchor),
-            cardView.heightAnchor.constraint(equalToConstant: 200)
+            topView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
     
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
-        backgroundColor = .blue
         topView.backgroundColor = .purple
-        cardView.backgroundColor = .yellow
+    }
+    
+    /// - SeeAlso: UICollectionViewCell
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        guard let attributes = layoutAttributes as? CarListLayoutAttributes else { return }
+        animateViews(toProgress: attributes.progress)
     }
 }
