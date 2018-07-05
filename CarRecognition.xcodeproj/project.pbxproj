@@ -76,6 +76,9 @@
 		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
 		7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */; };
+		E89D791820ECB230006D2D8D /* CarCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791620ECB22F006D2D8D /* CarCardViewController.swift */; };
+		E89D791920ECB230006D2D8D /* CarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791720ECB22F006D2D8D /* CarCardView.swift */; };
+		E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +177,9 @@
 		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
 		7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationServiceTests.swift; sourceTree = "<group>"; };
+		E89D791620ECB22F006D2D8D /* CarCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardViewController.swift; sourceTree = "<group>"; };
+		E89D791720ECB22F006D2D8D /* CarCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardView.swift; sourceTree = "<group>"; };
+		E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +414,7 @@
 				7C5E570220D004D600655C35 /* UIImageExtension.swift */,
 				7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */,
 				7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */,
+				E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */,
 				7CEDA77F20ED04DE00DF3AF0 /* UIFontExtension.swift */,
 				7CD6212620EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift */,
 			);
@@ -475,6 +482,7 @@
 				7CB817E920C937EA00B51C3D /* RecognitionViewController.swift */,
 				7CB817EB20C937FB00B51C3D /* RecognitionView.swift */,
 				7C93D49720E6311800AF6FFC /* AugmentedRealityViewController */,
+				E89D791520ECB1F6006D2D8D /* CarCardViewController */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -523,6 +531,15 @@
 				7C33E04320BD695700784D63 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E89D791520ECB1F6006D2D8D /* CarCardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E89D791620ECB22F006D2D8D /* CarCardViewController.swift */,
+				E89D791720ECB22F006D2D8D /* CarCardView.swift */,
+			);
+			path = CarCardViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -683,6 +700,7 @@
 				7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */,
 				7CB817D420C9353200B51C3D /* BoolExtension.swift in Sources */,
 				7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */,
+				E89D791820ECB230006D2D8D /* CarCardViewController.swift in Sources */,
 				7CD6212720EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift in Sources */,
 				7C93D49B20E6317300AF6FFC /* AugmentedRealityView.swift in Sources */,
 				7C77741920E65398007B3851 /* Car.swift in Sources */,
@@ -690,8 +708,10 @@
 				7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */,
 				7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */,
 				7CB817D620C9353200B51C3D /* UIViewExtension+Constraint.swift in Sources */,
+				E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */,
 				7CB817C020C9332000B51C3D /* ViewSetupable.swift in Sources */,
 				7C93D49220E62C8200AF6FFC /* FlowController.swift in Sources */,
+				E89D791920ECB230006D2D8D /* CarCardView.swift in Sources */,
 				7CB817FD20CA865700B51C3D /* CRTimeFormatter.swift in Sources */,
 				7CEDA78420ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift in Sources */,
 				7C93D49920E6316900AF6FFC /* AugmentedRealityViewController.swift in Sources */,

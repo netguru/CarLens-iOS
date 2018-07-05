@@ -25,11 +25,14 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     
     private var addedAnchors: [ARAnchor: RecognitionResult] = [:]
     
+    private var cardDidSlideIn = false
+    
     private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: config.normalizationCount)
     
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       
         setupSession()
     }
     
@@ -81,6 +84,28 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         } else {
             errorHandler?(.pinAlreadyAdded)
         }
+    }
+    
+    /// Handle card sliding based on recognition status
+    ///
+    /// - Parameter normalizedConfidence: Value between 0 and 1 indicating the status of recognition
+    private func handleCardSlidingIfNeeded(normalizedConfidence: Double) {
+        guard normalizedConfidence >= config.neededConfidenceToPinLabel, !cardDidSlideIn else {
+            return
+        }
+        /// TEMP: - Just a temporary Ford Fiesta that will be changed by the detected car in the future
+        let carCardView = CarCardViewController(viewMaker: CarCardView(), car: .known(make: .ford, model: "Fiesta"))
+
+        addChildViewController(carCardView)
+        view.addSubview(carCardView.view)
+        carCardView.didMove(toParentViewController: self)
+
+        let height = UIScreen.main.bounds.height / 2
+        let width  = UIScreen.main.bounds.width
+
+        carCardView.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + height, width: width, height: height)
+        carCardView.animateIn()
+        cardDidSlideIn = true
     }
     
     /// Checks if new node at given anchor could be added.
