@@ -34,11 +34,6 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         super.viewWillAppear(animated)
        
         setupSession()
-
-        /// TEMP
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // change 2 to desired number of seconds
-            self.handleCardSlidingIfNeeded(normalizedConfidence: 1.0)
-        }
     }
     
     /// SeeAlso: UIViewController
@@ -61,7 +56,6 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         let normalizedConfidence = inputNormalizationService.normalize(value: Double(mostConfidentRecognition.confidence))
         try? customView.detectionViewfinderView.update(state: .recognizing(progress: normalizedConfidence))
         handlePinAddingIfNeeded(for: mostConfidentRecognition, normalizedConfidence: normalizedConfidence, errorHandler: errorHandler)
-        handleCardSlidingIfNeeded(normalizedConfidence: normalizedConfidence)
     }
     
     private func handlePinAddingIfNeeded(for result: RecognitionResult, normalizedConfidence: Double, errorHandler: ((CarARLabelError) -> ())? = nil) {
@@ -92,24 +86,25 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         }
     }
     
+    /// Handle card sliding based on recognition status
+    ///
+    /// - Parameter normalizedConfidence: Value between 0 and 1 indicating the status of recognition
     private func handleCardSlidingIfNeeded(normalizedConfidence: Double) {
         guard normalizedConfidence >= config.neededConfidenceToPinLabel, !cardDidSlideIn else {
             return
         }
-        
-        let carCardView = CarCardViewController(viewMaker: CarCardView(), car: .known(make: .nissan, model: "GT-R"))
-        
+        let carCardView = CarCardViewController(viewMaker: CarCardView(), car: .known(make: .ford, model: "Fiesta"))
+
         addChildViewController(carCardView)
         view.addSubview(carCardView.view)
         carCardView.didMove(toParentViewController: self)
-    
-        cardDidSlideIn = true
 
         let height = UIScreen.main.bounds.height / 2
         let width  = UIScreen.main.bounds.width
-        
+
         carCardView.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + height, width: width, height: height)
         carCardView.animateIn()
+        cardDidSlideIn = true
     }
     
     /// Checks if new node at given anchor could be added.
