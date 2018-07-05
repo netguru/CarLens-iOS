@@ -28,7 +28,7 @@ internal final class FullOvalProgressView: View, ViewSetupable {
     ///
     /// - Parameters:
     ///   - currentNumber: Currently achieved number
-    ///   - maximumNumber: Maximum abialable number
+    ///   - maximumNumber: Maximum available number
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
     init(currentNumber: Int, maximumNumber: Int, invalidateChartInstantly: Bool) {

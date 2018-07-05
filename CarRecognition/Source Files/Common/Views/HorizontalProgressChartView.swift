@@ -9,7 +9,7 @@ import Lottie
 
 internal final class HorizontalProgressChartView: View, ViewSetupable {
     
-    /// States avilable to display by this view
+    /// States available to display by this view
     enum State {
         case power(Int)
         case engine(Int)
@@ -42,7 +42,7 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
     /// Initializes the view with given state
     ///
     /// - Parameters:
-    ///   - state: State to bet shown by the biew
+    ///   - state: State to be shown by the view
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
     init(state: State, invalidateChartInstantly: Bool) {
