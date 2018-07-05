@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C21A13E20EE7ABF001E5714 /* CarListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */; };
+		7C21A14020EE807B001E5714 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A13F20EE807B001E5714 /* UICollectionViewExtension.swift */; };
+		7C21A14220EE819F001E5714 /* CarListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A14120EE819F001E5714 /* CarListFlowLayout.swift */; };
 		7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E02C20BD695600784D63 /* ApplicationDelegate.swift */; };
 		7C33E03420BD695700784D63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03320BD695700784D63 /* Assets.xcassets */; };
 		7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03520BD695700784D63 /* LaunchScreen.storyboard */; };
@@ -92,6 +95,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C21A13F20EE807B001E5714 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		7C21A14120EE819F001E5714 /* CarListFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListFlowLayout.swift; sourceTree = "<group>"; };
 		7C33E02920BD695600784D63 /* CarRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C33E02C20BD695600784D63 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 		7C33E03320BD695700784D63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -413,6 +419,7 @@
 				7CB817CF20C9353100B51C3D /* UIStackViewExtension.swift */,
 				7C5E570220D004D600655C35 /* UIImageExtension.swift */,
 				7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */,
+				7C21A13F20EE807B001E5714 /* UICollectionViewExtension.swift */,
 				7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */,
 				E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */,
 				7CEDA77F20ED04DE00DF3AF0 /* UIFontExtension.swift */,
@@ -472,6 +479,7 @@
 		7CB817CA20C9348D00B51C3D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -499,6 +507,7 @@
 		7CEDA77720ECD5A700DF3AF0 /* Cars list */ = {
 			isa = PBXGroup;
 			children = (
+				7C21A14120EE819F001E5714 /* CarListFlowLayout.swift */,
 				7CEDA77820ECD5F100DF3AF0 /* CarsListViewController.swift */,
 				7CEDA77A20ECD5FA00DF3AF0 /* CarsListView.swift */,
 			);
@@ -672,6 +681,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB817BE20C932E500B51C3D /* AlertPresentable.swift in Sources */,
+				7C21A13E20EE7ABF001E5714 /* CarListCollectionViewCell.swift in Sources */,
 				7CE4290420D13A9B00539FC6 /* NSObjectExtension.swift in Sources */,
 				7CB817B120C930E200B51C3D /* ApplicationKeys.swift in Sources */,
 				7C93D49520E62CE600AF6FFC /* RecognitionFlowController.swift in Sources */,
@@ -728,6 +738,8 @@
 				7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */,
 				7CB817C920C933CB00B51C3D /* HockeyAppService.swift in Sources */,
 				7CB817FB20CA82B000B51C3D /* CarClassifierResponse.swift in Sources */,
+				7C21A14220EE819F001E5714 /* CarListFlowLayout.swift in Sources */,
+				7C21A14020EE807B001E5714 /* UICollectionViewExtension.swift in Sources */,
 				7CB817C220C9333C00B51C3D /* Loader.swift in Sources */,
 				7CF269D320EA432100DCC27D /* DetectionViewfinderView.swift in Sources */,
 				7CEDA77620ECD36400DF3AF0 /* HorizontalStarsView.swift in Sources */,

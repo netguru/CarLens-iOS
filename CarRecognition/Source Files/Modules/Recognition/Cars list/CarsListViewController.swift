@@ -4,7 +4,9 @@
 //
 
 
-internal final class CarsListViewController: TypedViewController<CarsListView> {
+import UIKit
+
+internal final class CarsListViewController: TypedViewController<CarsListView>, UICollectionViewDataSource {
     
     /// Enum describing events that can be triggered by this controller
     ///
@@ -19,10 +21,23 @@ internal final class CarsListViewController: TypedViewController<CarsListView> {
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        customView.collectionView.dataSource = self
+        customView.collectionView.register(cell: CarListCollectionViewCell.self)
         customView.recognizeButton.addTarget(self, action: #selector(recognizeButtonTapAction), for: .touchUpInside)
     }
     
     @objc private func recognizeButtonTapAction() {
         eventTriggered?(.didTapDismiss)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell: CarListCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath) else {
+            return UICollectionViewCell()
+        }
+        return cell
     }
 }
