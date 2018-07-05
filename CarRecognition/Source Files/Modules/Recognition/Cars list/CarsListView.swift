@@ -31,6 +31,6 @@ internal final class CarsListView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
-        backgroundColor = UIColor(hex: 0xE9EEF0)
+        backgroundColor = .crBackgroundGray
     }
 }

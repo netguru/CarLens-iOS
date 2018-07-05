@@ -17,4 +17,16 @@ internal extension UIColor {
         let blue = CGFloat((hex >> 00) & 0xff) / 255
         self.init(red: red, green: green, blue: blue, alpha: 1)
     }
+    
+    class var crBackgroundGray: UIColor {
+        return .init(hex: 0xE9EEF0)
+    }
+    
+    class var crFontDark: UIColor {
+        return .init(hex: 0x1A1A1A)
+    }
+    
+    class var crFontGray: UIColor {
+        return .init(hex: 0x7994A9)
+    }
 }
