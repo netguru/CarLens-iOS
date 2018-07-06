@@ -5,7 +5,6 @@
 
 
 import UIKit
-import Lottie
 
 internal final class LabeledCarImageView: View, ViewSetupable {
     
