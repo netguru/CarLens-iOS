@@ -69,7 +69,7 @@ internal enum Car: Equatable, CustomStringConvertible {
             switch make {
             case .ford:
                 return #imageLiteral(resourceName: "FordFiesta")
-            case .hodna:
+            case .honda:
                 return #imageLiteral(resourceName: "HondaCivic")
             case .nissan:
                 return #imageLiteral(resourceName: "NissanQashqai")
