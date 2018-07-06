@@ -14,7 +14,7 @@ internal final class CarCardView: View, ViewSetupable {
         static let stackViewWidth = UIScreen.main.bounds.width * 0.8
         static let stackViewHeight = UIScreen.main.bounds.height / 12
         static let regularButtonDimension = 45.0
-        static let bigButtonDimension = 65.0
+        static let bigButtonDimension = 70.0
         static let gradientHeight: CGFloat = 140.0
         static let viewHeight = UIScreen.main.bounds.height / 2
     }
@@ -91,6 +91,9 @@ internal final class CarCardView: View, ViewSetupable {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-google"), for: .normal)
         button.imageView?.contentMode = .scaleToFill
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowColor = UIColor(hex: 0xFF5969).withAlphaComponent(0.4).cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 10)
         return button.layoutable()
     }()
 
@@ -99,6 +102,9 @@ internal final class CarCardView: View, ViewSetupable {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-car-list-white"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowColor = UIColor(hex: 0xFF5969).withAlphaComponent(0.4).cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 10)
         return button.layoutable()
     }()
 
@@ -108,6 +114,9 @@ internal final class CarCardView: View, ViewSetupable {
         button.setImage(#imageLiteral(resourceName: "button-scan-primary-no-shadow"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.clipsToBounds = false
+        button.layer.shadowOpacity = 0.6
+        button.layer.shadowColor = UIColor(hex: 0xFF5969).withAlphaComponent(0.4).cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 10)
         return button.layoutable()
     }()
 
