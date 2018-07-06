@@ -40,8 +40,8 @@ internal final class CarCardView: View, ViewSetupable {
     }()
 
     /// Gradient view visible at the bottom
-    private let gradientView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: Dimensions.viewHeight - Dimensions.gradientHeight, width: UIScreen.main.bounds.width, height: 140))
+    private lazy var gradientView: UIView = {
+        let view = UIView()
         let gradient = CAGradientLayer()
         gradient.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Dimensions.gradientHeight)
         gradient.colors = [
@@ -52,18 +52,21 @@ internal final class CarCardView: View, ViewSetupable {
         gradient.startPoint = CGPoint(x: 0.5, y: 0.05)
         gradient.endPoint = CGPoint(x: 0.5, y: 0.78)
         view.layer.addSublayer(gradient)
-        return view
+        return view.layoutable()
     }()
 
     /// StackView with basic model informations
-    private lazy var modelStackView: UIStackView = {
-        UIStackView.make(axis: .horizontal, with: [ModelNameView(car: car), carImageView], spacing: 10.0, distribution: .fillEqually)
-    }()
+    private lazy var modelStackView: UIStackView = .make(
+        axis: .horizontal,
+        with: [ModelNameView(car: car), carImageView],
+        spacing: 10.0,
+        distribution: .fillEqually
+    )
 
     /// ImageView of certain car model
     private lazy var carImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = car.image
+        imageView.image = car.image.unlocked
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView.layoutable()
@@ -73,14 +76,14 @@ internal final class CarCardView: View, ViewSetupable {
     private lazy var performanceStackView: UIStackView = {
         let topSpeedProgressView = PartOvalProgressView(state: PartOvalProgressView.State.topSpeed(200), invalidateChartInstantly: false)
         let accelerationOvalProgressView = PartOvalProgressView(state: PartOvalProgressView.State.accelerate(9), invalidateChartInstantly: false)
-        return UIStackView.make(axis: .horizontal, with: [topSpeedProgressView, accelerationOvalProgressView], spacing: 10.0, distribution: .fillEqually)
+        return .make(axis: .horizontal, with: [topSpeedProgressView, accelerationOvalProgressView], spacing: 10.0, distribution: .fillEqually)
     }()
 
     /// StackView with mechanical informations
     private lazy var mechanicalStackView: UIStackView = {
         let engineHorizontalProgressView = HorizontalProgressChartView(state: HorizontalProgressChartView.State.engine(1999), invalidateChartInstantly: true)
         let powerHorizontalProgressView = HorizontalProgressChartView(state: HorizontalProgressChartView.State.power(150), invalidateChartInstantly: true)
-        return UIStackView.make(axis: .horizontal, with: [powerHorizontalProgressView, engineHorizontalProgressView], spacing: 30.0, distribution: .fillEqually)
+        return .make(axis: .horizontal, with: [powerHorizontalProgressView, engineHorizontalProgressView], spacing: 30.0, distribution: .fillEqually)
     }()
 
     /// Google button in bottom right corner
@@ -94,7 +97,7 @@ internal final class CarCardView: View, ViewSetupable {
     /// Car list button visible in bottom left corner
     internal var carListButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "button-car-list-gray"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "button-car-list-white"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
         return button.layoutable()
     }()
@@ -102,7 +105,7 @@ internal final class CarCardView: View, ViewSetupable {
     /// Recognize button visible at the bottom
     internal var scanButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "button-scan-primary-no-shadow"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.clipsToBounds = false
         return button.layoutable()
@@ -142,7 +145,7 @@ internal final class CarCardView: View, ViewSetupable {
         scanButton.constraintToConstant(.init(width: Dimensions.bigButtonDimension, height: Dimensions.bigButtonDimension))
 
         gradientView.constraintToConstant(.init(width: UIScreen.main.bounds.width, height: 140.0))
-        gradientView.constraintToEdges(of: containerView, excludingAnchors: [.top], withInsets: .init(top: 0, left: 0, bottom: 0, right: 0))
+        gradientView.constraintToEdges(of: containerView, excludingAnchors: [.top])
 
         NSLayoutConstraint.activate([
             topBeamView.heightAnchor.constraint(equalToConstant: 3.0),

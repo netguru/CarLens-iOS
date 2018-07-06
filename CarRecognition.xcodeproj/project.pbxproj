@@ -81,6 +81,7 @@
 		E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */; };
 		E8E4B1A020EE2A65009A93B7 /* ModelNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */; };
 		E8ED0A2820EF76E9002CF8B7 /* CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED0A2720EF76E9002CF8B7 /* CarTests.swift */; };
+		E8ED0A2A20EF8A8A002CF8B7 /* CarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED0A2920EF8A8A002CF8B7 /* CarImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +185,7 @@
 		E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 		E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNameView.swift; sourceTree = "<group>"; };
 		E8ED0A2720EF76E9002CF8B7 /* CarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTests.swift; sourceTree = "<group>"; };
+		E8ED0A2920EF8A8A002CF8B7 /* CarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +438,7 @@
 				7C77741220E64EC8007B3851 /* NodeShift.swift */,
 				7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */,
 				7CEDA78320ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift */,
+				E8ED0A2920EF8A8A002CF8B7 /* CarImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				E8E4B1A020EE2A65009A93B7 /* ModelNameView.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,
 				7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */,
+				E8ED0A2A20EF8A8A002CF8B7 /* CarImage.swift in Sources */,
 				7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */,
 				7CB817D620C9353200B51C3D /* UIViewExtension+Constraint.swift in Sources */,
 				E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */,

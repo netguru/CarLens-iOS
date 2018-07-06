@@ -14,7 +14,7 @@ internal final class ModelNameView: View, ViewSetupable {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView.make(axis: .vertical, with: [modelLabel, brandLabel], spacing: -2)
         modelLabel.text = car.model
-        brandLabel.text = car.brand
+        brandLabel.text = car.make
         return stackView
     }()
 

@@ -14,34 +14,34 @@ final class CarTests: XCTestCase {
 
     /// Method which tests model name for given car
     func testModelName() {
-        sut = Car.known(make: .volkswagen, model: "Passat")
+        sut = Car.known(make: .volkswagen, model: "passat")
         XCTAssert(sut.model == "Passat")
     }
 
     /// Method which tests brand name for given car
     func testBrandName() {
-        sut = Car.known(make: .honda, model: "Civic")
-        XCTAssert(sut.brand == "Honda")
+        sut = Car.known(make: .honda, model: "civic")
+        XCTAssert(sut.make == "Honda")
     }
 
     /// Method which tests image for given car
     func testCarImage() {
-        sut = Car.known(make: .volkswagen, model: "Tiguan")
-        XCTAssert(sut.image == #imageLiteral(resourceName: "VolkswagenTiguan"))
+        sut = Car.known(make: .volkswagen, model: "tiguan")
+        XCTAssert(sut.image.unlocked == #imageLiteral(resourceName: "VolkswagenTiguan"))
         
-        sut = Car.known(make: .volkswagen, model: "Passat")
-        XCTAssert(sut.image == #imageLiteral(resourceName: "VolkswagenPassat"))
+        sut = Car.known(make: .volkswagen, model: "passat")
+        XCTAssert(sut.image.unlocked == #imageLiteral(resourceName: "VolkswagenPassat"))
         
-        sut = Car.known(make: .volkswagen, model: "Golf")
-        XCTAssert(sut.image == #imageLiteral(resourceName: "VolkswagenGolf"))
+        sut = Car.known(make: .volkswagen, model: "golf")
+        XCTAssert(sut.image.unlocked == #imageLiteral(resourceName: "VolkswagenGolf"))
         
         sut = Car.other
-        XCTAssert(sut.image == #imageLiteral(resourceName: "VolkswagenPassat_locked"))
+        XCTAssert(sut.image.unlocked == #imageLiteral(resourceName: "VolkswagenPassat_locked"))
     }
 
     /// Method which tests description for given car
     func testDescription() {
-        sut = Car.known(make: .ford, model: "Fiesta")
+        sut = Car.known(make: .ford, model: "fiesta")
         XCTAssert(sut.description == "Ford Fiesta")
     }
 }
