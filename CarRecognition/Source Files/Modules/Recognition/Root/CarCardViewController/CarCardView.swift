@@ -26,7 +26,7 @@ internal final class CarCardView: View, ViewSetupable {
     private let topBeamView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 6
-        view.backgroundColor = UIColor(red: 0.84, green: 0.89, blue: 0.9, alpha: 1)
+        view.backgroundColor = UIColor(hex: 0xD6E3E5)
         return view.layoutable()
     }()
 
@@ -46,7 +46,7 @@ internal final class CarCardView: View, ViewSetupable {
         gradient.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Dimensions.gradientHeight)
         gradient.colors = [
             UIColor.white.cgColor,
-            UIColor(red: 0.94, green: 0.96, blue: 0.96, alpha: 1).cgColor
+            UIColor(hex: 0xEFF5F5).cgColor
         ]
         gradient.locations = [0, 0.9644147]
         gradient.startPoint = CGPoint(x: 0.5, y: 0.05)
