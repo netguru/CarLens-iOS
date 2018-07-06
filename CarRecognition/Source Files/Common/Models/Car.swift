@@ -45,6 +45,7 @@ internal enum Car: Equatable, CustomStringConvertible {
         }
     }
 
+    /// Brand of concrete car model
     var brand: String {
         switch self {
         case .known(let make, _):
@@ -54,6 +55,7 @@ internal enum Car: Equatable, CustomStringConvertible {
         }
     }
 
+    /// Model name
     var model: String {
         switch self {
         case .known(_, let model):
@@ -63,6 +65,7 @@ internal enum Car: Equatable, CustomStringConvertible {
         }
     }
     
+    /// Image that represents concrete car model
     var image: UIImage {
         switch self {
         case .known(let make, let model):
