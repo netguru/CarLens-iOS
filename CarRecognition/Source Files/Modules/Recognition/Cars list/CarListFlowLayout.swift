@@ -35,6 +35,7 @@ internal final class CarListFlowLayout: UICollectionViewFlowLayout {
         return true
     }
     
+    /// SeeAlso: UICollectionViewFlowLayout
     override public class var layoutAttributesClass: AnyClass {
         return CarListLayoutAttributes.self
     }
@@ -64,7 +65,6 @@ internal final class CarListFlowLayout: UICollectionViewFlowLayout {
         guard let collectionView = collectionView, let layoutAttributes = layoutAttributesForElements(in: collectionView.bounds) else {
             return .init(x: 0, y: 0)
         }
-        
         // Snapping closest cell to the center
         let centerOffset = collectionView.bounds.size.width / 2
         let offsetWithCenter = proposedContentOffset.x + centerOffset
