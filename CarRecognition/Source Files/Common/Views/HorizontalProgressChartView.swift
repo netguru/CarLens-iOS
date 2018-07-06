@@ -93,10 +93,4 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
             valueLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -3)
         ])
     }
-    
-    /// - SeeAlso: ViewSetupable
-    func setupProperties() {
-        animationView.loopAnimation = true
-        animationView.play(toProgress: 1.0, withCompletion: nil)
-    }
 }

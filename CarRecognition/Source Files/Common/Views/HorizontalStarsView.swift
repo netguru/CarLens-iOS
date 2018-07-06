@@ -49,10 +49,4 @@ internal final class HorizontalStarsView: View, ViewSetupable {
     func setupConstraints() {
         animationView.constraintToSuperviewEdges()
     }
-    
-    /// - SeeAlso: ViewSetupable
-    func setupProperties() {
-        animationView.loopAnimation = true
-        animationView.play(toProgress: 1.0, withCompletion: nil)
-    }
 }

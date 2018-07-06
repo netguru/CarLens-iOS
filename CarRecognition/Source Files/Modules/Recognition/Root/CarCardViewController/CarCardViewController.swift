@@ -14,7 +14,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     }
 
     /// Animator for entry animations
-    private let entryAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .linear)
+    private let entryAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .easeIn)
 
     /// Animator for exit animations
     private let exitAnimator = UIViewPropertyAnimator(duration: 0.7, curve: .linear)
@@ -48,7 +48,9 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
             
             if recognizer.direction == .bottomToTop, exitAnimator.fractionComplete == 0 {
                 exitAnimator.stopAnimation(true)
-                view.frame = CGRect(x: 0, y: Constants.entryPosition, width: view.frame.width, height: view.frame.height)
+                UIView.animate(withDuration: 0.5) {
+                    self.view.frame = CGRect(x: 0, y: Constants.entryPosition, width: self.view.frame.width, height: self.view.frame.height)
+                }
             }
         case .ended:
             exitAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
