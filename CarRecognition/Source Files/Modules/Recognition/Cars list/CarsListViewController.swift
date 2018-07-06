@@ -31,6 +31,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // TODO: Replace with the real number
         return 8
     }
         
