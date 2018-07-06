@@ -22,6 +22,14 @@ internal final class CarCardView: View, ViewSetupable {
     /// Car instance used to initialize subviews
     private let car: Car
 
+    /// Gray Beam view visible at the top
+    private let topBeamView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 6
+        view.backgroundColor = UIColor(red: 0.84, green: 0.89, blue: 0.9, alpha: 1)
+        return view.layoutable()
+    }()
+
     /// Main container of the view
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -98,14 +106,6 @@ internal final class CarCardView: View, ViewSetupable {
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.clipsToBounds = false
         return button.layoutable()
-    }()
-
-    /// Gray Beam view visible at the top
-    private let topBeamView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 6
-        view.backgroundColor = UIColor(red: 0.84, green: 0.89, blue: 0.9, alpha: 1)
-        return view.layoutable()
     }()
 
     /// Initializes the card view with given car parameter
