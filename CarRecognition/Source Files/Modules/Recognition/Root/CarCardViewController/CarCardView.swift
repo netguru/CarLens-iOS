@@ -8,16 +8,18 @@ import UIKit
 
 internal final class CarCardView: View, ViewSetupable {
 
-    /// Struct which holds informations about view dimensions
+    /// Struct that holds informations about view's dimensions
     struct Dimensions {
         static let topBeamHorizontalInset = UIScreen.main.bounds.width * 0.4
         static let stackViewWidth = UIScreen.main.bounds.width * 0.8
-        static let stackViewHeight = (UIScreen.main.bounds.height / 12)
+        static let stackViewHeight = UIScreen.main.bounds.height / 12
         static let regularButtonDimension = 45.0
         static let bigButtonDimension = 65.0
+        static let gradientHeight: CGFloat = 140.0
+        static let viewHeight = UIScreen.main.bounds.height / 2
     }
 
-    /// Car instance
+    /// Car instance used to initialize subviews
     private let car: Car
 
     /// Main container of the view
@@ -28,11 +30,12 @@ internal final class CarCardView: View, ViewSetupable {
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         return view.layoutable()
     }()
-    
+
+    /// Gradient view visible at the bottom
     private let gradientView: UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: (UIScreen.main.bounds.height / 2) - 140, width: UIScreen.main.bounds.width, height: 140))
+        let view = UIView(frame: CGRect(x: 0, y: Dimensions.viewHeight - Dimensions.gradientHeight, width: UIScreen.main.bounds.width, height: 140))
         let gradient = CAGradientLayer()
-        gradient.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 140)
+        gradient.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Dimensions.gradientHeight)
         gradient.colors = [
             UIColor.white.cgColor,
             UIColor(red: 0.94, green: 0.96, blue: 0.96, alpha: 1).cgColor
@@ -43,13 +46,13 @@ internal final class CarCardView: View, ViewSetupable {
         view.layer.addSublayer(gradient)
         return view
     }()
-    
+
     /// StackView with basic model informations
     private lazy var modelStackView: UIStackView = {
         UIStackView.make(axis: .horizontal, with: [ModelNameView(car: car), carImageView], spacing: 10.0, distribution: .fillEqually)
     }()
 
-    /// Image view of certain car model
+    /// ImageView of certain car model
     private lazy var carImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = car.image
@@ -72,7 +75,7 @@ internal final class CarCardView: View, ViewSetupable {
         return UIStackView.make(axis: .horizontal, with: [powerHorizontalProgressView, engineHorizontalProgressView], spacing: 30.0, distribution: .fillEqually)
     }()
 
-    /// Button which redirects to google
+    /// Google button in bottom right corner
     internal var googleButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-google"), for: .normal)
@@ -80,7 +83,7 @@ internal final class CarCardView: View, ViewSetupable {
         return button.layoutable()
     }()
 
-    /// Button which shows scan list
+    /// Car list button visible in bottom left corner
     internal var carListButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-car-list-gray"), for: .normal)
@@ -88,7 +91,7 @@ internal final class CarCardView: View, ViewSetupable {
         return button.layoutable()
     }()
 
-    /// Button which shows scan
+    /// Recognize button visible at the bottom
     internal var scanButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
@@ -96,8 +99,8 @@ internal final class CarCardView: View, ViewSetupable {
         button.imageView?.clipsToBounds = false
         return button.layoutable()
     }()
-    
-    /// Instance of top gray beam
+
+    /// Gray Beam view visible at the top
     private let topBeamView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 6
@@ -105,6 +108,9 @@ internal final class CarCardView: View, ViewSetupable {
         return view.layoutable()
     }()
 
+    /// Initializes the card view with given car parameter
+    ///
+    /// - Parameter car: Car instance used to instantiate subviews
     init(car: Car) {
         self.car = car
         super.init()
@@ -119,7 +125,7 @@ internal final class CarCardView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         containerView.constraintToSuperviewEdges()
-        
+
         topBeamView.constraintToSuperviewEdges(excludingAnchors: [.bottom], withInsets: .init(top: 11, left: Dimensions.topBeamHorizontalInset, bottom: 0, right: Dimensions.topBeamHorizontalInset))
 
         modelStackView.constraintToEdges(of: containerView, excludingAnchors: [.bottom], withInsets: .init(top: 37, left: 35, bottom: 0, right: 35))
@@ -135,8 +141,6 @@ internal final class CarCardView: View, ViewSetupable {
         }
         scanButton.constraintToConstant(.init(width: Dimensions.bigButtonDimension, height: Dimensions.bigButtonDimension))
 
-        carListButton.constraintToEdges(of: containerView, excludingAnchors: [.top, .right], withInsets: .init(top: 0, left: 32, bottom: 16, right: 0))
-        googleButton.constraintToEdges(of: containerView, excludingAnchors: [.top, .left], withInsets: .init(top: 0, left: 0, bottom: 16, right: 32))
         gradientView.constraintToConstant(.init(width: UIScreen.main.bounds.width, height: 140.0))
         gradientView.constraintToEdges(of: containerView, excludingAnchors: [.top], withInsets: .init(top: 0, left: 0, bottom: 0, right: 0))
 
@@ -144,8 +148,12 @@ internal final class CarCardView: View, ViewSetupable {
             topBeamView.heightAnchor.constraint(equalToConstant: 3.0),
             performanceStackView.topAnchor.constraint(equalTo: modelStackView.bottomAnchor, constant: 20.0),
             mechanicalStackView.topAnchor.constraint(equalTo: performanceStackView.bottomAnchor, constant: 10.0),
-            scanButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8.0),
-            scanButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0)
+            scanButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8.0),
+            scanButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
+            carListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            carListButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
+            googleButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            googleButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -32)
         ])
     }
 }
