@@ -92,7 +92,7 @@ internal final class CarCardView: View, ViewSetupable {
         button.setImage(#imageLiteral(resourceName: "button-google"), for: .normal)
         button.imageView?.contentMode = .scaleToFill
         button.layer.shadowOpacity = 0.2
-        button.layer.shadowColor = UIColor(hex: 0xFF5969).withAlphaComponent(0.4).cgColor
+        button.layer.shadowColor = UIColor.crShadowOrange.withAlphaComponent(0.4).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 10)
         return button.layoutable()
     }()
@@ -103,7 +103,7 @@ internal final class CarCardView: View, ViewSetupable {
         button.setImage(#imageLiteral(resourceName: "button-car-list-white"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
         button.layer.shadowOpacity = 0.2
-        button.layer.shadowColor = UIColor(hex: 0xFF5969).withAlphaComponent(0.4).cgColor
+        button.layer.shadowColor = UIColor.crShadowOrange.withAlphaComponent(0.4).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 10)
         return button.layoutable()
     }()
@@ -115,7 +115,7 @@ internal final class CarCardView: View, ViewSetupable {
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.clipsToBounds = false
         button.layer.shadowOpacity = 0.6
-        button.layer.shadowColor = UIColor(hex: 0xFF5969).withAlphaComponent(0.4).cgColor
+        button.layer.shadowColor = UIColor.crShadowOrange.withAlphaComponent(0.4).cgColor
         button.layer.shadowOffset = CGSize(width: 0, height: 10)
         return button.layoutable()
     }()
