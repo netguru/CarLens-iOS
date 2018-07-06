@@ -7,7 +7,7 @@ import UIKit
 
 internal final class ModelNameView: View, ViewSetupable {
     
-    /// Car that name should be displayed
+    /// Car object used to initlaize labels
     private let car: Car
 
     /// StackView with model and brand labels
