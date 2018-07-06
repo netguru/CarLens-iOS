@@ -21,7 +21,7 @@ internal final class ModelNameView: View, ViewSetupable {
     /// Model label
     private let modelLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.gliscorGothicFont(ofSize: 30.0)
+        label.font = UIFont.systemFont(ofSize: 32.0, weight: .bold)
         label.textColor = .crFontDark
         return label.layoutable()
     }()
@@ -29,8 +29,9 @@ internal final class ModelNameView: View, ViewSetupable {
     /// Brand label
     private let brandLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.gliscorGothicFont(ofSize: 25.0)
+        label.font = UIFont.systemFont(ofSize: 18.0)
         label.textColor = .crFontGray
+        label.clipsToBounds = false
         return label.layoutable()
     }()
     
