@@ -19,6 +19,7 @@
 		7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */; };
 		7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */; };
 		7C5E570320D004D600655C35 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E570220D004D600655C35 /* UIImageExtension.swift */; };
+		7C67179320EF85C600183AB4 /* LabeledCarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67179220EF85C600183AB4 /* LabeledCarImageView.swift */; };
 		7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741220E64EC8007B3851 /* NodeShift.swift */; };
 		7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741520E650EC007B3851 /* SKNodeFactory.swift */; };
 		7C77741920E65398007B3851 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741820E65398007B3851 /* Car.swift */; };
@@ -124,6 +125,7 @@
 		7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarARConfiguration.swift; sourceTree = "<group>"; };
 		7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAnchorExtension.swift; sourceTree = "<group>"; };
 		7C5E570220D004D600655C35 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		7C67179220EF85C600183AB4 /* LabeledCarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledCarImageView.swift; sourceTree = "<group>"; };
 		7C77741220E64EC8007B3851 /* NodeShift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeShift.swift; sourceTree = "<group>"; };
 		7C77741520E650EC007B3851 /* SKNodeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeFactory.swift; sourceTree = "<group>"; };
 		7C77741820E65398007B3851 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				7CEDA76F20ECD32D00DF3AF0 /* PartOvalProgressView.swift */,
 				7CEDA77320ECD35400DF3AF0 /* HorizontalProgressChartView.swift */,
 				7CEDA77520ECD36400DF3AF0 /* HorizontalStarsView.swift */,
+				7C67179220EF85C600183AB4 /* LabeledCarImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				7CB817F620C95BB200B51C3D /* RecognitionResult.swift in Sources */,
 				7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */,
 				7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */,
+				7C67179320EF85C600183AB4 /* LabeledCarImageView.swift in Sources */,
 				7CB817D320C9353200B51C3D /* UIStackViewExtension.swift in Sources */,
 				7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */,
 				7CB817C920C933CB00B51C3D /* HockeyAppService.swift in Sources */,

@@ -38,6 +38,9 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         guard let cell: CarListCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath) else {
             return UICollectionViewCell()
         }
+        // TODO: Replace with getting the element from the model
+        cell.setup(with: Car(label: "volkswagen passat")!)
+        
         return cell
     }
 }

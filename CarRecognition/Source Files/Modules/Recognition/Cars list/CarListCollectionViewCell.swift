@@ -10,13 +10,7 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     
     private let topViewHeight: CGFloat = 200
     
-    private lazy var topView = UIView().layoutable()
-    
-    private lazy var carImageView: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        return view.layoutable()
-    }()
+    private lazy var topView = LabeledCarImageView().layoutable()
     
     private lazy var cardView: UIView = {
         let view = UIView()
@@ -36,6 +30,13 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// Setups the cell with given car
+    ///
+    /// - Parameter car: Car to be used for updating the cell
+    func setup(with car: Car) {
+        topView.setup(with: car)
+    }
+    
     private func animateViews(toProgress progress: Double) {
         let offset = topViewHeight - (CGFloat(progress) * topViewHeight)
         cardView.transform = .init(translationX: 0, y: -offset)
@@ -44,24 +45,16 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [topView, cardView].forEach(contentView.addSubview)
-        topView.addSubview(carImageView)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         topView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
         cardView.constraintToSuperviewEdges(excludingAnchors: [.top])
-        carImageView.constraintCenterToSuperview()
-        carImageView.constraintToConstant(.init(width: 240, height: 180))
         NSLayoutConstraint.activate([
             topView.heightAnchor.constraint(equalToConstant: topViewHeight),
             cardView.topAnchor.constraint(equalTo: topView.bottomAnchor)
         ])
-    }
-    
-    /// - SeeAlso: ViewSetupable
-    func setupProperties() {
-        carImageView.image = #imageLiteral(resourceName: "VolkswagenPassat_locked")
     }
     
     /// - SeeAlso: UICollectionViewCell
