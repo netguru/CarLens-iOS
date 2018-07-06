@@ -32,7 +32,6 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
         setupSession()
     }
     
@@ -93,8 +92,9 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         guard normalizedConfidence >= config.neededConfidenceToPinLabel, !cardDidSlideIn else {
             return
         }
-        /// TEMP: - Just a temporary Ford Fiesta that will be changed by the detected car in the future
-        let carCardView = CarCardViewController(viewMaker: CarCardView(), car: .known(make: .ford, model: "Fiesta"))
+        /// TEMP: - Just a temporary Volkswagen Passat that will be changed by the detected car in the future
+        let car = Car.known(make: .volkswagen, model: "passat")
+        let carCardView = CarCardViewController(viewMaker: CarCardView(car: car))
 
         addChildViewController(carCardView)
         view.addSubview(carCardView.view)

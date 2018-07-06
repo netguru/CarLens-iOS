@@ -29,4 +29,8 @@ internal extension UIColor {
     class var crFontGray: UIColor {
         return .init(hex: 0x7994A9)
     }
+
+    class var crShadowOrange: UIColor {
+        return .init(hex: 0xFF5969)
+    }
 }

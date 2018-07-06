@@ -98,15 +98,4 @@ internal final class PartOvalProgressView: View, ViewSetupable {
             valueLabel.centerYAnchor.constraint(equalTo: animationView.centerYAnchor)
         ])
     }
-    
-    /// - SeeAlso: ViewSetupable
-    func setupProperties() {
-        animationView.loopAnimation = true
-        animationView.play(toProgress: 1.0, withCompletion: nil)
-        
-        // TODO: For debuging purposes. Remove when lottie will be fully working
-        animationView.clipsToBounds = false
-        layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1
-    }
 }
