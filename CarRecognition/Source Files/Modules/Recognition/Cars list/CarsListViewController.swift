@@ -30,11 +30,13 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         eventTriggered?(.didTapDismiss)
     }
     
+    /// SeeAlso: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: Replace with the real number
         return 8
     }
-        
+    
+    /// SeeAlso: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell: CarListCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath) else {
             return UICollectionViewCell()
