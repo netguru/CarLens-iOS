@@ -57,7 +57,7 @@ internal final class CarCardView: View, ViewSetupable {
         let imageView = UIImageView()
         imageView.image = car.image
         imageView.clipsToBounds = true
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         return imageView.layoutable()
     }()
 
