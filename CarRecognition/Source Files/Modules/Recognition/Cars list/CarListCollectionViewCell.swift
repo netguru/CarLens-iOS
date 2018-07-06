@@ -8,6 +8,8 @@ import UIKit.UICollectionView
 
 internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupable {
     
+    private let topViewHeight: CGFloat = 200
+    
     private lazy var topView = UIView().layoutable()
     
     private lazy var carImageView: UIImageView = {
@@ -35,7 +37,7 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     }
     
     private func animateViews(toProgress progress: Double) {
-        let offset = topView.bounds.height - (CGFloat(progress) * topView.bounds.height)
+        let offset = topViewHeight - (CGFloat(progress) * topViewHeight)
         cardView.transform = .init(translationX: 0, y: -offset)
     }
     
@@ -52,8 +54,8 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
         carImageView.constraintCenterToSuperview()
         carImageView.constraintToConstant(.init(width: 240, height: 180))
         NSLayoutConstraint.activate([
-            cardView.topAnchor.constraint(equalTo: topView.bottomAnchor),
-            topView.heightAnchor.constraint(equalToConstant: 200)
+            topView.heightAnchor.constraint(equalToConstant: topViewHeight),
+            cardView.topAnchor.constraint(equalTo: topView.bottomAnchor)
         ])
     }
     
