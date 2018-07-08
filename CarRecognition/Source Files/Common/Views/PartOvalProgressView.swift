@@ -93,6 +93,13 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         animationView.set(progress: CGFloat(progress), animated: animated)
     }
     
+    /// Clear the progress shown on the chart
+    ///
+    /// - Parameter animated: Indicating if progress change should be animated
+    func clearChart(animated: Bool) {
+        animationView.set(progress: 0, animated: animated)
+    }
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [animationView, valueLabel, titleLabel].forEach(addSubview)

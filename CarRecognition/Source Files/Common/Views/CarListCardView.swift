@@ -101,6 +101,17 @@ internal final class CarListCardView: View, ViewSetupable {
         starsProgressView.invalidateChart(animated: animated)
     }
     
+    /// Clear the progress shown on charts
+    ///
+    /// - Parameter animated: Indicating if progress change should be animated
+    func clearCharts(animated: Bool) {
+        topSpeedProgressView.clearChart(animated: animated)
+        accelerationProgressView.clearChart(animated: animated)
+        engineProgressView.clearChart(animated: animated)
+        powerProgressView.clearChart(animated: animated)
+        starsProgressView.clearChart(animated: animated)
+    }
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [containerStackView, makeImageView].forEach(addSubview)

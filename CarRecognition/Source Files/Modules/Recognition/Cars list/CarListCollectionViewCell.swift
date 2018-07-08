@@ -75,4 +75,10 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
         isCurrentlyPrimary = attributes.progress == 1
         animateViews(toProgress: attributes.progress)
     }
+    
+    /// - SeeAlso: UICollectionViewCell
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cardView.clearCharts(animated: false)
+    }
 }
