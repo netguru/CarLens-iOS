@@ -8,12 +8,15 @@ import UIKit.UICollectionView
 
 internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupable {
     
+    /// Indicates if the cell is currently displayed as primary cell
+    var isCurrentlyPrimary = false
+    
     private let topViewHeight: CGFloat = 200
     
     private lazy var topView = LabeledCarImageView().layoutable()
     
-    private lazy var cardView: UIView = {
-        let view = CarListCardView(car: .known(make: .volkswagen, model: "passat"))
+    private lazy var cardView: CarListCardView = {
+        let view = CarListCardView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 10
         return view.layoutable()
@@ -35,6 +38,14 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     /// - Parameter car: Car to be used for updating the cell
     func setup(with car: Car) {
         topView.setup(with: car)
+        cardView.setup(with: car)
+    }
+    
+    /// Invalidates the charts visible on the cell
+    ///
+    /// - Parameter animated: Indicating if invalidation should be animated
+    func invalidateCharts(animated: Bool) {
+        cardView.invalidateCharts(animated: animated)
     }
     
     private func animateViews(toProgress progress: Double) {
@@ -61,6 +72,7 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         guard let attributes = layoutAttributes as? CarListLayoutAttributes else { return }
+        isCurrentlyPrimary = attributes.progress == 1
         animateViews(toProgress: attributes.progress)
     }
 }
