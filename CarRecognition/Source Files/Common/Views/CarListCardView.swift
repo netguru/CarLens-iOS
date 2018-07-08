@@ -74,6 +74,17 @@ internal final class CarListCardView: View, ViewSetupable {
         descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(carDescription, font: descriptionLabel.font, tracking: 0.6)
     }
     
+    /// Invalidates the charts visible on the view
+    ///
+    /// - Parameter animated: Indicating if invalidation should be animated
+    func invalidateCharts(animated: Bool) {        
+        topSpeedProgressView.invalidateChart(animated: animated)
+        accelerationProgressView.invalidateChart(animated: animated)
+        engineProgressView.invalidateChart(animated: animated)
+        powerProgressView.invalidateChart(animated: animated)
+        starsProgressView.invalidateChart(animated: animated)
+    }
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         addSubview(containerStackView)
