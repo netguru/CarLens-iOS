@@ -111,7 +111,7 @@ internal final class CarCardView: View, ViewSetupable {
     /// Recognize button visible at the bottom
     internal var scanButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "button-scan-primary-no-shadow"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.clipsToBounds = false
         button.layer.shadowOpacity = 0.6
