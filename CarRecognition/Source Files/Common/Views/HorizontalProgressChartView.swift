@@ -51,11 +51,11 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         
         switch state {
         case .power(let power):
-            let valueText = String(power)
+            let valueText = String(power) + "\(Localizable.CarCard.hp)"
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
             titleLabel.text = Localizable.CarCard.power.uppercased()
         case .engine(let engine):
-            let valueText = "\(engine) \(Localizable.CarCard.hp)"
+            let valueText = "\(engine)"
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
             titleLabel.text = Localizable.CarCard.engine.uppercased()
         }
@@ -92,11 +92,5 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
             titleLabel.bottomAnchor.constraint(equalTo: animationView.topAnchor, constant: 3),
             valueLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -3)
         ])
-    }
-    
-    /// - SeeAlso: ViewSetupable
-    func setupProperties() {
-        animationView.loopAnimation = true
-        animationView.play(toProgress: 1.0, withCompletion: nil)
     }
 }
