@@ -38,11 +38,14 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     }
     
     private func animatePrimaryCell() {
-        let centralCell = customView.collectionView.visibleCells
-            .compactMap { $0 as? CarListCollectionViewCell }
-            .filter { $0.isCurrentlyPrimary }
-            .first
-        centralCell?.invalidateCharts(animated: true)
+        let cells = customView.collectionView.visibleCells.compactMap { $0 as? CarListCollectionViewCell }
+        cells.forEach {
+            if $0.isCurrentlyPrimary {
+                $0.invalidateCharts(animated: true)
+            } else {
+                $0.clearCharts(animated: false)
+            }
+        }
     }
     
     /// SeeAlso: UICollectionViewDataSource

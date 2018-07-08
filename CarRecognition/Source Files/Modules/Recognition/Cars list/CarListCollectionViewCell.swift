@@ -48,6 +48,13 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
         cardView.invalidateCharts(animated: animated)
     }
     
+    /// Clear the progress shown on charts
+    ///
+    /// - Parameter animated: Indicating if progress change should be animated
+    func clearCharts(animated: Bool) {
+        cardView.clearCharts(animated: false)
+    }
+    
     private func animateViews(toProgress progress: Double) {
         let offset = topViewHeight - (CGFloat(progress) * topViewHeight)
         cardView.transform = .init(translationX: 0, y: -offset)
@@ -79,6 +86,6 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     /// - SeeAlso: UICollectionViewCell
     override func prepareForReuse() {
         super.prepareForReuse()
-        cardView.clearCharts(animated: false)
+        clearCharts(animated: false)
     }
 }
