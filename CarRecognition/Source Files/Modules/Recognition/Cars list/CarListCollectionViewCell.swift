@@ -72,7 +72,7 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         guard let attributes = layoutAttributes as? CarListLayoutAttributes else { return }
-        isCurrentlyPrimary = attributes.progress == 1
+        isCurrentlyPrimary = !(attributes.progress == 0)
         animateViews(toProgress: attributes.progress)
     }
     
