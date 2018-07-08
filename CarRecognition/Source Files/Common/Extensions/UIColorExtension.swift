@@ -22,12 +22,20 @@ internal extension UIColor {
         return .init(hex: 0xE9EEF0)
     }
     
+    class var crBackgroundLightGray: UIColor {
+        return .init(hex: 0xEEF3F5)
+    }
+    
     class var crFontDark: UIColor {
         return .init(hex: 0x1A1A1A)
     }
     
     class var crFontGray: UIColor {
         return .init(hex: 0x7994A9)
+    }
+    
+    class var crFontLightGray: UIColor {
+        return .init(hex: 0x8199AC)
     }
 
     class var crShadowOrange: UIColor {

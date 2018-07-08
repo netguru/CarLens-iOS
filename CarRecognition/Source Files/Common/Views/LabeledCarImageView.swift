@@ -24,6 +24,7 @@ internal final class LabeledCarImageView: View, ViewSetupable {
     }()
     
     /// Initializes the view with given car
+    ///
     /// - Parameter car: Car to be used for updating the view
     init(car: Car? = nil) {
         super.init()

@@ -13,7 +13,7 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     private lazy var topView = LabeledCarImageView().layoutable()
     
     private lazy var cardView: UIView = {
-        let view = UIView()
+        let view = CarListCardView(car: .known(make: .volkswagen, model: "passat"))
         view.backgroundColor = .white
         view.layer.cornerRadius = 10
         return view.layoutable()
