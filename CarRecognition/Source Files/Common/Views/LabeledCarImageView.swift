@@ -32,16 +32,15 @@ internal final class LabeledCarImageView: View, ViewSetupable {
         setup(with: car)
     }
     
-    /// Setups the view with given car
+    /// Setups the view with given car. Use only inside reusable views.
     ///
     /// - Parameter car: Car to be used for updating the view
     func setup(with car: Car) {
-        // TODO: Remove after merging improved car model from other branch
-        let modelText = "Passat".uppercased()
-        let carImage = #imageLiteral(resourceName: "VolkswagenPassat_locked")
+        // TODO: Remove when local car database will be ready
+        let detectedState = arc4random() > UInt32.max / 2
         
-        modelLabel.attributedText = NSAttributedStringFactory.trackingApplied(modelText, font: modelLabel.font, tracking: 0.6)
-        carImageView.image = carImage
+        modelLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.model.uppercased(), font: modelLabel.font, tracking: 0.6)
+        carImageView.image = detectedState ? car.image.unlocked : car.image.locked
     }
     
     /// - SeeAlso: ViewSetupable

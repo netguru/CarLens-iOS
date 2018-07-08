@@ -15,7 +15,7 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         case engine(Int)
     }
     
-    private let state: State
+    private var state: State
     
     private let chartConfig = CarSpecificationChartConfiguration()
     
@@ -48,7 +48,18 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
     init(state: State, invalidateChartInstantly: Bool) {
         self.state = state
         super.init()
-        
+        setup(state: state, invalidateChartInstantly: invalidateChartInstantly)
+    }
+    
+    /// Setups the view with given state. Use only inside reusable views.
+    ///
+    /// - Parameters:
+    ///   - state: State to be shown by the view
+    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
+    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
+    func setup(state: State, invalidateChartInstantly: Bool) {
+        animationView.set(progress: 0, animated: false)
+        self.state = state
         switch state {
         case .power(let power):
             let valueText = String(power) + "\(Localizable.CarCard.hp)"

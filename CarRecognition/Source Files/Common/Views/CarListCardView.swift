@@ -8,13 +8,13 @@ import UIKit
 
 internal final class CarListCardView: View, ViewSetupable {
     
-    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(94), invalidateChartInstantly: false)
+    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(0), invalidateChartInstantly: false)
     
-    private lazy var accelerationProgressView = PartOvalProgressView(state: .accelerate(9), invalidateChartInstantly: false)
+    private lazy var accelerationProgressView = PartOvalProgressView(state: .accelerate(0), invalidateChartInstantly: false)
     
-    private lazy var engineProgressView = HorizontalProgressChartView(state: .engine(1999), invalidateChartInstantly: false)
+    private lazy var engineProgressView = HorizontalProgressChartView(state: .engine(0), invalidateChartInstantly: false)
     
-    private lazy var powerProgressView = HorizontalProgressChartView(state: .power(150), invalidateChartInstantly: false)
+    private lazy var powerProgressView = HorizontalProgressChartView(state: .power(0), invalidateChartInstantly: false)
     
     private lazy var starsProgressView: HorizontalStarsView = {
         let view = HorizontalStarsView(starCount: 3, invalidateChartInstantly: false)
@@ -28,6 +28,12 @@ internal final class CarListCardView: View, ViewSetupable {
         view.font = .gliscorGothicFont(ofSize: 12)
         view.numberOfLines = 0
         return view
+    }()
+    
+    private lazy var makeImageView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        return view.layoutable()
     }()
     
     private lazy var separatorLine: UIView = .separator(axis: .vertical, thickness: 1, color: .crBackgroundLightGray)
@@ -62,22 +68,32 @@ internal final class CarListCardView: View, ViewSetupable {
         setup(with: car)
     }
     
-    /// Setups the view with given car
+    /// Setups the view with given car. Use only inside reusable views.
     ///
     /// - Parameter car: Car to be used for updating the view
     func setup(with car: Car) {
-        // TODO: Remove after merging improved car model from other branch
-//        let modelText = "Passat".uppercased()
-//        let carImage = #imageLiteral(resourceName: "VolkswagenPassat_locked")
-        
+        // TODO: Remove when local car database will be ready
+        let carMakeImage = #imageLiteral(resourceName: "VolkswagenPassat")
         let carDescription = "The Volkswagen Tiguan is a compact crossover vehicle (CUV). Introduced in 2007, it uses the PQ35 platform of the Volkswagen Golf."
+        let carTopSpeed = 94
+        let carAccelerate: TimeInterval = 9
+        let carPower = 115
+        let carEngine = 1588
+        let carStars = 3
+        
+        makeImageView.image = carMakeImage
+        topSpeedProgressView.setup(state: .topSpeed(carTopSpeed), invalidateChartInstantly: false)
+        accelerationProgressView.setup(state: .accelerate(carAccelerate), invalidateChartInstantly: false)
+        engineProgressView.setup(state: .engine(carEngine), invalidateChartInstantly: false)
+        powerProgressView.setup(state: .power(carPower), invalidateChartInstantly: false)
+        starsProgressView.setup(starCount: carStars, invalidateChartInstantly: false)
         descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(carDescription, font: descriptionLabel.font, tracking: 0.6)
     }
     
     /// Invalidates the charts visible on the view
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
-    func invalidateCharts(animated: Bool) {        
+    func invalidateCharts(animated: Bool) {
         topSpeedProgressView.invalidateChart(animated: animated)
         accelerationProgressView.invalidateChart(animated: animated)
         engineProgressView.invalidateChart(animated: animated)
@@ -87,7 +103,7 @@ internal final class CarListCardView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        addSubview(containerStackView)
+        [containerStackView, makeImageView].forEach(addSubview)
         separatorLine.addSubview(starsProgressView)
     }
     
@@ -95,8 +111,10 @@ internal final class CarListCardView: View, ViewSetupable {
     func setupConstraints() {
         containerStackView.constraintToSuperviewEdges(withInsets: .init(top: 30, left: 30, bottom: 30, right: 30))
         starsProgressView.constraintCenterToSuperview()
+        makeImageView.constraintToConstant(.init(width: 37, height: 37))
         NSLayoutConstraint.activate([
-
+            makeImageView.topAnchor.constraint(equalTo: topAnchor, constant: -19),
+            makeImageView.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
 }
