@@ -24,6 +24,10 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     private let augmentedRealityViewController: AugmentedRealityViewController
     
+    private let arConfig = CarARConfiguration()
+    
+    private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: arConfig.normalizationCount)
+    
     /// Initializes view controller with given dependencies
     ///
     /// - Parameters:
@@ -45,7 +49,6 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         classificationService.completionHandler = { [weak self] result in
             DispatchQueue.main.async {
                 self?.handleRecognition(result: result)
-                self?.augmentedRealityViewController.handleRecognition(result: result)
             }
         }
     }
@@ -57,8 +60,20 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     private func handleRecognition(result: CarClassifierResponse) {
-        customView.analyzeTimeLabel.text = CRTimeFormatter.intervalMilisecondsFormatted(result.analyzeDuration)   
-        customView.detectedModelLabel.text = result.cars.first?.description ?? ""
+        guard let mostConfidentRecognition = result.cars.first else { return }
+        let normalizedConfidence = inputNormalizationService.normalize(value: Double(mostConfidentRecognition.confidence))
+        try? augmentedRealityViewController.updateDetectionViewfinder(to: .recognizing(progress: normalizedConfidence))
+        if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
+            augmentedRealityViewController.addPin(to: mostConfidentRecognition.car, completion: { car in
+                // TODO: Open bottom sheet for `car`
+            }, error: { [unowned self] error in
+                // TODO: Debug information, remove from final version
+                self.customView.analyzeTimeLabel.text = error.rawValue
+            })
+        }
+        
+        // TODO: Debug information, remove from final version
+        customView.detectedModelLabel.text = mostConfidentRecognition.car.description + " (\(CRNumberFormatter.percentageFormatted(Float(normalizedConfidence))))"
     }
     
     @objc private func carsListButtonTapAction() {

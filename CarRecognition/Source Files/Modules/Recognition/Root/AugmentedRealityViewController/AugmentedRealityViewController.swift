@@ -11,7 +11,7 @@ import ARKit
 internal final class AugmentedRealityViewController: TypedViewController<AugmentedRealityView>, ARSessionDelegate, ARSKViewDelegate {
     
     /// Possiblle errors that can occur during applying AR labels
-    enum CarARLabelError: Error {
+    enum CarARLabelError: String, Error {
         case pinAlreadyAdded
         case hitTestFailed
         case hitTestTooClose
@@ -23,11 +23,9 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     
     private let config = CarARConfiguration()
     
-    private var addedAnchors: [ARAnchor: RecognitionResult] = [:]
+    private var addedAnchors: [ARAnchor: Car] = [:]
     
     private var cardDidSlideIn = false
-    
-    private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: config.normalizationCount)
     
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
@@ -47,41 +45,44 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         customView.sceneView.size = customView.previewView.bounds.size
     }
     
-    /// Handles results of the classification
+    /// Updates the detection viewfinder with given progress
     ///
-    /// - Parameter result: Classification result
-    func handleRecognition(result: CarClassifierResponse, errorHandler: ((CarARLabelError) -> ())? = nil) {
-        guard let mostConfidentRecognition = result.cars.first else { return }
-        let normalizedConfidence = inputNormalizationService.normalize(value: Double(mostConfidentRecognition.confidence))
-        try? customView.detectionViewfinderView.update(state: .recognizing(progress: normalizedConfidence))
-        handlePinAddingIfNeeded(for: mostConfidentRecognition, normalizedConfidence: normalizedConfidence, errorHandler: errorHandler)
+    /// - Parameter progress: Progress to be set
+    func updateDetectionViewfinder(to state: DetectionViewfinderView.State) throws {
+        try customView.detectionViewfinderView.update(state: state)
     }
     
-    private func handlePinAddingIfNeeded(for result: RecognitionResult, normalizedConfidence: Double, errorHandler: ((CarARLabelError) -> ())? = nil) {
-        guard normalizedConfidence >= config.neededConfidenceToPinLabel else { return }
+    /// Tries to add augmented reality pin to the car in 3D world
+    ///
+    /// - Parameters:
+    ///   - car: Car to be pinned
+    ///   - completion: Completion handler called when pin was successfully addded
+    ///   - error: Error handler called when error occurred during pin adding
+    func addPin(to car: Car, completion: (Car) -> (), error: ((CarARLabelError) -> ())? = nil) {
         let hitTests = customView.previewView.hitTest(config.pointForHitTest, types: [.featurePoint])
         guard hitTests.count > 0 else {
-            errorHandler?(.hitTestFailed)
+            error?(.hitTestFailed)
             return
         }
         guard let possibleCarHit = hitTests.first(where: { $0.distance > config.minimumDistanceFromDevice }) else {
-            errorHandler?(.hitTestTooClose)
+            error?(.hitTestTooClose)
             return
         }
         guard possibleCarHit.distance < config.maximumDistanceFromDevice else {
-            errorHandler?(.hitTestTooFar)
+            error?(.hitTestTooFar)
             return
         }
         guard let lastCapturedFrame = customView.previewView.session.currentFrame else {
-            errorHandler?(.noRecentFrameFound)
+            error?(.noRecentFrameFound)
             return
         }
         let anchor = ARAnchor(from: possibleCarHit, camera: lastCapturedFrame.camera, nodeShift: config.nodeShift)
         if shouldAdd(anchor: anchor) {
-            addedAnchors[anchor] = result
+            addedAnchors[anchor] = car
             customView.previewView.session.add(anchor: anchor)
+            completion(car)
         } else {
-            errorHandler?(.pinAlreadyAdded)
+            error?(.pinAlreadyAdded)
         }
     }
     
@@ -142,7 +143,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// SeeAlso: ARSKViewDelegate
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
         guard let element = addedAnchors[anchor] else { return nil }
-        guard case let Car.known(_, model) = element.car else { return nil }
+        guard case let Car.known(_, model) = element else { return nil }
         return SKNodeFactory.car(labeled: model.capitalized)
     }
 }
