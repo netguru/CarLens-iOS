@@ -13,7 +13,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
         static let exitPosition = UIScreen.main.bounds.maxY
     }
 
-    /// Completion handler for card status
+    /// Completion handler for card's sliding off status
     var completionHandler: ((Bool) -> ())?
     
     /// Animator for entry animations
