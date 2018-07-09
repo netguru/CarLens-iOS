@@ -14,10 +14,9 @@ internal final class CarListFlowLayout: UICollectionViewFlowLayout {
     
     override func prepare() {
         super.prepare()
-        if !firstSetupDone {
-            setup()
-            firstSetupDone = true
-        }
+        guard !firstSetupDone else { return }
+        setup()
+        firstSetupDone = true
     }
     
     private func setup() {

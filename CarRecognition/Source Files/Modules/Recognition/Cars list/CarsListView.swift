@@ -26,7 +26,7 @@ internal final class CarsListView: View, ViewSetupable {
         return view.layoutable()
     }()
     
-    private lazy var topView = UIView().layoutable()
+    private lazy var topView = CarListNavigationBar().layoutable()
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
