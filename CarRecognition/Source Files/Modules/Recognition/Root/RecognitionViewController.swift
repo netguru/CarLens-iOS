@@ -24,6 +24,8 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     private let augmentedRealityViewController: AugmentedRealityViewController
     
+    private var carCardViewController: CarCardViewController?
+    
     private let arConfig = CarARConfiguration()
     
     private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: arConfig.normalizationCount)
@@ -64,8 +66,8 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         let normalizedConfidence = inputNormalizationService.normalize(value: Double(mostConfidentRecognition.confidence))
         try? augmentedRealityViewController.updateDetectionViewfinder(to: .recognizing(progress: normalizedConfidence))
         if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
-            augmentedRealityViewController.addPin(to: mostConfidentRecognition.car, completion: { car in
-                // TODO: Open bottom sheet for `car`
+            augmentedRealityViewController.addPin(to: mostConfidentRecognition.car, completion: { [unowned self] car in
+                self.addSlidingCard(with: car)
             }, error: { [unowned self] error in
                 // TODO: Debug information, remove from final version
                 self.customView.analyzeTimeLabel.text = error.rawValue
@@ -74,6 +76,21 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         
         // TODO: Debug information, remove from final version
         customView.detectedModelLabel.text = mostConfidentRecognition.car.description + " (\(CRNumberFormatter.percentageFormatted(Float(normalizedConfidence))))"
+    }
+    
+    private func addSlidingCard(with car: Car) {
+        carCardViewController = CarCardViewController(viewMaker: CarCardView(car: car))
+        guard let carCardViewController = carCardViewController else { return }
+        
+        addChildViewController(carCardViewController)
+        view.addSubview(carCardViewController.view)
+        carCardViewController.didMove(toParentViewController: self)
+        
+        let height = UIScreen.main.bounds.height / 2
+        let width  = UIScreen.main.bounds.width
+        
+        carCardViewController.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + height, width: width, height: height)
+        carCardViewController.animateIn()
     }
     
     @objc private func carsListButtonTapAction() {
