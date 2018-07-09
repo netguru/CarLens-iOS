@@ -22,6 +22,11 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     /// Callback with triggered event
     var eventTriggered: ((Event) -> ())?
     
+    /// See also 'UIViewController'
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     private let classificationService: CarClassificationService
     
     private let augmentedRealityViewController: AugmentedRealityViewController
