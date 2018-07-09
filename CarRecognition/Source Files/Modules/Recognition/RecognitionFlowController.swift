@@ -30,8 +30,10 @@ internal final class RecognitionFlowController: FlowController {
         let viewController = applicationFactory.recognitionViewController()
         viewController.eventTriggered = { [unowned self] event in
             switch event {
-            case .didTapShowCarsList:
+            case .didTriggerShowCarsList(_):
                 viewController.present(self.makeCarsListViewController(), animated: true)
+            case .didTriggerGoogleSearch(let car):
+                SearchService().search(.google, for: car)
             }
         }
         return viewController

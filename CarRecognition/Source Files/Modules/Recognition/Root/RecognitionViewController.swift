@@ -12,9 +12,11 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     /// Enum describing events that can be triggered by this controller
     ///
-    /// - didTapShowCarsList: send when user want to see the list of available cars
+    /// - didTriggerShowCarsList: Send when user should see the list of available cars passing car if any is displayed be the bottom sheet.
+    /// - didTriggerGoogleSearch: Send when user should open Safari with google searching for selected car.
     enum Event {
-        case didTapShowCarsList
+        case didTriggerShowCarsList(Car?)
+        case didTriggerGoogleSearch(Car)
     }
     
     /// Callback with triggered event
@@ -80,29 +82,34 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     private func addSlidingCard(with car: Car) {
-        carCardViewController = CarCardViewController(viewMaker: CarCardView(car: car))
+        carCardViewController = CarCardViewController(car: car)
         guard let carCardViewController = carCardViewController else { return }
         setup(carCardViewController: carCardViewController)
         carCardViewController.animateIn()
     }
     
     private func setup(carCardViewController: CarCardViewController) {
-        carCardViewController.didDismissView = { [unowned self] in
-            self.classificationService.set(state: .running)
-            self.carCardViewController = nil
+        carCardViewController.eventTriggered = { [unowned self] event in
+            switch event {
+            case .didTapCarsList(let car):
+                self.eventTriggered?(.didTriggerShowCarsList(car))
+            case .didTapSearchGoogle(let car):
+                self.eventTriggered?(.didTriggerGoogleSearch(car))
+            case .didDismissViewByScanButtonTap, .didDismissView:
+                self.classificationService.set(state: .running)
+                self.carCardViewController = nil
+            }
         }
-        
         addChildViewController(carCardViewController)
         view.addSubview(carCardViewController.view)
         carCardViewController.didMove(toParentViewController: self)
         
         let height = UIScreen.main.bounds.height / 2
         let width  = UIScreen.main.bounds.width
-        
         carCardViewController.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + height, width: width, height: height)
     }
     
     @objc private func carsListButtonTapAction() {
-        eventTriggered?(.didTapShowCarsList)
+        eventTriggered?(.didTriggerShowCarsList(nil))
     }
 }
