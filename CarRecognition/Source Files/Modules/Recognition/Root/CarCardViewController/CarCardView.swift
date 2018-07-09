@@ -11,7 +11,6 @@ internal final class CarCardView: View, ViewSetupable {
     /// Struct that holds informations about view's dimensions
     struct Dimensions {
         static let topBeamHorizontalInset = UIScreen.main.bounds.width * 0.4
-        static let stackViewWidth = UIScreen.main.bounds.width * 0.8
         static let stackViewHeight = UIScreen.main.bounds.height / 12
         static let regularButtonDimension = 45.0
         static let bigButtonDimension = 70.0
@@ -141,13 +140,10 @@ internal final class CarCardView: View, ViewSetupable {
         topBeamView.constraintToSuperviewEdges(excludingAnchors: [.bottom], withInsets: .init(top: 11, left: Dimensions.topBeamHorizontalInset, bottom: 0, right: Dimensions.topBeamHorizontalInset))
 
         modelStackView.constraintToEdges(of: containerView, excludingAnchors: [.bottom], withInsets: .init(top: 37, left: 35, bottom: 0, right: 35))
-        modelStackView.constraintToConstant(.init(width: Dimensions.stackViewWidth, height: Dimensions.stackViewHeight + 2))
 
         [performanceStackView, mechanicalStackView].forEach { stackView in
             stackView.constraintToEdges(of: containerView, excludingAnchors: [.top, .bottom], withInsets: .init(top: 0, left: 35, bottom: 0, right: 35))
         }
-        mechanicalStackView.constraintToConstant(.init(width: Dimensions.stackViewWidth, height: Dimensions.stackViewHeight - 20))
-        performanceStackView.constraintToConstant(.init(width: Dimensions.stackViewWidth, height: Dimensions.stackViewHeight + 30))
 
         [googleButton, carListButton].forEach { button in
             button.constraintToConstant(.init(width: Dimensions.regularButtonDimension, height: Dimensions.regularButtonDimension))
@@ -166,7 +162,10 @@ internal final class CarCardView: View, ViewSetupable {
             carListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
             carListButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
             googleButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
-            googleButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -32)
+            googleButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
+            performanceStackView.heightAnchor.constraint(equalToConstant: Dimensions.stackViewHeight + 30),
+            mechanicalStackView.heightAnchor.constraint(equalToConstant: Dimensions.stackViewHeight - 20),
+            modelStackView.heightAnchor.constraint(equalToConstant: Dimensions.stackViewHeight + 2)
         ])
     }
 }

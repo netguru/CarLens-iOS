@@ -9,10 +9,6 @@ import Lottie
 
 internal final class PartOvalProgressView: View, ViewSetupable {
 
-    private struct Constants {
-        static let animationKey = "strokeEnd"
-    }
-    
     /// States available to display by this view
     enum State {
         case accelerate(TimeInterval)
@@ -21,11 +17,12 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     
     private var state: State
     
-    private let progressLayer = CAShapeLayer()
-    
     private let chartConfig = CarSpecificationChartConfiguration()
     
-    private let layerView = UIView().layoutable()
+    private let layerView: OvalProgressLayerView = {
+        let view = OvalProgressLayerView(startAngle: 0.8 * .pi, endAngle: 0.2 * .pi, strokeColor: UIColor.crShadowOrange)
+        return view.layoutable()
+    }()
     
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
@@ -64,7 +61,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
     func setup(state: State, invalidateChartInstantly: Bool) {
-        startAnimationWithProgress(0, animated: false)
+        layerView.setProgress(progress: 0, animated: false)
         self.state = state
         switch state {
         case .accelerate(let accelerate):
@@ -85,12 +82,6 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         }
     }
     
-    /// - SeeAlso: UIView.layoutSubviews()
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        drawCustomLayer()
-    }
-    
     /// Invalidates the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
@@ -102,14 +93,14 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         case .topSpeed(let topSpeed):
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
         }
-        startAnimationWithProgress(progress, animated: animated)
+        layerView.setProgress(progress: progress, animated: animated)
     }
     
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearChart(animated: Bool) {
-        startAnimationWithProgress(0, animated: animated)
+        layerView.setProgress(progress: 0, animated: animated)
     }
     
     /// - SeeAlso: ViewSetupable
@@ -126,47 +117,5 @@ internal final class PartOvalProgressView: View, ViewSetupable {
             titleLabel.topAnchor.constraint(equalTo: layerView.bottomAnchor, constant: -12),
             valueLabel.centerYAnchor.constraint(equalTo: layerView.centerYAnchor)
         ])
-    }
-}
-
-extension PartOvalProgressView {
-    private func drawCustomLayer() {
-        let circularPath = UIBezierPath(arcCenter: layerView.center,
-                                        radius: 42,
-                                        startAngle: 0.8 * .pi,
-                                        endAngle: 0.2 * .pi,
-                                        clockwise: true)
-        let trackLayer = CAShapeLayer()
-        trackLayer.path = circularPath.cgPath
-        trackLayer.strokeColor = UIColor.crBackgroundGray.cgColor
-        trackLayer.lineWidth = 6
-        trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.lineCap = kCALineCapRound
-        layer.addSublayer(trackLayer)
-
-        progressLayer.path = circularPath.cgPath
-        progressLayer.strokeColor = UIColor.crShadowOrange.cgColor
-        progressLayer.lineWidth = 6
-        progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.lineCap = kCALineCapRound
-        progressLayer.strokeEnd = 0
-        layer.addSublayer(progressLayer)
-
-        /// TEMP Set temp values - should be removed when real data will be presented
-        startAnimationWithProgress(0.5, animated: true)
-    }
-    
-    private func startAnimationWithProgress(_ progress: Double, animated: Bool) {
-        guard animated else {
-            progressLayer.strokeEnd = CGFloat(progress)
-            return
-        }
-        let initialAnimation = CABasicAnimation(keyPath: Constants.animationKey)
-        initialAnimation.toValue = progress
-        initialAnimation.duration = 1.5
-        initialAnimation.fillMode = kCAFillModeForwards
-        initialAnimation.isRemovedOnCompletion = false
-
-        progressLayer.add(initialAnimation, forKey: "PartOvalProgressView.ProgressLayer.animation")
     }
 }

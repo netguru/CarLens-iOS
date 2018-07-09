@@ -86,6 +86,7 @@
 		E89D791820ECB230006D2D8D /* CarCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791620ECB22F006D2D8D /* CarCardViewController.swift */; };
 		E89D791920ECB230006D2D8D /* CarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791720ECB22F006D2D8D /* CarCardView.swift */; };
 		E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */; };
+		E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */; };
 		E8E4B1A020EE2A65009A93B7 /* ModelNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */; };
 		E8ED0A2820EF76E9002CF8B7 /* CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED0A2720EF76E9002CF8B7 /* CarTests.swift */; };
 		E8ED0A2A20EF8A8A002CF8B7 /* CarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED0A2920EF8A8A002CF8B7 /* CarImage.swift */; };
@@ -197,6 +198,7 @@
 		E89D791620ECB22F006D2D8D /* CarCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardViewController.swift; sourceTree = "<group>"; };
 		E89D791720ECB22F006D2D8D /* CarCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardView.swift; sourceTree = "<group>"; };
 		E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
+		E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalProgressLayerView.swift; sourceTree = "<group>"; };
 		E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNameView.swift; sourceTree = "<group>"; };
 		E8ED0A2720EF76E9002CF8B7 /* CarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTests.swift; sourceTree = "<group>"; };
 		E8ED0A2920EF8A8A002CF8B7 /* CarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarImage.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				7C67179420F243C800183AB4 /* CarListCardView.swift */,
 				7CAD86D120F342CB0064D50E /* CarListNavigationBar.swift */,
 				E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */,
+				E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				7C93D49920E6316900AF6FFC /* AugmentedRealityViewController.swift in Sources */,
 				7CB817E220C935B200B51C3D /* KeyboardAwareViewController.swift in Sources */,
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
+				E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */,
 				7CA34DF920E3AEB0000E309B /* CarRecognitionModel.mlmodel in Sources */,
 				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
