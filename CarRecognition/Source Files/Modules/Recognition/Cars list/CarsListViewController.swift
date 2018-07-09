@@ -30,14 +30,14 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// SeeAlso: UIViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animatePrimaryCell()
+        animateVisibleCells()
     }
     
     @objc private func recognizeButtonTapAction() {
         eventTriggered?(.didTapDismiss)
     }
     
-    private func animatePrimaryCell() {
+    private func animateVisibleCells() {
         let cells = customView.collectionView.visibleCells.compactMap { $0 as? CarListCollectionViewCell }
         cells.forEach {
             if $0.isCurrentlyPrimary {
@@ -67,6 +67,6 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     
     /// SeeAlso: UICollectionViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        animatePrimaryCell()
+        animateVisibleCells()
     }
 }
