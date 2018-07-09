@@ -43,9 +43,9 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         customView.sceneView.size = customView.previewView.bounds.size
     }
     
-    /// Updates the detection viewfinder with given progress
+    /// Updates the detection viewfinder with given state
     ///
-    /// - Parameter progress: Progress to be set
+    /// - Parameter state: State to be set
     func updateDetectionViewfinder(to state: DetectionViewfinderView.State) throws {
         try customView.detectionViewfinderView.update(state: state)
     }
