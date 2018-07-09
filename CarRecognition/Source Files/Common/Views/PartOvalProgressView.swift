@@ -26,12 +26,13 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     private var state: State
     
     private let chartConfig = CarSpecificationChartConfiguration()
-    
-    private let ovalLayerView: OvalProgressLayerView = {
-        let view = OvalProgressLayerView(startAngle: Dimensions.startAngle, endAngle: Dimensions.endAngle, progressStrokeColor: UIColor.crShadowOrange)
-        return view.layoutable()
-    }()
-    
+
+    private let ovalLayerView = OvalProgressLayerView(
+        startAngle: Dimensions.startAngle,
+        endAngle: Dimensions.endAngle,
+        progressStrokeColor: .crShadowOrange
+    ).layoutable()
+
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
         view.font = .gliscorGothicFont(ofSize: Dimensions.valueFontSize)

@@ -9,8 +9,18 @@ import Lottie
 
 internal final class FullOvalProgressView: View, ViewSetupable {
     
-    private lazy var animationView = LOTAnimationView(name: "full_oval_progress").layoutable()
-    
+    /// Struct with dimensions
+    struct Dimensions {
+        static let startAngle: CGFloat = 3/2 * .pi
+        static let endAngle: CGFloat = 7/2 * .pi
+    }
+
+    private let fullOvalLayerView = OvalProgressLayerView(
+        startAngle: Dimensions.startAngle,
+        endAngle: Dimensions.endAngle,
+        progressStrokeColor: .crShadowOrange
+    ).layoutable()
+
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
         view.font = .gliscorGothicFont(ofSize: 20)
@@ -46,7 +56,7 @@ internal final class FullOvalProgressView: View, ViewSetupable {
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
     func setup(currentNumber: Int, maximumNumber: Int, invalidateChartInstantly: Bool) {
-        animationView.set(progress: 0, animated: false)
+        fullOvalLayerView.set(progress: 0, animated: false)
         self.currentNumber = currentNumber
         self.maximumNumber = maximumNumber
         
@@ -62,27 +72,27 @@ internal final class FullOvalProgressView: View, ViewSetupable {
     /// - Parameter animated: Indicating if invalidation should be animated
     func invalidateChart(animated: Bool) {
         let progress = Double(currentNumber) / Double(maximumNumber)
-        animationView.set(progress: CGFloat(progress), animated: animated)
+        fullOvalLayerView.set(progress: progress, animated: animated)
     }
     
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearChart(animated: Bool) {
-        animationView.set(progress: 0, animated: animated)
+        fullOvalLayerView.set(progress: 0, animated: animated)
     }
             
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [animationView, valueLabel].forEach(addSubview)
+        [fullOvalLayerView, valueLabel].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        animationView.constraintToSuperviewEdges()
+        fullOvalLayerView.constraintToSuperviewEdges()
         valueLabel.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
         NSLayoutConstraint.activate([
-            valueLabel.centerYAnchor.constraint(equalTo: animationView.centerYAnchor)
+            valueLabel.centerYAnchor.constraint(equalTo: fullOvalLayerView.centerYAnchor)
         ])
     }
 }
