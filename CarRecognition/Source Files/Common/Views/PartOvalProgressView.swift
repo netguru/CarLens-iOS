@@ -8,22 +8,33 @@ import UIKit
 import Lottie
 
 internal final class PartOvalProgressView: View, ViewSetupable {
-    
+
     /// States available to display by this view
     enum State {
         case accelerate(TimeInterval)
         case topSpeed(Int)
     }
     
+    /// Struct with dimensions
+    struct Dimensions {
+        static let startAngle: CGFloat = 0.8 * .pi
+        static let endAngle: CGFloat = 0.2 * .pi
+        static let valueFontSize: CGFloat = 20
+        static let titleFontSize: CGFloat = 14
+    }
+    
     private var state: State
     
     private let chartConfig = CarSpecificationChartConfiguration()
     
-    private lazy var animationView = LOTAnimationView(name: "part_oval_progress").layoutable()
+    private let ovalLayerView: OvalProgressLayerView = {
+        let view = OvalProgressLayerView(startAngle: Dimensions.startAngle, endAngle: Dimensions.endAngle, progressStrokeColor: UIColor.crShadowOrange)
+        return view.layoutable()
+    }()
     
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
-        view.font = .gliscorGothicFont(ofSize: 20)
+        view.font = .gliscorGothicFont(ofSize: Dimensions.valueFontSize)
         view.textColor = .crFontDark
         view.numberOfLines = 1
         view.textAlignment = .center
@@ -32,7 +43,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.font = .gliscorGothicFont(ofSize: 14)
+        view.font = .gliscorGothicFont(ofSize: Dimensions.titleFontSize)
         view.textColor = .crFontGray
         view.numberOfLines = 1
         view.textAlignment = .center
@@ -58,7 +69,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
     func setup(state: State, invalidateChartInstantly: Bool) {
-        animationView.set(progress: 0, animated: false)
+        ovalLayerView.set(progress: 0, animated: false)
         self.state = state
         switch state {
         case .accelerate(let accelerate):
@@ -90,30 +101,29 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         case .topSpeed(let topSpeed):
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
         }
-        animationView.set(progress: CGFloat(progress), animated: animated)
+        ovalLayerView.set(progress: progress, animated: animated)
     }
     
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearChart(animated: Bool) {
-        animationView.set(progress: 0, animated: animated)
+        ovalLayerView.set(progress: 0, animated: animated)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [animationView, valueLabel, titleLabel].forEach(addSubview)
+        [ovalLayerView, valueLabel, titleLabel].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        animationView.constraintToSuperviewEdges(excludingAnchors: [.bottom], withInsets: .init(top: 0, left: 0, bottom: 0, right: 8))
+        ovalLayerView.constraintToSuperviewEdges()
         valueLabel.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
-        titleLabel.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 4, right: 8))
+        titleLabel.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
         NSLayoutConstraint.activate([
-            animationView.widthAnchor.constraint(equalTo: heightAnchor),
-            titleLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 4),
-            valueLabel.centerYAnchor.constraint(equalTo: animationView.centerYAnchor)
+            titleLabel.topAnchor.constraint(equalTo: ovalLayerView.bottomAnchor, constant: -12),
+            valueLabel.centerYAnchor.constraint(equalTo: ovalLayerView.centerYAnchor)
         ])
     }
 }
