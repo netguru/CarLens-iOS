@@ -34,6 +34,10 @@ internal struct Localizable {
         static let hp = localized("car.card.hp")
     }
     
+    struct CarsList {
+        static let title = localized("cars.list.title")
+    }
+    
     struct Error {
         static let title = localized("error.title")
         static let unknownErrorOccurred = localized("error.unknown.error.occurred")

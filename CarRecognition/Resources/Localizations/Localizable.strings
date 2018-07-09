@@ -23,6 +23,9 @@
 "car.card.mph" = "mph";
 "car.card.hp" = "hp";
 
+// Cars list
+"cars.list.title" = "Discovered";
+
 // Error
 "error.title" = "Error";
 "error.unknown.error.occurred" = "Unknown error occurred";

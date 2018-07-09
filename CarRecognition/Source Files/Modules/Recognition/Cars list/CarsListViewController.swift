@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class CarsListViewController: TypedViewController<CarsListView>, UICollectionViewDataSource {
+internal final class CarsListViewController: TypedViewController<CarsListView>, UICollectionViewDataSource, UICollectionViewDelegate {
     
     /// Enum describing events that can be triggered by this controller
     ///
@@ -22,12 +22,30 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     override func viewDidLoad() {
         super.viewDidLoad()
         customView.collectionView.dataSource = self
+        customView.collectionView.delegate = self
         customView.collectionView.register(cell: CarListCollectionViewCell.self)
         customView.recognizeButton.addTarget(self, action: #selector(recognizeButtonTapAction), for: .touchUpInside)
     }
     
+    /// SeeAlso: UIViewController
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateVisibleCells()
+    }
+    
     @objc private func recognizeButtonTapAction() {
         eventTriggered?(.didTapDismiss)
+    }
+    
+    private func animateVisibleCells() {
+        let cells = customView.collectionView.visibleCells.compactMap { $0 as? CarListCollectionViewCell }
+        cells.forEach {
+            if $0.isCurrentlyPrimary {
+                $0.invalidateCharts(animated: true)
+            } else {
+                $0.clearCharts(animated: false)
+            }
+        }
     }
     
     /// SeeAlso: UICollectionViewDataSource
@@ -45,5 +63,10 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         cell.setup(with: Car(label: "volkswagen passat")!)
         
         return cell
+    }
+    
+    /// SeeAlso: UICollectionViewDelegate
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        animateVisibleCells()
     }
 }

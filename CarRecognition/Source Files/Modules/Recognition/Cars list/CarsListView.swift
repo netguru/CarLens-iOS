@@ -20,10 +20,13 @@ internal final class CarsListView: View, ViewSetupable {
     lazy var recognizeButton: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
+        view.layer.shadowOpacity = 0.6
+        view.layer.shadowColor = UIColor.crShadowOrange.withAlphaComponent(0.4).cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 10)
         return view.layoutable()
     }()
     
-    private lazy var topView = UIView().layoutable()
+    private lazy var topView = CarListNavigationBar().layoutable()
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {

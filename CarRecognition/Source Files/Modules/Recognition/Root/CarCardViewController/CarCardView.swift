@@ -74,15 +74,15 @@ internal final class CarCardView: View, ViewSetupable {
 
     /// StackView with performance informations
     private lazy var performanceStackView: UIStackView = {
-        let topSpeedProgressView = PartOvalProgressView(state: PartOvalProgressView.State.topSpeed(200), invalidateChartInstantly: false)
-        let accelerationOvalProgressView = PartOvalProgressView(state: PartOvalProgressView.State.accelerate(9), invalidateChartInstantly: false)
+        let topSpeedProgressView = PartOvalProgressView(state: .topSpeed(200), invalidateChartInstantly: false)
+        let accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(9), invalidateChartInstantly: false)
         return .make(axis: .horizontal, with: [topSpeedProgressView, accelerationOvalProgressView], spacing: 10.0, distribution: .fillEqually)
     }()
 
     /// StackView with mechanical informations
     private lazy var mechanicalStackView: UIStackView = {
-        let engineHorizontalProgressView = HorizontalProgressChartView(state: HorizontalProgressChartView.State.engine(1999), invalidateChartInstantly: true)
-        let powerHorizontalProgressView = HorizontalProgressChartView(state: HorizontalProgressChartView.State.power(150), invalidateChartInstantly: true)
+        let engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(1999), invalidateChartInstantly: true)
+        let powerHorizontalProgressView = HorizontalProgressChartView(state: .power(150), invalidateChartInstantly: true)
         return .make(axis: .horizontal, with: [powerHorizontalProgressView, engineHorizontalProgressView], spacing: 30.0, distribution: .fillEqually)
     }()
 
@@ -111,7 +111,7 @@ internal final class CarCardView: View, ViewSetupable {
     /// Recognize button visible at the bottom
     internal var scanButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "button-scan-primary-no-shadow"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
         button.imageView?.clipsToBounds = false
         button.layer.shadowOpacity = 0.6

@@ -20,9 +20,9 @@ internal final class FullOvalProgressView: View, ViewSetupable {
         return view.layoutable()
     }()
     
-    private let currentNumber: Int
+    private var currentNumber: Int
     
-    private let maximumNumber: Int
+    private var maximumNumber: Int
     
     /// Initializes the view with given parameters
     ///
@@ -35,6 +35,20 @@ internal final class FullOvalProgressView: View, ViewSetupable {
         self.currentNumber = currentNumber
         self.maximumNumber = maximumNumber
         super.init()
+        setup(currentNumber: currentNumber, maximumNumber: maximumNumber, invalidateChartInstantly: invalidateChartInstantly)
+    }
+    
+    /// Setups the view with given parameters. Use only inside reusable views.
+    ///
+    /// - Parameters:
+    ///   - currentNumber: Currently achieved number
+    ///   - maximumNumber: Maximum available number
+    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
+    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
+    func setup(currentNumber: Int, maximumNumber: Int, invalidateChartInstantly: Bool) {
+        animationView.set(progress: 0, animated: false)
+        self.currentNumber = currentNumber
+        self.maximumNumber = maximumNumber
         
         let valueText = "\(currentNumber)/\(maximumNumber)"
         valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
@@ -49,6 +63,13 @@ internal final class FullOvalProgressView: View, ViewSetupable {
     func invalidateChart(animated: Bool) {
         let progress = Double(currentNumber) / Double(maximumNumber)
         animationView.set(progress: CGFloat(progress), animated: animated)
+    }
+    
+    /// Clear the progress shown on the chart
+    ///
+    /// - Parameter animated: Indicating if progress change should be animated
+    func clearChart(animated: Bool) {
+        animationView.set(progress: 0, animated: animated)
     }
             
     /// - SeeAlso: ViewSetupable

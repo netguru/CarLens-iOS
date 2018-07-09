@@ -9,7 +9,7 @@ import Lottie
 
 internal final class HorizontalStarsView: View, ViewSetupable {
     
-    private let starCount: Int
+    private var starCount: Int
     
     private let numberOfStars = 5
     
@@ -22,11 +22,23 @@ internal final class HorizontalStarsView: View, ViewSetupable {
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
     init(starCount: Int, invalidateChartInstantly: Bool) {
+        self.starCount = starCount
+        super.init()
+        setup(starCount: starCount, invalidateChartInstantly: invalidateChartInstantly)
+    }
+    
+    /// Setups the view with given parameters. Use only inside reusable views.
+    ///
+    /// - Parameters:
+    ///   - starCount: Count of achieved stars
+    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
+    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
+    func setup(starCount: Int, invalidateChartInstantly: Bool) {
         guard starCount >= 0, starCount <= 5 else {
             fatalError("Wrong input provided for stars chart")
         }
+        animationView.set(progress: 0, animated: false)
         self.starCount = starCount
-        super.init()
         if invalidateChartInstantly {
             invalidateChart(animated: false)
         }
@@ -38,6 +50,13 @@ internal final class HorizontalStarsView: View, ViewSetupable {
     func invalidateChart(animated: Bool) {
         let progress = Double(starCount) / Double(numberOfStars)
         animationView.set(progress: CGFloat(progress), animated: animated)
+    }
+    
+    /// Clear the progress shown on the chart
+    ///
+    /// - Parameter animated: Indicating if progress change should be animated
+    func clearChart(animated: Bool) {
+        animationView.set(progress: 0, animated: animated)
     }
     
     /// - SeeAlso: ViewSetupable
