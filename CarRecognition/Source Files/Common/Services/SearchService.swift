@@ -8,7 +8,7 @@ import UIKit.UIApplication
 
 internal final class SearchService {
     
-    /// Serives available to search with added base URLs as rawValue
+    /// Services available to search with added base URLs as rawValue
     enum Service: String {
         case google = "https://www.google.com/search?q="
     }
