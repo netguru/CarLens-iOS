@@ -79,9 +79,14 @@ extension OvalProgressLayerView {
     /// Set progress value either animated or not animated
     internal func set(progress: Double, animated: Bool) {
         guard animated else {
+            progressLayer.isHidden = progress == 0
+            CATransaction.begin()
+            CATransaction.setDisableActions(true)
             progressLayer.strokeEnd = CGFloat(progress)
+            CATransaction.commit()
             return
         }
+        progressLayer.isHidden = false
         let initialAnimation = CABasicAnimation(keyPath: Constants.animationKey)
         initialAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         initialAnimation.toValue = progress
