@@ -19,7 +19,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         case topSpeed(Int)
     }
     
-    private let state: State
+    private var state: State
     
     private let progressLayer = CAShapeLayer()
     
@@ -54,7 +54,18 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     init(state: State, invalidateChartInstantly: Bool) {
         self.state = state
         super.init()
-        
+        setup(state: state, invalidateChartInstantly: invalidateChartInstantly)
+    }
+    
+    /// Setups the view with given state. Use only inside reusable views.
+    ///
+    /// - Parameters:
+    ///   - state: State to be shown by the view
+    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
+    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
+    func setup(state: State, invalidateChartInstantly: Bool) {
+        startAnimationWithProgress(0, animated: false)
+        self.state = state
         switch state {
         case .accelerate(let accelerate):
             let formatter = DateComponentsFormatter()
@@ -92,6 +103,13 @@ internal final class PartOvalProgressView: View, ViewSetupable {
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
         }
         startAnimationWithProgress(progress, animated: animated)
+    }
+    
+    /// Clear the progress shown on the chart
+    ///
+    /// - Parameter animated: Indicating if progress change should be animated
+    func clearChart(animated: Bool) {
+        startAnimationWithProgress(0, animated: animated)
     }
     
     /// - SeeAlso: ViewSetupable
