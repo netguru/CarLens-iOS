@@ -28,7 +28,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     private let chartConfig = CarSpecificationChartConfiguration()
     
     private let layerView: OvalProgressLayerView = {
-        let view = OvalProgressLayerView(startAngle: Dimensions.startAngle, endAngle: Dimensions.endAngle, strokeColor: UIColor.crShadowOrange)
+        let view = OvalProgressLayerView(startAngle: Dimensions.startAngle, endAngle: Dimensions.endAngle, progressStrokeColor: UIColor.crShadowOrange)
         return view.layoutable()
     }()
     

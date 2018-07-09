@@ -16,7 +16,9 @@ final class OvalProgressLayerView: View {
 
     private let endAngle: CGFloat
 
-    private let strokeColor: UIColor
+    private let progressStrokeColor: UIColor
+    
+    private let trackStrokeColor: UIColor
 
     private let progressLayer = CAShapeLayer()
     
@@ -26,10 +28,11 @@ final class OvalProgressLayerView: View {
     ///   - startAngle: Starting angle of layer
     ///   - endAngle: ending angle of layer
     ///   - strokeColor: Color of stroke in oval layer
-    init(startAngle: CGFloat, endAngle: CGFloat, strokeColor: UIColor) {
+    init(startAngle: CGFloat, endAngle: CGFloat, progressStrokeColor: UIColor, trackStrokeColor: UIColor = UIColor.crBackgroundGray) {
         self.startAngle = startAngle
         self.endAngle = endAngle
-        self.strokeColor = strokeColor
+        self.progressStrokeColor = progressStrokeColor
+        self.trackStrokeColor = trackStrokeColor
         super.init()
     }
     
@@ -49,14 +52,14 @@ extension OvalProgressLayerView {
                                         clockwise: true)
         let trackLayer = CAShapeLayer()
         trackLayer.path = circularPath.cgPath
-        trackLayer.strokeColor = UIColor.crBackgroundGray.cgColor
+        trackLayer.strokeColor = trackStrokeColor.cgColor
         trackLayer.lineWidth = 6
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = kCALineCapRound
         layer.addSublayer(trackLayer)
         
         progressLayer.path = circularPath.cgPath
-        progressLayer.strokeColor = strokeColor.cgColor
+        progressLayer.strokeColor = progressStrokeColor.cgColor
         progressLayer.lineWidth = 6
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineCap = kCALineCapRound
