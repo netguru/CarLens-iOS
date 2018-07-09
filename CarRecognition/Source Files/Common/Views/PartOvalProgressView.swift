@@ -161,12 +161,12 @@ extension PartOvalProgressView {
             progressLayer.strokeEnd = CGFloat(progress)
             return
         }
-        let basicAnimation = CABasicAnimation(keyPath: Constants.animationKey)
-        basicAnimation.toValue = progress
-        basicAnimation.duration = 1.5
-        basicAnimation.fillMode = kCAFillModeForwards
-        basicAnimation.isRemovedOnCompletion = false
+        let initialAnimation = CABasicAnimation(keyPath: Constants.animationKey)
+        initialAnimation.toValue = progress
+        initialAnimation.duration = 1.5
+        initialAnimation.fillMode = kCAFillModeForwards
+        initialAnimation.isRemovedOnCompletion = false
 
-        progressLayer.add(basicAnimation, forKey: "PartOvalProgressView.ProgressLayer.animation")
+        progressLayer.add(initialAnimation, forKey: "PartOvalProgressView.ProgressLayer.animation")
     }
 }
