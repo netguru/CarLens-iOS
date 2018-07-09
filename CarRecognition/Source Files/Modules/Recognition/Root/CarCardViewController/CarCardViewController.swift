@@ -14,7 +14,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     }
 
     /// Completion handler for card's sliding off status
-    var didDismissView: ((Bool) -> ())?
+    var didDismissView: (() -> ())?
     
     /// Animator for entry animations
     private let entryAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .easeIn)
@@ -57,7 +57,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
             }
         case .ended:
             exitAnimator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-            didDismissView?(true)
+            didDismissView?()
         default: break
         }
     }
