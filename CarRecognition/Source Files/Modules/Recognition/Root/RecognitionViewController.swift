@@ -67,6 +67,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         try? augmentedRealityViewController.updateDetectionViewfinder(to: .recognizing(progress: normalizedConfidence))
         if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
             augmentedRealityViewController.addPin(to: mostConfidentRecognition.car, completion: { [unowned self] car in
+                self.classificationService.set(state: .paused)
                 self.addSlidingCard(with: car)
             }, error: { [unowned self] error in
                 // TODO: Debug information, remove from final version
@@ -81,6 +82,15 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     private func addSlidingCard(with car: Car) {
         carCardViewController = CarCardViewController(viewMaker: CarCardView(car: car))
         guard let carCardViewController = carCardViewController else { return }
+        setup(carCardViewController: carCardViewController)
+        carCardViewController.animateIn()
+    }
+    
+    private func setup(carCardViewController: CarCardViewController) {
+        carCardViewController.didDismissView = { [unowned self] in
+            self.classificationService.set(state: .running)
+            self.carCardViewController = nil
+        }
         
         addChildViewController(carCardViewController)
         view.addSubview(carCardViewController.view)
@@ -90,7 +100,6 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         let width  = UIScreen.main.bounds.width
         
         carCardViewController.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + height, width: width, height: height)
-        carCardViewController.animateIn()
     }
     
     @objc private func carsListButtonTapAction() {

@@ -9,6 +9,12 @@ import UIKit.UIImage
 
 internal final class CarClassificationService {
     
+    /// Available states of the service
+    enum State {
+        case running
+        case paused
+    }
+    
     /// Completion handler for recognized cars
     var completionHandler: ((CarClassifierResponse) -> ())?
     
@@ -17,8 +23,8 @@ internal final class CarClassificationService {
         return currentBuffer == nil
     }
     
-    /// Value contains last recognized cars
-    var lastTopRecognition: CarClassifierResponse?
+    /// Current state of the service
+    private(set) var state: State = .running
     
     private var currentBuffer: CVPixelBuffer?
     
@@ -37,7 +43,7 @@ internal final class CarClassificationService {
     ///
     /// - Parameter pixelBuffer: Pixel buffer to be analyzed
     func perform(on pixelBuffer: CVPixelBuffer) {
-        guard isReadyForNextFrame else { return }
+        guard state == .running, isReadyForNextFrame else { return }
         self.currentBuffer = pixelBuffer
         let orientation = CGImagePropertyOrientation.right
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: [:])
@@ -45,6 +51,13 @@ internal final class CarClassificationService {
             defer { self.currentBuffer = nil }
             try? handler.perform([self.request])
         }
+    }
+    
+    /// Updates the state of service
+    ///
+    /// - Parameter state: State to be set
+    func set(state: State) {
+        self.state = state
     }
     
     private func handleDetection(request: VNRequest, error: Error?) {
@@ -56,7 +69,6 @@ internal final class CarClassificationService {
         }
         let recognizedCars = classifications.compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence) }
         let response = CarClassifierResponse(cars: recognizedCars)
-        lastTopRecognition = response
         completionHandler?(response)
     }
 }
