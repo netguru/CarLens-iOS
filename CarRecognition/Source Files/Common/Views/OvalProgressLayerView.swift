@@ -83,6 +83,7 @@ extension OvalProgressLayerView {
             return
         }
         let initialAnimation = CABasicAnimation(keyPath: Constants.animationKey)
+        initialAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         initialAnimation.toValue = progress
         initialAnimation.duration = animationDuration
         initialAnimation.fillMode = kCAFillModeForwards
