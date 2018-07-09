@@ -27,7 +27,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     
     private let chartConfig = CarSpecificationChartConfiguration()
     
-    private let ovalProgressLayerView: OvalProgressLayerView = {
+    private let ovalLayerView: OvalProgressLayerView = {
         let view = OvalProgressLayerView(startAngle: Dimensions.startAngle, endAngle: Dimensions.endAngle, progressStrokeColor: UIColor.crShadowOrange)
         return view.layoutable()
     }()
@@ -69,7 +69,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
     func setup(state: State, invalidateChartInstantly: Bool) {
-        ovalProgressLayerView.setProgress(progress: 0, animated: false)
+        ovalLayerView.setProgress(progress: 0, animated: false)
         self.state = state
         switch state {
         case .accelerate(let accelerate):
@@ -101,29 +101,29 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         case .topSpeed(let topSpeed):
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
         }
-        ovalProgressLayerView.setProgress(progress: progress, animated: animated)
+        ovalLayerView.setProgress(progress: progress, animated: animated)
     }
     
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearChart(animated: Bool) {
-        ovalProgressLayerView.setProgress(progress: 0, animated: animated)
+        ovalLayerView.setProgress(progress: 0, animated: animated)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [ovalProgressLayerView, valueLabel, titleLabel].forEach(addSubview)
+        [ovalLayerView, valueLabel, titleLabel].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        ovalProgressLayerView.constraintToSuperviewEdges()
+        ovalLayerView.constraintToSuperviewEdges()
         valueLabel.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
         titleLabel.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: ovalProgressLayerView.bottomAnchor, constant: -12),
-            valueLabel.centerYAnchor.constraint(equalTo: ovalProgressLayerView.centerYAnchor)
+            titleLabel.topAnchor.constraint(equalTo: ovalLayerView.bottomAnchor, constant: -12),
+            valueLabel.centerYAnchor.constraint(equalTo: ovalLayerView.centerYAnchor)
         ])
     }
 }
