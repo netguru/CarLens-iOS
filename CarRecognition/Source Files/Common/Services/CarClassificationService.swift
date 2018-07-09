@@ -22,8 +22,6 @@ internal final class CarClassificationService {
     
     private var currentBuffer: CVPixelBuffer?
     
-    private var currectBufferStartAnalyzeDate = Date()
-    
     private lazy var request: VNCoreMLRequest = { [unowned self] in
         guard let model = try? VNCoreMLModel(for: CarRecognitionModel().model) else {
             fatalError("Core ML model initialization failed")
@@ -45,7 +43,6 @@ internal final class CarClassificationService {
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: [:])
         DispatchQueue.global(qos: .userInitiated).async {
             defer { self.currentBuffer = nil }
-            self.currectBufferStartAnalyzeDate = Date()
             try? handler.perform([self.request])
         }
     }
@@ -53,15 +50,12 @@ internal final class CarClassificationService {
     private func handleDetection(request: VNRequest, error: Error?) {
         guard
             let results = request.results,
-            let currentBuffer = currentBuffer,
             let classifications = results as? [VNClassificationObservation]
         else {
             return
         }
         let recognizedCars = classifications.compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence) }
-        let analyzeDuration = Date().timeIntervalSince(currectBufferStartAnalyzeDate)
-        let analyzedImage = UIImage(pixelBuffer: currentBuffer) ?? UIImage()
-        let response = CarClassifierResponse(cars: recognizedCars, analyzeDuration: analyzeDuration, analyzedImage: analyzedImage)
+        let response = CarClassifierResponse(cars: recognizedCars)
         lastTopRecognition = response
         completionHandler?(response)
     }
