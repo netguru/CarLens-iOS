@@ -69,7 +69,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
     func setup(state: State, invalidateChartInstantly: Bool) {
-        ovalLayerView.setProgress(progress: 0, animated: false)
+        ovalLayerView.set(progress: 0, animated: false)
         self.state = state
         switch state {
         case .accelerate(let accelerate):
@@ -101,14 +101,14 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         case .topSpeed(let topSpeed):
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
         }
-        ovalLayerView.setProgress(progress: progress, animated: animated)
+        ovalLayerView.set(progress: progress, animated: animated)
     }
     
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearChart(animated: Bool) {
-        ovalLayerView.setProgress(progress: 0, animated: animated)
+        ovalLayerView.set(progress: 0, animated: animated)
     }
     
     /// - SeeAlso: ViewSetupable

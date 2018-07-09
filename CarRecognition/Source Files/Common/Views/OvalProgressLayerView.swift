@@ -77,7 +77,7 @@ extension OvalProgressLayerView {
     }
     
     /// Set progress value either animated or not animated
-    internal func setProgress(progress: Double, animated: Bool) {
+    internal func set(progress: Double, animated: Bool) {
         guard animated else {
             progressLayer.strokeEnd = CGFloat(progress)
             return
