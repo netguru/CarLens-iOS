@@ -19,6 +19,10 @@ final class OvalProgressLayerView: View {
     private let progressStrokeColor: UIColor
     
     private let trackStrokeColor: UIColor
+    
+    private let lineWidth: CGFloat
+    
+    private let animationDuration: Double
 
     private let progressLayer = CAShapeLayer()
     
@@ -26,11 +30,16 @@ final class OvalProgressLayerView: View {
     ///
     /// - Parameters:
     ///   - startAngle: Starting angle of layer
-    ///   - endAngle: ending angle of layer
-    ///   - strokeColor: Color of stroke in oval layer
-    init(startAngle: CGFloat, endAngle: CGFloat, progressStrokeColor: UIColor, trackStrokeColor: UIColor = UIColor.crBackgroundGray) {
+    ///   - endAngle: Ending angle of layer
+    ///   - animationDuration: Duration of the progress animation
+    ///   - lineWidth: Width of line
+    ///   - progressStrokeColor: Color of progress stroke
+    ///   - trackStrokeColor: Color of track stroke
+    init(startAngle: CGFloat, endAngle: CGFloat, animationDuration: Double = 1.5, lineWidth: CGFloat = 6, progressStrokeColor: UIColor, trackStrokeColor: UIColor = UIColor.crBackgroundGray) {
         self.startAngle = startAngle
         self.endAngle = endAngle
+        self.animationDuration = animationDuration
+        self.lineWidth = lineWidth
         self.progressStrokeColor = progressStrokeColor
         self.trackStrokeColor = trackStrokeColor
         super.init()
@@ -53,14 +62,14 @@ extension OvalProgressLayerView {
         let trackLayer = CAShapeLayer()
         trackLayer.path = circularPath.cgPath
         trackLayer.strokeColor = trackStrokeColor.cgColor
-        trackLayer.lineWidth = 6
+        trackLayer.lineWidth = lineWidth
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = kCALineCapRound
         layer.addSublayer(trackLayer)
         
         progressLayer.path = circularPath.cgPath
         progressLayer.strokeColor = progressStrokeColor.cgColor
-        progressLayer.lineWidth = 6
+        progressLayer.lineWidth = lineWidth
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineCap = kCALineCapRound
         progressLayer.strokeEnd = 0
@@ -75,7 +84,7 @@ extension OvalProgressLayerView {
         }
         let initialAnimation = CABasicAnimation(keyPath: Constants.animationKey)
         initialAnimation.toValue = progress
-        initialAnimation.duration = 1.5
+        initialAnimation.duration = animationDuration
         initialAnimation.fillMode = kCAFillModeForwards
         initialAnimation.isRemovedOnCompletion = false
         
