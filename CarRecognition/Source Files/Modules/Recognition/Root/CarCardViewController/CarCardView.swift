@@ -74,7 +74,7 @@ internal final class CarCardView: View, ViewSetupable {
 
     /// StackView with performance informations
     private lazy var performanceStackView: UIStackView = {
-        let topSpeedProgressView = PartOvalProgressView(state: PartOvalProgressView.State.topSpeed(200), invalidateChartInstantly: false)
+        let topSpeedProgressView = PartOvalProgressView(state: PartOvalProgressView.State.topSpeed(130), invalidateChartInstantly: false)
         let accelerationOvalProgressView = PartOvalProgressView(state: PartOvalProgressView.State.accelerate(9), invalidateChartInstantly: false)
         return .make(axis: .horizontal, with: [topSpeedProgressView, accelerationOvalProgressView], spacing: 10.0, distribution: .fillEqually)
     }()
@@ -145,8 +145,9 @@ internal final class CarCardView: View, ViewSetupable {
 
         [performanceStackView, mechanicalStackView].forEach { stackView in
             stackView.constraintToEdges(of: containerView, excludingAnchors: [.top, .bottom], withInsets: .init(top: 0, left: 35, bottom: 0, right: 35))
-            stackView.constraintToConstant(.init(width: Dimensions.stackViewWidth, height: Dimensions.stackViewHeight))
         }
+        mechanicalStackView.constraintToConstant(.init(width: Dimensions.stackViewWidth, height: Dimensions.stackViewHeight - 20))
+        performanceStackView.constraintToConstant(.init(width: Dimensions.stackViewWidth, height: Dimensions.stackViewHeight + 30))
 
         [googleButton, carListButton].forEach { button in
             button.constraintToConstant(.init(width: Dimensions.regularButtonDimension, height: Dimensions.regularButtonDimension))

@@ -8,6 +8,10 @@ import UIKit
 import Lottie
 
 internal final class PartOvalProgressView: View, ViewSetupable {
+
+    private struct Constants {
+        static let animationKey = "strokeEnd"
+    }
     
     /// States available to display by this view
     enum State {
@@ -17,9 +21,11 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     
     private let state: State
     
+    private let progressLayer = CAShapeLayer()
+    
     private let chartConfig = CarSpecificationChartConfiguration()
     
-    private lazy var animationView = LOTAnimationView(name: "part_oval_progress").layoutable()
+    private let layerView = UIView().layoutable()
     
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
@@ -68,6 +74,12 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         }
     }
     
+    /// - SeeAlso: UIView.layoutSubviews()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        drawCustomLayer()
+    }
+    
     /// Invalidates the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
@@ -79,23 +91,64 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         case .topSpeed(let topSpeed):
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
         }
-        animationView.set(progress: CGFloat(progress), animated: animated)
+        startAnimationWithProgress(progress, animated: animated)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [animationView, valueLabel, titleLabel].forEach(addSubview)
+        [layerView, valueLabel, titleLabel].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        animationView.constraintToSuperviewEdges(excludingAnchors: [.bottom], withInsets: .init(top: 0, left: 0, bottom: 0, right: 8))
+        layerView.constraintToSuperviewEdges()
         valueLabel.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
-        titleLabel.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 4, right: 8))
+        titleLabel.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
         NSLayoutConstraint.activate([
-            animationView.widthAnchor.constraint(equalTo: heightAnchor),
-            titleLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 4),
-            valueLabel.centerYAnchor.constraint(equalTo: animationView.centerYAnchor)
+            titleLabel.topAnchor.constraint(equalTo: layerView.bottomAnchor, constant: -12),
+            valueLabel.centerYAnchor.constraint(equalTo: layerView.centerYAnchor)
         ])
+    }
+}
+
+extension PartOvalProgressView {
+    private func drawCustomLayer() {
+        let circularPath = UIBezierPath(arcCenter: layerView.center,
+                                        radius: 42,
+                                        startAngle: 0.8 * .pi,
+                                        endAngle: 0.2 * .pi,
+                                        clockwise: true)
+        let trackLayer = CAShapeLayer()
+        trackLayer.path = circularPath.cgPath
+        trackLayer.strokeColor = UIColor.crBackgroundGray.cgColor
+        trackLayer.lineWidth = 6
+        trackLayer.fillColor = UIColor.clear.cgColor
+        trackLayer.lineCap = kCALineCapRound
+        layer.addSublayer(trackLayer)
+
+        progressLayer.path = circularPath.cgPath
+        progressLayer.strokeColor = UIColor.crShadowOrange.cgColor
+        progressLayer.lineWidth = 6
+        progressLayer.fillColor = UIColor.clear.cgColor
+        progressLayer.lineCap = kCALineCapRound
+        progressLayer.strokeEnd = 0
+        layer.addSublayer(progressLayer)
+
+        /// TEMP Set temp values - should be removed when real data will be presented
+        startAnimationWithProgress(0.5, animated: true)
+    }
+    
+    private func startAnimationWithProgress(_ progress: Double, animated: Bool) {
+        guard animated else {
+            progressLayer.strokeEnd = CGFloat(progress)
+            return
+        }
+        let basicAnimation = CABasicAnimation(keyPath: Constants.animationKey)
+        basicAnimation.toValue = progress
+        basicAnimation.duration = 1.5
+        basicAnimation.fillMode = kCAFillModeForwards
+        basicAnimation.isRemovedOnCompletion = false
+
+        progressLayer.add(basicAnimation, forKey: "PartOvalProgressView.ProgressLayer.animation")
     }
 }
