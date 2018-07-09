@@ -122,6 +122,8 @@ internal final class CarListCardView: View, ViewSetupable {
     func setupConstraints() {
         containerStackView.constraintToSuperviewEdges(withInsets: .init(top: 30, left: 30, bottom: 30, right: 30))
         starsProgressView.constraintCenterToSuperview()
+        topSpeedProgressView.constraintToConstant(.init(width: 85, height: 85))
+        accelerationProgressView.constraintToConstant(.init(width: 85, height: 85))
         makeImageView.constraintToConstant(.init(width: 37, height: 37))
         NSLayoutConstraint.activate([
             makeImageView.topAnchor.constraint(equalTo: topAnchor, constant: -19),
