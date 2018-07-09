@@ -15,18 +15,26 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         case topSpeed(Int)
     }
     
+    /// Struct with dimensions
+    struct Dimensions {
+        static let startAngle: CGFloat = 0.8 * .pi
+        static let endAngle: CGFloat = 0.2 * .pi
+        static let valueFontSize: CGFloat = 20
+        static let titleFontSize: CGFloat = 14
+    }
+    
     private var state: State
     
     private let chartConfig = CarSpecificationChartConfiguration()
     
     private let layerView: OvalProgressLayerView = {
-        let view = OvalProgressLayerView(startAngle: 0.8 * .pi, endAngle: 0.2 * .pi, strokeColor: UIColor.crShadowOrange)
+        let view = OvalProgressLayerView(startAngle: Dimensions.startAngle, endAngle: Dimensions.endAngle, strokeColor: UIColor.crShadowOrange)
         return view.layoutable()
     }()
     
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
-        view.font = .gliscorGothicFont(ofSize: 20)
+        view.font = .gliscorGothicFont(ofSize: Dimensions.valueFontSize)
         view.textColor = .crFontDark
         view.numberOfLines = 1
         view.textAlignment = .center
@@ -35,7 +43,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.font = .gliscorGothicFont(ofSize: 14)
+        view.font = .gliscorGothicFont(ofSize: Dimensions.titleFontSize)
         view.textColor = .crFontGray
         view.numberOfLines = 1
         view.textAlignment = .center
