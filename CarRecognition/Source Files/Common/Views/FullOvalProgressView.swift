@@ -11,15 +11,16 @@ internal final class FullOvalProgressView: View, ViewSetupable {
     
     /// Struct with dimensions
     struct Dimensions {
-        static let startAngle: CGFloat = .pi * 3/2
+        static let startAngle: CGFloat = 3/2 * .pi
         static let endAngle: CGFloat = 7/2 * .pi
     }
-    
-    private let fullOvalLayerView: OvalProgressLayerView = {
-        let view = OvalProgressLayerView(startAngle: Dimensions.startAngle, endAngle: Dimensions.endAngle, progressStrokeColor: UIColor.crShadowOrange)
-        return view.layoutable()
-    }()
-    
+
+    private let fullOvalLayerView = OvalProgressLayerView(
+        startAngle: Dimensions.startAngle,
+        endAngle: Dimensions.endAngle,
+        progressStrokeColor: .crShadowOrange
+    ).layoutable()
+
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
         view.font = .gliscorGothicFont(ofSize: 20)
