@@ -150,14 +150,14 @@ internal final class CarCardView: View, ViewSetupable {
         }
         scanButton.constraintToConstant(.init(width: Dimensions.bigButtonDimension, height: Dimensions.bigButtonDimension))
 
-        gradientView.constraintToConstant(.init(width: UIScreen.main.bounds.width, height: 140.0))
+        gradientView.constraintToConstant(.init(width: UIScreen.main.bounds.width, height: 140))
         gradientView.constraintToEdges(of: containerView, excludingAnchors: [.top])
 
         NSLayoutConstraint.activate([
-            topBeamView.heightAnchor.constraint(equalToConstant: 3.0),
-            performanceStackView.topAnchor.constraint(equalTo: modelStackView.bottomAnchor, constant: 20.0),
-            mechanicalStackView.topAnchor.constraint(equalTo: performanceStackView.bottomAnchor, constant: 10.0),
-            scanButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8.0),
+            topBeamView.heightAnchor.constraint(equalToConstant: 3),
+            performanceStackView.topAnchor.constraint(equalTo: modelStackView.bottomAnchor, constant: 20),
+            mechanicalStackView.topAnchor.constraint(equalTo: performanceStackView.bottomAnchor, constant: 10),
+            scanButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8),
             scanButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
             carListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
             carListButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
