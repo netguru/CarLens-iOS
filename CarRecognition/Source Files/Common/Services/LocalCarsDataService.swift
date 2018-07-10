@@ -1,13 +1,13 @@
 //
-//  LocalCarDataService.swift
+//  LocalCarsDataService.swift
 //  CarRecognition
 //
 
 
-internal final class LocalCarDataService {
+internal final class LocalCarsDataService {
     
     /// Array of local car objects
-    var localCars: [LocalCarData] = []
+    var cars: [Car] = []
     
     /// Initializes the service feeding `localCars` parameter with fetched data
     init() {
@@ -16,13 +16,13 @@ internal final class LocalCarDataService {
             let data = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)),
             let decoded = try? JSONDecoder().decode(LocalCars.self, from: data)
         else {
-            localCars =  []
+            cars =  []
             return
         }
-        localCars = decoded.cars
+        cars = decoded.cars
     }
 }
 
-struct LocalCars: Decodable {
-    let cars: [LocalCarData]
+private struct LocalCars: Decodable {
+    let cars: [Car]
 }

@@ -10,8 +10,8 @@ internal struct RecognitionResult: Equatable, CustomStringConvertible {
     let car: Car
     let confidence: Float
     
-    init?(label: String, confidence: Float) {
-        guard let car = Car(label: label) else { return nil }
+    init?(label: String, confidence: Float, carsDataService: CarsDataService) {
+        guard let car = carsDataService.map(classifierLabel: label) else { return nil }
         self.car = car
         self.confidence = confidence
     }

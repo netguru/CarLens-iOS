@@ -19,7 +19,7 @@ internal final class SearchService {
     ///   - service: Service to be searched
     ///   - car: Car to be used for constructing query
     func search(_ service: Service, for car: Car) {
-        let phrase = "\(car.make) \(car.model)"
+        let phrase = "\(car.brand) \(car.model)"
         let encoded = phrase.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         guard let url = URL(string: service.rawValue + encoded), UIApplication.shared.canOpenURL(url) else { return }
         UIApplication.shared.open(url)

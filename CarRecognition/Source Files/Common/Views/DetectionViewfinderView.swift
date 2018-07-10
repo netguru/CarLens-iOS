@@ -48,8 +48,12 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
                 informationLabel.text = Localizable.Recognition.recognizing
             }
         case .recognized(let car):
-            guard case Car.other = car else { return }
-            informationLabel.text = Localizable.Recognition.carNotSupported
+            print(car)
+            break
+            // TODO: eplace with recognition result
+//            guard case Car.other = car else { return }
+//            informationLabel.text = Localizable.Recognition.carNotSupported
+            // TODO: Replace with recognition result
         }
     }
     

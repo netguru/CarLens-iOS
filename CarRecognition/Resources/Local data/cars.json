@@ -70,13 +70,13 @@
       "speed_mph": 128,
       "power": 85,
       "engine": 1000,
-      "brand_logo_image": "Volskwagen",
-      "brand_logo_image_locked": "Volskwagen_locked",
+      "brand_logo_image": "Volkswagen",
+      "brand_logo_image_locked": "Volkswagen_locked",
       "image": "VolkswagenGolf",
       "image_locked": "VolkswagenGolf_locked"
     },
     {
-      "id": "NissanQuashqai",
+      "id": "NissanQashqai",
       "brand": "Nissan",
       "model": "Qashqai",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -87,12 +87,12 @@
       "engine": 1600,
       "brand_logo_image": "Nissan",
       "brand_logo_image_locked": "Nissan_locked",
-      "image": "NissanQuashqai",
-      "image_locked": "NissanQuashqai_locked"
+      "image": "NissanQashqai",
+      "image_locked": "NissanQashqai_locked"
     },
     {
       "id": "VolkswagenPassat",
-      "brand": "Volskwagen",
+      "brand": "Volkswagen",
       "model": "Passat",
       "description": "Volkswagen Passat is a large family car manufactured and marketed by Volkswagen since 1973.",
       "stars": 4,
@@ -100,14 +100,14 @@
       "speed_mph": 148,
       "power": 280,
       "engine": 2000,
-      "brand_logo_image": "Volskwagen",
-      "brand_logo_image_locked": "Volskwagen_locked",
+      "brand_logo_image": "Volkswagen",
+      "brand_logo_image_locked": "Volkswagen_locked",
       "image": "VolkswagenPassat",
       "image_locked": "VolkswagenPassat_locked"
     },
     {
       "id": "VolkswagenTiguan",
-      "brand": "Volskwagen",
+      "brand": "Volkswagen",
       "model": "Tiguan",
       "description": "The Volkswagen Tiguan is a compact crossover vehicle (CUV). Introduced in 2007, it uses the PQ35 platform of the Volkswagen Golf.",
       "stars": 3,
@@ -115,8 +115,8 @@
       "speed_mph": 130,
       "power": 240,
       "engine": 2000,
-      "brand_logo_image": "Volskwagen",
-      "brand_logo_image_locked": "Volskwagen_locked",
+      "brand_logo_image": "Volkswagen",
+      "brand_logo_image_locked": "Volkswagen_locked",
       "image": "VolkswagenTiguan",
       "image_locked": "VolkswagenTiguan_locked"
     },

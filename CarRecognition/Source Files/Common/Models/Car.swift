@@ -5,91 +5,62 @@
 
 import UIKit.UIImage
 
-/// Describes supported cars
-internal enum Car: Equatable, CustomStringConvertible {
-    
-    case known(make: CarMake, model: String)
-    case other
-    
-    /// Initializes the enum with proper type if possiblle
-    ///
-    /// - Parameter label: Label used for initialization
-    init?(label: String) {
-        switch label {
-        case "other car":
-            self = .other
-        case "not car":
-            return nil
-        default:
-            let splittedWords = label.split(separator: " ")
-            guard
-                splittedWords.count >= 2,
-                let makeWord = splittedWords.first,
-                let modelWord = splittedWords.last,
-                makeWord != modelWord,
-                let make = CarMake(rawValue: String(makeWord))
-            else {
-                return nil
-            }
-            self = .known(make: make, model: String(modelWord))
-        }
-    }
-
-    /// SeeAlso: CustomStringConvertible
-    var description: String {
-        switch self {
-        case .known(let make, let model):
-            return "\(make.description) \(model.description.capitalized)"
-        case .other:
-            return Localizable.Recognition.carNotSupported
-        }
-    }
-
-    /// Make of concrete car model
-    var make: String {
-        switch self {
-        case .known(let make, _):
-            return make.description
-        case .other:
-            return Localizable.Recognition.carNotSupported
-        }
-    }
-
-    /// Model name
-    var model: String {
-        switch self {
-        case .known(_, let model):
-            return model.capitalized
-        case .other:
-            return Localizable.Recognition.carNotSupported
-        }
-    }
-    
-    /// Image that represents concrete car model
+internal struct Car: Decodable, Equatable {
+    let id: String
+    let brand: String
+    let model: String
+    let description: String
+    let stars: Int
+    let acceleration: Double
+    let speed: Int
+    let power: Int
+    let engine: Int
+    private let brandLogoImageUnlocked: UIImage
+    private let brandLogoImageLocked: UIImage
+    private let imageUnlocked: UIImage
+    private let imageLocked: UIImage
+    var discovered: Bool = false
     var image: CarImage {
-        switch self {
-        case .known(let make, let model):
-            switch make {
-            case .ford:
-                return CarImage(unlocked: #imageLiteral(resourceName: "FordFiesta"), locked: #imageLiteral(resourceName: "FordFiesta_locked"), logoUnlocked: #imageLiteral(resourceName: "Ford"), logoLocked: #imageLiteral(resourceName: "Ford_locked"))
-            case .honda:
-                return CarImage(unlocked: #imageLiteral(resourceName: "HondaCivic"), locked: #imageLiteral(resourceName: "HondaCivic_locked"), logoUnlocked: #imageLiteral(resourceName: "Honda"), logoLocked: #imageLiteral(resourceName: "Honda_locked"))
-            case .nissan:
-                return CarImage(unlocked: #imageLiteral(resourceName: "NissanQashqai"), locked: #imageLiteral(resourceName: "NissanQashqai_locked"), logoUnlocked: #imageLiteral(resourceName: "Nissan"), logoLocked: #imageLiteral(resourceName: "Nissan_locked"))
-            case .toyota:
-                let logoLocked = #imageLiteral(resourceName: "Toyota_locked")
-                let logoUnlocked = #imageLiteral(resourceName: "Toyota")
-                return model == "camry" ? CarImage(unlocked: #imageLiteral(resourceName: "ToyotaCamry"), locked: #imageLiteral(resourceName: "ToyotaCamry"), logoUnlocked: logoUnlocked, logoLocked: logoLocked) : CarImage(unlocked: #imageLiteral(resourceName: "ToyotaCorolla"), locked: #imageLiteral(resourceName: "ToyotaCorolla_locked"), logoUnlocked: logoUnlocked, logoLocked: logoLocked)
-            case .volkswagen:
-                switch model {
-                case "golf": return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenGolf"), locked: #imageLiteral(resourceName: "VolkswagenGolf_locked"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
-                case "passat": return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenPassat"), locked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
-                case "tiguan": return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenTiguan"), locked: #imageLiteral(resourceName: "VolkswagenTiguan"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
-                default: return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), locked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
-                }
-            }
-        case .other:
-            return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), locked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
-        }
+        return CarImage(unlocked: imageUnlocked, locked: imageLocked, logoUnlocked: brandLogoImageUnlocked, logoLocked: brandLogoImageLocked)
+    }
+    
+    /// SeeAlso: Decodable
+    enum CodingKeys: String, CodingKey {
+        case id
+        case brand
+        case model
+        case description
+        case stars
+        case acceleration = "acceleration_mph"
+        case speed = "speed_mph"
+        case power
+        case engine
+        case brandLogoImageUnlocked = "brand_logo_image"
+        case brandLogoImageLocked = "brand_logo_image_locked"
+        case imageUnlocked = "image"
+        case imageLocked = "image_locked"
+    }
+    
+    /// SeeAlso: Decodable
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decode(String.self, forKey: .id)
+        brand = try values.decode(String.self, forKey: .brand)
+        model = try values.decode(String.self, forKey: .model)
+        description = try values.decode(String.self, forKey: .description)
+        stars = try values.decode(Int.self, forKey: .stars)
+        acceleration = try values.decode(Double.self, forKey: .acceleration)
+        speed = try values.decode(Int.self, forKey: .speed)
+        power = try values.decode(Int.self, forKey: .power)
+        engine = try values.decode(Int.self, forKey: .engine)
+        
+        let brandLogoImageName = try values.decode(String.self, forKey: .brandLogoImageUnlocked)
+        brandLogoImageUnlocked = UIImage(named: brandLogoImageName)!
+        let brandLogoImageLockedName = try values.decode(String.self, forKey: .brandLogoImageLocked)
+        brandLogoImageLocked = UIImage(named: brandLogoImageLockedName)!
+        let imageName = try values.decode(String.self, forKey: .imageUnlocked)
+        imageUnlocked = UIImage(named: imageName)!
+        let imageLockedName = try values.decode(String.self, forKey: .imageLocked)
+        imageLocked = UIImage(named: imageLockedName)!
     }
 }
