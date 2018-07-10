@@ -45,9 +45,9 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     
     /// Updates the detection viewfinder with given state
     ///
-    /// - Parameter state: State to be set
-    func updateDetectionViewfinder(to state: DetectionViewfinderView.State) throws {
-        try customView.detectionViewfinderView.update(state: state)
+    /// - Parameter result: Result to be set
+    func updateDetectionViewfinder(to result: RecognitionResult, normalizedConfidence: Double) {
+        customView.detectionViewfinderView.update(to: result, normalizedConfidence: normalizedConfidence)
     }
     
     /// Tries to add augmented reality pin to the car in 3D world
@@ -117,8 +117,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
 
     /// SeeAlso: ARSKViewDelegate
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        guard let element = addedAnchors[anchor] else { return nil }
-        guard case let Car.known(_, model) = element else { return nil }
-        return SKNodeFactory.car(labeled: model.capitalized)
+        guard let car = addedAnchors[anchor] else { return nil }
+        return SKNodeFactory.car(labeled: car.model.capitalized)
     }
 }

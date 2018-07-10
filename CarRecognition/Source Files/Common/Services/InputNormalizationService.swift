@@ -32,4 +32,18 @@ internal final class InputNormalizationService {
         lastValues.forEach { average += $0 * normalizationValue }
         return average
     }
+    
+    /// Normalizes given value
+    ///
+    /// - Parameter recognition: Recognition Result to be normalized
+    /// - Returns: Normalized confidence value
+    func normalizeConfidence(from recognitionResult: RecognitionResult) -> Double {
+        let confidenceForNormalization: Double
+        if case RecognitionResult.Recognition.notCar = recognitionResult.recognition {
+            confidenceForNormalization = 0
+        } else {
+            confidenceForNormalization = Double(recognitionResult.confidence)
+        }
+        return normalize(value: confidenceForNormalization)
+    }
 }

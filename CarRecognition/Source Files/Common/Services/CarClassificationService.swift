@@ -9,6 +9,8 @@ import UIKit.UIImage
 
 internal final class CarClassificationService {
     
+    private let carsDataService = CarsDataService()
+    
     /// Available states of the service
     enum State {
         case running
@@ -16,7 +18,7 @@ internal final class CarClassificationService {
     }
     
     /// Completion handler for recognized cars
-    var completionHandler: ((CarClassifierResponse) -> ())?
+    var completionHandler: (([RecognitionResult]) -> ())?
     
     /// Indicates if recognizer is ready to analyze next frame
     var isReadyForNextFrame: Bool {
@@ -67,8 +69,7 @@ internal final class CarClassificationService {
         else {
             return
         }
-        let recognizedCars = classifications.compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence) }
-        let response = CarClassifierResponse(cars: recognizedCars)
-        completionHandler?(response)
+        let recognitionResult = classifications.compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence, carsDataService: carsDataService) }
+        completionHandler?(recognitionResult)
     }
 }

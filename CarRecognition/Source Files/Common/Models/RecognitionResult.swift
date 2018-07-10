@@ -5,24 +5,44 @@
 
 
 /// Describes car recognized by the classifier
-internal struct RecognitionResult: Equatable, CustomStringConvertible {
+internal struct RecognitionResult: CustomStringConvertible {
     
-    let car: Car
+    /// Available recognitions
+    enum Recognition {
+        case car(Car)
+        case otherCar
+        case notCar
+    }
+    
+    let recognition: Recognition
     let confidence: Float
     
-    init?(label: String, confidence: Float) {
-        guard let car = Car(label: label) else { return nil }
-        self.car = car
+    /// Initializes the object from given parameters
+    ///
+    /// - Parameters:
+    ///   - label: Label received from model
+    ///   - confidence: Confidence received from model
+    ///   - carsDataService: Data Service with cars
+    init?(label: String, confidence: Float, carsDataService: CarsDataService) {
         self.confidence = confidence
+        if let car = carsDataService.map(classifierLabel: label) {
+            recognition = .car(car)
+        } else if label == "other car" {
+            recognition = .otherCar
+        } else {
+            recognition = .notCar
+        }
     }
     
     /// SeeAlso: CustomStringConvertible
     var description: String {
-        return "\(car.description)\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
-    }
-    
-    /// SeeAlso: Equatable
-    static func == (lhs: RecognitionResult, rhs: RecognitionResult) -> Bool {
-        return lhs.car == rhs.car
+        switch recognition {
+        case .car(let car):
+            return "\(car.model)\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
+        case .otherCar:
+            return "other car\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
+        case .notCar:
+            return "not car\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
+        }
     }
 }

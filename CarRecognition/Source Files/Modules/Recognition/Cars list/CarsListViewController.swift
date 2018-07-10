@@ -74,7 +74,8 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
             return UICollectionViewCell()
         }
         // TODO: Replace with getting the element from the model
-        cell.setup(with: Car(label: "volkswagen passat")!)
+        let car = LocalCarsDataService().cars.first!
+        cell.setup(with: car)
         
         return cell
     }
