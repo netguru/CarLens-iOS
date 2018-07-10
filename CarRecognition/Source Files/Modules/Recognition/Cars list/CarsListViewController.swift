@@ -8,6 +8,10 @@ import UIKit
 
 internal final class CarsListViewController: TypedViewController<CarsListView>, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    private let carsDataService: CarsDataService
+    
+    private let discoveredCar: Car?
+    
     /// Enum describing events that can be triggered by this controller
     ///
     /// - didTapDismiss: send when user want to dismiss the view
@@ -19,6 +23,15 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
 
     /// Callback with triggered event
     var eventTriggered: ((Event) -> ())?
+    
+    /// Initializes the view controller with given parameters
+    ///
+    /// - Parameter car: Car to be displayed by the view controller
+    init(discoveredCar: Car? = nil, carsDataService: CarsDataService) {
+        self.discoveredCar = discoveredCar
+        self.carsDataService = carsDataService
+        super.init(viewMaker: CarsListView(discoveredCar: discoveredCar, availableCars: carsDataService.getNumberOfCars()))
+    }
     
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
@@ -34,7 +47,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateVisibleCells()
-        animateProgressView(detectedCars: 3)
+        invalidateDiscoveredProgressView()
     }
     
     @objc private func recognizeButtonTapAction() {
@@ -56,16 +69,16 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         }
     }
 
-    private func animateProgressView(detectedCars: Int) {
-        // TODO: Replace maximumNumber with real value
-        customView.topView.progressView.setup(currentNumber: detectedCars, maximumNumber: 8, invalidateChartInstantly: false)
+    private func invalidateDiscoveredProgressView() {
+        let discoveredCars = carsDataService.getNumberOfDiscoveredCars()
+        let availableCars = carsDataService.getNumberOfCars()
+        customView.topView.progressView.setup(currentNumber: discoveredCars, maximumNumber: availableCars, invalidateChartInstantly: false)
         customView.topView.progressView.invalidateChart(animated: true)
     }
 
     /// SeeAlso: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: Replace with the real number
-        return 8
+        return carsDataService.getNumberOfCars()
     }
     
     /// SeeAlso: UICollectionViewDataSource
@@ -73,10 +86,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         guard let cell: CarListCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath) else {
             return UICollectionViewCell()
         }
-        // TODO: Replace with getting the element from the model
-        let car = LocalCarsDataService().cars.first!
-        cell.setup(with: car)
-        
+        cell.setup(with: carsDataService.getAvailableCars()[indexPath.row])
         return cell
     }
     

@@ -19,7 +19,7 @@ internal struct Car: Decodable, Equatable {
     private let brandLogoImageLocked: UIImage
     private let imageUnlocked: UIImage
     private let imageLocked: UIImage
-    var discovered: Bool = false
+    var isDiscovered: Bool = false
     var image: CarImage {
         return CarImage(unlocked: imageUnlocked, locked: imageLocked, logoUnlocked: brandLogoImageUnlocked, logoLocked: brandLogoImageLocked)
     }

@@ -22,7 +22,7 @@ internal final class ApplicationFactory {
     func recognitionViewController() -> RecognitionViewController {
         return RecognitionViewController(
             augmentedRealityViewController: augmentedRealityViewController(),
-            classificationService: CarClassificationService()
+            classificationService: CarClassificationService(carsDataService: applicationDependencies.carsDataService)
         )
     }
     
@@ -35,9 +35,9 @@ internal final class ApplicationFactory {
     
     /// Creates controller with list of available cars to discover
     ///
-    /// - Parameter scannedCar: Optional which indicates wheter the view is initialized with scanned car or not
+    /// - Parameter discoveredCar: Optional which indicates wheter the view is initialized with scanned car or not
     /// - Returns: Created controller
-    func carsListViewController(with scannedCar: Car? = nil) -> CarsListViewController {
-        return CarsListViewController(viewMaker: CarsListView(car: scannedCar))
+    func carsListViewController(with discoveredCar: Car? = nil) -> CarsListViewController {
+        return CarsListViewController(discoveredCar: discoveredCar, carsDataService: applicationDependencies.carsDataService)
     }
 }

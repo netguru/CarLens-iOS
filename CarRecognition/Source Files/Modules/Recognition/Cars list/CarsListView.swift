@@ -26,16 +26,20 @@ internal final class CarsListView: View, ViewSetupable {
         return view.layoutable()
     }()
 
-    // TODO: Change currentNumber and maximumNumber to real values
-    internal lazy var topView = CarListNavigationBar(currentNumber: 3, maximumNumber: 8).layoutable()
+    /// Custom navigation bar added at the top
+    lazy var topView = CarListNavigationBar(currentNumber: 0, maximumNumber: availableCars).layoutable()
+    
+    private let discoveredCar: Car?
+    
+    private let availableCars: Int
 
     /// Initializes the view with given car
     ///
     /// - Parameter car: Optional Car parameter used to indicated wheter the topView's back button should be visible or not
-    init(car: Car?) {
+    init(discoveredCar: Car? = nil, availableCars: Int) {
+        self.discoveredCar = discoveredCar
+        self.availableCars = availableCars
         super.init()
-        guard car == nil else { return }
-        topView.backButton.isHidden = true
     }
 
     /// - SeeAlso: ViewSetupable
@@ -60,5 +64,8 @@ internal final class CarsListView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
         backgroundColor = .crBackgroundGray
+        
+        guard discoveredCar == nil else { return }
+        topView.backButton.isHidden = true
     }
 }

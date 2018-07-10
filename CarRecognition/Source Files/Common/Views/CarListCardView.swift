@@ -71,8 +71,8 @@ internal final class CarListCardView: View, ViewSetupable {
     /// Setups the view with given car. Use only inside reusable views.
     ///
     /// - Parameter car: Car to be used for updating the view
-    func setup(with car: Car) {        
-        makeImageView.image = car.discovered ? car.image.logoUnlocked : car.image.logoLocked
+    func setup(with car: Car) {
+        makeImageView.image = car.isDiscovered ? car.image.logoUnlocked : car.image.logoLocked
         topSpeedProgressView.setup(state: .topSpeed(car.speed), invalidateChartInstantly: false)
         accelerationProgressView.setup(state: .accelerate(car.acceleration), invalidateChartInstantly: false)
         engineProgressView.setup(state: .engine(car.engine), invalidateChartInstantly: false)
