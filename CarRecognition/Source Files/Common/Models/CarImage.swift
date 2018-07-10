@@ -10,4 +10,6 @@ import UIKit.UIImage
 internal struct CarImage {
     let unlocked: UIImage
     let locked: UIImage
+    let logoUnlocked: UIImage
+    let logoLocked: UIImage
 }
