@@ -40,9 +40,9 @@ internal struct RecognitionResult: CustomStringConvertible {
         case .car(let car):
             return "\(car.model)\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
         case .otherCar:
-            return "\(Localizable.Recognition.carNotSupported)\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
+            return "other car\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
         case .notCar:
-            return "\(Localizable.Recognition.putCarInCenter)\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
+            return "not car\n(\(CRNumberFormatter.percentageFormatted(confidence)))"
         }
     }
 }
