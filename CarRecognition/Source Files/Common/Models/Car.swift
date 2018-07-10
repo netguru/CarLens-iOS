@@ -71,23 +71,25 @@ internal enum Car: Equatable, CustomStringConvertible {
         case .known(let make, let model):
             switch make {
             case .ford:
-                return CarImage(unlocked: #imageLiteral(resourceName: "FordFiesta"), locked: #imageLiteral(resourceName: "FordFiesta_locked"))
+                return CarImage(unlocked: #imageLiteral(resourceName: "FordFiesta"), locked: #imageLiteral(resourceName: "FordFiesta_locked"), logoUnlocked: #imageLiteral(resourceName: "Ford"), logoLocked: #imageLiteral(resourceName: "Ford_locked"))
             case .honda:
-                return CarImage(unlocked: #imageLiteral(resourceName: "HondaCivic"), locked: #imageLiteral(resourceName: "HondaCivic_locked"))
+                return CarImage(unlocked: #imageLiteral(resourceName: "HondaCivic"), locked: #imageLiteral(resourceName: "HondaCivic_locked"), logoUnlocked: #imageLiteral(resourceName: "Honda"), logoLocked: #imageLiteral(resourceName: "Honda_locked"))
             case .nissan:
-                return CarImage(unlocked: #imageLiteral(resourceName: "NissanQashqai"), locked: #imageLiteral(resourceName: "NissanQashqai_locked"))
+                return CarImage(unlocked: #imageLiteral(resourceName: "NissanQashqai"), locked: #imageLiteral(resourceName: "NissanQashqai_locked"), logoUnlocked: #imageLiteral(resourceName: "Nissan"), logoLocked: #imageLiteral(resourceName: "Nissan_locked"))
             case .toyota:
-                return model == "camry" ? CarImage(unlocked: #imageLiteral(resourceName: "ToyotaCamry"), locked: #imageLiteral(resourceName: "ToyotaCamry")) : CarImage(unlocked: #imageLiteral(resourceName: "ToyotaCorolla"), locked: #imageLiteral(resourceName: "ToyotaCorolla_locked"))
+                let logoLocked = #imageLiteral(resourceName: "Toyota_locked")
+                let logoUnlocked = #imageLiteral(resourceName: "Toyota")
+                return model == "camry" ? CarImage(unlocked: #imageLiteral(resourceName: "ToyotaCamry"), locked: #imageLiteral(resourceName: "ToyotaCamry"), logoUnlocked: logoUnlocked, logoLocked: logoLocked) : CarImage(unlocked: #imageLiteral(resourceName: "ToyotaCorolla"), locked: #imageLiteral(resourceName: "ToyotaCorolla_locked"), logoUnlocked: logoUnlocked, logoLocked: logoLocked)
             case .volkswagen:
                 switch model {
-                case "golf": return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenGolf"), locked: #imageLiteral(resourceName: "VolkswagenGolf_locked"))
-                case "passat": return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenPassat"), locked: #imageLiteral(resourceName: "VolkswagenPassat_locked"))
-                case "tiguan": return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenTiguan"), locked: #imageLiteral(resourceName: "VolkswagenTiguan"))
-                default: return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), locked: #imageLiteral(resourceName: "VolkswagenPassat_locked"))
+                case "golf": return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenGolf"), locked: #imageLiteral(resourceName: "VolkswagenGolf_locked"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
+                case "passat": return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenPassat"), locked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
+                case "tiguan": return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenTiguan"), locked: #imageLiteral(resourceName: "VolkswagenTiguan"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
+                default: return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), locked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
                 }
             }
         case .other:
-            return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), locked: #imageLiteral(resourceName: "VolkswagenPassat_locked"))
+            return CarImage(unlocked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), locked: #imageLiteral(resourceName: "VolkswagenPassat_locked"), logoUnlocked: #imageLiteral(resourceName: "VW"), logoLocked: #imageLiteral(resourceName: "VW_locked"))
         }
     }
 }
