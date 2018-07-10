@@ -70,13 +70,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     private func handleRecognition(result: [RecognitionResult]) {
         guard let mostConfidentRecognition = result.first else { return }
-        let confidenceForNormalization: Double
-        if case RecognitionResult.Recognition.notCar = mostConfidentRecognition.recognition {
-            confidenceForNormalization = 0
-        } else {
-            confidenceForNormalization = Double(mostConfidentRecognition.confidence)
-        }
-        let normalizedConfidence = inputNormalizationService.normalize(value: confidenceForNormalization)
+        let normalizedConfidence = inputNormalizationService.normalizeConfidence(from: mostConfidentRecognition)
         augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition, normalizedConfidence: normalizedConfidence)
         switch mostConfidentRecognition.recognition {
         case .car(let car):
@@ -96,23 +90,6 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         
         // TODO: Debug information, remove from final version
         customView.detectedModelLabel.text = mostConfidentRecognition.description
-        
-        
-//        augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition, normalizedConfidence: normalizedConfidence)
-//
-//        // TODO: Debug information, remove from final version
-//        customView.detectedModelLabel.text = mostConfidentRecognition.description
-//
-//        guard case RecognitionResult.Recognition.car(let car) = mostConfidentRecognition.recognition else { return }
-//        if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
-//            augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
-//                self.classificationService.set(state: .paused)
-//                self.addSlidingCard(with: car)
-//            }, error: { [unowned self] error in
-//                // TODO: Debug information, remove from final version
-//                self.customView.analyzeTimeLabel.text = error.rawValue
-//            })
-//        }
     }
     
     private func addSlidingCard(with car: Car) {
