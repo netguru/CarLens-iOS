@@ -16,7 +16,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         case didTapDismiss
         case didTapBackButton
     }
-    
+
     /// Callback with triggered event
     var eventTriggered: ((Event) -> ())?
     
@@ -34,6 +34,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateVisibleCells()
+        animateProgressView(detectedCars: 3)
     }
     
     @objc private func recognizeButtonTapAction() {
@@ -54,7 +55,13 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
             }
         }
     }
-    
+
+    private func animateProgressView(detectedCars: Int) {
+        // TODO: Replace maximumNumber with real value
+        customView.topView.progressView.setup(currentNumber: detectedCars, maximumNumber: 8, invalidateChartInstantly: false)
+        customView.topView.progressView.invalidateChart(animated: true)
+    }
+
     /// SeeAlso: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: Replace with the real number

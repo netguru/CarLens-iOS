@@ -25,8 +25,9 @@ internal final class CarsListView: View, ViewSetupable {
         view.layer.shadowOffset = CGSize(width: 0, height: 10)
         return view.layoutable()
     }()
-    
-    internal lazy var topView = CarListNavigationBar().layoutable()
+
+    // TODO: Change currentNumber and maximumNumber to real values
+    internal lazy var topView = CarListNavigationBar(currentNumber: 3, maximumNumber: 8).layoutable()
 
     /// Initializes the view with given car
     ///
