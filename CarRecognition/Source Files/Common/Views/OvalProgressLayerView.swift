@@ -35,7 +35,7 @@ final class OvalProgressLayerView: View {
     ///   - lineWidth: Width of line
     ///   - progressStrokeColor: Color of progress stroke
     ///   - trackStrokeColor: Color of track stroke
-    init(startAngle: CGFloat, endAngle: CGFloat, animationDuration: Double = 1.5, lineWidth: CGFloat = 6, progressStrokeColor: UIColor, trackStrokeColor: UIColor = UIColor.crBackgroundGray) {
+    init(startAngle: CGFloat, endAngle: CGFloat, animationDuration: Double = 0.5, lineWidth: CGFloat = 6, progressStrokeColor: UIColor, trackStrokeColor: UIColor = UIColor.crBackgroundGray) {
         self.startAngle = startAngle
         self.endAngle = endAngle
         self.animationDuration = animationDuration
@@ -79,10 +79,16 @@ extension OvalProgressLayerView {
     /// Set progress value either animated or not animated
     internal func set(progress: Double, animated: Bool) {
         guard animated else {
+            progressLayer.isHidden = progress == 0
+            CATransaction.begin()
+            CATransaction.setDisableActions(true)
             progressLayer.strokeEnd = CGFloat(progress)
+            CATransaction.commit()
             return
         }
+        progressLayer.isHidden = false
         let initialAnimation = CABasicAnimation(keyPath: Constants.animationKey)
+        initialAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         initialAnimation.toValue = progress
         initialAnimation.duration = animationDuration
         initialAnimation.fillMode = kCAFillModeForwards

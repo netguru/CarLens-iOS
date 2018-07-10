@@ -98,7 +98,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         let progress: Double
         switch state {
         case .accelerate(let accelerate):
-            progress = accelerate / chartConfig.referenceAccelerate
+            progress = chartConfig.referenceAccelerate / accelerate
         case .topSpeed(let topSpeed):
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
         }
