@@ -38,6 +38,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateVisibleCells()
+        setProgressView()
     }
     
     @objc private func recognizeButtonTapAction() {
@@ -58,12 +59,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
             }
         }
     }
-    
-    private func animateProgressView(currentNumber: Int) {
-        customView.topView.progressView.setup(currentNumber: currentNumber, maximumNumber: 8, invalidateChartInstantly: false)
-        customView.topView.progressView.invalidateChart(animated: true)
-    }
-    
+
     /// SeeAlso: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: Replace with the real number
@@ -84,10 +80,18 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// SeeAlso: UICollectionViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         animateVisibleCells()
+        setProgressView()
+    }
+}
+
+/// ProgressView animations
+extension CarsListViewController {
+
+    private func setProgressView() {
         guard let index = calculateIndexAfterDecelerating() else { return }
         animateProgressView(currentNumber: index + Constants.cellNumberOffset)
     }
-    
+
     private func calculateIndexAfterDecelerating() -> Int? {
         var visibleRect = CGRect()
         visibleRect.origin = customView.collectionView.contentOffset
@@ -95,5 +99,10 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         let indexPath = customView.collectionView.indexPathForItem(at: visiblePoint)
         return indexPath?.row
+    }
+
+    private func animateProgressView(currentNumber: Int) {
+        customView.topView.progressView.setup(currentNumber: currentNumber, maximumNumber: 8, invalidateChartInstantly: false)
+        customView.topView.progressView.invalidateChart(animated: true)
     }
 }
