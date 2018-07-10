@@ -66,8 +66,6 @@ internal final class CarsListView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
         backgroundColor = .crBackgroundGray
-        
-        guard discoveredCar == nil else { return }
-        topView.backButton.isHidden = true
+        topView.backButton.isHidden = discoveredCar == nil
     }
 }
