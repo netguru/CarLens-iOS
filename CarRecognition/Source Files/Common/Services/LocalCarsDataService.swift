@@ -16,7 +16,6 @@ internal final class LocalCarsDataService {
             let data = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)),
             let decoded = try? JSONDecoder().decode(LocalCars.self, from: data)
         else {
-            cars =  []
             return
         }
         cars = decoded.cars
