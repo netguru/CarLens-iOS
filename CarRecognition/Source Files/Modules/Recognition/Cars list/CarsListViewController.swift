@@ -16,11 +16,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         case didTapDismiss
         case didTapBackButton
     }
-    
-    struct Constants {
-        static let cellNumberOffset = 1
-    }
-    
+
     /// Callback with triggered event
     var eventTriggered: ((Event) -> ())?
     
@@ -38,7 +34,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateVisibleCells()
-        setProgressView()
+        animateProgressView(detectedCars: 3)
     }
     
     @objc private func recognizeButtonTapAction() {
@@ -58,6 +54,12 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
                 $0.clearCharts(animated: false)
             }
         }
+    }
+
+    private func animateProgressView(detectedCars: Int) {
+        // TODO: Replace maximumNumber with real value
+        customView.topView.progressView.setup(currentNumber: detectedCars, maximumNumber: 8, invalidateChartInstantly: false)
+        customView.topView.progressView.invalidateChart(animated: true)
     }
 
     /// SeeAlso: UICollectionViewDataSource
@@ -80,30 +82,5 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// SeeAlso: UICollectionViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         animateVisibleCells()
-        setProgressView()
-    }
-}
-
-/// ProgressView animations
-extension CarsListViewController {
-
-    private func setProgressView() {
-        guard let index = calculateIndexAfterDecelerating() else { return }
-        animateProgressView(currentNumber: index + Constants.cellNumberOffset)
-    }
-
-    private func calculateIndexAfterDecelerating() -> Int? {
-        var visibleRect = CGRect()
-        visibleRect.origin = customView.collectionView.contentOffset
-        visibleRect.size = customView.collectionView.bounds.size
-        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
-        let indexPath = customView.collectionView.indexPathForItem(at: visiblePoint)
-        return indexPath?.row
-    }
-
-    private func animateProgressView(currentNumber: Int) {
-        // TODO: Replace maximumNumber with real value
-        customView.topView.progressView.setup(currentNumber: currentNumber, maximumNumber: 8, invalidateChartInstantly: false)
-        customView.topView.progressView.invalidateChart(animated: true)
     }
 }

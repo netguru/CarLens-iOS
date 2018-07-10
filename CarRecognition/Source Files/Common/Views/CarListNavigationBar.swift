@@ -10,6 +10,8 @@ internal final class CarListNavigationBar: View, ViewSetupable {
 
     private let maximumNumber: Int
     
+    private let currentNumber: Int
+    
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.font = .gliscorGothicFont(ofSize: 22)
@@ -27,10 +29,11 @@ internal final class CarListNavigationBar: View, ViewSetupable {
     }()
     
     /// Progress view displayed as full oval figure
-    internal lazy var progressView = FullOvalProgressView(currentNumber: 1, maximumNumber: maximumNumber, invalidateChartInstantly: false).layoutable()
+    internal lazy var progressView = FullOvalProgressView(currentNumber: currentNumber, maximumNumber: maximumNumber, invalidateChartInstantly: false).layoutable()
 
-    init(maximumNumber: Int) {
+    init(currentNumber: Int, maximumNumber: Int) {
         self.maximumNumber = maximumNumber
+        self.currentNumber = currentNumber
         super.init()
     }
     

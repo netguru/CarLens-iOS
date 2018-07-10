@@ -26,8 +26,8 @@ internal final class CarsListView: View, ViewSetupable {
         return view.layoutable()
     }()
 
-    // TODO: Change maximumNumber to real value
-    internal lazy var topView = CarListNavigationBar(maximumNumber: 8).layoutable()
+    // TODO: Change currentNumber and maximumNumber to real values
+    internal lazy var topView = CarListNavigationBar(currentNumber: 3, maximumNumber: 8).layoutable()
 
     /// Initializes the view with given car
     ///
