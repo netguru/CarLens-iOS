@@ -18,9 +18,9 @@ internal final class CarListNavigationBar: View, ViewSetupable {
     }()
     
     internal let backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "button-back-arrow"), for: .normal)
-        return button.layoutable()
+        let view = UIButton()
+        view.setImage(#imageLiteral(resourceName: "button-back-arrow"), for: .normal)
+        return view.layoutable()
     }()
     
     /// - SeeAlso: ViewSetupable

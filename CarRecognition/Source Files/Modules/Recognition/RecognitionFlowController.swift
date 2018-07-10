@@ -47,7 +47,7 @@ internal final class RecognitionFlowController: FlowController {
                 guard let recognitionViewController = self.rootViewController as? RecognitionViewController else { return }
                 recognitionViewController.removeSlidingCard()
                 viewController.dismiss(animated: true)
-            case .didTapBackButon:
+            case .didTapBackButton:
                 viewController.dismiss(animated: true)
             }
         }

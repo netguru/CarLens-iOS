@@ -14,7 +14,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// - didTapBackButton: send when user taps on the back arrow on screen
     enum Event {
         case didTapDismiss
-        case didTapBackButon
+        case didTapBackButton
     }
     
     /// Callback with triggered event
@@ -41,7 +41,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     }
     
     @objc private func backButtonTapAction() {
-        eventTriggered?(.didTapBackButon)
+        eventTriggered?(.didTapBackButton)
     }
     
     private func animateVisibleCells() {

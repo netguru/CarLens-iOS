@@ -30,7 +30,7 @@ internal final class CarsListView: View, ViewSetupable {
 
     /// Initializes the view with given car
     ///
-    /// - Parameter car: Optional Car parameter used to indicated wheter the view is initialized with scanned car or not
+    /// - Parameter car: Optional Car parameter used to indicated wheter the topView's back button should be visible or not
     init(car: Car?) {
         super.init()
         guard car == nil else { return }
