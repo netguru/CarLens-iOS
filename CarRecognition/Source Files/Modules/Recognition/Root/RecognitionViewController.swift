@@ -60,6 +60,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
                 self?.handleRecognition(result: result)
             }
         }
+        addSlidingCard(with: Car.known(make: .ford, model: "Fiesta"))
     }
     
     /// - SeeAlso: UIViewController
@@ -91,6 +92,12 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         guard let carCardViewController = carCardViewController else { return }
         setup(carCardViewController: carCardViewController)
         carCardViewController.animateIn()
+    }
+    
+    /// Removes car's card with animation
+    internal func removeSlidingCard() {
+        carCardViewController?.animateOut()
+        carCardViewController?.view.removeFromSuperview()
     }
     
     private func setup(carCardViewController: CarCardViewController) {

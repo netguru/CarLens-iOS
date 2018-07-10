@@ -11,8 +11,10 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// Enum describing events that can be triggered by this controller
     ///
     /// - didTapDismiss: send when user want to dismiss the view
+    /// - didTapBackButton: send when user taps on the back arrow on screen
     enum Event {
         case didTapDismiss
+        case didTapBackButon
     }
     
     /// Callback with triggered event
@@ -25,6 +27,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         customView.collectionView.delegate = self
         customView.collectionView.register(cell: CarListCollectionViewCell.self)
         customView.recognizeButton.addTarget(self, action: #selector(recognizeButtonTapAction), for: .touchUpInside)
+        customView.topView.backButton.addTarget(self, action: #selector(backButtonTapAction), for: .touchUpInside)
     }
     
     /// SeeAlso: UIViewController
@@ -35,6 +38,10 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     
     @objc private func recognizeButtonTapAction() {
         eventTriggered?(.didTapDismiss)
+    }
+    
+    @objc private func backButtonTapAction() {
+        eventTriggered?(.didTapBackButon)
     }
     
     private func animateVisibleCells() {

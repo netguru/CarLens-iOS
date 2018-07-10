@@ -35,8 +35,9 @@ internal final class ApplicationFactory {
     
     /// Creates controller with list of available cars to discover
     ///
+    /// - Parameter scannedCar: Optional which indicates wheter the view is initialized with scanned car or not
     /// - Returns: Created controller
-    func carsListViewController() -> CarsListViewController {
-        return CarsListViewController(viewMaker: CarsListView())
+    func carsListViewController(with scannedCar: Car?) -> CarsListViewController {
+        return CarsListViewController(viewMaker: CarsListView(car: scannedCar))
     }
 }

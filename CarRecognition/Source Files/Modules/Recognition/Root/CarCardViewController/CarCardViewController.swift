@@ -57,6 +57,15 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
         }
         entryAnimator.startAnimation()
     }
+    
+    /// Animates card view from center of the screen to the bottom
+    func animateOut() {
+        exitAnimator.addAnimations {
+            let frame = self.view.frame
+            self.view.frame = CGRect(x: 0, y: Constants.exitPosition, width: frame.width, height: frame.height)
+        }
+        exitAnimator.startAnimation()
+    }
 
     /// Sets up properties of view controller
     private func setupProperties() {

@@ -7,7 +7,7 @@
 import UIKit
 
 internal final class CarsListView: View, ViewSetupable {
-    
+
     /// Cars list collectiom view
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: CarListFlowLayout())
@@ -26,8 +26,17 @@ internal final class CarsListView: View, ViewSetupable {
         return view.layoutable()
     }()
     
-    private lazy var topView = CarListNavigationBar().layoutable()
-    
+    internal lazy var topView = CarListNavigationBar().layoutable()
+
+    /// Initializes the view with given car
+    ///
+    /// - Parameter car: Optional Car parameter used to indicated wheter the view is initialized with scanned car or not
+    init(car: Car?) {
+        super.init()
+        guard car == nil else { return }
+        topView.backButton.isHidden = true
+    }
+
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [topView, collectionView, recognizeButton].forEach(addSubview)
