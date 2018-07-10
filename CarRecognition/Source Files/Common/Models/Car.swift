@@ -63,4 +63,9 @@ internal struct Car: Decodable, Equatable {
         let imageLockedName = try values.decode(String.self, forKey: .imageLocked)
         imageLocked = UIImage(named: imageLockedName)!
     }
+    
+    /// SeeAlso: Equatable
+    static func == (lhs: Car, rhs: Car) -> Bool {
+        return lhs.id == rhs.id
+    }
 }

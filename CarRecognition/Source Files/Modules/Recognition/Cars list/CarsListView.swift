@@ -35,7 +35,9 @@ internal final class CarsListView: View, ViewSetupable {
 
     /// Initializes the view with given car
     ///
-    /// - Parameter car: Optional Car parameter used to indicated wheter the topView's back button should be visible or not
+    /// - Parameters:
+    ///   - discoveredCar: Car parameter that was displayed on the card when opening this view
+    ///   - availableCars: Number of available cars
     init(discoveredCar: Car? = nil, availableCars: Int) {
         self.discoveredCar = discoveredCar
         self.availableCars = availableCars
