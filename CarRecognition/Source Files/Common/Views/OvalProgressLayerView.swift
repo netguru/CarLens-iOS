@@ -35,7 +35,7 @@ final class OvalProgressLayerView: View {
     ///   - lineWidth: Width of line
     ///   - progressStrokeColor: Color of progress stroke
     ///   - trackStrokeColor: Color of track stroke
-    init(startAngle: CGFloat, endAngle: CGFloat, animationDuration: Double = 0.5, lineWidth: CGFloat = 6, progressStrokeColor: UIColor, trackStrokeColor: UIColor = UIColor.crBackgroundGray) {
+    init(startAngle: CGFloat, endAngle: CGFloat, animationDuration: Double = 0.5, lineWidth: CGFloat = 6, progressStrokeColor: UIColor, trackStrokeColor: UIColor = .crProgressDarkGray) {
         self.startAngle = startAngle
         self.endAngle = endAngle
         self.animationDuration = animationDuration

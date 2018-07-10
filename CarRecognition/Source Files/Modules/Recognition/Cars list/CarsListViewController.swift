@@ -17,6 +17,10 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         case didTapBackButton
     }
     
+    struct Constants {
+        static let cellNumberOffset = 1
+    }
+    
     /// Callback with triggered event
     var eventTriggered: ((Event) -> ())?
     
@@ -55,6 +59,11 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         }
     }
     
+    private func animateProgressView(currentNumber: Int) {
+        customView.topView.progressView.setup(currentNumber: currentNumber, maximumNumber: 8, invalidateChartInstantly: false)
+        customView.topView.progressView.invalidateChart(animated: true)
+    }
+    
     /// SeeAlso: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: Replace with the real number
@@ -75,5 +84,16 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// SeeAlso: UICollectionViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         animateVisibleCells()
+        guard let index = calculateIndexAfterDecelerating() else { return }
+        animateProgressView(currentNumber: index + Constants.cellNumberOffset)
+    }
+    
+    private func calculateIndexAfterDecelerating() -> Int? {
+        var visibleRect = CGRect()
+        visibleRect.origin = customView.collectionView.contentOffset
+        visibleRect.size = customView.collectionView.bounds.size
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        let indexPath = customView.collectionView.indexPathForItem(at: visiblePoint)
+        return indexPath?.row
     }
 }

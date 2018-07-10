@@ -8,6 +8,8 @@ import UIKit
 
 internal final class CarListNavigationBar: View, ViewSetupable {
 
+    private let maximumNumber: Int
+    
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.font = .gliscorGothicFont(ofSize: 22)
@@ -17,15 +19,24 @@ internal final class CarListNavigationBar: View, ViewSetupable {
         return view.layoutable()
     }()
     
+    /// Back button with arrow
     internal let backButton: UIButton = {
         let view = UIButton()
         view.setImage(#imageLiteral(resourceName: "button-back-arrow"), for: .normal)
         return view.layoutable()
     }()
     
+    /// Progress view displayed as full oval figure
+    internal lazy var progressView = FullOvalProgressView(currentNumber: 1, maximumNumber: maximumNumber, invalidateChartInstantly: true).layoutable()
+
+    init(maximumNumber: Int) {
+        self.maximumNumber = maximumNumber
+        super.init()
+    }
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [titleLabel, backButton].forEach(addSubview)
+        [titleLabel, backButton, progressView].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
@@ -33,5 +44,8 @@ internal final class CarListNavigationBar: View, ViewSetupable {
         titleLabel.constraintCenterToSuperview()
         backButton.constraintToSuperviewEdges(excludingAnchors: [.right], withInsets: .init(top: 25, left: 37, bottom: 25, right: 0))
         backButton.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        progressView.constraintToSuperviewEdges(excludingAnchors: [.left], withInsets: .init(top: 10, left: 0, bottom: 10, right: 37))
+        
+        progressView.invalidateChart(animated: true)
     }
 }

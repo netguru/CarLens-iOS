@@ -13,11 +13,13 @@ internal final class FullOvalProgressView: View, ViewSetupable {
     struct Dimensions {
         static let startAngle: CGFloat = 3/2 * .pi
         static let endAngle: CGFloat = 7/2 * .pi
+        static let lineWidth: CGFloat = 4
     }
 
     private let fullOvalLayerView = OvalProgressLayerView(
         startAngle: Dimensions.startAngle,
         endAngle: Dimensions.endAngle,
+        lineWidth: Dimensions.lineWidth,
         progressStrokeColor: .crShadowOrange
     ).layoutable()
 
