@@ -12,7 +12,7 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     /// Available state supported by the view
     enum State {
         case recognizing(progress: Double)
-        case recognized(car: Car)
+        case recognized(result: RecognitionResult)
     }
     
     /// Error that can occur durning updating state
@@ -47,13 +47,9 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
             } else {
                 informationLabel.text = Localizable.Recognition.recognizing
             }
-        case .recognized(let car):
-            print(car)
-            break
-            // TODO: eplace with recognition result
-//            guard case Car.other = car else { return }
-//            informationLabel.text = Localizable.Recognition.carNotSupported
-            // TODO: Replace with recognition result
+        case .recognized(let result):
+            guard case RecognitionResult.Recognition.otherCar = result.recognition else { return }
+            informationLabel.text = Localizable.Recognition.carNotSupported
         }
     }
     

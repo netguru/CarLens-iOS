@@ -60,9 +60,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
             return UICollectionViewCell()
         }
         // TODO: Replace with getting the element from the model
-        // DELETE IT!!!!
         let car = LocalCarsDataService().cars.first!
-        // DELETE IT!!!!
         cell.setup(with: car)
         
         return cell

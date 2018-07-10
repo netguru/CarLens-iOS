@@ -66,7 +66,6 @@
 		7CB817EE20C93B6700B51C3D /* CarClassificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817ED20C93B6700B51C3D /* CarClassificationService.swift */; };
 		7CB817F620C95BB200B51C3D /* RecognitionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F520C95BB200B51C3D /* RecognitionResult.swift */; };
 		7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */; };
-		7CB817FB20CA82B000B51C3D /* CarClassifierResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817FA20CA82B000B51C3D /* CarClassifierResponse.swift */; };
 		7CB817FD20CA865700B51C3D /* CRTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817FC20CA865700B51C3D /* CRTimeFormatter.swift */; };
 		7CBF004E20ECBD5100127A9F /* horizontal-progress-chart.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF004A20ECBD5100127A9F /* horizontal-progress-chart.json */; };
 		7CBF005120ECBD5100127A9F /* horizontal-stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF004D20ECBD5100127A9F /* horizontal-stars.json */; };
@@ -182,7 +181,6 @@
 		7CB817ED20C93B6700B51C3D /* CarClassificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarClassificationService.swift; sourceTree = "<group>"; };
 		7CB817F520C95BB200B51C3D /* RecognitionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionResult.swift; sourceTree = "<group>"; };
 		7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRNumberFormatter.swift; sourceTree = "<group>"; };
-		7CB817FA20CA82B000B51C3D /* CarClassifierResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarClassifierResponse.swift; sourceTree = "<group>"; };
 		7CB817FC20CA865700B51C3D /* CRTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRTimeFormatter.swift; sourceTree = "<group>"; };
 		7CBF004A20ECBD5100127A9F /* horizontal-progress-chart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "horizontal-progress-chart.json"; sourceTree = "<group>"; };
 		7CBF004D20ECBD5100127A9F /* horizontal-stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "horizontal-stars.json"; sourceTree = "<group>"; };
@@ -469,7 +467,6 @@
 				7CAD86DE20F4B0BD0064D50E /* LocalCarData.swift */,
 				7C77741C20E65AD1007B3851 /* CarMake.swift */,
 				7CB817F520C95BB200B51C3D /* RecognitionResult.swift */,
-				7CB817FA20CA82B000B51C3D /* CarClassifierResponse.swift */,
 				7C77741220E64EC8007B3851 /* NodeShift.swift */,
 				7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */,
 				7CEDA78320ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift */,
@@ -783,7 +780,6 @@
 				7CB817D320C9353200B51C3D /* UIStackViewExtension.swift in Sources */,
 				7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */,
 				7CB817C920C933CB00B51C3D /* HockeyAppService.swift in Sources */,
-				7CB817FB20CA82B000B51C3D /* CarClassifierResponse.swift in Sources */,
 				7C21A14220EE819F001E5714 /* CarListFlowLayout.swift in Sources */,
 				7CAD86D220F342CB0064D50E /* CarListNavigationBar.swift in Sources */,
 				7C21A14020EE807B001E5714 /* UICollectionViewExtension.swift in Sources */,

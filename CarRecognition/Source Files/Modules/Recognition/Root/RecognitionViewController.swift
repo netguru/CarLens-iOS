@@ -68,12 +68,13 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         add(augmentedRealityViewController, inside: customView.augmentedRealityContainer)
     }
     
-    private func handleRecognition(result: CarClassifierResponse) {
-        guard let mostConfidentRecognition = result.cars.first else { return }
+    private func handleRecognition(result: [RecognitionResult]) {
+        guard let mostConfidentRecognition = result.first else { return }
+        guard case RecognitionResult.Recognition.car(let car) = mostConfidentRecognition.recognition else { return }
         let normalizedConfidence = inputNormalizationService.normalize(value: Double(mostConfidentRecognition.confidence))
         try? augmentedRealityViewController.updateDetectionViewfinder(to: .recognizing(progress: normalizedConfidence))
         if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
-            augmentedRealityViewController.addPin(to: mostConfidentRecognition.car, completion: { [unowned self] car in
+            augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
                 self.classificationService.set(state: .paused)
                 self.addSlidingCard(with: car)
             }, error: { [unowned self] error in
@@ -83,7 +84,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         }
         
         // TODO: Debug information, remove from final version
-        customView.detectedModelLabel.text = mostConfidentRecognition.car.description + " (\(CRNumberFormatter.percentageFormatted(Float(normalizedConfidence))))"
+        customView.detectedModelLabel.text = car.model + " (\(CRNumberFormatter.percentageFormatted(Float(normalizedConfidence))))"
     }
     
     private func addSlidingCard(with car: Car) {

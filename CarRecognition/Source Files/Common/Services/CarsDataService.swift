@@ -10,6 +10,10 @@ internal final class CarsDataService {
     
     private let databaseService = CarsDatabaseService()
     
+    /// Maps label received from classifier to car object
+    ///
+    /// - Parameter classifierLabel: Label received from classifier
+    /// - Returns: Mapped object
     func map(classifierLabel: String) -> Car? {
         // TODO: Temporary, to be removed after model change
         let mappedClassifierLabel = mapToCorrectClassifierLabel(classifierLabel: classifierLabel)
