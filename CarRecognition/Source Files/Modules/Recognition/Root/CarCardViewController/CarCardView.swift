@@ -73,15 +73,15 @@ internal final class CarCardView: View, ViewSetupable {
 
     /// StackView with performance informations
     private lazy var performanceStackView: UIStackView = {
-        let topSpeedProgressView = PartOvalProgressView(state: .topSpeed(200), invalidateChartInstantly: false)
-        let accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(9), invalidateChartInstantly: false)
+        let topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed), invalidateChartInstantly: true)
+        let accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration), invalidateChartInstantly: true)
         return .make(axis: .horizontal, with: [topSpeedProgressView, accelerationOvalProgressView], spacing: 10.0, distribution: .fillEqually)
     }()
 
     /// StackView with mechanical informations
     private lazy var mechanicalStackView: UIStackView = {
-        let engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(1999), invalidateChartInstantly: true)
-        let powerHorizontalProgressView = HorizontalProgressChartView(state: .power(150), invalidateChartInstantly: true)
+        let engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine), invalidateChartInstantly: true)
+        let powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power), invalidateChartInstantly: true)
         return .make(axis: .horizontal, with: [powerHorizontalProgressView, engineHorizontalProgressView], spacing: 30.0, distribution: .fillEqually)
     }()
 

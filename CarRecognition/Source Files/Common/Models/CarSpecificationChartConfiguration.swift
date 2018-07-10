@@ -8,14 +8,14 @@
 internal struct CarSpecificationChartConfiguration {
     
     /// Reference horse power that will be used as 100%
-    let referenceHorsePower = 300
+    let referenceHorsePower = 350
     
     /// Reference speed that will be used as 100% (in miles)
-    let referenceSpeed = 300
+    let referenceSpeed = 180
     
     /// Reference engine volume that will be used as 100% (in centimeters)
     let referenceEngineVolume = 5000
     
     /// Reference accelerate time that will be used as 100% (in seconds)
-    let referenceAccelerate: TimeInterval = 3
+    let referenceAccelerate: TimeInterval = 5
 }
