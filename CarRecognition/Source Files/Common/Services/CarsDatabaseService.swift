@@ -4,14 +4,17 @@
 //
 
 
+import Foundation
+
 internal final class CarsDatabaseService {
+    
+    private let userDefault = UserDefaults()
     
     /// Maps car `isDiscovered` parameter to proper value
     ///
     /// - Parameter car: Car to be mapped
     func mapDiscoveredParameter(car: inout Car) {
-        // TODO: Replace with real database checking
-        car.isDiscovered = false
+        car.isDiscovered = isAlreadyAddedAsRecognized(car: car)
     }
     
     /// Maps cars `isDiscovered` parameter to proper value
@@ -28,7 +31,26 @@ internal final class CarsDatabaseService {
     /// - Parameters:
     ///   - car: Car to be set
     ///   - discovered: Inticating if car was discovered or not
-    func mark(car: Car, asDiscovered disceovered: Bool) {
-        // TODO: Replace with saving it to the database
+    func mark(car: Car, asDiscovered discovered: Bool) {
+        if discovered {
+            addToTheRecognizedCars(car: car)
+        } else {
+            removeFromTheRecognizedCars(car: car)
+        }
+    }
+}
+
+private extension CarsDatabaseService {
+    
+    private func addToTheRecognizedCars(car: Car) {
+        userDefault.set(true, forKey: car.id)
+    }
+    
+    private func removeFromTheRecognizedCars(car: Car) {
+        userDefault.removeObject(forKey: car.id)
+    }
+    
+    private func isAlreadyAddedAsRecognized(car: Car) -> Bool {
+        return userDefault.bool(forKey: car.id)
     }
 }

@@ -22,7 +22,8 @@ internal final class ApplicationFactory {
     func recognitionViewController() -> RecognitionViewController {
         return RecognitionViewController(
             augmentedRealityViewController: augmentedRealityViewController(),
-            classificationService: CarClassificationService(carsDataService: applicationDependencies.carsDataService)
+            classificationService: CarClassificationService(carsDataService: applicationDependencies.carsDataService),
+            carsDataService: applicationDependencies.carsDataService
         )
     }
     
