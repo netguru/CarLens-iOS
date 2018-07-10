@@ -102,6 +102,7 @@ extension CarsListViewController {
     }
 
     private func animateProgressView(currentNumber: Int) {
+        // TODO: Replace maximumNumber with real value
         customView.topView.progressView.setup(currentNumber: currentNumber, maximumNumber: 8, invalidateChartInstantly: false)
         customView.topView.progressView.invalidateChart(animated: true)
     }
