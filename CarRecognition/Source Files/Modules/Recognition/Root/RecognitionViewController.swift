@@ -60,7 +60,6 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
                 self?.handleRecognition(result: result)
             }
         }
-        addSlidingCard(with: Car.known(make: .ford, model: "Fiesta"))
     }
     
     /// - SeeAlso: UIViewController
