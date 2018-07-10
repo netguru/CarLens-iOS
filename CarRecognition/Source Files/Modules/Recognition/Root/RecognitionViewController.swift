@@ -85,9 +85,9 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
                 augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
                     self.classificationService.set(state: .paused)
                     self.addSlidingCard(with: car)
-                    }, error: { [unowned self] error in
-                        // TODO: Debug information, remove from final version
-                        self.customView.analyzeTimeLabel.text = error.rawValue
+                }, error: { [unowned self] error in
+                    // TODO: Debug information, remove from final version
+                    self.customView.analyzeTimeLabel.text = error.rawValue
                 })
             }
         case .otherCar, .notCar:

@@ -31,18 +31,11 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     /// - Parameter result: Result of the detection
     func update(to result: RecognitionResult, normalizedConfidence: Double) {
         viewfinderAnimationView.animationProgress = CGFloat(normalizedConfidence)
-        switch result.recognition {
-        case .car(_):
-            if normalizedConfidence < 0.1 {
-                informationLabel.text = Localizable.Recognition.putCarInCenter
-            } else {
-                informationLabel.text = Localizable.Recognition.recognizing
-            }
-        case .otherCar:
-            informationLabel.text = Localizable.Recognition.carNotSupported
-        case .notCar:
+        guard normalizedConfidence > 0.1 else {
             informationLabel.text = Localizable.Recognition.putCarInCenter
+            return
         }
+        informationLabel.text = Localizable.Recognition.recognizing
     }
     
     /// - SeeAlso: ViewSetupable
