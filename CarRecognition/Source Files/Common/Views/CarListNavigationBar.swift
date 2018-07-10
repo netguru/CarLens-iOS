@@ -17,13 +17,21 @@ internal final class CarListNavigationBar: View, ViewSetupable {
         return view.layoutable()
     }()
     
+    internal let backButton: UIButton = {
+        let view = UIButton()
+        view.setImage(#imageLiteral(resourceName: "button-back-arrow"), for: .normal)
+        return view.layoutable()
+    }()
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        addSubview(titleLabel)
+        [titleLabel, backButton].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         titleLabel.constraintCenterToSuperview()
+        backButton.constraintToSuperviewEdges(excludingAnchors: [.right], withInsets: .init(top: 25, left: 37, bottom: 25, right: 0))
+        backButton.widthAnchor.constraint(equalToConstant: 24).isActive = true
     }
 }

@@ -30,8 +30,8 @@ internal final class RecognitionFlowController: FlowController {
         let viewController = applicationFactory.recognitionViewController()
         viewController.eventTriggered = { [unowned self] event in
             switch event {
-            case .didTriggerShowCarsList(_):
-                viewController.present(self.makeCarsListViewController(), animated: true)
+            case .didTriggerShowCarsList(let car):
+                viewController.present(self.makeCarsListViewController(with: car), animated: true)
             case .didTriggerGoogleSearch(let car):
                 SearchService().search(.google, for: car)
             }
@@ -39,11 +39,15 @@ internal final class RecognitionFlowController: FlowController {
         return viewController
     }
     
-    private func makeCarsListViewController() -> CarsListViewController {
-        let viewController = applicationFactory.carsListViewController()
-        viewController.eventTriggered = { [unowned viewController] event in
+    private func makeCarsListViewController(with scannedCar: Car?) -> CarsListViewController {
+        let viewController = applicationFactory.carsListViewController(with: scannedCar)
+        viewController.eventTriggered = { [unowned viewController, self] event in
             switch event {
             case .didTapDismiss:
+                guard let recognitionViewController = self.rootViewController as? RecognitionViewController else { return }
+                recognitionViewController.removeSlidingCard()
+                viewController.dismiss(animated: true)
+            case .didTapBackButton:
                 viewController.dismiss(animated: true)
             }
         }
