@@ -7,7 +7,7 @@ import UIKit.UIImage
 
 internal struct Car: Decodable, Equatable {
     let id: String
-    let brand: String
+    let make: String
     let model: String
     let description: String
     let stars: Int
@@ -27,7 +27,7 @@ internal struct Car: Decodable, Equatable {
     /// SeeAlso: Decodable
     enum CodingKeys: String, CodingKey {
         case id
-        case brand
+        case make = "brand"
         case model
         case description
         case stars
@@ -45,7 +45,7 @@ internal struct Car: Decodable, Equatable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(String.self, forKey: .id)
-        brand = try values.decode(String.self, forKey: .brand)
+        make = try values.decode(String.self, forKey: .make)
         model = try values.decode(String.self, forKey: .model)
         description = try values.decode(String.self, forKey: .description)
         stars = try values.decode(Int.self, forKey: .stars)
