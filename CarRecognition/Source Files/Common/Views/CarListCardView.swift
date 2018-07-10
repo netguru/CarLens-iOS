@@ -73,7 +73,7 @@ internal final class CarListCardView: View, ViewSetupable {
     /// - Parameter car: Car to be used for updating the view
     func setup(with car: Car) {
         // TODO: Remove when local car database will be ready
-        let carMakeImage = #imageLiteral(resourceName: "VolkswagenPassat")
+        let carMakeImage = car.image.logoUnlocked
         let carDescription = "The Volkswagen Tiguan is a compact crossover vehicle (CUV). Introduced in 2007, it uses the PQ35 platform of the Volkswagen Golf."
         let carTopSpeed = 94
         let carAccelerate: TimeInterval = 9
