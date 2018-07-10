@@ -97,6 +97,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     internal func removeSlidingCard() {
         carCardViewController?.animateOut()
         carCardViewController?.view.removeFromSuperview()
+        carCardViewController = nil
     }
     
     private func setup(carCardViewController: CarCardViewController) {
