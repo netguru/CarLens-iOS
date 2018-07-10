@@ -91,7 +91,6 @@
 		E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */; };
 		E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */; };
 		E8E4B1A020EE2A65009A93B7 /* ModelNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */; };
-		E8ED0A2820EF76E9002CF8B7 /* CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED0A2720EF76E9002CF8B7 /* CarTests.swift */; };
 		E8ED0A2A20EF8A8A002CF8B7 /* CarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED0A2920EF8A8A002CF8B7 /* CarImage.swift */; };
 /* End PBXBuildFile section */
 
@@ -206,7 +205,6 @@
 		E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 		E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalProgressLayerView.swift; sourceTree = "<group>"; };
 		E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNameView.swift; sourceTree = "<group>"; };
-		E8ED0A2720EF76E9002CF8B7 /* CarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTests.swift; sourceTree = "<group>"; };
 		E8ED0A2920EF8A8A002CF8B7 /* CarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,7 +259,6 @@
 		7C33E04020BD695700784D63 /* CarRecognitionTests */ = {
 			isa = PBXGroup;
 			children = (
-				E8ED0A2720EF76E9002CF8B7 /* CarTests.swift */,
 				7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */,
 				7CFBB8CD20BD94D200058B97 /* Supporting Files */,
 			);
@@ -794,7 +791,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8ED0A2820EF76E9002CF8B7 /* CarTests.swift in Sources */,
 				7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
