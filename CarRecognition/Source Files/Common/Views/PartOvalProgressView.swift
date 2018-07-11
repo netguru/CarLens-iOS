@@ -39,6 +39,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
         view.font = .gliscorGothicFont(ofSize: Dimensions.valueFontSize)
+        view.textColor = .crFontDark
         view.numberOfLines = 1
         view.textAlignment = .center
         return view.layoutable()

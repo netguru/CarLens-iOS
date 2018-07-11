@@ -79,18 +79,25 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         if invalidateChartInstantly {
             invalidateChart(animated: false)
         }
+        valueLabel.textColor = isLocked ? .crFontGrayLocked : .crFontDark
+        if isLocked {
+            valueLabel.text = "?"
+        }
     }
     
     /// Invalidates the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
     func invalidateChart(animated: Bool) {
-        let progress: Double
+        var progress: Double
         switch state {
         case .power(let power):
             progress = Double(power) / Double(chartConfig.referenceHorsePower)
         case .engine(let engine):
             progress = Double(engine) / Double(chartConfig.referenceEngineVolume)
+        }
+        if isLocked {
+            progress = 0
         }
         animationView.set(progress: CGFloat(progress), animated: animated)
     }
