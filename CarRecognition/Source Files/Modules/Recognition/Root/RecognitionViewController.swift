@@ -82,8 +82,8 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
                 augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
                     self.classificationService.set(state: .paused)
-                    self.markAsDiscoveredIfNeeded(car: car)
                     self.addSlidingCard(with: car)
+                    self.carsDataService.mark(car: car, asDiscovered: true)
                 }, error: { [unowned self] error in
                     // TODO: Debug information, remove from final version
                     self.customView.analyzeTimeLabel.text = error.rawValue
@@ -98,14 +98,10 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     private func addSlidingCard(with car: Car) {
-        carCardViewController = CarCardViewController(car: car)
+        carCardViewController = CarCardViewController(car: car, firstTimeDetection: !carsDataService.isAlreadyRecognized(car: car))
         guard let carCardViewController = carCardViewController else { return }
         setup(carCardViewController: carCardViewController)
         carCardViewController.animateIn()
-    }
-    
-    private func markAsDiscoveredIfNeeded(car: Car) {
-        carsDataService.mark(car: car, asDiscovered: true)
     }
     
     /// Removes car's card with animation

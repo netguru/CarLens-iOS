@@ -35,11 +35,15 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     
     private let car: Car
     
-    /// Initializes the view controller with given parameters
+    private let firstTimeDetection: Bool
+    
     ///
-    /// - Parameter car: Car to be displayed by the view controller
-    init(car: Car) {
+    /// - Parameters:
+    ///   - car: Car to be displayed by the view controller
+    ///   - firstTimeDetection: Indicating if the car was recognized for the first time
+    init(car: Car, firstTimeDetection: Bool) {
         self.car = car
+        self.firstTimeDetection = firstTimeDetection
         super.init(viewMaker: CarCardView(car: car))
     }
     
