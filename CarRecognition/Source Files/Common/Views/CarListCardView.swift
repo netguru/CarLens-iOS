@@ -73,11 +73,11 @@ internal final class CarListCardView: View, ViewSetupable {
     /// - Parameter car: Car to be used for updating the view
     func setup(with car: Car) {
         makeImageView.image = car.isDiscovered ? car.image.logoUnlocked : car.image.logoLocked
-        topSpeedProgressView.setup(state: .topSpeed(car.speed), invalidateChartInstantly: false, isLocked: car.isDiscovered)
-        accelerationProgressView.setup(state: .accelerate(car.acceleration), invalidateChartInstantly: false, isLocked: car.isDiscovered)
-        engineProgressView.setup(state: .engine(car.engine), invalidateChartInstantly: false, isLocked: car.isDiscovered)
-        powerProgressView.setup(state: .power(car.power), invalidateChartInstantly: false, isLocked: car.isDiscovered)
-        starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false, isLocked: car.isDiscovered)
+        topSpeedProgressView.setup(state: .topSpeed(car.speed), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
+        accelerationProgressView.setup(state: .accelerate(car.acceleration), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
+        engineProgressView.setup(state: .engine(car.engine), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
+        powerProgressView.setup(state: .power(car.power), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
+        starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false, isLocked: !car.isDiscovered)
         descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: descriptionLabel.font, tracking: 0.6)
     }
     

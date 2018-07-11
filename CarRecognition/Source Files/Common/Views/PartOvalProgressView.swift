@@ -32,13 +32,13 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     private let ovalLayerView = OvalProgressLayerView(
         startAngle: Dimensions.startAngle,
         endAngle: Dimensions.endAngle,
-        progressStrokeColor: .crShadowOrange
+        progressStrokeColor: .crShadowOrange,
+        trackStrokeColor: .crBackgroundLightGray
     ).layoutable()
 
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
         view.font = .gliscorGothicFont(ofSize: Dimensions.valueFontSize)
-        view.textColor = .crFontDark
         view.numberOfLines = 1
         view.textAlignment = .center
         return view.layoutable()
@@ -95,18 +95,25 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         if invalidateChartInstantly {
             invalidateChart(animated: false)
         }
+        valueLabel.textColor = isLocked ? .crFontGrayLocked : .crFontDark
+        if isLocked {
+            valueLabel.text = "?"
+        }
     }
     
     /// Invalidates the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
     func invalidateChart(animated: Bool) {
-        let progress: Double
+        var progress: Double
         switch state {
         case .accelerate(let accelerate):
             progress = chartConfig.referenceAccelerate / accelerate
         case .topSpeed(let topSpeed):
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
+        }
+        if isLocked {
+            progress = 0
         }
         ovalLayerView.set(progress: progress, animated: animated)
     }
