@@ -20,8 +20,7 @@ internal final class RecognitionFlowController: FlowController {
     init(dependencies: ApplicationDependencies, applicationFactory: ApplicationFactory) {
         self.dependencies = dependencies
         self.applicationFactory = applicationFactory
-        rootViewController = makeCameraAccessViewController()
-//        rootViewController = makeRecognitionViewController()
+        rootViewController = makeRecognitionViewController()
     }
     
     /// Root view controler of the flow
@@ -35,6 +34,8 @@ internal final class RecognitionFlowController: FlowController {
                 viewController.present(self.makeCarsListViewController(with: car), animated: true)
             case .didTriggerGoogleSearch(let car):
                 SearchService().search(.google, for: car)
+            case .didTriggerCameraAccessDenied:
+                viewController.present(self.makeCameraAccessViewController(), animated: true)
             }
         }
         return viewController
@@ -60,14 +61,19 @@ internal final class RecognitionFlowController: FlowController {
     
     private func makeCameraAccessViewController() -> CameraAccessViewController {
         let viewController = applicationFactory.cameraAccessViewController()
-        viewController.eventTriggered = { event in
+        viewController.eventTriggered = { [unowned self] event in
             switch event {
             case .didTriggerRequestAccess:
-                break
+                self.openCameraSettings()
             case .didTriggerShowCarsList:
                 viewController.present(self.makeCarsListViewController(with: nil), animated: true)
             }
         }
         return viewController
+    }
+    
+    private func openCameraSettings() {
+        guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
+        UIApplication.shared.open(url, options: [:])
     }
 }
