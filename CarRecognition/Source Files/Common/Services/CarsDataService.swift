@@ -51,12 +51,12 @@ internal final class CarsDataService {
     ///
     /// - Parameters:
     ///   - car: Car to be set
-    ///   - discovered: Inticating if car was discovered or not
+    ///   - discovered: Indicating if the car was discovered or not
     func mark(car: Car, asDiscovered discovered: Bool) {
         databaseService.mark(car: car, asDiscovered: discovered)
     }
     
-    // TODO: Temporary function, to ve removed after machine learning model change
+    // TODO: Temporary function, to be removed after machine learning model change
     private func mapToCorrectClassifierLabel(classifierLabel: String) -> String {
         switch classifierLabel {
         case "toyota camry":

@@ -8,7 +8,7 @@ import Foundation
 
 internal final class CarsDatabaseService {
     
-    private let userDefault = UserDefaults()
+    private let userDefaults = UserDefaults()
     
     /// Maps car `isDiscovered` parameter to proper value
     ///
@@ -30,7 +30,7 @@ internal final class CarsDatabaseService {
     ///
     /// - Parameters:
     ///   - car: Car to be set
-    ///   - discovered: Inticating if car was discovered or not
+    ///   - discovered: Indicating if car was discovered or not
     func mark(car: Car, asDiscovered discovered: Bool) {
         if discovered {
             addToTheRecognizedCars(car: car)
@@ -43,14 +43,14 @@ internal final class CarsDatabaseService {
 private extension CarsDatabaseService {
     
     private func addToTheRecognizedCars(car: Car) {
-        userDefault.set(true, forKey: car.id)
+        userDefaults.set(true, forKey: car.id)
     }
     
     private func removeFromTheRecognizedCars(car: Car) {
-        userDefault.removeObject(forKey: car.id)
+        userDefaults.removeObject(forKey: car.id)
     }
     
     private func isAlreadyAddedAsRecognized(car: Car) -> Bool {
-        return userDefault.bool(forKey: car.id)
+        return userDefaults.bool(forKey: car.id)
     }
 }
