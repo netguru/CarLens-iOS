@@ -72,7 +72,6 @@ extension OvalProgressLayerView {
         progressLayer.lineWidth = lineWidth
         progressLayer.fillColor = UIColor.clear.cgColor
         progressLayer.lineCap = kCALineCapRound
-        progressLayer.strokeEnd = 0
         layer.addSublayer(progressLayer)
     }
     
