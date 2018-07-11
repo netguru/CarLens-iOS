@@ -17,6 +17,7 @@
 		7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E06C20BD729B00784D63 /* Keys.podspec.json */; };
 		7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */; };
 		7C3E01C620F5EACB003B83D6 /* BLOKKNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C3E01C520F5EA6D003B83D6 /* BLOKKNeue-Regular.ttf */; };
+		7C3E01C820F63725003B83D6 /* button-ripple.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C3E01C720F63725003B83D6 /* button-ripple.json */; };
 		7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */; };
 		7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */; };
 		7C5E570320D004D600655C35 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E570220D004D600655C35 /* UIImageExtension.swift */; };
@@ -133,6 +134,7 @@
 		7C33E06C20BD729B00784D63 /* Keys.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Keys.podspec.json; path = Pods/CocoaPodsKeys/Keys.podspec.json; sourceTree = SOURCE_ROOT; };
 		7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarRecognitionKeys.m; path = Pods/CocoaPodsKeys/CarRecognitionKeys.m; sourceTree = SOURCE_ROOT; };
 		7C3E01C520F5EA6D003B83D6 /* BLOKKNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BLOKKNeue-Regular.ttf"; sourceTree = "<group>"; };
+		7C3E01C720F63725003B83D6 /* button-ripple.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "button-ripple.json"; sourceTree = "<group>"; };
 		7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarARConfiguration.swift; sourceTree = "<group>"; };
 		7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAnchorExtension.swift; sourceTree = "<group>"; };
 		7C5E570220D004D600655C35 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 				7CF269D520EA454000DCC27D /* viewfinder_bracket.json */,
 				7CBF004A20ECBD5100127A9F /* horizontal-progress-chart.json */,
 				7CBF004D20ECBD5100127A9F /* horizontal-stars.json */,
+				7C3E01C720F63725003B83D6 /* button-ripple.json */,
 			);
 			path = "Lottie animations";
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				7CBF005120ECBD5100127A9F /* horizontal-stars.json in Resources */,
 				7CBF004E20ECBD5100127A9F /* horizontal-progress-chart.json in Resources */,
 				7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */,
+				7C3E01C820F63725003B83D6 /* button-ripple.json in Resources */,
 				7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */,
 				7C3E01C620F5EACB003B83D6 /* BLOKKNeue-Regular.ttf in Resources */,
 				7CEDA77E20ED044F00DF3AF0 /* gliscor-gothic.ttf in Resources */,

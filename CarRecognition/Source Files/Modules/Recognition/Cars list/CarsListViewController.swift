@@ -49,11 +49,17 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     }
     
     /// SeeAlso: UIViewController
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        invalidateDiscoveredProgressView()
+    }
+    
+    /// SeeAlso: UIViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        invalidateDiscoveredProgressView()
         scrollToDiscoveredCarIfNeeded()
         animateVisibleCells()
+        customView.topView.progressView.invalidateChart(animated: true)
     }
     
     @objc private func recognizeButtonTapAction() {
@@ -85,7 +91,6 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         let discoveredCars = carsDataService.getNumberOfDiscoveredCars()
         let availableCars = carsDataService.getNumberOfCars()
         customView.topView.progressView.setup(currentNumber: discoveredCars, maximumNumber: availableCars, invalidateChartInstantly: false)
-        customView.topView.progressView.invalidateChart(animated: true)
     }
 
     /// SeeAlso: UICollectionViewDataSource
