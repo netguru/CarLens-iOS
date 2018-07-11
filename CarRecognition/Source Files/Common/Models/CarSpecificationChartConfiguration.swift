@@ -16,6 +16,9 @@ internal struct CarSpecificationChartConfiguration {
     /// Reference engine volume that will be used as 100% (in centimeters)
     let referenceEngineVolume = 4000
     
+    /// Reference accelerate time that will be used as 0% (in seconds)
+    let referenceMaxAccelerate: TimeInterval = 20
+    
     /// Reference accelerate time that will be used as 100% (in seconds)
-    let referenceAccelerate: TimeInterval = 5
+    let referenceMinAccelerate: TimeInterval = 2.9
 }

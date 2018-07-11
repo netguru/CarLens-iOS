@@ -53,7 +53,7 @@ internal final class HorizontalStarsView: View, ViewSetupable {
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
     func invalidateChart(animated: Bool) {
-        var progress = Double(starCount) / Double(numberOfStars)
+        var progress = Double(starCount) / Double(numberOfStars + 1)
         if isLocked {
             progress = 0
         }
