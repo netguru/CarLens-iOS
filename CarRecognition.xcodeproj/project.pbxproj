@@ -91,6 +91,8 @@
 		E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */; };
 		E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */; };
 		E8E4B1A020EE2A65009A93B7 /* ModelNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */; };
+		E8EC9DF120F630E700368E50 /* CameraAccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9DF020F630E700368E50 /* CameraAccessViewController.swift */; };
+		E8EC9DF320F630F000368E50 /* CameraAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC9DF220F630F000368E50 /* CameraAccessView.swift */; };
 		E8ED0A2A20EF8A8A002CF8B7 /* CarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED0A2920EF8A8A002CF8B7 /* CarImage.swift */; };
 /* End PBXBuildFile section */
 
@@ -205,6 +207,8 @@
 		E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 		E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalProgressLayerView.swift; sourceTree = "<group>"; };
 		E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNameView.swift; sourceTree = "<group>"; };
+		E8EC9DF020F630E700368E50 /* CameraAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessViewController.swift; sourceTree = "<group>"; };
+		E8EC9DF220F630F000368E50 /* CameraAccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessView.swift; sourceTree = "<group>"; };
 		E8ED0A2920EF8A8A002CF8B7 /* CarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -520,6 +524,7 @@
 				7CB817EB20C937FB00B51C3D /* RecognitionView.swift */,
 				7C93D49720E6311800AF6FFC /* AugmentedRealityViewController */,
 				E89D791520ECB1F6006D2D8D /* CarCardViewController */,
+				E8EC9DEF20F630D600368E50 /* Camera Access */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -579,6 +584,15 @@
 				E89D791720ECB22F006D2D8D /* CarCardView.swift */,
 			);
 			path = CarCardViewController;
+			sourceTree = "<group>";
+		};
+		E8EC9DEF20F630D600368E50 /* Camera Access */ = {
+			isa = PBXGroup;
+			children = (
+				E8EC9DF020F630E700368E50 /* CameraAccessViewController.swift */,
+				E8EC9DF220F630F000368E50 /* CameraAccessView.swift */,
+			);
+			path = "Camera Access";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -765,12 +779,14 @@
 				7CB817E220C935B200B51C3D /* KeyboardAwareViewController.swift in Sources */,
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
 				E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */,
+				E8EC9DF320F630F000368E50 /* CameraAccessView.swift in Sources */,
 				7CA34DF920E3AEB0000E309B /* CarRecognitionModel.mlmodel in Sources */,
 				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
 				7C21A14420EE8770001E5714 /* CarListLayoutAttributes.swift in Sources */,
 				7CB817E120C935B200B51C3D /* FlowAwareViewController.swift in Sources */,
 				7CB817F620C95BB200B51C3D /* RecognitionResult.swift in Sources */,
+				E8EC9DF120F630E700368E50 /* CameraAccessViewController.swift in Sources */,
 				7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */,
 				7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */,
 				7C67179320EF85C600183AB4 /* LabeledCarImageView.swift in Sources */,

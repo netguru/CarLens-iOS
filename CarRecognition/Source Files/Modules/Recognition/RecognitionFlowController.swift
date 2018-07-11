@@ -20,7 +20,8 @@ internal final class RecognitionFlowController: FlowController {
     init(dependencies: ApplicationDependencies, applicationFactory: ApplicationFactory) {
         self.dependencies = dependencies
         self.applicationFactory = applicationFactory
-        rootViewController = makeRecognitionViewController()
+        rootViewController = makeCameraAccessViewController()
+//        rootViewController = makeRecognitionViewController()
     }
     
     /// Root view controler of the flow
@@ -44,11 +45,27 @@ internal final class RecognitionFlowController: FlowController {
         viewController.eventTriggered = { [unowned viewController, self] event in
             switch event {
             case .didTapDismiss:
-                guard let recognitionViewController = self.rootViewController as? RecognitionViewController else { return }
+                guard let recognitionViewController = self.rootViewController as? RecognitionViewController else {
+                    viewController.dismiss(animated: true)
+                    return
+                }
                 recognitionViewController.removeSlidingCard()
                 viewController.dismiss(animated: true)
             case .didTapBackButton:
                 viewController.dismiss(animated: true)
+            }
+        }
+        return viewController
+    }
+    
+    private func makeCameraAccessViewController() -> CameraAccessViewController {
+        let viewController = applicationFactory.cameraAccessViewController()
+        viewController.eventTriggered = { event in
+            switch event {
+            case .didTriggerRequestAccess:
+                break
+            case .didTriggerShowCarsList:
+                viewController.present(self.makeCarsListViewController(with: nil), animated: true)
             }
         }
         return viewController

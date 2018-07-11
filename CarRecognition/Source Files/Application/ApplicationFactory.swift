@@ -41,4 +41,11 @@ internal final class ApplicationFactory {
     func carsListViewController(with discoveredCar: Car? = nil) -> CarsListViewController {
         return CarsListViewController(discoveredCar: discoveredCar, carsDataService: applicationDependencies.carsDataService)
     }
+
+    /// Creates controller with camera access handling
+    ///
+    /// - Returns: Created controller
+    func cameraAccessViewController() -> CameraAccessViewController {
+        return CameraAccessViewController(viewMaker: CameraAccessView())
+    }
 }

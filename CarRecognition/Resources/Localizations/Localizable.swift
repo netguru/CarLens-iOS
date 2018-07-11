@@ -38,6 +38,11 @@ internal struct Localizable {
         static let title = localized("cars.list.title")
     }
     
+    struct CameraAccess {
+        static let information = localized("camera-access.information")
+        static let accessButton = localized("camera-access.button.text")
+    }
+    
     struct Error {
         static let title = localized("error.title")
         static let unknownErrorOccurred = localized("error.unknown.error.occurred")
