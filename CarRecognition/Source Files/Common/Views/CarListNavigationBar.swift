@@ -53,5 +53,6 @@ internal final class CarListNavigationBar: View, ViewSetupable {
         backButton.constraintToSuperviewEdges(excludingAnchors: [.right], withInsets: .init(top: 25, left: 37, bottom: 25, right: 0))
         backButton.widthAnchor.constraint(equalToConstant: 24).isActive = true
         progressView.constraintToSuperviewEdges(excludingAnchors: [.left], withInsets: .init(top: 10, left: 0, bottom: 10, right: 37))
+        progressView.widthAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }

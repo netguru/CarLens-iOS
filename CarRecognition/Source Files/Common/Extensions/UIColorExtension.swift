@@ -49,4 +49,8 @@ internal extension UIColor {
     class var crProgressDarkGray: UIColor {
         return .init(hex: 0xC4D0D6)
     }
+    
+    class var crDeepOrange: UIColor {
+        return .init(hex: 0xFF8D3D)
+    }
 }
