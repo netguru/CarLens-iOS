@@ -17,6 +17,8 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
     
     private var state: State
     
+    private var isLocked: Bool
+    
     private let chartConfig = CarSpecificationChartConfiguration()
     
     private lazy var animationView = LOTAnimationView(name: "horizontal-progress-chart").layoutable()
@@ -45,10 +47,12 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
     ///   - state: State to be shown by the view
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
-    init(state: State, invalidateChartInstantly: Bool) {
+    ///   - isLocked: Indicating if the info should be locked
+    init(state: State, invalidateChartInstantly: Bool, isLocked: Bool = false) {
         self.state = state
+        self.isLocked = isLocked
         super.init()
-        setup(state: state, invalidateChartInstantly: invalidateChartInstantly)
+        setup(state: state, invalidateChartInstantly: invalidateChartInstantly, isLocked: isLocked)
     }
     
     /// Setups the view with given state. Use only inside reusable views.
@@ -57,9 +61,11 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
     ///   - state: State to be shown by the view
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
-    func setup(state: State, invalidateChartInstantly: Bool) {
+     ///   - isLocked: Indicating if the info should be locked
+    func setup(state: State, invalidateChartInstantly: Bool, isLocked: Bool = false) {
         animationView.set(progress: 0, animated: false)
         self.state = state
+        self.isLocked = isLocked
         switch state {
         case .power(let power):
             let valueText = String(power) + "\(Localizable.CarCard.hp)"
@@ -73,18 +79,25 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         if invalidateChartInstantly {
             invalidateChart(animated: false)
         }
+        valueLabel.textColor = isLocked ? .crFontGrayLocked : .crFontDark
+        if isLocked {
+            valueLabel.text = "?"
+        }
     }
     
     /// Invalidates the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
     func invalidateChart(animated: Bool) {
-        let progress: Double
+        var progress: Double
         switch state {
         case .power(let power):
             progress = Double(power) / Double(chartConfig.referenceHorsePower)
         case .engine(let engine):
             progress = Double(engine) / Double(chartConfig.referenceEngineVolume)
+        }
+        if isLocked {
+            progress = 0
         }
         animationView.set(progress: CGFloat(progress), animated: animated)
     }

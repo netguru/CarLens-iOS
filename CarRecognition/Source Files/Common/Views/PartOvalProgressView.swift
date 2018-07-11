@@ -25,12 +25,15 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     
     private var state: State
     
+    private var isLocked: Bool
+    
     private let chartConfig = CarSpecificationChartConfiguration()
 
     private let ovalLayerView = OvalProgressLayerView(
         startAngle: Dimensions.startAngle,
         endAngle: Dimensions.endAngle,
-        progressStrokeColor: .crShadowOrange
+        progressStrokeColor: .crShadowOrange,
+        trackStrokeColor: .crBackgroundLightGray
     ).layoutable()
 
     private lazy var valueLabel: UILabel = {
@@ -57,10 +60,12 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     ///   - state: State to be shown by the view
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
-    init(state: State, invalidateChartInstantly: Bool) {
+    ///   - isLocked: Indicating if the info should be locked
+    init(state: State, invalidateChartInstantly: Bool, isLocked: Bool = false) {
         self.state = state
+        self.isLocked = isLocked
         super.init()
-        setup(state: state, invalidateChartInstantly: invalidateChartInstantly)
+        setup(state: state, invalidateChartInstantly: invalidateChartInstantly, isLocked: isLocked)
     }
     
     /// Setups the view with given state. Use only inside reusable views.
@@ -69,9 +74,11 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     ///   - state: State to be shown by the view
     ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
     ///                               When passing false, remember to use method `invalidatChart(animated:)` also
-    func setup(state: State, invalidateChartInstantly: Bool) {
+    ///   - isLocked: Indicating if the info should be locked
+    func setup(state: State, invalidateChartInstantly: Bool, isLocked: Bool = false) {
         ovalLayerView.set(progress: 0, animated: false)
         self.state = state
+        self.isLocked = isLocked
         switch state {
         case .accelerate(let accelerate):
             let formatter = DateComponentsFormatter()
@@ -89,18 +96,25 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         if invalidateChartInstantly {
             invalidateChart(animated: false)
         }
+        valueLabel.textColor = isLocked ? .crFontGrayLocked : .crFontDark
+        if isLocked {
+            valueLabel.text = "?"
+        }
     }
     
     /// Invalidates the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
     func invalidateChart(animated: Bool) {
-        let progress: Double
+        var progress: Double
         switch state {
         case .accelerate(let accelerate):
             progress = chartConfig.referenceAccelerate / accelerate
         case .topSpeed(let topSpeed):
             progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
+        }
+        if isLocked {
+            progress = 0
         }
         ovalLayerView.set(progress: progress, animated: animated)
     }

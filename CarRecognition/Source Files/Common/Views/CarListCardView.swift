@@ -25,7 +25,6 @@ internal final class CarListCardView: View, ViewSetupable {
     private lazy var descriptionLabel: UILabel = {
         let view = UILabel()
         view.textColor = .crFontLightGray
-        view.font = .gliscorGothicFont(ofSize: 12)
         view.numberOfLines = 0
         return view
     }()
@@ -41,7 +40,7 @@ internal final class CarListCardView: View, ViewSetupable {
     private lazy var performanceStackView: UIStackView = .make(
         axis: .horizontal,
         with: [topSpeedProgressView, accelerationProgressView],
-        spacing: 10,
+        spacing: 65,
         distribution: .fillEqually
     )
     
@@ -73,12 +72,14 @@ internal final class CarListCardView: View, ViewSetupable {
     /// - Parameter car: Car to be used for updating the view
     func setup(with car: Car) {
         makeImageView.image = car.isDiscovered ? car.image.logoUnlocked : car.image.logoLocked
-        topSpeedProgressView.setup(state: .topSpeed(car.speed), invalidateChartInstantly: false)
-        accelerationProgressView.setup(state: .accelerate(car.acceleration), invalidateChartInstantly: false)
-        engineProgressView.setup(state: .engine(car.engine), invalidateChartInstantly: false)
-        powerProgressView.setup(state: .power(car.power), invalidateChartInstantly: false)
-        starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false)
-        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: descriptionLabel.font, tracking: 0.6)
+        topSpeedProgressView.setup(state: .topSpeed(car.speed), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
+        accelerationProgressView.setup(state: .accelerate(car.acceleration), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
+        engineProgressView.setup(state: .engine(car.engine), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
+        powerProgressView.setup(state: .power(car.power), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
+        starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false, isLocked: !car.isDiscovered)
+        descriptionLabel.textColor =  car.isDiscovered ? .crFontLightGray : .crBackgroundLightGray
+        let descriptionFont: UIFont = car.isDiscovered ? .gliscorGothicFont(ofSize: 12) : .blokkNeueFont(ofSize: 12)
+        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: descriptionFont, tracking: 0.6)
     }
     
     /// Invalidates the charts visible on the view
@@ -113,12 +114,12 @@ internal final class CarListCardView: View, ViewSetupable {
     func setupConstraints() {
         containerStackView.constraintToSuperviewEdges(withInsets: .init(top: 30, left: 30, bottom: 30, right: 30))
         starsProgressView.constraintCenterToSuperview()
-        topSpeedProgressView.constraintToConstant(.init(width: 85, height: 85))
-        accelerationProgressView.constraintToConstant(.init(width: 85, height: 85))
         makeImageView.constraintToConstant(.init(width: 37, height: 37))
         NSLayoutConstraint.activate([
             makeImageView.topAnchor.constraint(equalTo: topAnchor, constant: -19),
-            makeImageView.centerXAnchor.constraint(equalTo: centerXAnchor)
+            makeImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            topSpeedProgressView.heightAnchor.constraint(equalTo: topSpeedProgressView.widthAnchor),
+            accelerationProgressView.heightAnchor.constraint(equalTo: accelerationProgressView.widthAnchor)
         ])
     }
 }
