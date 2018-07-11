@@ -46,10 +46,7 @@ internal final class RecognitionFlowController: FlowController {
         viewController.eventTriggered = { [unowned viewController, self] event in
             switch event {
             case .didTapDismiss:
-                guard let recognitionViewController = self.rootViewController as? RecognitionViewController else {
-                    viewController.dismiss(animated: true)
-                    return
-                }
+                guard let recognitionViewController = self.rootViewController as? RecognitionViewController else { return }
                 recognitionViewController.removeSlidingCard()
                 viewController.dismiss(animated: true)
             case .didTapBackButton:
