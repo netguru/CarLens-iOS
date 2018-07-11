@@ -8,7 +8,7 @@ import UIKit
 
 final class CameraAccessView: View, ViewSetupable {
     
-    /// Strict with view's dimensions
+    /// Struct with view's dimensions
     struct Dimensions {
         static let topOfffset = UIScreen.main.bounds.height * 0.25
         static let informationFontSize: CGFloat = 16
