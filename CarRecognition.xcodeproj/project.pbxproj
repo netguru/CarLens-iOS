@@ -25,7 +25,6 @@
 		7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741220E64EC8007B3851 /* NodeShift.swift */; };
 		7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741520E650EC007B3851 /* SKNodeFactory.swift */; };
 		7C77741920E65398007B3851 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741820E65398007B3851 /* Car.swift */; };
-		7C77741D20E65AD1007B3851 /* CarMake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741C20E65AD1007B3851 /* CarMake.swift */; };
 		7C93D49020E627EB00AF6FFC /* ApplicationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93D48F20E627EB00AF6FFC /* ApplicationFactory.swift */; };
 		7C93D49220E62C8200AF6FFC /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93D49120E62C8200AF6FFC /* FlowController.swift */; };
 		7C93D49520E62CE600AF6FFC /* RecognitionFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93D49420E62CE600AF6FFC /* RecognitionFlowController.swift */; };
@@ -140,7 +139,6 @@
 		7C77741220E64EC8007B3851 /* NodeShift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeShift.swift; sourceTree = "<group>"; };
 		7C77741520E650EC007B3851 /* SKNodeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeFactory.swift; sourceTree = "<group>"; };
 		7C77741820E65398007B3851 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
-		7C77741C20E65AD1007B3851 /* CarMake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMake.swift; sourceTree = "<group>"; };
 		7C93D48F20E627EB00AF6FFC /* ApplicationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFactory.swift; sourceTree = "<group>"; };
 		7C93D49120E62C8200AF6FFC /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		7C93D49420E62CE600AF6FFC /* RecognitionFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionFlowController.swift; sourceTree = "<group>"; };
@@ -464,7 +462,6 @@
 			children = (
 				7C77741820E65398007B3851 /* Car.swift */,
 				7CAD86DE20F4B0BD0064D50E /* LocalCarData.swift */,
-				7C77741C20E65AD1007B3851 /* CarMake.swift */,
 				7CB817F520C95BB200B51C3D /* RecognitionResult.swift */,
 				7C77741220E64EC8007B3851 /* NodeShift.swift */,
 				7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */,
@@ -734,7 +731,6 @@
 				7CEDA77420ECD35400DF3AF0 /* HorizontalProgressChartView.swift in Sources */,
 				7CB817EA20C937EA00B51C3D /* RecognitionViewController.swift in Sources */,
 				7CAD86E320F4B4840064D50E /* CarsDatabaseService.swift in Sources */,
-				7C77741D20E65AD1007B3851 /* CarMake.swift in Sources */,
 				7CEDA77920ECD5F100DF3AF0 /* CarsListViewController.swift in Sources */,
 				7C93D49D20E6367000AF6FFC /* UIViewControllerExtension.swift in Sources */,
 				7CB817E020C935B200B51C3D /* View.swift in Sources */,

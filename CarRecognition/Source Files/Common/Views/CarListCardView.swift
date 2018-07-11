@@ -119,7 +119,7 @@ internal final class CarListCardView: View, ViewSetupable {
             makeImageView.topAnchor.constraint(equalTo: topAnchor, constant: -19),
             makeImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             topSpeedProgressView.heightAnchor.constraint(equalTo: topSpeedProgressView.widthAnchor),
-            accelerationProgressView.heightAnchor.constraint(equalTo: accelerationProgressView.widthAnchor),
+            accelerationProgressView.heightAnchor.constraint(equalTo: accelerationProgressView.widthAnchor)
         ])
     }
 }
