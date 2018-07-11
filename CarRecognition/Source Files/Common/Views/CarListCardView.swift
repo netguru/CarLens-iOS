@@ -25,7 +25,6 @@ internal final class CarListCardView: View, ViewSetupable {
     private lazy var descriptionLabel: UILabel = {
         let view = UILabel()
         view.textColor = .crFontLightGray
-        view.font = .gliscorGothicFont(ofSize: 12)
         view.numberOfLines = 0
         return view
     }()
@@ -78,7 +77,9 @@ internal final class CarListCardView: View, ViewSetupable {
         engineProgressView.setup(state: .engine(car.engine), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
         powerProgressView.setup(state: .power(car.power), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
         starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false, isLocked: !car.isDiscovered)
-        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: descriptionLabel.font, tracking: 0.6)
+        descriptionLabel.textColor =  car.isDiscovered ? .crFontLightGray : .crBackgroundLightGray
+        let descriptionFont: UIFont = car.isDiscovered ? .gliscorGothicFont(ofSize: 12) : .blokkNeueFont(ofSize: 12)
+        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: descriptionFont, tracking: 0.6)
     }
     
     /// Invalidates the charts visible on the view
