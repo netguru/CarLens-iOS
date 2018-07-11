@@ -15,15 +15,48 @@ internal final class CarsDataService {
     /// - Parameter classifierLabel: Label received from classifier
     /// - Returns: Mapped object
     func map(classifierLabel: String) -> Car? {
-        // TODO: Temporary, to be removed after model change
+        // TODO: Temporary, to be removed after machine learning model change
         let mappedClassifierLabel = mapToCorrectClassifierLabel(classifierLabel: classifierLabel)
         
         guard var car = localDataService.cars.first(where: { $0.id == mappedClassifierLabel }) else { return nil }
-        car.discovered = databaseService.isAlreadyDiscovered(car: car)
+        databaseService.mapDiscoveredParameter(car: &car)
         return car
     }
     
-    // TODO: Temporary function, to ve removed after model change
+    /// Gets all available cars with proper recognized states
+    ///
+    /// - Returns: Fetched cars
+    func getAvailableCars() -> [Car] {
+        var cars = localDataService.cars
+        databaseService.mapDiscoveredParameter(for: &cars)
+        return cars
+    }
+    
+    /// Gets number of available cars
+    ///
+    /// - Returns: Fetched cars
+    func getNumberOfCars() -> Int {
+        return localDataService.cars.count
+    }
+    
+    /// Gets number of discovered cars
+    ///
+    /// - Returns: Fetched cars
+    func getNumberOfDiscoveredCars() -> Int {
+        let discoveredCars = getAvailableCars().filter { $0.isDiscovered }
+        return discoveredCars.count
+    }
+    
+    /// Marks given car as discovered or not
+    ///
+    /// - Parameters:
+    ///   - car: Car to be set
+    ///   - discovered: Indicating if the car was discovered or not
+    func mark(car: Car, asDiscovered discovered: Bool) {
+        databaseService.mark(car: car, asDiscovered: discovered)
+    }
+    
+    // TODO: Temporary function, to be removed after machine learning model change
     private func mapToCorrectClassifierLabel(classifierLabel: String) -> String {
         switch classifierLabel {
         case "toyota camry":

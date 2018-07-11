@@ -31,7 +31,6 @@ internal final class CarListNavigationBar: View, ViewSetupable {
     /// Progress view displayed as full oval figure
     internal lazy var progressView = FullOvalProgressView(currentNumber: currentNumber, maximumNumber: maximumNumber, invalidateChartInstantly: false).layoutable()
 
-    
     /// Initializes CarListNavigationBar
     ///
     /// - Parameters:

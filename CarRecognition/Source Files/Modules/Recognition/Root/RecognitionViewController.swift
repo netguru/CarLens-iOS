@@ -33,6 +33,8 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     private var carCardViewController: CarCardViewController?
     
+    private let carsDataService: CarsDataService
+    
     private let arConfig = CarARConfiguration()
     
     private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: arConfig.normalizationCount)
@@ -42,9 +44,11 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     /// - Parameters:
     ///   - augmentedRealityViewController: View controller with AR live preview
     ///   - classificationService: Classification service used to recognize objects
-    init(augmentedRealityViewController: AugmentedRealityViewController, classificationService: CarClassificationService) {
+    ///   - carsDataService: Data service for retrieving informations about cars
+    init(augmentedRealityViewController: AugmentedRealityViewController, classificationService: CarClassificationService, carsDataService: CarsDataService) {
         self.augmentedRealityViewController = augmentedRealityViewController
         self.classificationService = classificationService
+        self.carsDataService = carsDataService
         super.init(viewMaker: RecognitionView())
     }
     
@@ -78,6 +82,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
                 augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
                     self.classificationService.set(state: .paused)
+                    self.markAsDiscoveredIfNeeded(car: car)
                     self.addSlidingCard(with: car)
                 }, error: { [unowned self] error in
                     // TODO: Debug information, remove from final version
@@ -97,6 +102,10 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         guard let carCardViewController = carCardViewController else { return }
         setup(carCardViewController: carCardViewController)
         carCardViewController.animateIn()
+    }
+    
+    private func markAsDiscoveredIfNeeded(car: Car) {
+        carsDataService.mark(car: car, asDiscovered: true)
     }
     
     /// Removes car's card with animation

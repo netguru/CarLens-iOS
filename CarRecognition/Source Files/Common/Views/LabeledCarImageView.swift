@@ -36,11 +36,8 @@ internal final class LabeledCarImageView: View, ViewSetupable {
     ///
     /// - Parameter car: Car to be used for updating the view
     func setup(with car: Car) {
-        // TODO: Remove when local car database will be ready
-        let detectedState = arc4random() > UInt32.max / 2
-        
         modelLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.model.uppercased(), font: modelLabel.font, tracking: 0.6)
-        carImageView.image = detectedState ? car.image.unlocked : car.image.locked
+        carImageView.image = car.isDiscovered ? car.image.unlocked : car.image.locked
     }
     
     /// - SeeAlso: ViewSetupable

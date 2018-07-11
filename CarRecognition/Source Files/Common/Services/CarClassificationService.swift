@@ -9,7 +9,7 @@ import UIKit.UIImage
 
 internal final class CarClassificationService {
     
-    private let carsDataService = CarsDataService()
+    private let carsDataService: CarsDataService
     
     /// Available states of the service
     enum State {
@@ -23,6 +23,13 @@ internal final class CarClassificationService {
     /// Indicates if recognizer is ready to analyze next frame
     var isReadyForNextFrame: Bool {
         return currentBuffer == nil
+    }
+    
+    /// Initializes the object with given parameters
+    ///
+    /// - Parameter carsDataService: DataService with avialable cars
+    init(carsDataService: CarsDataService) {
+        self.carsDataService = carsDataService
     }
     
     /// Current state of the service

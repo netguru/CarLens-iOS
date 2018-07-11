@@ -72,22 +72,13 @@ internal final class CarListCardView: View, ViewSetupable {
     ///
     /// - Parameter car: Car to be used for updating the view
     func setup(with car: Car) {
-        // TODO: Remove when local car database will be ready
-        let carMakeImage = car.image.logoUnlocked
-        let carDescription = "The Volkswagen Tiguan is a compact crossover vehicle (CUV). Introduced in 2007, it uses the PQ35 platform of the Volkswagen Golf."
-        let carTopSpeed = 94
-        let carAccelerate: TimeInterval = 9
-        let carPower = 115
-        let carEngine = 1588
-        let carStars = 3
-        
-        makeImageView.image = carMakeImage
-        topSpeedProgressView.setup(state: .topSpeed(carTopSpeed), invalidateChartInstantly: false)
-        accelerationProgressView.setup(state: .accelerate(carAccelerate), invalidateChartInstantly: false)
-        engineProgressView.setup(state: .engine(carEngine), invalidateChartInstantly: false)
-        powerProgressView.setup(state: .power(carPower), invalidateChartInstantly: false)
-        starsProgressView.setup(starCount: carStars, invalidateChartInstantly: false)
-        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(carDescription, font: descriptionLabel.font, tracking: 0.6)
+        makeImageView.image = car.isDiscovered ? car.image.logoUnlocked : car.image.logoLocked
+        topSpeedProgressView.setup(state: .topSpeed(car.speed), invalidateChartInstantly: false)
+        accelerationProgressView.setup(state: .accelerate(car.acceleration), invalidateChartInstantly: false)
+        engineProgressView.setup(state: .engine(car.engine), invalidateChartInstantly: false)
+        powerProgressView.setup(state: .power(car.power), invalidateChartInstantly: false)
+        starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false)
+        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: descriptionLabel.font, tracking: 0.6)
     }
     
     /// Invalidates the charts visible on the view

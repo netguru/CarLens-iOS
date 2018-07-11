@@ -8,6 +8,12 @@ import UIKit
 
 internal final class CarsListViewController: TypedViewController<CarsListView>, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    private let carsDataService: CarsDataService
+    
+    private let discoveredCar: Car?
+    
+    private var cars = [Car]()
+    
     /// Enum describing events that can be triggered by this controller
     ///
     /// - didTapDismiss: send when user want to dismiss the view
@@ -20,9 +26,21 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// Callback with triggered event
     var eventTriggered: ((Event) -> ())?
     
+    /// Initializes the view controller with given parameters
+    ///
+    /// - Parameters:
+    ///   - discoveredCar: Car to be displayed by the view controller
+    ///   - carsDataService: Data service for retrieving informations about cars
+    init(discoveredCar: Car? = nil, carsDataService: CarsDataService) {
+        self.discoveredCar = discoveredCar
+        self.carsDataService = carsDataService
+        super.init(viewMaker: CarsListView(discoveredCar: discoveredCar, availableCars: carsDataService.getNumberOfCars()))
+    }
+    
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        cars = carsDataService.getAvailableCars()
         customView.collectionView.dataSource = self
         customView.collectionView.delegate = self
         customView.collectionView.register(cell: CarListCollectionViewCell.self)
@@ -33,8 +51,9 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// SeeAlso: UIViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        invalidateDiscoveredProgressView()
+        scrollToDiscoveredCarIfNeeded()
         animateVisibleCells()
-        animateProgressView(detectedCars: 3)
     }
     
     @objc private func recognizeButtonTapAction() {
@@ -43,6 +62,12 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     
     @objc private func backButtonTapAction() {
         eventTriggered?(.didTapBackButton)
+    }
+    
+    private func scrollToDiscoveredCarIfNeeded() {
+        guard let discoveredCar = discoveredCar, let index = cars.index(of: discoveredCar) else { return }
+        let indexPath = IndexPath(item: index, section: 0)
+        customView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
     private func animateVisibleCells() {
@@ -56,16 +81,16 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         }
     }
 
-    private func animateProgressView(detectedCars: Int) {
-        // TODO: Replace maximumNumber with real value
-        customView.topView.progressView.setup(currentNumber: detectedCars, maximumNumber: 8, invalidateChartInstantly: false)
+    private func invalidateDiscoveredProgressView() {
+        let discoveredCars = carsDataService.getNumberOfDiscoveredCars()
+        let availableCars = carsDataService.getNumberOfCars()
+        customView.topView.progressView.setup(currentNumber: discoveredCars, maximumNumber: availableCars, invalidateChartInstantly: false)
         customView.topView.progressView.invalidateChart(animated: true)
     }
 
     /// SeeAlso: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: Replace with the real number
-        return 8
+        return carsDataService.getNumberOfCars()
     }
     
     /// SeeAlso: UICollectionViewDataSource
@@ -73,15 +98,17 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         guard let cell: CarListCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath) else {
             return UICollectionViewCell()
         }
-        // TODO: Replace with getting the element from the model
-        let car = LocalCarsDataService().cars.first!
-        cell.setup(with: car)
-        
+        cell.setup(with: cars[indexPath.row])
         return cell
     }
     
     /// SeeAlso: UICollectionViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        animateVisibleCells()
+    }
+    
+    /// SeeAlso: UICollectionViewDelegate
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         animateVisibleCells()
     }
 }

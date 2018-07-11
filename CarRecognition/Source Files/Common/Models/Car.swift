@@ -19,7 +19,7 @@ internal struct Car: Decodable, Equatable {
     private let brandLogoImageLocked: UIImage
     private let imageUnlocked: UIImage
     private let imageLocked: UIImage
-    var discovered: Bool = false
+    var isDiscovered: Bool = false
     var image: CarImage {
         return CarImage(unlocked: imageUnlocked, locked: imageLocked, logoUnlocked: brandLogoImageUnlocked, logoLocked: brandLogoImageLocked)
     }
@@ -62,5 +62,10 @@ internal struct Car: Decodable, Equatable {
         imageUnlocked = UIImage(named: imageName)!
         let imageLockedName = try values.decode(String.self, forKey: .imageLocked)
         imageLocked = UIImage(named: imageLockedName)!
+    }
+    
+    /// SeeAlso: Equatable
+    static func == (lhs: Car, rhs: Car) -> Bool {
+        return lhs.id == rhs.id
     }
 }
