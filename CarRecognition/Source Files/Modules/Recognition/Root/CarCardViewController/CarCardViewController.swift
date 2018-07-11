@@ -37,8 +37,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     
     /// Initializes the view controller with given parameters
     ///
-    /// - Parameters:
-    ///   - car: Car to be displayed by the view controller
+    /// - Parameter car: Car to be displayed by the view controller
     init(car: Car) {
         self.car = car
         super.init(viewMaker: CarCardView(car: car))
