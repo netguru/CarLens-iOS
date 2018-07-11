@@ -37,6 +37,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     
     private let firstTimeDetection: Bool
     
+    /// Initializes the view controller with given parameters
     ///
     /// - Parameters:
     ///   - car: Car to be displayed by the view controller
