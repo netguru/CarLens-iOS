@@ -524,7 +524,7 @@
 				7CB817EB20C937FB00B51C3D /* RecognitionView.swift */,
 				7C93D49720E6311800AF6FFC /* AugmentedRealityViewController */,
 				E89D791520ECB1F6006D2D8D /* CarCardViewController */,
-				E8EC9DEF20F630D600368E50 /* Camera Access */,
+				E8EC9DEF20F630D600368E50 /* CameraAccessViewController */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -586,13 +586,13 @@
 			path = CarCardViewController;
 			sourceTree = "<group>";
 		};
-		E8EC9DEF20F630D600368E50 /* Camera Access */ = {
+		E8EC9DEF20F630D600368E50 /* CameraAccessViewController */ = {
 			isa = PBXGroup;
 			children = (
 				E8EC9DF020F630E700368E50 /* CameraAccessViewController.swift */,
 				E8EC9DF220F630F000368E50 /* CameraAccessView.swift */,
 			);
-			path = "Camera Access";
+			path = CameraAccessViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

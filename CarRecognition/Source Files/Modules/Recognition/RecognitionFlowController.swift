@@ -34,7 +34,7 @@ internal final class RecognitionFlowController: FlowController {
                 viewController.present(self.makeCarsListViewController(with: car), animated: true)
             case .didTriggerGoogleSearch(let car):
                 SearchService().search(.google, for: car)
-            case .didTriggerCameraAccessDenied:
+            case .didTriggerCameraAccessDenial:
                 viewController.present(self.makeCameraAccessViewController(), animated: true)
             }
         }

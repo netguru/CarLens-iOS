@@ -14,11 +14,11 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     ///
     /// - didTriggerShowCarsList: Send when user should see the list of available cars passing car if any is displayed be the bottom sheet.
     /// - didTriggerGoogleSearch: Send when user should open Safari with google searching for selected car.
-    /// - didTriggerCameraAccessDenied: Send when user didn't allow access for camera
+    /// - didTriggerCameraAccessDenial: Send when user doesn't allow access for camera
     enum Event {
         case didTriggerShowCarsList(Car?)
         case didTriggerGoogleSearch(Car)
-        case didTriggerCameraAccessDenied
+        case didTriggerCameraAccessDenial
     }
     
     /// Callback with triggered event
@@ -151,11 +151,11 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     private func checkCameraAccess() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .denied, .restricted:
-            eventTriggered?(.didTriggerCameraAccessDenied)
+            eventTriggered?(.didTriggerCameraAccessDenial)
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { [unowned self] success in
                 if !success {
-                    self.eventTriggered?(.didTriggerCameraAccessDenied)
+                    self.eventTriggered?(.didTriggerCameraAccessDenial)
                 }
             }
         default:
