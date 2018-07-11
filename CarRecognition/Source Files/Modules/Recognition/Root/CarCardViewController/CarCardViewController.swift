@@ -29,9 +29,9 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     /// Callback with triggered event
     var eventTriggered: ((Event) -> ())?
     
-    private let entryAnimator = UIViewPropertyAnimator(duration: 1.0, curve: .easeIn)
+    private let entryAnimator = UIViewPropertyAnimator(duration: 0.6, curve: .easeOut)
 
-    private let exitAnimator = UIViewPropertyAnimator(duration: 0.7, curve: .easeOut)
+    private let exitAnimator = UIViewPropertyAnimator(duration: 0.4, curve: .easeOut)
     
     private let car: Car
     
