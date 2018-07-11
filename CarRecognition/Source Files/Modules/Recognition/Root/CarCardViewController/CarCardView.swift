@@ -5,6 +5,7 @@
 
 
 import UIKit
+import Lottie
 
 internal final class CarCardView: View, ViewSetupable {
 
@@ -118,6 +119,15 @@ internal final class CarCardView: View, ViewSetupable {
         button.layer.shadowOffset = CGSize(width: 0, height: 10)
         return button.layoutable()
     }()
+    
+    private lazy var rippleAnimationView: LOTAnimationView = {
+        let view = LOTAnimationView(name: "button-ripple")
+        view.animationSpeed = 0.8
+        view.loopAnimation = true
+        view.play(toProgress: 1.0, withCompletion: nil)
+        view.isHidden = car.isDiscovered
+        return view.layoutable()
+    }()
 
     /// Initializes the card view with given car parameter
     ///
@@ -126,11 +136,16 @@ internal final class CarCardView: View, ViewSetupable {
         self.car = car
         super.init()
     }
+    
+    /// Hides ripple effect around car list button
+    func hideRippleEffect() {
+        rippleAnimationView.isHidden = true
+    }
 
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         addSubview(containerView)
-        [gradientView, topBeamView, modelStackView, performanceStackView, mechanicalStackView, scanButton, googleButton, carListButton].forEach(containerView.addSubview)
+        [gradientView, topBeamView, modelStackView, performanceStackView, mechanicalStackView, rippleAnimationView, scanButton, googleButton, carListButton].forEach(containerView.addSubview)
     }
 
     /// - SeeAlso: ViewSetupable
@@ -152,6 +167,7 @@ internal final class CarCardView: View, ViewSetupable {
 
         gradientView.constraintToConstant(.init(width: UIScreen.main.bounds.width, height: 140))
         gradientView.constraintToEdges(of: containerView, excludingAnchors: [.top])
+        rippleAnimationView.constraintCenter(to: carListButton)
 
         NSLayoutConstraint.activate([
             topBeamView.heightAnchor.constraint(equalToConstant: 3),

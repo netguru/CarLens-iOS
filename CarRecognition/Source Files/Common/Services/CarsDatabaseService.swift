@@ -38,14 +38,6 @@ internal final class CarsDatabaseService {
             removeFromTheRecognizedCars(car: car)
         }
     }
-    
-    /// Checks if given car was already recognized
-    ///
-    /// - Parameter car: Car to be checked
-    /// - Returns: Value indicating if car was recognized before
-    func isAlreadyRecognized(car: Car) -> Bool {
-        return isAlreadyAddedAsRecognized(car: car)
-    }
 }
 
 private extension CarsDatabaseService {

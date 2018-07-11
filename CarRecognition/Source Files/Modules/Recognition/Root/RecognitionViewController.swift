@@ -98,7 +98,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     private func addSlidingCard(with car: Car) {
-        carCardViewController = CarCardViewController(car: car, firstTimeDetection: !carsDataService.isAlreadyRecognized(car: car))
+        carCardViewController = CarCardViewController(car: car)
         guard let carCardViewController = carCardViewController else { return }
         setup(carCardViewController: carCardViewController)
         carCardViewController.animateIn()

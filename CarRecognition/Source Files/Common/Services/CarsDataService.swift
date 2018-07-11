@@ -56,14 +56,6 @@ internal final class CarsDataService {
         databaseService.mark(car: car, asDiscovered: discovered)
     }
     
-    /// Checks if given car was already recognized
-    ///
-    /// - Parameter car: Car to be checked
-    /// - Returns: Value indicating if car was recognized before
-    func isAlreadyRecognized(car: Car) -> Bool {
-        return databaseService.isAlreadyRecognized(car: car)
-    }
-    
     // TODO: Temporary function, to be removed after machine learning model change
     private func mapToCorrectClassifierLabel(classifierLabel: String) -> String {
         switch classifierLabel {

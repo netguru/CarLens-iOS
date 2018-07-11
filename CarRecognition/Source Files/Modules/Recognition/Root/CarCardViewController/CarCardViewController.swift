@@ -35,16 +35,12 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     
     private let car: Car
     
-    private let firstTimeDetection: Bool
-    
     /// Initializes the view controller with given parameters
     ///
     /// - Parameters:
     ///   - car: Car to be displayed by the view controller
-    ///   - firstTimeDetection: Indicating if the car was recognized for the first time
-    init(car: Car, firstTimeDetection: Bool) {
+    init(car: Car) {
         self.car = car
-        self.firstTimeDetection = firstTimeDetection
         super.init(viewMaker: CarCardView(car: car))
     }
     
@@ -110,6 +106,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     }
     
     @objc private func carsListButtonTapAction() {
+        customView.hideRippleEffect()
         eventTriggered?(.didTapCarsList(car))
     }
     
