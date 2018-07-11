@@ -105,6 +105,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     }
     
     @objc private func carsListButtonTapAction() {
+        customView.hideRippleEffect()
         eventTriggered?(.didTapCarsList(car))
     }
     
