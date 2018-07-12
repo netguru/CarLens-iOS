@@ -16,9 +16,7 @@ internal final class CarCardView: View, ViewSetupable {
         static let regularButtonDimension = 45.0
         static let bigButtonDimension = 70.0
         static let gradientHeight: CGFloat = 140.0
-        static var mechanicalTopOffset: CGFloat {
-            return UIDevice.screenSizeBiggerThan4_7Inches ? 20 : 30
-        }
+        static var mechanicalTopOffset: CGFloat = UIDevice.screenSizeBiggerThan4_7Inches ? 20 : 30
     }
 
     /// Car instance used to initialize subviews
