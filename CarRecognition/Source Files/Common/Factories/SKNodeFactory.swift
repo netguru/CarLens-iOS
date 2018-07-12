@@ -24,6 +24,8 @@ internal final class SKNodeFactory {
     
     private lazy var labelBackgroundHeight: CGFloat = labelFontSize * 1.5
     
+    private let backgroundColor: UIColor = .init(hex: 0x808080)
+    
     /// Creates node with label of detected car
     ///
     /// - Returns: Created car node
@@ -31,22 +33,25 @@ internal final class SKNodeFactory {
         let node = SKNode()
         let backgroundSize = CGSize(width: getWidthOfLabel(withText: car.model) * 2.5, height: labelBackgroundHeight)
 
-        let backgroundNode = SKSpriteNode(color: .init(hex: 0x808080), size: backgroundSize)
+        let backgroundNode = SKSpriteNode(color: backgroundColor, size: backgroundSize)
+        backgroundNode.alpha = 0.75
+        let backgroundBlurredNode = SKSpriteNode(color: backgroundColor, size: backgroundSize)
         
         // Apply blur
         let blurNode = SKEffectNode()
         blurNode.shouldEnableEffects = true
         let filter = CIFilter(name: "CIGaussianBlur")!
         filter.setDefaults()
-        filter.setValue(NSNumber(value: 1), forKey: "inputRadius")
+        filter.setValue(NSNumber(value: 10), forKey: "inputRadius")
         blurNode.filter = filter
+        blurNode.addChild(backgroundBlurredNode)
         
         // Apply corner radius
         let roundedShapeNode = SKShapeNode(rectOf: backgroundSize, cornerRadius: backgroundSize.height / 2)
         roundedShapeNode.fillColor = .black
         let cropNode = SKCropNode()
         cropNode.maskNode = roundedShapeNode
-        blurNode.addChild(backgroundNode)
+        cropNode.addChild(backgroundNode)
         cropNode.addChild(blurNode)
         
         let imagePinNode = SKSpriteNode(texture: SKTexture(image: #imageLiteral(resourceName: "ar-pin")), size: imagePinSize)
