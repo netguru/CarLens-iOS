@@ -17,7 +17,7 @@ internal final class AugmentedRealityView: View, ViewSetupable {
     }()
     
     /// Augmented Reality scene presented on the camera preview
-    lazy var sceneView = SKScene()
+    lazy var sceneView = CarScene()
     
     /// View with animated bracket showing detection progress
     lazy var detectionViewfinderView = DetectionViewfinderView().layoutable()
@@ -38,5 +38,10 @@ internal final class AugmentedRealityView: View, ViewSetupable {
         dimmView.constraintToSuperviewEdges()
         previewView.constraintToSuperviewEdges()
         detectionViewfinderView.constraintCenterToSuperview(withConstant: .init(x: 0, y: -50))
+    }
+    
+    /// - SeeAlso: ViewSetupable
+    func setupProperties() {
+        [dimmView, detectionViewfinderView].forEach { $0.isUserInteractionEnabled = false }
     }
 }
