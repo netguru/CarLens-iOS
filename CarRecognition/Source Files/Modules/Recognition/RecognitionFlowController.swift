@@ -35,7 +35,7 @@ internal final class RecognitionFlowController: FlowController {
             case .didTriggerGoogleSearch(let car):
                 SearchService().search(.google, for: car)
             case .didTriggerCameraAccessDenial:
-                viewController.present(self.makeCameraAccessViewController(), animated: true)
+                viewController.present(self.makeCameraAccessViewController(), animated: false)
             }
         }
         return viewController
@@ -71,6 +71,6 @@ internal final class RecognitionFlowController: FlowController {
     
     private func openCameraSettings() {
         guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
-        UIApplication.shared.open(url, options: [:])
+        UIApplication.shared.open(url)
     }
 }

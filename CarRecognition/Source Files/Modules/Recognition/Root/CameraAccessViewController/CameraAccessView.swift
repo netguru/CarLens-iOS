@@ -6,7 +6,7 @@
 
 import UIKit
 
-final class CameraAccessView: View, ViewSetupable {
+internal final class CameraAccessView: View, ViewSetupable {
     
     /// Struct with view's dimensions
     struct Dimensions {
