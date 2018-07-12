@@ -72,7 +72,7 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
             titleLabel.text = Localizable.CarCard.power.uppercased()
         case .engine(let engine):
-            let valueText = "\(engine)"
+            let valueText = "\(engine)\(Localizable.CarCard.cc)"
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
             titleLabel.text = Localizable.CarCard.engine.uppercased()
         }
