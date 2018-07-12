@@ -11,12 +11,15 @@ internal final class CarCardView: View, ViewSetupable {
 
     /// Struct that holds informations about view's dimensions
     struct Dimensions {
+        static let regularScreenHeight: CGFloat = 667
         static let topBeamHorizontalInset = UIScreen.main.bounds.width * 0.4
-        static let stackViewHeight = UIScreen.main.bounds.height / 12
+        static let stackViewHeight: CGFloat = 65
         static let regularButtonDimension = 45.0
         static let bigButtonDimension = 70.0
         static let gradientHeight: CGFloat = 140.0
-        static let viewHeight = UIScreen.main.bounds.height / 2
+        static var mechanicalTopOFfset: CGFloat {
+            return UIScreen.main.bounds.height > Dimensions.regularScreenHeight ? 20 : 30
+        }
     }
 
     /// Car instance used to initialize subviews
@@ -172,7 +175,7 @@ internal final class CarCardView: View, ViewSetupable {
         NSLayoutConstraint.activate([
             topBeamView.heightAnchor.constraint(equalToConstant: 3),
             performanceStackView.topAnchor.constraint(equalTo: modelStackView.bottomAnchor, constant: 20),
-            mechanicalStackView.topAnchor.constraint(equalTo: performanceStackView.bottomAnchor, constant: 10),
+            mechanicalStackView.topAnchor.constraint(equalTo: performanceStackView.bottomAnchor, constant: Dimensions.mechanicalTopOFfset),
             scanButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8),
             scanButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
             carListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),

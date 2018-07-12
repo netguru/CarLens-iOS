@@ -22,7 +22,8 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
     }
     
     struct Constants {
-        static let entryPosition = UIScreen.main.bounds.maxY / 2
+        static let cardHeight: CGFloat = 420
+        static let entryPosition = UIScreen.main.bounds.maxY - Constants.cardHeight
         static let exitPosition = UIScreen.main.bounds.maxY
     }
     

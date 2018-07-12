@@ -74,6 +74,11 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         checkCameraAccess()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addSlidingCard(with: Car())
+    }
+    
     /// - SeeAlso: UIViewController
     override func loadView() {
         super.loadView()
@@ -135,7 +140,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         view.addSubview(carCardViewController.view)
         carCardViewController.didMove(toParentViewController: self)
         
-        let height = UIScreen.main.bounds.height / 2
+        let height: CGFloat = CarCardViewController.Constants.cardHeight
         let width  = UIScreen.main.bounds.width
         carCardViewController.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + height, width: width, height: height)
     }
