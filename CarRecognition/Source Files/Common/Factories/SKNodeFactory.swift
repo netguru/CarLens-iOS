@@ -28,39 +28,43 @@ internal final class SKNodeFactory {
     ///
     /// - Returns: Created car node
     func node(for car: Car) -> SKNode {
-        let backgroundSize = CGSize(width: getWidthOfLabel(withText: car.model) * 3, height: labelBackgroundHeight)
-
-//        let roundedShapeNode = SKShapeNode(rectOf: backgroundSize, cornerRadius: backgroundSize.height / 2)
-//        roundedShapeNode.fillColor = .black
-//        let cropNode = SKCropNode()
-//        cropNode.maskNode = roundedShapeNode
-        
         let node = SKNode()
+        let backgroundSize = CGSize(width: getWidthOfLabel(withText: car.model) * 2.5, height: labelBackgroundHeight)
+
+        let backgroundNode = SKSpriteNode(color: .init(hex: 0x808080), size: backgroundSize)
         
-        let backgroundNode = SKSpriteNode(color: .black, size: backgroundSize)
-        backgroundNode.alpha = 0.25
+        // Apply blur
+        let blurNode = SKEffectNode()
+        blurNode.shouldEnableEffects = true
+        let filter = CIFilter(name: "CIGaussianBlur")!
+        filter.setDefaults()
+        filter.setValue(NSNumber(value: 1), forKey: "inputRadius")
+        blurNode.filter = filter
+        
+        // Apply corner radius
+        let roundedShapeNode = SKShapeNode(rectOf: backgroundSize, cornerRadius: backgroundSize.height / 2)
+        roundedShapeNode.fillColor = .black
+        let cropNode = SKCropNode()
+        cropNode.maskNode = roundedShapeNode
+        blurNode.addChild(backgroundNode)
+        cropNode.addChild(blurNode)
         
         let imagePinNode = SKSpriteNode(texture: SKTexture(image: #imageLiteral(resourceName: "ar-pin")), size: imagePinSize)
+        imagePinNode.position = .init(x: -(backgroundSize.width / 2 - makeImageSize.width / 8), y: 0)
         
         let makeImageNode = SKSpriteNode(texture: SKTexture(image: car.image.logoUnlocked), size: makeImageSize)
+        makeImageNode.position = .init(x: (backgroundSize.width / 2 - makeImageSize.width / 1.5), y: 0)
         
         let labelNode = SKLabelNode(text: car.model.capitalized)
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         labelNode.fontColor = .white
         labelNode.fontSize = labelFontSize
-//        labelNode.position = .init(x: 0.5, y: 0.5)
         
-//        backgroundNode.zPosition = 0
-//        labelNode.zPosition = 1
-        
-        
-//        cropNode.addChild(backgroundNode)
-        node.addChild(backgroundNode)
+        node.addChild(cropNode)
         node.addChild(imagePinNode)
         node.addChild(makeImageNode)
         node.addChild(labelNode)
-//        backgroundNode.addChild(labelNode)
         return node
     }
     
