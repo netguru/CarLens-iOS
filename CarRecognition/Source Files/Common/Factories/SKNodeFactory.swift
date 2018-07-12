@@ -10,6 +10,13 @@ import UIKit
 /// Factory for creating SpriteKit nodes
 internal final class SKNodeFactory {
     
+    private struct Constants {
+        static let blurType = "CIGaussianBlur"
+        static let blurRadusValue = NSNumber(value: 10)
+        static let blurRadiusKey = "inputRadius"
+        static let blurBackgroundColor = UIColor(hex: 0x808080)
+    }
+    
     private var labelFontSize: CGFloat {
         #if ENV_DEVELOPMENT
             return 10
@@ -24,8 +31,6 @@ internal final class SKNodeFactory {
     
     private lazy var labelBackgroundHeight: CGFloat = labelFontSize * 1.5
     
-    private let backgroundColor: UIColor = .init(hex: 0x808080)
-    
     /// Creates node with label of detected car
     ///
     /// - Returns: Created car node
@@ -33,16 +38,16 @@ internal final class SKNodeFactory {
         let node = SKNode()
         let backgroundSize = CGSize(width: getWidthOfLabel(withText: car.model) * 2.5, height: labelBackgroundHeight)
 
-        let backgroundNode = SKSpriteNode(color: backgroundColor, size: backgroundSize)
-        backgroundNode.alpha = 0.75
-        let backgroundBlurredNode = SKSpriteNode(color: backgroundColor, size: backgroundSize)
+        let backgroundNode = SKSpriteNode(color: .white, size: backgroundSize)
+        backgroundNode.alpha = 0.25
+        let backgroundBlurredNode = SKSpriteNode(color: Constants.blurBackgroundColor, size: backgroundSize)
         
         // Apply blur
         let blurNode = SKEffectNode()
         blurNode.shouldEnableEffects = true
-        let filter = CIFilter(name: "CIGaussianBlur")!
+        let filter = CIFilter(name: Constants.blurType)!
         filter.setDefaults()
-        filter.setValue(NSNumber(value: 10), forKey: "inputRadius")
+        filter.setValue(Constants.blurRadusValue, forKey: Constants.blurRadiusKey)
         blurNode.filter = filter
         blurNode.addChild(backgroundBlurredNode)
         
