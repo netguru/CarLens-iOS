@@ -26,6 +26,10 @@
 // Cars list
 "cars.list.title" = "Discovered";
 
+// Camera Access
+"camera-access.information" = "Recognize cars and unlock\nthem in the Gallery";
+"camera-access.button.text" = "Allow Camera Access";
+
 // Error
 "error.title" = "Error";
 "error.unknown.error.occurred" = "Unknown error occurred";
