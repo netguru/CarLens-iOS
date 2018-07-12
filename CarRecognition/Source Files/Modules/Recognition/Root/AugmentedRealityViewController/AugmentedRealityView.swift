@@ -17,11 +17,7 @@ internal final class AugmentedRealityView: View, ViewSetupable {
     }()
     
     /// Augmented Reality scene presented on the camera preview
-    lazy var sceneView: SKScene = {
-        let scene = SKScene()
-        scene.scaleMode = .aspectFill
-        return scene
-    }()
+    lazy var sceneView = SKScene()
     
     /// View with animated bracket showing detection progress
     lazy var detectionViewfinderView = DetectionViewfinderView().layoutable()
