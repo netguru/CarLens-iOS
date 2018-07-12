@@ -78,11 +78,6 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         checkCameraAccess()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        addSlidingCard(with: Car())
-    }
-    
     /// - SeeAlso: UIViewController
     override func loadView() {
         super.loadView()
