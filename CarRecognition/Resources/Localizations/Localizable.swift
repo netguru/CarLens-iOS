@@ -32,10 +32,16 @@ internal struct Localizable {
         static let engine = localized("car.card.engine")
         static let mph = localized("car.card.mph")
         static let hp = localized("car.card.hp")
+        static let cc = localized("car.card.engine.capacity")
     }
     
     struct CarsList {
         static let title = localized("cars.list.title")
+    }
+    
+    struct CameraAccess {
+        static let information = localized("camera-access.information")
+        static let accessButton = localized("camera-access.button.text")
     }
     
     struct Error {

@@ -22,9 +22,14 @@
 "car.card.engine" = "Engine";
 "car.card.mph" = "mph";
 "car.card.hp" = "hp";
+"car.card.engine.capacity" = "cc";
 
 // Cars list
 "cars.list.title" = "Discovered";
+
+// Camera Access
+"camera-access.information" = "Recognize cars and unlock\nthem in the Gallery";
+"camera-access.button.text" = "Allow Camera Access";
 
 // Error
 "error.title" = "Error";
