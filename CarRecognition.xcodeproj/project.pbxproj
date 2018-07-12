@@ -16,6 +16,7 @@
 		7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E03520BD695700784D63 /* LaunchScreen.storyboard */; };
 		7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E06C20BD729B00784D63 /* Keys.podspec.json */; };
 		7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */; };
+		7C3DC69720F771E0005C8865 /* CarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DC69620F771E0005C8865 /* CarScene.swift */; };
 		7C3E01C620F5EACB003B83D6 /* BLOKKNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C3E01C520F5EA6D003B83D6 /* BLOKKNeue-Regular.ttf */; };
 		7C3E01C820F63725003B83D6 /* button-ripple.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C3E01C720F63725003B83D6 /* button-ripple.json */; };
 		7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */; };
@@ -133,6 +134,7 @@
 		7C33E06B20BD729B00784D63 /* CarRecognitionKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarRecognitionKeys.h; path = Pods/CocoaPodsKeys/CarRecognitionKeys.h; sourceTree = SOURCE_ROOT; };
 		7C33E06C20BD729B00784D63 /* Keys.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Keys.podspec.json; path = Pods/CocoaPodsKeys/Keys.podspec.json; sourceTree = SOURCE_ROOT; };
 		7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarRecognitionKeys.m; path = Pods/CocoaPodsKeys/CarRecognitionKeys.m; sourceTree = SOURCE_ROOT; };
+		7C3DC69620F771E0005C8865 /* CarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarScene.swift; sourceTree = "<group>"; };
 		7C3E01C520F5EA6D003B83D6 /* BLOKKNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BLOKKNeue-Regular.ttf"; sourceTree = "<group>"; };
 		7C3E01C720F63725003B83D6 /* button-ripple.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "button-ripple.json"; sourceTree = "<group>"; };
 		7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarARConfiguration.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				7CAD86D120F342CB0064D50E /* CarListNavigationBar.swift */,
 				E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */,
 				E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */,
+				7C3DC69620F771E0005C8865 /* CarScene.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				7C93D49B20E6317300AF6FFC /* AugmentedRealityView.swift in Sources */,
 				7C77741920E65398007B3851 /* Car.swift in Sources */,
 				E8E4B1A020EE2A65009A93B7 /* ModelNameView.swift in Sources */,
+				7C3DC69720F771E0005C8865 /* CarScene.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,
 				7C67179520F243C800183AB4 /* CarListCardView.swift in Sources */,
 				7CAD86D420F383750064D50E /* SearchService.swift in Sources */,

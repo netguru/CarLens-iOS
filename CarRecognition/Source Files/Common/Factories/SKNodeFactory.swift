@@ -75,6 +75,8 @@ internal final class SKNodeFactory {
         node.addChild(imagePinNode)
         node.addChild(makeImageNode)
         node.addChild(labelNode)
+        
+        node.name = car.id
         return node
     }
     

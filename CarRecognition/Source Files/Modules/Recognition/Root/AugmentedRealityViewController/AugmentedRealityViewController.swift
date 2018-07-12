@@ -18,12 +18,24 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         case hitTestTooFar
         case noRecentFrameFound
     }
+    
     /// Callback called when new augemented reality frame was captured
     var didCapturedARFrame: ((ARFrame) -> ())?
+    
+    /// Callback called when user tapped AR pin with given car id
+    var didTapCar: ((String) -> ())?
     
     private let config = CarARConfiguration()
     
     private var addedAnchors: [ARAnchor: Car] = [:]
+    
+    /// SeeAlso: UIViewController
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        customView.sceneView.didTapCar = { [unowned self] id in
+            self.didTapCar?(id)
+        }
+    }
     
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
