@@ -11,7 +11,7 @@
 "no" = "No";
 
 // Recognition
-"recognition.put.car.in.center" = "Put car in the center";
+"recognition.point.camera.at.car" = "Point the camera at a car";
 "recognition.car.not.supported" = "We do not support this car at the moment";
 "recognition.recognizing" = "Recognizing...";
 

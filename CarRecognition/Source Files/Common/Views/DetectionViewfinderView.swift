@@ -22,7 +22,7 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
         view.textColor = .white
         view.numberOfLines = 1
         view.textAlignment = .center
-        view.text = Localizable.Recognition.putCarInCenter
+        view.text = Localizable.Recognition.pointCameraAtCar
         return view.layoutable()
     }()
     
@@ -32,7 +32,7 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     func update(to result: RecognitionResult, normalizedConfidence: Double) {
         viewfinderAnimationView.animationProgress = CGFloat(normalizedConfidence)
         guard normalizedConfidence > 0.1 else {
-            informationLabel.text = Localizable.Recognition.putCarInCenter
+            informationLabel.text = Localizable.Recognition.pointCameraAtCar
             return
         }
         informationLabel.text = Localizable.Recognition.recognizing
