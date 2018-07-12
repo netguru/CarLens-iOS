@@ -56,7 +56,7 @@ internal final class CarsListView: View, ViewSetupable {
         recognizeButton.constraintToConstant(.init(width: 80, height: 80))
         NSLayoutConstraint.activate([
             topView.heightAnchor.constraint(equalToConstant: 70),
-            collectionView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: 20),
+            collectionView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: UIDevice.screenSizeBiggerThan4Inches ? 20 : 0),
             collectionView.bottomAnchor.constraint(equalTo: recognizeButton.topAnchor, constant: -20),
             recognizeButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8),
             recognizeButton.centerXAnchor.constraint(equalTo: centerXAnchor)

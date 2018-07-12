@@ -11,7 +11,7 @@ internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupa
     /// Indicates if the cell is currently displayed as primary cell
     var isCurrentlyPrimary = false
     
-    private let topViewHeight: CGFloat = 200
+    private let topViewHeight: CGFloat = UIDevice.screenSizeBiggerThan4Inches ? 200 : 170
     
     private lazy var topView = LabeledCarImageView().layoutable()
     

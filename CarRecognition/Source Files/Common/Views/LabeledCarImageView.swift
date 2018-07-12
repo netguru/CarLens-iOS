@@ -10,7 +10,7 @@ internal final class LabeledCarImageView: View, ViewSetupable {
     
     private lazy var modelLabel: UILabel = {
         let view = UILabel()
-        view.font = .gliscorGothicFont(ofSize: 102)
+        view.font = .gliscorGothicFont(ofSize: UIDevice.screenSizeBiggerThan4Inches ? 102 : 72)
         view.textColor = UIColor(hex: 0xC4D0D6)
         view.numberOfLines = 1
         view.textAlignment = .center
@@ -48,7 +48,7 @@ internal final class LabeledCarImageView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         modelLabel.constraintCenterToSuperview(withConstant: .init(x: 0, y: -40))
-        carImageView.constraintCenterToSuperview(withConstant: .init(x: 0, y: 20))
+        carImageView.constraintCenterToSuperview(withConstant: .init(x: 0, y: UIDevice.screenSizeBiggerThan4Inches ? 20 : 15))
         carImageView.constraintToConstant(.init(width: 320, height: 220))
     }
     
