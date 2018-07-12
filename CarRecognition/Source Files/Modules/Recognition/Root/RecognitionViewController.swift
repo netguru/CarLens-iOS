@@ -139,7 +139,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         view.addSubview(carCardViewController.view)
         carCardViewController.didMove(toParentViewController: self)
         
-        let height: CGFloat = CarCardViewController.Constants.cardHeight
+        let height = CarCardViewController.Constants.cardHeight
         let width  = UIScreen.main.bounds.width
         carCardViewController.view.frame = CGRect(x: 0, y: UIScreen.main.bounds.maxY + height, width: width, height: height)
     }
