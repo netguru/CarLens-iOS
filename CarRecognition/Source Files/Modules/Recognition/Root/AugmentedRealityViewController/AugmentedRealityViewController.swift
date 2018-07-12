@@ -118,6 +118,6 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// SeeAlso: ARSKViewDelegate
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
         guard let car = addedAnchors[anchor] else { return nil }
-        return SKNodeFactory.car(labeled: car.model.capitalized)
+        return SKNodeFactory().node(for: car)
     }
 }
