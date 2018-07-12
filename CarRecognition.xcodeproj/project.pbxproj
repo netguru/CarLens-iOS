@@ -17,6 +17,7 @@
 		7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C33E06C20BD729B00784D63 /* Keys.podspec.json */; };
 		7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */; };
 		7C3DC69720F771E0005C8865 /* CarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DC69620F771E0005C8865 /* CarScene.swift */; };
+		7C3DC69920F77EFF005C8865 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DC69820F77EFF005C8865 /* UIDeviceExtension.swift */; };
 		7C3E01C620F5EACB003B83D6 /* BLOKKNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C3E01C520F5EA6D003B83D6 /* BLOKKNeue-Regular.ttf */; };
 		7C3E01C820F63725003B83D6 /* button-ripple.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C3E01C720F63725003B83D6 /* button-ripple.json */; };
 		7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */; };
@@ -135,6 +136,7 @@
 		7C33E06C20BD729B00784D63 /* Keys.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Keys.podspec.json; path = Pods/CocoaPodsKeys/Keys.podspec.json; sourceTree = SOURCE_ROOT; };
 		7C33E06D20BD729B00784D63 /* CarRecognitionKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarRecognitionKeys.m; path = Pods/CocoaPodsKeys/CarRecognitionKeys.m; sourceTree = SOURCE_ROOT; };
 		7C3DC69620F771E0005C8865 /* CarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarScene.swift; sourceTree = "<group>"; };
+		7C3DC69820F77EFF005C8865 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		7C3E01C520F5EA6D003B83D6 /* BLOKKNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BLOKKNeue-Regular.ttf"; sourceTree = "<group>"; };
 		7C3E01C720F63725003B83D6 /* button-ripple.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "button-ripple.json"; sourceTree = "<group>"; };
 		7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarARConfiguration.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 				E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */,
 				7CEDA77F20ED04DE00DF3AF0 /* UIFontExtension.swift */,
 				7CD6212620EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift */,
+				7C3DC69820F77EFF005C8865 /* UIDeviceExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 				7CAD86E520F4B6720064D50E /* CarsDataService.swift in Sources */,
 				7CB817DF20C935B200B51C3D /* TypedViewController.swift in Sources */,
 				7CEDA78020ED04DE00DF3AF0 /* UIFontExtension.swift in Sources */,
+				7C3DC69920F77EFF005C8865 /* UIDeviceExtension.swift in Sources */,
 				7C93D49020E627EB00AF6FFC /* ApplicationFactory.swift in Sources */,
 				7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */,
 				7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */,

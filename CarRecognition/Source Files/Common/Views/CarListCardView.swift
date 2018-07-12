@@ -26,6 +26,7 @@ internal final class CarListCardView: View, ViewSetupable {
         let view = UILabel()
         view.textColor = .crFontLightGray
         view.numberOfLines = 0
+        view.isHidden = !UIDevice.screenSizeBiggerThan4Inches
         return view
     }()
     
@@ -40,7 +41,7 @@ internal final class CarListCardView: View, ViewSetupable {
     private lazy var performanceStackView: UIStackView = .make(
         axis: .horizontal,
         with: [topSpeedProgressView, accelerationProgressView],
-        spacing: 65,
+        spacing: UIDevice.screenSizeBiggerThan4Inches ? 65 : 30,
         distribution: .fillEqually
     )
     
@@ -112,7 +113,8 @@ internal final class CarListCardView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        containerStackView.constraintToSuperviewEdges(withInsets: .init(top: 30, left: 30, bottom: 30, right: 30))
+        let inset: CGFloat = UIDevice.screenSizeBiggerThan4Inches ? 30 : 15
+        containerStackView.constraintToSuperviewEdges(withInsets: .init(top: inset, left: inset, bottom: inset, right: inset))
         starsProgressView.constraintCenterToSuperview()
         makeImageView.constraintToConstant(.init(width: 37, height: 37))
         NSLayoutConstraint.activate([
