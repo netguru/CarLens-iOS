@@ -4,8 +4,9 @@ Welcome to the **Car Regonition** project. It's an internal application made for
 
 ## Team
 
-* [Piotr Nowicki](mailto:piotr.nowicki@netguru.co) - Project Manager
+* [Miłosz Szyński](mailto:milosz.szynski@netguru.pl) - Project Manager
 * [Michał Kwiecień](mailto:michal.kwiecien@netguru.co) - iOS Developer
+* [Michał Warchał](mailto:michal.warchal@netguru.co) - iOS Developer
 
 ## Tools & Services
 
@@ -80,4 +81,5 @@ Welcome to the **Car Regonition** project. It's an internal application made for
 
 ## Related repositories
 
-- [android](https://github.com/netguru/car-recognition-android)
+- [Android](https://github.com/netguru/car-recognition-android)
+- [Machine Learning](https://github.com/netguru/car-recognition-ml)
