@@ -66,7 +66,7 @@ internal final class CarListFlowLayout: UICollectionViewFlowLayout {
         }
         // Snapping closest cell to the center
         let centerOffset = collectionView.bounds.size.width / 2
-        let offsetWithCenter = proposedContentOffset.x + centerOffset
+        let offsetWithCenter = proposedContentOffset.x + (proposedContentOffset.x * velocity.x) + centerOffset
         let closestAttribute = layoutAttributes
             .sorted { abs($0.center.x - offsetWithCenter) < abs($1.center.x - offsetWithCenter) }
             .first ?? UICollectionViewLayoutAttributes()
