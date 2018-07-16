@@ -77,18 +77,25 @@ internal final class CarCardView: View, ViewSetupable {
     private lazy var accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration), invalidateChartInstantly: false)
 
     /// StackView with performance informations
-    private lazy var performanceStackView: UIStackView = {
-        return .make(axis: .horizontal, with: [topSpeedProgressView, accelerationOvalProgressView], spacing: 10.0, distribution: .fillEqually)
-    }()
+    private lazy var performanceStackView = UIStackView.make(
+        axis: .horizontal,
+        with: [topSpeedProgressView, accelerationOvalProgressView],
+        spacing: 10.0,
+        distribution: .fillEqually
+    )
 
     private lazy var engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine), invalidateChartInstantly: false)
 
     private lazy var powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power), invalidateChartInstantly: false)
-    
+
     /// StackView with mechanical informations
-    private lazy var mechanicalStackView: UIStackView = {
-        return .make(axis: .horizontal, with: [powerHorizontalProgressView, engineHorizontalProgressView], spacing: 30.0, distribution: .fillEqually)
-    }()
+    private lazy var mechanicalStackView = UIStackView.make(
+        axis: .horizontal,
+        with: [powerHorizontalProgressView,
+        engineHorizontalProgressView],
+        spacing: 30.0,
+        distribution: .fillEqually
+    )
 
     /// Google button in bottom right corner
     internal var googleButton: UIButton = {
