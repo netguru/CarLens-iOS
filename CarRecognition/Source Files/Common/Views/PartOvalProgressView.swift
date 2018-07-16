@@ -87,11 +87,11 @@ internal final class PartOvalProgressView: View, ViewSetupable {
             
             let valueText = (formatter.string(from: accelerate) ?? "") + "."
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
-            titleLabel.text = Localizable.CarCard.accelerate0to60mph.uppercased()
+            titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(Localizable.CarCard.accelerate0to60mph.uppercased(), font: titleLabel.font, tracking: 0.6)
         case .topSpeed(let topSpeed):
             let valueText = "\(topSpeed) \(Localizable.CarCard.mph)"
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
-            titleLabel.text = Localizable.CarCard.topSpeed.uppercased()
+            titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(Localizable.CarCard.topSpeed.uppercased(), font: titleLabel.font, tracking: 0.6)
         }
         if invalidateChartInstantly {
             invalidateChart(animated: false)

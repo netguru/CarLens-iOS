@@ -70,11 +70,11 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         case .power(let power):
             let valueText = String(power) + "\(Localizable.CarCard.hp)"
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
-            titleLabel.text = Localizable.CarCard.power.uppercased()
+            titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(Localizable.CarCard.power.uppercased(), font: titleLabel.font, tracking: 0.6)
         case .engine(let engine):
             let valueText = "\(engine)\(Localizable.CarCard.cc)"
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
-            titleLabel.text = Localizable.CarCard.engine.uppercased()
+            titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(Localizable.CarCard.engine.uppercased(), font: titleLabel.font, tracking: 0.6)
         }
         if invalidateChartInstantly {
             invalidateChart(animated: false)
