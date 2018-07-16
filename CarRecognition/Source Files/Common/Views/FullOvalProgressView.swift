@@ -63,7 +63,7 @@ internal final class FullOvalProgressView: View, ViewSetupable {
         self.maximumNumber = maximumNumber
         
         let valueText = "\(currentNumber)/\(maximumNumber)"
-        valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: 0.6)
+        valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: .condensed)
         if invalidateChartInstantly {
             invalidateChart(animated: false)
         }

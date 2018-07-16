@@ -36,7 +36,7 @@ internal final class LabeledCarImageView: View, ViewSetupable {
     ///
     /// - Parameter car: Car to be used for updating the view
     func setup(with car: Car) {
-        modelLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.model.uppercased(), font: modelLabel.font, tracking: 0.6)
+        modelLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.model.uppercased(), font: modelLabel.font, tracking: .veryCondensed)
         carImageView.image = car.isDiscovered ? car.image.unlocked : car.image.locked
     }
     
