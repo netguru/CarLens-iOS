@@ -66,6 +66,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
             self.view.frame = CGRect(x: 0, y: Constants.exitPosition, width: frame.width, height: frame.height)
         }
         exitAnimator.startAnimation()
+        eventTriggered?(.didDismissView)
     }
 
     /// Sets up properties of view controller

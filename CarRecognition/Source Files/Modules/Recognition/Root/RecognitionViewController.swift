@@ -84,6 +84,13 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         add(augmentedRealityViewController, inside: customView.augmentedRealityContainer)
     }
     
+    /// Removes car's card with animation
+    func removeSlidingCard() {
+        carCardViewController?.animateOut()
+        carCardViewController?.view.removeFromSuperview()
+        carCardViewController = nil
+    }
+    
     private func handleRecognition(result: [RecognitionResult]) {
         guard let mostConfidentRecognition = result.first else { return }
         let normalizedConfidence = inputNormalizationService.normalizeConfidence(from: mostConfidentRecognition)
@@ -109,18 +116,26 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         customView.detectedModelLabel.text = mostConfidentRecognition.description
     }
     
+    private func toggleViewsTo(cardMode: Bool, animated: Bool) {
+        let viewsUpdateBlock = { [unowned self] in
+            self.augmentedRealityViewController.customView.detectionViewfinderView.alpha = cardMode ? 0 : 1
+            self.augmentedRealityViewController.customView.dimmView.alpha = cardMode ? 0 : 1
+        }
+        guard animated else {
+            viewsUpdateBlock()
+            return
+        }
+        UIView.animate(withDuration: 0.5) {
+            viewsUpdateBlock()
+        }
+    }
+    
     private func addSlidingCard(with car: Car) {
         carCardViewController = CarCardViewController(car: car)
         guard let carCardViewController = carCardViewController else { return }
         setup(carCardViewController: carCardViewController)
+        self.toggleViewsTo(cardMode: true, animated: true)
         carCardViewController.animateIn()
-    }
-    
-    /// Removes car's card with animation
-    internal func removeSlidingCard() {
-        carCardViewController?.animateOut()
-        carCardViewController?.view.removeFromSuperview()
-        carCardViewController = nil
     }
     
     private func setup(carCardViewController: CarCardViewController) {
@@ -131,6 +146,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             case .didTapSearchGoogle(let car):
                 self.eventTriggered?(.didTriggerGoogleSearch(car))
             case .didDismissViewByScanButtonTap, .didDismissView:
+                self.toggleViewsTo(cardMode: false, animated: true)
                 self.classificationService.set(state: .running)
                 self.carCardViewController = nil
             }
