@@ -72,19 +72,30 @@ internal final class CarCardView: View, ViewSetupable {
         return imageView.layoutable()
     }()
 
+    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed), invalidateChartInstantly: false)
+
+    private lazy var accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration), invalidateChartInstantly: false)
+
     /// StackView with performance informations
-    private lazy var performanceStackView: UIStackView = {
-        let topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed), invalidateChartInstantly: true)
-        let accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration), invalidateChartInstantly: true)
-        return .make(axis: .horizontal, with: [topSpeedProgressView, accelerationOvalProgressView], spacing: 10.0, distribution: .fillEqually)
-    }()
+    private lazy var performanceStackView = UIStackView.make(
+        axis: .horizontal,
+        with: [topSpeedProgressView, accelerationOvalProgressView],
+        spacing: 10.0,
+        distribution: .fillEqually
+    )
+
+    private lazy var engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine), invalidateChartInstantly: false)
+
+    private lazy var powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power), invalidateChartInstantly: false)
 
     /// StackView with mechanical informations
-    private lazy var mechanicalStackView: UIStackView = {
-        let engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine), invalidateChartInstantly: true)
-        let powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power), invalidateChartInstantly: true)
-        return .make(axis: .horizontal, with: [powerHorizontalProgressView, engineHorizontalProgressView], spacing: 30.0, distribution: .fillEqually)
-    }()
+    private lazy var mechanicalStackView = UIStackView.make(
+        axis: .horizontal,
+        with: [powerHorizontalProgressView,
+        engineHorizontalProgressView],
+        spacing: 30.0,
+        distribution: .fillEqually
+    )
 
     /// Google button in bottom right corner
     internal var googleButton: UIButton = {
@@ -140,6 +151,14 @@ internal final class CarCardView: View, ViewSetupable {
     /// Hides ripple effect around car list button
     func hideRippleEffect() {
         rippleAnimationView.isHidden = true
+    }
+
+    /// Animates all the progress views
+    func animateCharts() {
+        [topSpeedProgressView, accelerationOvalProgressView, engineHorizontalProgressView, powerHorizontalProgressView].forEach { view in
+            guard let view = view as? ViewProgressable else { return }
+            view.invalidateChart(animated: true)
+        }
     }
 
     /// - SeeAlso: ViewSetupable

@@ -89,6 +89,7 @@
 		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
 		7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */; };
+		E852940920FCC377005B7A1A /* ViewProgressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E852940820FCC377005B7A1A /* ViewProgressable.swift */; };
 		E89D791820ECB230006D2D8D /* CarCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791620ECB22F006D2D8D /* CarCardViewController.swift */; };
 		E89D791920ECB230006D2D8D /* CarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791720ECB22F006D2D8D /* CarCardView.swift */; };
 		E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */; };
@@ -208,6 +209,7 @@
 		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
 		7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationServiceTests.swift; sourceTree = "<group>"; };
+		E852940820FCC377005B7A1A /* ViewProgressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProgressable.swift; sourceTree = "<group>"; };
 		E89D791620ECB22F006D2D8D /* CarCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardViewController.swift; sourceTree = "<group>"; };
 		E89D791720ECB22F006D2D8D /* CarCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardView.swift; sourceTree = "<group>"; };
 		E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 				7CB817E320C9362400B51C3D /* NavigationBarSetupable.swift */,
 				7CB817C120C9333C00B51C3D /* Loader.swift */,
 				7C93D49120E62C8200AF6FFC /* FlowController.swift */,
+				E852940820FCC377005B7A1A /* ViewProgressable.swift */,
 			);
 			path = Abstraction;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				7CB817DE20C935B200B51C3D /* TableViewCell.swift in Sources */,
 				7CAD86D920F4AB840064D50E /* LocalCarsDataService.swift in Sources */,
 				7CEDA77420ECD35400DF3AF0 /* HorizontalProgressChartView.swift in Sources */,
+				E852940920FCC377005B7A1A /* ViewProgressable.swift in Sources */,
 				7CB817EA20C937EA00B51C3D /* RecognitionViewController.swift in Sources */,
 				7CAD86E320F4B4840064D50E /* CarsDatabaseService.swift in Sources */,
 				7CEDA77920ECD5F100DF3AF0 /* CarsListViewController.swift in Sources */,

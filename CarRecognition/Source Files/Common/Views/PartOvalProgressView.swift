@@ -102,23 +102,6 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         }
     }
     
-    /// Invalidates the progress shown on the chart
-    ///
-    /// - Parameter animated: Indicating if invalidation should be animated
-    func invalidateChart(animated: Bool) {
-        var progress: Double
-        switch state {
-        case .accelerate(let accelerate):
-            progress = 1 - (accelerate / (chartConfig.referenceMaxAccelerate - chartConfig.referenceMinAccelerate))
-        case .topSpeed(let topSpeed):
-            progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
-        }
-        if isLocked {
-            progress = 0
-        }
-        ovalLayerView.set(progress: progress, animated: animated)
-    }
-    
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
@@ -140,5 +123,23 @@ internal final class PartOvalProgressView: View, ViewSetupable {
             titleLabel.topAnchor.constraint(equalTo: ovalLayerView.bottomAnchor, constant: -12),
             valueLabel.centerYAnchor.constraint(equalTo: ovalLayerView.centerYAnchor)
         ])
+    }
+}
+
+extension PartOvalProgressView: ViewProgressable {
+    
+    /// - SeeAlso: ViewProgressable
+    func invalidateChart(animated: Bool) {
+        var progress: Double
+        switch state {
+        case .accelerate(let accelerate):
+            progress = 1 - (accelerate / (chartConfig.referenceMaxAccelerate - chartConfig.referenceMinAccelerate))
+        case .topSpeed(let topSpeed):
+            progress = Double(topSpeed) / Double(chartConfig.referenceSpeed)
+        }
+        if isLocked {
+            progress = 0
+        }
+        ovalLayerView.set(progress: progress, animated: animated)
     }
 }
