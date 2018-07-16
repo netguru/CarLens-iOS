@@ -85,7 +85,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
             formatter.unitsStyle = .short
             formatter.allowedUnits = .second
             
-            let valueText = (formatter.string(from: accelerate) ?? "") + "."
+            let valueText = formatter.string(from: accelerate) ?? ""
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: .condensed)
             titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(Localizable.CarCard.accelerate0to60mph.uppercased(), font: titleLabel.font, tracking: .condensed)
         case .topSpeed(let topSpeed):
