@@ -69,21 +69,13 @@ internal final class FullOvalProgressView: View, ViewSetupable {
         }
     }
     
-    /// Invalidates the progress shown on the chart
-    ///
-    /// - Parameter animated: Indicating if invalidation should be animated
-    func invalidateChart(animated: Bool) {
-        let progress = Double(currentNumber) / Double(maximumNumber)
-        fullOvalLayerView.set(progress: progress, animated: animated)
-    }
-    
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearChart(animated: Bool) {
         fullOvalLayerView.set(progress: 0, animated: animated)
     }
-            
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [fullOvalLayerView, valueLabel].forEach(addSubview)
@@ -96,5 +88,14 @@ internal final class FullOvalProgressView: View, ViewSetupable {
         NSLayoutConstraint.activate([
             valueLabel.centerYAnchor.constraint(equalTo: fullOvalLayerView.centerYAnchor)
         ])
+    }
+}
+
+extension FullOvalProgressView: ViewProgressable {
+    
+    /// - SeeAlso: ViewProgressable
+    func invalidateChart(animated: Bool) {
+        let progress = Double(currentNumber) / Double(maximumNumber)
+        fullOvalLayerView.set(progress: progress, animated: animated)
     }
 }

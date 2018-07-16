@@ -85,23 +85,6 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         }
     }
     
-    /// Invalidates the progress shown on the chart
-    ///
-    /// - Parameter animated: Indicating if invalidation should be animated
-    func invalidateChart(animated: Bool) {
-        var progress: Double
-        switch state {
-        case .power(let power):
-            progress = Double(power) / Double(chartConfig.referenceHorsePower)
-        case .engine(let engine):
-            progress = Double(engine) / Double(chartConfig.referenceEngineVolume)
-        }
-        if isLocked {
-            progress = 0
-        }
-        animationView.set(progress: CGFloat(progress), animated: animated)
-    }
-    
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
@@ -123,5 +106,23 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
             titleLabel.bottomAnchor.constraint(equalTo: animationView.topAnchor, constant: 3),
             valueLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: -3)
         ])
+    }
+}
+
+extension HorizontalProgressChartView: ViewProgressable {
+    
+    /// - SeeAlso: ViewProgressable
+    func invalidateChart(animated: Bool) {
+        var progress: Double
+        switch state {
+        case .power(let power):
+            progress = Double(power) / Double(chartConfig.referenceHorsePower)
+        case .engine(let engine):
+            progress = Double(engine) / Double(chartConfig.referenceEngineVolume)
+        }
+        if isLocked {
+            progress = 0
+        }
+        animationView.set(progress: CGFloat(progress), animated: animated)
     }
 }
