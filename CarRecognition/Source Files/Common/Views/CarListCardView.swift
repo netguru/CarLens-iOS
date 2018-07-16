@@ -80,7 +80,7 @@ internal final class CarListCardView: View, ViewSetupable {
         starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false, isLocked: !car.isDiscovered)
         descriptionLabel.textColor =  car.isDiscovered ? .crFontLightGray : .crBackgroundLightGray
         let descriptionFont: UIFont = car.isDiscovered ? .gliscorGothicFont(ofSize: 12) : .blokkNeueFont(ofSize: 12)
-        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: descriptionFont, tracking: 0.6)
+        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: descriptionFont, tracking: .condensed)
     }
     
     /// Invalidates the charts visible on the view
