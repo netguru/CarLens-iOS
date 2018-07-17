@@ -17,10 +17,12 @@
 
 // Car card
 "car.card.accelerate.0.to.60.mph" = "0 to 60 mph";
+"car.card.accelerate.0.to.100.kph" = "0 to 100 km/h";
 "car.card.top.speed" = "Top speed";
 "car.card.power" = "Power";
 "car.card.engine" = "Engine";
 "car.card.mph" = "mph";
+"car.card.kph" = "km/h";
 "car.card.hp" = "hp";
 "car.card.engine.capacity" = "cc";
 

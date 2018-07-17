@@ -89,6 +89,7 @@
 		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
 		7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */; };
+		95C7732720FCF66D001DBCC1 /* SystemMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */; };
 		E852940920FCC377005B7A1A /* ViewProgressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E852940820FCC377005B7A1A /* ViewProgressable.swift */; };
 		E89D791820ECB230006D2D8D /* CarCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791620ECB22F006D2D8D /* CarCardViewController.swift */; };
 		E89D791920ECB230006D2D8D /* CarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791720ECB22F006D2D8D /* CarCardView.swift */; };
@@ -209,6 +210,7 @@
 		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
 		7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationServiceTests.swift; sourceTree = "<group>"; };
+		95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetrics.swift; sourceTree = "<group>"; };
 		E852940820FCC377005B7A1A /* ViewProgressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProgressable.swift; sourceTree = "<group>"; };
 		E89D791620ECB22F006D2D8D /* CarCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardViewController.swift; sourceTree = "<group>"; };
 		E89D791720ECB22F006D2D8D /* CarCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardView.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 		7CB817B420C9317B00B51C3D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				95C7732520FCF63F001DBCC1 /* System Metrics */,
 				7C77741720E65196007B3851 /* Factories */,
 				7CB817F720C9685100B51C3D /* Formatter */,
 				7CB817BA20C931D500B51C3D /* Services */,
@@ -587,6 +590,14 @@
 				7C33E04320BD695700784D63 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95C7732520FCF63F001DBCC1 /* System Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */,
+			);
+			path = "System Metrics";
 			sourceTree = "<group>";
 		};
 		E89D791520ECB1F6006D2D8D /* CarCardViewController */ = {
@@ -806,6 +817,7 @@
 				7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */,
 				7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */,
 				7C67179320EF85C600183AB4 /* LabeledCarImageView.swift in Sources */,
+				95C7732720FCF66D001DBCC1 /* SystemMetrics.swift in Sources */,
 				7CB817D320C9353200B51C3D /* UIStackViewExtension.swift in Sources */,
 				7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */,
 				7CB817C920C933CB00B51C3D /* HockeyAppService.swift in Sources */,
@@ -913,6 +925,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06220BD6E6200784D63 /* App-Development.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 9HJ69C5G9K;
+				PROVISIONING_PROFILE = "650efa8c-4049-4017-a2c0-6451b889383d";
+				PROVISIONING_PROFILE_SPECIFIER = "CarRecognition Development";
 			};
 			name = Development;
 		};
