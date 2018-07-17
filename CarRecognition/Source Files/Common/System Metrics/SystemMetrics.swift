@@ -10,7 +10,7 @@ import Foundation
 ///
 /// - mph: Miles per hour.
 /// - kph: Kilometers per hour.
-internal enum SpeedMetricsType: String {
+internal enum SpeedMetricsType {
     case mph
     case kph
 }
