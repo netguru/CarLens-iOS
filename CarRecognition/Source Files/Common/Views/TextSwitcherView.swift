@@ -1,5 +1,5 @@
 //
-//  TextSwitcher.swift
+//  TextSwitcherView.swift
 //  CarRecognition
 //
 
