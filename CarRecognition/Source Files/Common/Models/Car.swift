@@ -31,8 +31,10 @@ internal struct Car: Decodable, Equatable {
         case model
         case description
         case stars
-        case acceleration = "acceleration_mph"
-        case speed = "speed_mph"
+        case accelerationInMiles = "acceleration_mph"
+        case accelerationInKilomiters = "acceleration_kph"
+        case speedInMiles = "speed_mph"
+        case speedInKilomiters = "speed_kph"
         case power
         case engine
         case brandLogoImageUnlocked = "brand_logo_image"
@@ -49,8 +51,14 @@ internal struct Car: Decodable, Equatable {
         model = try values.decode(String.self, forKey: .model)
         description = try values.decode(String.self, forKey: .description)
         stars = try values.decode(Int.self, forKey: .stars)
-        acceleration = try values.decode(Double.self, forKey: .acceleration)
-        speed = try values.decode(Int.self, forKey: .speed)
+        switch SystemMetrics.shared.speedType {
+        case .mph:
+            acceleration = try values.decode(Double.self, forKey: .accelerationInMiles)
+            speed = try values.decode(Int.self, forKey: .speedInMiles)
+        case .kph:
+            acceleration = try values.decode(Double.self, forKey: .accelerationInKilomiters)
+            speed = try values.decode(Int.self, forKey: .speedInKilomiters)
+        }
         power = try values.decode(Int.self, forKey: .power)
         engine = try values.decode(Int.self, forKey: .engine)
         
