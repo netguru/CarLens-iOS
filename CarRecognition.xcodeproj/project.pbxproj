@@ -925,9 +925,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06220BD6E6200784D63 /* App-Development.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 9HJ69C5G9K;
-				PROVISIONING_PROFILE = "650efa8c-4049-4017-a2c0-6451b889383d";
-				PROVISIONING_PROFILE_SPECIFIER = "CarRecognition Development";
 			};
 			name = Development;
 		};
