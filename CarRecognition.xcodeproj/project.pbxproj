@@ -90,6 +90,7 @@
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
 		7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */; };
 		95C7732720FCF66D001DBCC1 /* SystemMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */; };
+		E8379BB220FE18B9007D759B /* TextSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8379BB120FE18B9007D759B /* TextSwitcherView.swift */; };
 		E852940920FCC377005B7A1A /* ViewProgressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E852940820FCC377005B7A1A /* ViewProgressable.swift */; };
 		E89D791820ECB230006D2D8D /* CarCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791620ECB22F006D2D8D /* CarCardViewController.swift */; };
 		E89D791920ECB230006D2D8D /* CarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89D791720ECB22F006D2D8D /* CarCardView.swift */; };
@@ -211,6 +212,7 @@
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
 		7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationServiceTests.swift; sourceTree = "<group>"; };
 		95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetrics.swift; sourceTree = "<group>"; };
+		E8379BB120FE18B9007D759B /* TextSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSwitcherView.swift; sourceTree = "<group>"; };
 		E852940820FCC377005B7A1A /* ViewProgressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProgressable.swift; sourceTree = "<group>"; };
 		E89D791620ECB22F006D2D8D /* CarCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardViewController.swift; sourceTree = "<group>"; };
 		E89D791720ECB22F006D2D8D /* CarCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardView.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */,
 				E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */,
 				7C3DC69620F771E0005C8865 /* CarScene.swift */,
+				E8379BB120FE18B9007D759B /* TextSwitcherView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -765,6 +768,7 @@
 				7CEDA78620ED4EF900DF3AF0 /* NSAttributedStringFactory.swift in Sources */,
 				7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */,
 				7CB817DE20C935B200B51C3D /* TableViewCell.swift in Sources */,
+				E8379BB220FE18B9007D759B /* TextSwitcherView.swift in Sources */,
 				7CAD86D920F4AB840064D50E /* LocalCarsDataService.swift in Sources */,
 				7CEDA77420ECD35400DF3AF0 /* HorizontalProgressChartView.swift in Sources */,
 				E852940920FCC377005B7A1A /* ViewProgressable.swift in Sources */,

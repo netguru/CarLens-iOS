@@ -16,15 +16,7 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     
     private lazy var viewfinderAnimationView = LOTAnimationView(name: "viewfinder_bracket").layoutable()
     
-    private lazy var informationLabel: UILabel = {
-        let view = UILabel()
-        view.font = .systemFont(ofSize: 16, weight: .semibold)
-        view.textColor = .white
-        view.numberOfLines = 1
-        view.textAlignment = .center
-        view.text = Localizable.Recognition.pointCameraAtCar
-        return view.layoutable()
-    }()
+    private lazy var informationSwitcherView = TextSwitcherView(currentText: Localizable.Recognition.pointCameraAtCar).layoutable()
     
     /// Updates the detection state
     ///
@@ -32,24 +24,25 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     func update(to result: RecognitionResult, normalizedConfidence: Double) {
         viewfinderAnimationView.animationProgress = CGFloat(normalizedConfidence)
         guard normalizedConfidence > 0.1 else {
-            informationLabel.text = Localizable.Recognition.pointCameraAtCar
+            informationSwitcherView.switchLabelsWithText(Localizable.Recognition.pointCameraAtCar)
             return
         }
-        informationLabel.text = Localizable.Recognition.recognizing
+        informationSwitcherView.switchLabelsWithText(Localizable.Recognition.recognizing)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [viewfinderAnimationView, informationLabel].forEach(addSubview)
+        [viewfinderAnimationView, informationSwitcherView].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         viewfinderAnimationView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
+        informationSwitcherView.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 0, bottom: 0, right: 0))
         NSLayoutConstraint.activate([
-            viewfinderAnimationView.bottomAnchor.constraint(equalTo: informationLabel.topAnchor, constant: 30),
-            informationLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            informationLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+            viewfinderAnimationView.bottomAnchor.constraint(equalTo: informationSwitcherView.topAnchor, constant: 30),
+            informationSwitcherView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            informationSwitcherView.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
