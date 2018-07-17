@@ -24,7 +24,7 @@ internal struct SystemMetrics {
     /// Current metrics used for speed.
     let speedType: SpeedMetricsType
     
-    /// Initializesa new instance of SystemMetrics.
+    /// Initializes a new instance of SystemMetrics.
     /// - Parameter locale: the user's locale for which metrics should be configured.
     init(with locale: Locale = Locale.current) {
         self.speedType = locale.usesMetricSystem ? .kph : .mph
