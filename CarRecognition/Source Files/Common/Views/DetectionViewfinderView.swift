@@ -16,7 +16,7 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     
     private lazy var viewfinderAnimationView = LOTAnimationView(name: "viewfinder_bracket").layoutable()
     
-    private lazy var informationSwitcherView = TextSwitcher(currentText: Localizable.Recognition.pointCameraAtCar).layoutable()
+    private lazy var informationSwitcherView = TextSwitcherView(currentText: Localizable.Recognition.pointCameraAtCar).layoutable()
     
     /// Updates the detection state
     ///

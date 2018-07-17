@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class TextSwitcher: View {
+internal final class TextSwitcherView: View {
     
     private enum State {
         case firstLabelVisible
@@ -59,7 +59,7 @@ internal final class TextSwitcher: View {
 }
 
 /// Text Switching
-extension TextSwitcher {
+extension TextSwitcherView {
     
     /// Switches labels based on current state
     /// - Parameters:
@@ -104,7 +104,7 @@ extension TextSwitcher {
 }
 
 /// ViewSetupable
-extension TextSwitcher: ViewSetupable {
+extension TextSwitcherView: ViewSetupable {
 
     /// See also - ViewSetupable
     func setupViewHierarchy() {
