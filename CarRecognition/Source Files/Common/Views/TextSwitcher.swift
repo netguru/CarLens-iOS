@@ -53,7 +53,6 @@ internal final class TextSwitcher: View {
     }
 
     private func setupSubviews() {
-        print(frame)
         firstLabel.frame = CGRect(x: 0, y: frame.height / 2, width: frame.width, height: frame.height / 2)
         secondLabel.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: frame.height / 2)
     }
