@@ -37,7 +37,7 @@ internal struct CarARConfiguration {
             minimumDistanceBetweenNodes = 0.2
             maximumDistanceFromDevice = 2
         #else
-            nodeShift = NodeShift(depth: 1, elevation: 1)
+            nodeShift = NodeShift(depth: 1, elevation: 1.5)
             minimumDistanceFromDevice = 0.5
             minimumDistanceBetweenNodes = 2
             maximumDistanceFromDevice = 5
