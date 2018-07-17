@@ -95,7 +95,8 @@ internal final class PartOvalProgressView: View, ViewSetupable {
             let formatter = DateComponentsFormatter()
             formatter.unitsStyle = .short
             formatter.allowedUnits = .second
-            let valueText = (formatter.string(from: accelerate) ?? "") + "."
+            
+            let valueText = formatter.string(from: accelerate) ?? ""
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: .condensed)
             titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(speedText, font: titleLabel.font, tracking: .condensed)
         case .topSpeed(let topSpeed):

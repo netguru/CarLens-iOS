@@ -25,6 +25,7 @@
 		7C5E570320D004D600655C35 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5E570220D004D600655C35 /* UIImageExtension.swift */; };
 		7C67179320EF85C600183AB4 /* LabeledCarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67179220EF85C600183AB4 /* LabeledCarImageView.swift */; };
 		7C67179520F243C800183AB4 /* CarListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67179420F243C800183AB4 /* CarListCardView.swift */; };
+		7C71C37320FDC913005B6AAD /* CarRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7C71C37220FDC913005B6AAD /* CarRecognitionModel.mlmodel */; };
 		7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741220E64EC8007B3851 /* NodeShift.swift */; };
 		7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741520E650EC007B3851 /* SKNodeFactory.swift */; };
 		7C77741920E65398007B3851 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C77741820E65398007B3851 /* Car.swift */; };
@@ -34,7 +35,6 @@
 		7C93D49920E6316900AF6FFC /* AugmentedRealityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93D49820E6316900AF6FFC /* AugmentedRealityViewController.swift */; };
 		7C93D49B20E6317300AF6FFC /* AugmentedRealityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93D49A20E6317300AF6FFC /* AugmentedRealityView.swift */; };
 		7C93D49D20E6367000AF6FFC /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93D49C20E6367000AF6FFC /* UIViewControllerExtension.swift */; };
-		7CA34DF920E3AEB0000E309B /* CarRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7CA34DF820E3AEB0000E309B /* CarRecognitionModel.mlmodel */; };
 		7CAD86D220F342CB0064D50E /* CarListNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD86D120F342CB0064D50E /* CarListNavigationBar.swift */; };
 		7CAD86D420F383750064D50E /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD86D320F383750064D50E /* SearchService.swift */; };
 		7CAD86D920F4AB840064D50E /* LocalCarsDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAD86D820F4AB840064D50E /* LocalCarsDataService.swift */; };
@@ -146,6 +146,7 @@
 		7C5E570220D004D600655C35 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		7C67179220EF85C600183AB4 /* LabeledCarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledCarImageView.swift; sourceTree = "<group>"; };
 		7C67179420F243C800183AB4 /* CarListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCardView.swift; sourceTree = "<group>"; };
+		7C71C37220FDC913005B6AAD /* CarRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognitionModel.mlmodel; sourceTree = "<group>"; };
 		7C77741220E64EC8007B3851 /* NodeShift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeShift.swift; sourceTree = "<group>"; };
 		7C77741520E650EC007B3851 /* SKNodeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeFactory.swift; sourceTree = "<group>"; };
 		7C77741820E65398007B3851 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -155,7 +156,6 @@
 		7C93D49820E6316900AF6FFC /* AugmentedRealityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedRealityViewController.swift; sourceTree = "<group>"; };
 		7C93D49A20E6317300AF6FFC /* AugmentedRealityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AugmentedRealityView.swift; sourceTree = "<group>"; };
 		7C93D49C20E6367000AF6FFC /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		7CA34DF820E3AEB0000E309B /* CarRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognitionModel.mlmodel; sourceTree = "<group>"; };
 		7CAD86D120F342CB0064D50E /* CarListNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListNavigationBar.swift; sourceTree = "<group>"; };
 		7CAD86D320F383750064D50E /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		7CAD86D820F4AB840064D50E /* LocalCarsDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCarsDataService.swift; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 		7CB817A920C9275900B51C3D /* ML Models */ = {
 			isa = PBXGroup;
 			children = (
-				7CA34DF820E3AEB0000E309B /* CarRecognitionModel.mlmodel */,
+				7C71C37220FDC913005B6AAD /* CarRecognitionModel.mlmodel */,
 			);
 			path = "ML Models";
 			sourceTree = "<group>";
@@ -769,6 +769,7 @@
 				7CEDA77420ECD35400DF3AF0 /* HorizontalProgressChartView.swift in Sources */,
 				E852940920FCC377005B7A1A /* ViewProgressable.swift in Sources */,
 				7CB817EA20C937EA00B51C3D /* RecognitionViewController.swift in Sources */,
+				7C71C37320FDC913005B6AAD /* CarRecognitionModel.mlmodel in Sources */,
 				7CAD86E320F4B4840064D50E /* CarsDatabaseService.swift in Sources */,
 				7CEDA77920ECD5F100DF3AF0 /* CarsListViewController.swift in Sources */,
 				7C93D49D20E6367000AF6FFC /* UIViewControllerExtension.swift in Sources */,
@@ -807,7 +808,6 @@
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
 				E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */,
 				E8EC9DF320F630F000368E50 /* CameraAccessView.swift in Sources */,
-				7CA34DF920E3AEB0000E309B /* CarRecognitionModel.mlmodel in Sources */,
 				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
 				7C21A14420EE8770001E5714 /* CarListLayoutAttributes.swift in Sources */,

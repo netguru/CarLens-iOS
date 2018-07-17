@@ -66,6 +66,7 @@ internal final class SKNodeFactory {
         makeImageNode.position = .init(x: (backgroundSize.width / 2 - makeImageSize.width / 1.5), y: 0)
         
         let labelNode = SKLabelNode(text: car.model.capitalized)
+        labelNode.fontName = UIFont.systemFont(ofSize: labelFontSize).fontName
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         labelNode.fontColor = .white
