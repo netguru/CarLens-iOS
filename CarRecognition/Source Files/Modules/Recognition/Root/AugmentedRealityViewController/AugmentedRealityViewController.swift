@@ -25,6 +25,9 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// Callback called when user tapped AR pin with given car id
     var didTapCar: ((String) -> ())?
     
+    /// Callback called when user tapped the view excluding the AR pin
+    var didTapBackgroundView: (() -> ())?
+    
     private let config = CarARConfiguration()
     
     private var addedAnchors: [ARAnchor: Car] = [:]
@@ -34,6 +37,10 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         super.viewDidLoad()
         customView.sceneView.didTapCar = { [unowned self] id in
             self.didTapCar?(id)
+        }
+        
+        customView.sceneView.didTapBackgroundView = { [unowned self] in
+            self.didTapBackgroundView?()
         }
     }
     

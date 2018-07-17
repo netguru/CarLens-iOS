@@ -65,6 +65,11 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             guard let car = self.carsDataService.getAvailableCars().first(where: { $0.id == id }) else { return }
             self.addSlidingCard(with: car)
         }
+        
+        augmentedRealityViewController.didTapBackgroundView = { [unowned self] in
+            guard self.carCardViewController != nil else { return }
+            self.removeSlidingCard()
+        }
         classificationService.completionHandler = { [weak self] result in
             DispatchQueue.main.async {
                 self?.handleRecognition(result: result)
