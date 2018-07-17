@@ -89,9 +89,12 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         add(augmentedRealityViewController, inside: customView.augmentedRealityContainer)
     }
     
-    /// Removes car's card with animation
-    func removeSlidingCard() {
-        carCardViewController?.animateOut()
+    /// Removes car's card.
+    /// - Parameter shouldAddAnimation: defines whether animate the removal of the card.
+    func removeSlidingCard(shouldAddAnimation: Bool = true) {
+        if shouldAddAnimation {
+            carCardViewController?.animateOut()
+        }
         carCardViewController?.view.removeFromSuperview()
         carCardViewController = nil
     }
@@ -137,6 +140,9 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     private func addSlidingCard(with car: Car) {
+        if carCardViewController != nil {
+            removeSlidingCard(shouldAddAnimation: false)
+        }
         carCardViewController = CarCardViewController(car: car)
         guard let carCardViewController = carCardViewController else { return }
         setup(carCardViewController: carCardViewController)
