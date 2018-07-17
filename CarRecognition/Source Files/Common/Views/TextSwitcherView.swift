@@ -81,6 +81,7 @@ extension TextSwitcherView {
             self.secondLabel.frame = CGRect(x: 0, y: self.frame.height / 2, width: self.frame.width, height: self.frame.height / 2)
             self.secondLabel.alpha = 1
         }) { completed in
+            guard completed else { return }
             self.state = .secondLabelVisible
             self.firstLabel.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width, height: self.frame.height / 2)
             self.firstLabel.text = ""
