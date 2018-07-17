@@ -22,7 +22,7 @@ internal final class CarsListView: View, ViewSetupable {
         view.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
         view.layer.shadowOpacity = 0.4
         view.layer.shadowColor = UIColor.crShadowOrange.withAlphaComponent(0.4).cgColor
-        view.layer.shadowOffset = CGSize(width: 0, height: 10)
+        view.layer.shadowOffset = CGSize(width: 0, height: 12)
         return view.layoutable()
     }()
 
