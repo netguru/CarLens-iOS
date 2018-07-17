@@ -101,6 +101,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
                 augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
                     self.classificationService.set(state: .paused)
+                    self.inputNormalizationService.reset()
                     self.addSlidingCard(with: car)
                     self.carsDataService.mark(car: car, asDiscovered: true)
                 }, error: { [unowned self] error in

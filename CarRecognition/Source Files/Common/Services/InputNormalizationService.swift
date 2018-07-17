@@ -46,4 +46,9 @@ internal final class InputNormalizationService {
         }
         return normalize(value: confidenceForNormalization)
     }
+    
+    /// Resets the normalizer
+    func reset() {
+        lastValues = [Double](repeating: 0.0, count: numberOfValuesToAverageCalculation)
+    }
 }

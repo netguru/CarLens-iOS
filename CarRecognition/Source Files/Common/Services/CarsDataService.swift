@@ -15,10 +15,7 @@ internal final class CarsDataService {
     /// - Parameter classifierLabel: Label received from classifier
     /// - Returns: Mapped object
     func map(classifierLabel: String) -> Car? {
-        // TODO: Temporary, to be removed after machine learning model change
-        let mappedClassifierLabel = mapToCorrectClassifierLabel(classifierLabel: classifierLabel)
-        
-        guard var car = localDataService.cars.first(where: { $0.id == mappedClassifierLabel }) else { return nil }
+        guard var car = localDataService.cars.first(where: { $0.id == classifierLabel }) else { return nil }
         databaseService.mapDiscoveredParameter(car: &car)
         return car
     }
@@ -55,29 +52,4 @@ internal final class CarsDataService {
     func mark(car: Car, asDiscovered discovered: Bool) {
         databaseService.mark(car: car, asDiscovered: discovered)
     }
-    
-    // TODO: Temporary function, to be removed after machine learning model change
-    private func mapToCorrectClassifierLabel(classifierLabel: String) -> String {
-        switch classifierLabel {
-        case "toyota camry":
-            return "ToyotaCamry"
-        case "honda civic":
-            return "HondaCivic"
-        case "toyota corolla":
-            return "ToyotaCorolla"
-        case "ford fiesta":
-            return "FordFiesta"
-        case "volkswagen golf":
-            return "VolkswagenGolf"
-        case "nissan qashqai":
-            return "NissanQashqai"
-        case "volkswagen passat":
-            return "VolkswagenPassat"
-        case "volkswagen tiguan":
-            return "VolkswagenTiguan"
-        default:
-            return classifierLabel
-        }
-    }
 }
-
