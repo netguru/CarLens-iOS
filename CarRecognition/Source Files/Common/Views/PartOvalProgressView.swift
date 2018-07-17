@@ -79,6 +79,17 @@ internal final class PartOvalProgressView: View, ViewSetupable {
         ovalLayerView.set(progress: 0, animated: false)
         self.state = state
         self.isLocked = isLocked
+        let speedText: String
+        let topSpeedText: String
+        switch SystemMetrics.shared.speedType {
+        case .mph:
+            speedText = Localizable.CarCard.accelerate0to60mph.uppercased()
+            topSpeedText = Localizable.CarCard.mph
+        case .kph:
+            speedText = Localizable.CarCard.accelerate0to100kph.uppercased()
+            topSpeedText = Localizable.CarCard.kph
+        }
+        
         switch state {
         case .accelerate(let accelerate):
             let formatter = DateComponentsFormatter()
@@ -87,9 +98,9 @@ internal final class PartOvalProgressView: View, ViewSetupable {
             
             let valueText = formatter.string(from: accelerate) ?? ""
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: .condensed)
-            titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(Localizable.CarCard.accelerate0to60mph.uppercased(), font: titleLabel.font, tracking: .condensed)
+            titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(speedText, font: titleLabel.font, tracking: .condensed)
         case .topSpeed(let topSpeed):
-            let valueText = "\(topSpeed) \(Localizable.CarCard.mph)"
+            let valueText = "\(topSpeed) \(topSpeedText)"
             valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: .condensed)
             titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(Localizable.CarCard.topSpeed.uppercased(), font: titleLabel.font, tracking: .condensed)
         }
