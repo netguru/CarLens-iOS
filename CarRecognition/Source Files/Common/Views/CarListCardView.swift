@@ -38,12 +38,17 @@ internal final class CarListCardView: View, ViewSetupable {
     
     private lazy var separatorLine: UIView = .separator(axis: .vertical, thickness: 1, color: .crBackgroundLightGray)
     
-    private lazy var performanceStackView: UIStackView = .make(
-        axis: .horizontal,
-        with: [topSpeedProgressView, accelerationProgressView],
-        spacing: UIDevice.screenSizeBiggerThan4Inches ? 65 : 30,
-        distribution: .fillEqually
-    )
+    private lazy var performanceStackView: UIStackView = {
+        let view = UIStackView.make(
+            axis: .horizontal,
+            with: [topSpeedProgressView, accelerationProgressView],
+            spacing: UIDevice.screenSizeBiggerThan4Inches ? 40 : 25,
+            distribution: .fillEqually
+        )
+        view.layoutMargins = .init(top: 0, left: 15, bottom: 0, right: 15)
+        view.isLayoutMarginsRelativeArrangement = true
+        return view
+    }()
     
     private lazy var mechanicalStackView: UIStackView = .make(
         axis: .horizontal,
@@ -113,7 +118,7 @@ internal final class CarListCardView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
-        let inset: CGFloat = UIDevice.screenSizeBiggerThan4Inches ? 30 : 15
+        let inset: CGFloat = UIDevice.screenSizeBiggerThan4Inches ? 20 : 10
         containerStackView.constraintToSuperviewEdges(withInsets: .init(top: inset, left: inset, bottom: inset, right: inset))
         starsProgressView.constraintCenterToSuperview()
         makeImageView.constraintToConstant(.init(width: 37, height: 37))
