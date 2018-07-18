@@ -10,13 +10,15 @@ import Lottie
 internal final class CarCardView: View, ViewSetupable {
 
     /// Struct that holds informations about view's dimensions
-    struct Dimensions {
+    struct Constants {
         static let topBeamHorizontalInset = UIScreen.main.bounds.width * 0.4
         static let stackViewHeight: CGFloat = 65
         static let regularButtonDimension = 45.0
         static let bigButtonDimension = 70.0
         static let gradientHeight: CGFloat = 140.0
         static let mechanicalTopOffset: CGFloat = UIDevice.screenSizeBiggerThan4_7Inches ? 20 : 30
+        static let rippleInitialFrame: NSNumber = 61
+        static let rippleLastFrame: NSNumber = 122
     }
 
     /// Car instance used to initialize subviews
@@ -43,7 +45,7 @@ internal final class CarCardView: View, ViewSetupable {
     private lazy var gradientView: UIView = {
         let view = UIView()
         let gradient = CAGradientLayer()
-        gradient.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Dimensions.gradientHeight)
+        gradient.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: Constants.gradientHeight)
         gradient.colors = [
             UIColor.white.cgColor,
             UIColor(hex: 0xEFF5F5).cgColor
@@ -135,7 +137,7 @@ internal final class CarCardView: View, ViewSetupable {
         let view = LOTAnimationView(name: "button-ripple")
         view.animationSpeed = 0.8
         view.loopAnimation = true
-        view.play(toProgress: 1.0, withCompletion: nil)
+        view.play(fromFrame: Constants.rippleInitialFrame, toFrame: Constants.rippleLastFrame, withCompletion: nil)
         view.isHidden = car.isDiscovered
         return view.layoutable()
     }()
@@ -171,7 +173,7 @@ internal final class CarCardView: View, ViewSetupable {
     func setupConstraints() {
         containerView.constraintToSuperviewEdges()
 
-        topBeamView.constraintToSuperviewEdges(excludingAnchors: [.bottom], withInsets: .init(top: 11, left: Dimensions.topBeamHorizontalInset, bottom: 0, right: Dimensions.topBeamHorizontalInset))
+        topBeamView.constraintToSuperviewEdges(excludingAnchors: [.bottom], withInsets: .init(top: 11, left: Constants.topBeamHorizontalInset, bottom: 0, right: Constants.topBeamHorizontalInset))
 
         modelStackView.constraintToEdges(of: containerView, excludingAnchors: [.bottom], withInsets: .init(top: 37, left: 35, bottom: 0, right: 35))
 
@@ -180,9 +182,9 @@ internal final class CarCardView: View, ViewSetupable {
         }
 
         [googleButton, carListButton].forEach { button in
-            button.constraintToConstant(.init(width: Dimensions.regularButtonDimension, height: Dimensions.regularButtonDimension))
+            button.constraintToConstant(.init(width: Constants.regularButtonDimension, height: Constants.regularButtonDimension))
         }
-        scanButton.constraintToConstant(.init(width: Dimensions.bigButtonDimension, height: Dimensions.bigButtonDimension))
+        scanButton.constraintToConstant(.init(width: Constants.bigButtonDimension, height: Constants.bigButtonDimension))
 
         gradientView.constraintToConstant(.init(width: UIScreen.main.bounds.width, height: 140))
         gradientView.constraintToEdges(of: containerView, excludingAnchors: [.top])
@@ -191,16 +193,16 @@ internal final class CarCardView: View, ViewSetupable {
         NSLayoutConstraint.activate([
             topBeamView.heightAnchor.constraint(equalToConstant: 3),
             performanceStackView.topAnchor.constraint(equalTo: modelStackView.bottomAnchor, constant: 20),
-            mechanicalStackView.topAnchor.constraint(equalTo: performanceStackView.bottomAnchor, constant: Dimensions.mechanicalTopOffset),
+            mechanicalStackView.topAnchor.constraint(equalTo: performanceStackView.bottomAnchor, constant: Constants.mechanicalTopOffset),
             scanButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8),
             scanButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
             carListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
             carListButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 32),
             googleButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
             googleButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
-            performanceStackView.heightAnchor.constraint(equalToConstant: Dimensions.stackViewHeight + 30),
-            mechanicalStackView.heightAnchor.constraint(equalToConstant: Dimensions.stackViewHeight - 20),
-            modelStackView.heightAnchor.constraint(equalToConstant: Dimensions.stackViewHeight + 2)
+            performanceStackView.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight + 30),
+            mechanicalStackView.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight - 20),
+            modelStackView.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight + 2)
         ])
     }
 }
