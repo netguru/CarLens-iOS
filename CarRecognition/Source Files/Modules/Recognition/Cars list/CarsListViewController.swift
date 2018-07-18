@@ -8,6 +8,8 @@ import UIKit
 
 internal final class CarsListViewController: TypedViewController<CarsListView>, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    private var didCheckCarScroll = false
+    
     private let carsDataService: CarsDataService
     
     private let discoveredCar: Car?
@@ -57,9 +59,16 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// SeeAlso: UIViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        scrollToDiscoveredCarIfNeeded()
         animateVisibleCells()
         customView.topView.progressView.invalidateChart(animated: true)
+    }
+    
+    /// SeeAlso: UIViewController
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard !didCheckCarScroll else { return }
+        scrollToDiscoveredCarIfNeeded()
+        didCheckCarScroll = true
     }
     
     @objc private func recognizeButtonTapAction() {
@@ -73,7 +82,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     private func scrollToDiscoveredCarIfNeeded() {
         guard let discoveredCar = discoveredCar, let index = cars.index(of: discoveredCar) else { return }
         let indexPath = IndexPath(item: index, section: 0)
-        customView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        customView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
     }
     
     private func animateVisibleCells() {
