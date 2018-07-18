@@ -7,11 +7,17 @@
 import UIKit
 import ARKit
 
+/// Enum describing types of mode that view can have.
+///
+/// - basic: Basic regonsition mode.
+/// - withCard: Recognisition mode with card pn a view.
+/// - afterCardRemoval: Recognisition mode after card was removed.
+/// - explore: Exploration mode of AR world. No active recognisition.
 internal enum RecognitionViewMode {
     case basic
     case withCard
     case afterCardRemoval
-    case view
+    case explore
 }
 
 internal final class RecognitionView: View, ViewSetupable {
@@ -84,7 +90,7 @@ internal final class RecognitionView: View, ViewSetupable {
                 closeButton.isHidden = false
                 modelStackView.isHidden = false
                 scanButton.isHidden = true
-            case .view:
+            case .explore:
                 closeButton.isHidden = true
                 modelStackView.isHidden = true
                 scanButton.isHidden = false

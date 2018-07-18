@@ -158,6 +158,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         setup(carCardViewController: carCardViewController)
         self.toggleViewsTo(cardMode: true, animated: true)
         carCardViewController.animateIn()
+        customView.mode = .withCard
     }
     
     private func setup(carCardViewController: CarCardViewController) {
@@ -189,7 +190,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     @objc private func closeButtonTapAction() {
         augmentedRealityViews(shouldHide: true)
-        customView.mode = .view
+        customView.mode = .explore
     }
     
     @objc private func scanButtonTapAction() {
