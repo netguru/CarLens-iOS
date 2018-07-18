@@ -12,7 +12,7 @@
 
 // Recognition
 "recognition.point.camera.at.car" = "Point the camera at a car";
-"recognition.car.not.supported" = "We do not support this car at the moment";
+"recognition.other.car" = "Car has been detected but does not belong to our data base";
 "recognition.recognizing" = "Recognizing...";
 
 // Car card

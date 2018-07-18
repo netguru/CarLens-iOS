@@ -21,7 +21,7 @@ internal final class TextSwitcherView: View {
         let view = UILabel()
         view.font = .systemFont(ofSize: 16, weight: .semibold)
         view.textColor = .white
-        view.numberOfLines = 1
+        view.numberOfLines = 2
         view.textAlignment = .center
         view.text = currentText
         return view
@@ -31,7 +31,7 @@ internal final class TextSwitcherView: View {
         let view = UILabel()
         view.font = .systemFont(ofSize: 16, weight: .semibold)
         view.textColor = .white
-        view.numberOfLines = 1
+        view.numberOfLines = 2
         view.textAlignment = .center
         view.alpha = 0
         return view
@@ -62,8 +62,7 @@ internal final class TextSwitcherView: View {
 extension TextSwitcherView {
     
     /// Switches labels based on current state
-    /// - Parameters:
-    ///   - text: Text to be switched to
+    /// - Parameter text: Text to be switched to
     func switchLabelsWithText(_ text: String) {
         guard text != currentText else { return }
         currentText = text
