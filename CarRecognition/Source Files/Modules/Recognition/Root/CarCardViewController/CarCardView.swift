@@ -9,7 +9,7 @@ import Lottie
 
 internal final class CarCardView: View, ViewSetupable {
 
-    /// Struct that holds informations about view's dimensions
+    /// Struct that holds informations about view's dimensions and constants
     struct Constants {
         static let topBeamHorizontalInset = UIScreen.main.bounds.width * 0.4
         static let stackViewHeight: CGFloat = 65
