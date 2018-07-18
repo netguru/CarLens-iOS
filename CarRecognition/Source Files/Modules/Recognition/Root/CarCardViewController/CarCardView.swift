@@ -137,7 +137,7 @@ internal final class CarCardView: View, ViewSetupable {
         let view = LOTAnimationView(name: "button-ripple")
         view.animationSpeed = 0.8
         view.loopAnimation = true
-        view.play(fromFrame: Constants.rippleInitialFrame, toFrame: Constants.rippleLastFrame, withCompletion: nil)
+        view.play(fromFrame: Constants.rippleInitialFrame, toFrame: Constants.rippleLastFrame)
         view.isHidden = car.isDiscovered
         return view.layoutable()
     }()
