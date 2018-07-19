@@ -17,7 +17,7 @@ internal final class CarScene: SKScene {
     /// SeeAlso: SKScene
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        var didTapCarLabel: Bool = false
+        var didTapCarLabel = false
         for touch in touches {
             for node in nodes(at: touch.location(in: self)) {
                 guard let carId = node.name else { continue }

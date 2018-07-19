@@ -10,9 +10,9 @@ import ARKit
 /// Enum describing types of mode that view can have.
 ///
 /// - basic: Basic regonsition mode.
-/// - withCard: Recognisition mode with card pn a view.
-/// - afterCardRemoval: Recognisition mode after card was removed.
-/// - explore: Exploration mode of AR world. No active recognisition.
+/// - withCard: Recognition mode with card pn a view.
+/// - afterCardRemoval: Recognition mode after card was removed.
+/// - explore: Exploration mode of AR world. No active recognition.
 internal enum RecognitionViewMode {
     case basic
     case withCard
@@ -32,7 +32,7 @@ internal final class RecognitionView: View, ViewSetupable {
         return view.layoutable()
     }()
     
-    /// Cars list button in the left bottom corner
+    /// Close list button in the right bottom corner
     lazy var closeButton: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "button-close"), for: .normal)
