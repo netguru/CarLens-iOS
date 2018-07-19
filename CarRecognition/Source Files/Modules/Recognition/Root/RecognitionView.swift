@@ -7,6 +7,19 @@
 import UIKit
 import ARKit
 
+/// Enum describing types of mode that view can have.
+///
+/// - basic: Basic regonsition mode.
+/// - withCard: Recognition mode with card pn a view.
+/// - afterCardRemoval: Recognition mode after card was removed.
+/// - explore: Exploration mode of AR world. No active recognition.
+internal enum RecognitionViewMode {
+    case basic
+    case withCard
+    case afterCardRemoval
+    case explore
+}
+
 internal final class RecognitionView: View, ViewSetupable {
 
     /// Container for augmented reality view controller content
@@ -16,6 +29,20 @@ internal final class RecognitionView: View, ViewSetupable {
     lazy var carsListButton: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "button-car-list-gray"), for: .normal)
+        return view.layoutable()
+    }()
+    
+    /// Close list button in the right bottom corner
+    lazy var closeButton: UIButton = {
+        let view = UIButton(type: .system)
+        view.setImage(#imageLiteral(resourceName: "button-close"), for: .normal)
+        return view.layoutable()
+    }()
+    
+    /// Cars recognisition button in the center of the bottom part of the view
+    lazy var scanButton: UIButton = {
+        let view = UIButton(type: .system)
+        view.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
         return view.layoutable()
     }()
     
@@ -48,9 +75,32 @@ internal final class RecognitionView: View, ViewSetupable {
         spacing: 5
     ).layoutable()
     
+    var mode: RecognitionViewMode = .basic {
+        didSet {
+            switch mode {
+            case .basic:
+                closeButton.isHidden = true
+                modelStackView.isHidden = false
+                scanButton.isHidden = true
+            case .withCard:
+                closeButton.isHidden = true
+                modelStackView.isHidden = true
+                scanButton.isHidden = true
+            case .afterCardRemoval:
+                closeButton.isHidden = false
+                modelStackView.isHidden = false
+                scanButton.isHidden = true
+            case .explore:
+                closeButton.isHidden = true
+                modelStackView.isHidden = true
+                scanButton.isHidden = false
+            }
+        }
+    }
+    
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [augmentedRealityContainer, modelStackView, carsListButton].forEach(addSubview)
+        [augmentedRealityContainer, modelStackView, carsListButton, closeButton, scanButton].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
@@ -60,7 +110,16 @@ internal final class RecognitionView: View, ViewSetupable {
         modelStackView.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 8, right: 8))
         NSLayoutConstraint.activate([
             carsListButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            carsListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            carsListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
+            closeButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            scanButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8),
+            scanButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0)
         ])
+    }
+    
+    /// - SeeAlso: ViewSetupable
+    func setupProperties() {
+        mode = .basic
     }
 }

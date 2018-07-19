@@ -57,19 +57,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-        customView.carsListButton.addTarget(self, action: #selector(carsListButtonTapAction), for: .touchUpInside)
-        augmentedRealityViewController.didCapturedARFrame = { [weak self] frame in
-            self?.classificationService.perform(on: frame.capturedImage)
-        }
-        augmentedRealityViewController.didTapCar = { [unowned self] id in
-            guard let car = self.carsDataService.getAvailableCars().first(where: { $0.id == id }) else { return }
-            self.addSlidingCard(with: car)
-        }
-        classificationService.completionHandler = { [weak self] result in
-            DispatchQueue.main.async {
-                self?.handleRecognition(result: result)
-            }
-        }
+        setupView()
     }
     
     /// SeeAlso: UIViewController
@@ -84,11 +72,37 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         add(augmentedRealityViewController, inside: customView.augmentedRealityContainer)
     }
     
-    /// Removes car's card with animation
-    func removeSlidingCard() {
-        carCardViewController?.animateOut()
+    /// Removes car's card.
+    /// - Parameter shouldAddAnimation: defines whether animate the removal of the card.
+    func removeSlidingCard(shouldAddAnimation: Bool = true) {
+        if shouldAddAnimation {
+            carCardViewController?.animateOut()
+        }
         carCardViewController?.view.removeFromSuperview()
         carCardViewController = nil
+        customView.mode = .afterCardRemoval
+    }
+    
+    private func setupView() {
+        customView.carsListButton.addTarget(self, action: #selector(carsListButtonTapAction), for: .touchUpInside)
+        customView.closeButton.addTarget(self, action: #selector(closeButtonTapAction), for: .touchUpInside)
+        customView.scanButton.addTarget(self, action: #selector(scanButtonTapAction), for: .touchUpInside)
+        augmentedRealityViewController.didCapturedARFrame = { [weak self] frame in
+            self?.classificationService.perform(on: frame.capturedImage)
+        }
+        augmentedRealityViewController.didTapCar = { [unowned self] id in
+            guard let car = self.carsDataService.getAvailableCars().first(where: { $0.id == id }) else { return }
+            self.addSlidingCard(with: car)
+        }
+        augmentedRealityViewController.didTapBackgroundView = { [unowned self] in
+            guard self.carCardViewController != nil else { return }
+            self.removeSlidingCard()
+        }
+        classificationService.completionHandler = { [weak self] result in
+            DispatchQueue.main.async {
+                self?.handleRecognition(result: result)
+            }
+        }
     }
     
     private func handleRecognition(result: [RecognitionResult]) {
@@ -119,8 +133,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     private func toggleViewsTo(cardMode: Bool, animated: Bool) {
         let viewsUpdateBlock = { [unowned self] in
-            self.augmentedRealityViewController.customView.detectionViewfinderView.alpha = cardMode ? 0 : 1
-            self.augmentedRealityViewController.customView.dimmView.alpha = cardMode ? 0 : 1
+            self.augmentedRealityViews(shouldHide: cardMode)
         }
         guard animated else {
             viewsUpdateBlock()
@@ -131,12 +144,21 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         }
     }
     
+    private func augmentedRealityViews(shouldHide: Bool) {
+        augmentedRealityViewController.customView.detectionViewfinderView.isHidden = shouldHide
+        augmentedRealityViewController.customView.dimmView.isHidden = shouldHide
+    }
+    
     private func addSlidingCard(with car: Car) {
+        if carCardViewController != nil {
+            removeSlidingCard(shouldAddAnimation: false)
+        }
         carCardViewController = CarCardViewController(car: car)
         guard let carCardViewController = carCardViewController else { return }
         setup(carCardViewController: carCardViewController)
         self.toggleViewsTo(cardMode: true, animated: true)
         carCardViewController.animateIn()
+        customView.mode = .withCard
     }
     
     private func setup(carCardViewController: CarCardViewController) {
@@ -150,6 +172,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
                 self.toggleViewsTo(cardMode: false, animated: true)
                 self.classificationService.set(state: .running)
                 self.carCardViewController = nil
+                self.customView.mode = .afterCardRemoval
             }
         }
         addChildViewController(carCardViewController)
@@ -163,6 +186,17 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     @objc private func carsListButtonTapAction() {
         eventTriggered?(.didTriggerShowCarsList(nil))
+    }
+    
+    @objc private func closeButtonTapAction() {
+        augmentedRealityViews(shouldHide: true)
+        customView.mode = .explore
+    }
+    
+    @objc private func scanButtonTapAction() {
+        augmentedRealityViews(shouldHide: false)
+        classificationService.set(state: .running)
+        customView.mode = .basic
     }
     
     private func checkCameraAccess() {
