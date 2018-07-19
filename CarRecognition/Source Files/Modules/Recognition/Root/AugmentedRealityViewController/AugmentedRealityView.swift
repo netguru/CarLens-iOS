@@ -16,7 +16,8 @@ internal final class AugmentedRealityView: View, ViewSetupable {
         return view.layoutable()
     }()
     
-    let blurEffectView: UIVisualEffectView = {
+    /// Blur effect view presented when camera is not ready to show content
+    internal let blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
         let view = UIVisualEffectView(effect: blurEffect)
         return view.layoutable()
