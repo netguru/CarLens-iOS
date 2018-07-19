@@ -16,6 +16,12 @@ internal final class AugmentedRealityView: View, ViewSetupable {
         return view.layoutable()
     }()
     
+    let blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let view = UIVisualEffectView(effect: blurEffect)
+        return view.layoutable()
+    }()
+    
     /// Augmented Reality scene presented on the camera preview
     lazy var sceneView = CarScene()
     
@@ -31,7 +37,7 @@ internal final class AugmentedRealityView: View, ViewSetupable {
     
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
-        [previewView, dimmView, detectionViewfinderView].forEach(addSubview)
+        [previewView, dimmView, detectionViewfinderView, blurEffectView].forEach(addSubview)
     }
     
     /// - SeeAlso: ViewSetupable
@@ -39,6 +45,7 @@ internal final class AugmentedRealityView: View, ViewSetupable {
         dimmView.constraintToSuperviewEdges()
         previewView.constraintToSuperviewEdges()
         detectionViewfinderView.constraintCenterToSuperview(withConstant: .init(x: 0, y: -50))
+        blurEffectView.constraintToSuperviewEdges()
     }
     
     /// - SeeAlso: ViewSetupable

@@ -32,6 +32,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNotifications()
         customView.sceneView.didTapCar = { [unowned self] id in
             self.didTapCar?(id)
         }
@@ -120,6 +121,21 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
             configuration.isAutoFocusEnabled = true
         }
         customView.previewView.session.run(configuration)
+    }
+    
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterBackground), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cameraIsReadyToRecord), name: NSNotification.Name.AVCaptureSessionDidStartRunning, object: nil)
+    }
+    
+    @objc private func cameraIsReadyToRecord() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [unowned self] in
+            self.customView.blurEffectView.isHidden = true
+        }
+    }
+    
+    @objc private func applicationWillEnterBackground() {
+        customView.blurEffectView.isHidden = false
     }
     
     /// SeeAlso: ARSessionDelegate
