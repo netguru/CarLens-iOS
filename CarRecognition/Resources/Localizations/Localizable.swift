@@ -21,7 +21,7 @@ internal struct Localizable {
     
     struct Recognition {
         static let pointCameraAtCar = localized("recognition.point.camera.at.car")
-        static let carNotSupported = localized("recognition.car.not.supported")
+        static let otherCar = localized("recognition.other.car")
         static let recognizing = localized("recognition.recognizing")
     }
     
