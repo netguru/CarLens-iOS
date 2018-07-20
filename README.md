@@ -7,6 +7,7 @@ Welcome to the **Car Regonition** project. It's an internal application made for
 * [Miłosz Szyński](mailto:milosz.szynski@netguru.pl) - Project Manager
 * [Michał Kwiecień](mailto:michal.kwiecien@netguru.co) - iOS Developer
 * [Michał Warchał](mailto:michal.warchal@netguru.co) - iOS Developer
+* [Anna-Mariia Shkarlinska](mailto:anna-mariia.shkarlinska@netguru.co) - iOS Developer
 
 ## Tools & Services
 
