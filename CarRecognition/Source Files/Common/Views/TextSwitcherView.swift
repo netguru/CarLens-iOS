@@ -22,7 +22,7 @@ internal final class TextSwitcherView: View {
         let view = UILabel()
         view.font = .systemFont(ofSize: 16, weight: .semibold)
         view.textColor = .white
-        view.numberOfLines = 2
+        view.numberOfLines = 0
         view.textAlignment = .center
         view.text = currentText
         return view
@@ -32,7 +32,7 @@ internal final class TextSwitcherView: View {
         let view = UILabel()
         view.font = .systemFont(ofSize: 16, weight: .semibold)
         view.textColor = .white
-        view.numberOfLines = 2
+        view.numberOfLines = 0
         view.textAlignment = .center
         view.alpha = 0
         return view
@@ -68,21 +68,21 @@ extension TextSwitcherView {
     func switchLabelsWithText(_ text: String) {
         guard text != currentText else { return }
         currentText = text
-        animateForState(state: state)
+        animate(for: state)
     }
 
-    private func animateForState(state: State) {
+    private func animate(for state: State) {
         switch state {
         case .firstLabelVisible:
-            switchLabels(incomingLabel: secondLabel, outgoingLabel: firstLabel, finalState: .secondLabelVisible)
+            switchLabel(from: firstLabel, to: secondLabel, finalState: .secondLabelVisible)
         case .secondLabelVisible:
-            switchLabels(incomingLabel: firstLabel, outgoingLabel: secondLabel, finalState: .firstLabelVisible)
+            switchLabel(from: secondLabel, to: firstLabel, finalState: .firstLabelVisible)
         case .animationIsRunning:
             break
         }
     }
 
-    private func switchLabels(incomingLabel: UILabel, outgoingLabel: UILabel, finalState: State) {
+    private func switchLabel(from outgoingLabel: UILabel, to incomingLabel: UILabel, finalState: State) {
         incomingLabel.text = currentText
         state = .animationIsRunning
         UIView.animate(withDuration: 0.3, animations: {
