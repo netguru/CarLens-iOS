@@ -49,11 +49,11 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         viewfinderAnimationView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
-        informationSwitcherView.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 16, bottom: 0, right: 16))
+        informationSwitcherView.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
         NSLayoutConstraint.activate([
-            viewfinderAnimationView.bottomAnchor.constraint(equalTo: informationSwitcherView.topAnchor, constant: 30),
+            viewfinderAnimationView.bottomAnchor.constraint(equalTo: informationSwitcherView.topAnchor, constant: 60),
             informationSwitcherView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            informationSwitcherView.heightAnchor.constraint(equalToConstant: 50)
+            informationSwitcherView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
 }
