@@ -9,6 +9,7 @@ import UIKit
 internal final class TextSwitcherView: View {
     
     private enum State {
+        case animationIsRunning
         case firstLabelVisible
         case secondLabelVisible
     }
@@ -70,11 +71,13 @@ extension TextSwitcherView {
         switch state {
         case .firstLabelVisible: animateInSecondLabel()
         case .secondLabelVisible: animateInFirstLabel()
+        case .animationIsRunning: break
         }
     }
 
     private func animateInSecondLabel() {
         secondLabel.text = currentText
+        state = .animationIsRunning
         UIView.animate(withDuration: 0.3, animations: {
             self.firstLabel.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height / 2)
             self.firstLabel.alpha = 0
@@ -90,6 +93,7 @@ extension TextSwitcherView {
 
     private func animateInFirstLabel() {
         firstLabel.text = currentText
+        state = .animationIsRunning
         UIView.animate(withDuration: 0.3, animations: {
             self.firstLabel.frame = CGRect(x: 0, y: self.frame.height / 2, width: self.frame.width, height: self.frame.height / 2)
             self.firstLabel.alpha = 1
