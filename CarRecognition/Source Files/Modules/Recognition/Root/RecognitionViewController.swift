@@ -111,7 +111,6 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition, normalizedConfidence: normalizedConfidence)
         switch mostConfidentRecognition.recognition {
         case .car(let car):
-            augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition, normalizedConfidence: normalizedConfidence)
             if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
                 augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
                     self.classificationService.set(state: .paused)
