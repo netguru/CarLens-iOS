@@ -29,7 +29,7 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
             informationSwitcherView.switchLabelsWithText(Localizable.Recognition.pointCameraAtCar)
             return
         }
-        var text: String
+        let text: String
         switch result.recognition {
         case .car(_):
             text = Localizable.Recognition.recognizing
