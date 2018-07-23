@@ -11,6 +11,6 @@ class LocalCarsDataServiceTests: XCTestCase {
     
     func testCarsInitialization() {
         let dataService = LocalCarsDataService()
-        XCTAssert(!dataService.cars.isEmpty, "Local Cars Data Service should initialize the cars array from JSON.")
+        XCTAssert(!dataService.cars.isEmpty, "Local Cars Data Service should initialize the not empty cars array from JSON.")
     } 
 }
