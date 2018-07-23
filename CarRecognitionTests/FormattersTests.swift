@@ -16,7 +16,7 @@ class FormattersTests: XCTestCase {
     }
     
     func testTimeFormatterFor50Miliseconds() {
-        let timeInterval: TimeInterval = 0.05
+        let timeInterval = 0.05
         let formattedTime = CRTimeFormatter.intervalMilisecondsFormatted(timeInterval)
         XCTAssertEqual(formattedTime, "50 ms", "Should return miliseconds formatted string from time interval.")
     }

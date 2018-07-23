@@ -9,8 +9,10 @@ import XCTest
 
 class LocalCarsDataServiceTests: XCTestCase {
     
+    var sut: LocalCarsDataService!
+    
     func testCarsInitialization() {
-        let dataService = LocalCarsDataService()
-        XCTAssert(!dataService.cars.isEmpty, "Local Cars Data Service should initialize the not empty cars array from JSON.")
+        sut = LocalCarsDataService()
+        XCTAssert(!sut.cars.isEmpty, "Local Cars Data Service should initialize the not empty cars array from JSON.")
     } 
 }
