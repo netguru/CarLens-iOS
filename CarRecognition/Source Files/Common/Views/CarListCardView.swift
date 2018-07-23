@@ -84,7 +84,8 @@ internal final class CarListCardView: View, ViewSetupable {
         powerProgressView.setup(state: .power(car.power), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
         starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false, isLocked: !car.isDiscovered)
         descriptionLabel.textColor =  car.isDiscovered ? .crFontLightGray : .crBackgroundLightGray
-        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: UIFont.systemFont(ofSize: 12), tracking: .condensed)
+        let descriptionFont = car.isDiscovered ? UIFont.systemFont(ofSize: 12) : .blokkNeueFont(ofSize: 12)
+        descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description, font: descriptionFont, tracking: .condensed)
     }
     
     /// Invalidates the charts visible on the view
