@@ -10,10 +10,10 @@ internal final class LocalCarsDataService {
     var cars: [Car] = []
     
     /// Initializes the service feeding `localCars` parameter with fetched data
-    init() {
+    init(with jsonPath: String? = Bundle.main.path(forResource: "cars", ofType: "json")) {
         guard
-            let jsonPath = Bundle.main.path(forResource: "cars", ofType: "json"),
-            let data = try? Data(contentsOf: URL(fileURLWithPath: jsonPath)),
+            let path = jsonPath,
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
             let decoded = try? JSONDecoder().decode(LocalCars.self, from: data)
         else {
             return

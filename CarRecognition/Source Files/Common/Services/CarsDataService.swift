@@ -6,9 +6,14 @@
 
 internal final class CarsDataService {
     
-    private let localDataService = LocalCarsDataService()
+    private let localDataService: LocalCarsDataService
     
-    private let databaseService = CarsDatabaseService()
+    private let databaseService: CarsDatabaseService
+    
+    init(localDataService: LocalCarsDataService = LocalCarsDataService(), databaseService: CarsDatabaseService = CarsDatabaseService()) {
+        self.localDataService = localDataService
+        self.databaseService = databaseService
+    }
     
     /// Maps label received from classifier to car object
     ///
