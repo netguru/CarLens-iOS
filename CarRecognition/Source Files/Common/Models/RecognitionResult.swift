@@ -8,10 +8,23 @@
 internal struct RecognitionResult: CustomStringConvertible {
     
     /// Available recognitions
-    enum Recognition {
+    enum Recognition: Equatable {
         case car(Car)
         case otherCar
         case notCar
+        
+        static func ==(lhs: Recognition, rhs: Recognition) -> Bool {
+            switch (lhs, rhs) {
+            case (let .car(carLHS), let .car(carRHS)):
+                return carLHS == carRHS
+            case (.otherCar, .otherCar):
+                return true
+            case (.notCar, .notCar):
+                return true
+            default:
+                return false
+            }
+        }
     }
     
     let recognition: Recognition
@@ -29,8 +42,10 @@ internal struct RecognitionResult: CustomStringConvertible {
             recognition = .car(car)
         } else if label == "other car" {
             recognition = .otherCar
-        } else {
+        } else if label == "not car" {
             recognition = .notCar
+        } else {
+            return nil
         }
     }
     
