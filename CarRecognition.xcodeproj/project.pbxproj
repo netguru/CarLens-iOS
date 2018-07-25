@@ -94,7 +94,7 @@
 		95CA5AB421060064000B4B0D /* RecognitionResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AB321060064000B4B0D /* RecognitionResultTests.swift */; };
 		E8379BB220FE18B9007D759B /* TextSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8379BB120FE18B9007D759B /* TextSwitcherView.swift */; };
 		E8473F0C21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */; };
-		E8473F1121074E0F00EC9EF3 /* ModelsMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F1021074E0F00EC9EF3 /* ModelsMocks.swift */; };
+		E8473F1121074E0F00EC9EF3 /* ModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */; };
 		E8473F1521074F5600EC9EF3 /* MockedCar.json in Resources */ = {isa = PBXBuildFile; fileRef = E8473F1421074F5600EC9EF3 /* MockedCar.json */; };
 		E8473F18210752A300EC9EF3 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F17210752A300EC9EF3 /* JSON.swift */; };
 		E8473F1A210756F200EC9EF3 /* CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F19210756F200EC9EF3 /* CarTests.swift */; };
@@ -228,7 +228,7 @@
 		95CA5AB321060064000B4B0D /* RecognitionResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionResultTests.swift; sourceTree = "<group>"; };
 		E8379BB120FE18B9007D759B /* TextSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSwitcherView.swift; sourceTree = "<group>"; };
 		E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDatabaseServiceTests.swift; sourceTree = "<group>"; };
-		E8473F1021074E0F00EC9EF3 /* ModelsMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsMocks.swift; sourceTree = "<group>"; };
+		E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsFactory.swift; sourceTree = "<group>"; };
 		E8473F1421074F5600EC9EF3 /* MockedCar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockedCar.json; sourceTree = "<group>"; };
 		E8473F17210752A300EC9EF3 /* JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		E8473F19210756F200EC9EF3 /* CarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTests.swift; sourceTree = "<group>"; };
@@ -640,7 +640,7 @@
 		E8473F0F21074E0100EC9EF3 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				E8473F1021074E0F00EC9EF3 /* ModelsMocks.swift */,
+				E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -902,7 +902,7 @@
 				95CA5AB22105F7D2000B4B0D /* LocalCarsDataServiceTests.swift in Sources */,
 				E8473F0C21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift in Sources */,
 				E8473F2521075F0B00EC9EF3 /* UIStackViewExtensionTests.swift in Sources */,
-				E8473F1121074E0F00EC9EF3 /* ModelsMocks.swift in Sources */,
+				E8473F1121074E0F00EC9EF3 /* ModelsFactory.swift in Sources */,
 				95CA5AB02105E547000B4B0D /* FormattersTests.swift in Sources */,
 				95C7732A21022879001DBCC1 /* SystemMetricsTests.swift in Sources */,
 				E8473F1E21075D7800EC9EF3 /* CarSpecificationChartConfigurationTests.swift in Sources */,
