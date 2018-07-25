@@ -12,7 +12,7 @@ _BUILD_NUMBER = 1
 _COMPILER_SWIFT_VERSION = 4.0
 
 _BUNDLE_NAME = CarRecognition
-_PRODUCT_NAME = CarRecognition
+_PRODUCT_NAME = CarLens
 _BUNDLE_INFOPLIST_PATH = $(SRCROOT)/CarRecognition/Supporting Files/Info.plist
 _BUNDLE_IDENTIFIER = co.netguru.car.recognition$(__PRODUCT_BUNDLE_IDENTIFIER_SUFFIX)
 

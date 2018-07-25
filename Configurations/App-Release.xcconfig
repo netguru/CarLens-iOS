@@ -1,0 +1,18 @@
+//
+//  App-Release.xcconfig
+//  CarRecognition
+//
+
+#include "../Carthage/Checkouts/xcconfigs/Configurations/Debug.xcconfig"
+#include "App-Common.xcconfig"
+
+__PRODUCT_BUNDLE_IDENTIFIER_SUFFIX = .release
+
+_ENVIRONMENTS = ENV_RELEASE
+
+_BUNDLE_IDENTIFIER = co.netguru.car.lens$(__PRODUCT_BUNDLE_IDENTIFIER_SUFFIX)
+
+_CODESIGN_DEVELOPMENT_TEAM = SK8PDF7SG9
+_CODESIGN_IDENTITY = iPhone Distribution
+_CODESIGN_PROFILE_SPECIFIER = CarLens Releases
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon

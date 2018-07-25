@@ -241,6 +241,7 @@
 		E89D791620ECB22F006D2D8D /* CarCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardViewController.swift; sourceTree = "<group>"; };
 		E89D791720ECB22F006D2D8D /* CarCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarCardView.swift; sourceTree = "<group>"; };
 		E89D791C20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPanGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
+		E8ABD40C210897C3004F9513 /* App-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-Release.xcconfig"; sourceTree = "<group>"; };
 		E8B63C7120F37588003C7F89 /* OvalProgressLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalProgressLayerView.swift; sourceTree = "<group>"; };
 		E8E4B19F20EE2A65009A93B7 /* ModelNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNameView.swift; sourceTree = "<group>"; };
 		E8EC9DF020F630E700368E50 /* CameraAccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccessViewController.swift; sourceTree = "<group>"; };
@@ -369,6 +370,7 @@
 				7C33E06120BD6E6200784D63 /* App-Common.xcconfig */,
 				7C33E06220BD6E6200784D63 /* App-Development.xcconfig */,
 				7C33E05F20BD6E6100784D63 /* App-Staging.xcconfig */,
+				E8ABD40C210897C3004F9513 /* App-Release.xcconfig */,
 				7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */,
 			);
 			path = Configurations;
@@ -1001,6 +1003,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06220BD6E6200784D63 /* App-Development.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 9HJ69C5G9K;
+				PROVISIONING_PROFILE = "a79b1bc6-cc1f-4ef5-915e-d32172a60418";
+				PROVISIONING_PROFILE_SPECIFIER = "CarRecognition Development";
 			};
 			name = Development;
 		};
@@ -1075,6 +1080,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E05F20BD6E6100784D63 /* App-Staging.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 9HJ69C5G9K;
+				PROVISIONING_PROFILE = "87a8667c-fc65-4ded-94cf-5655a6d9db50";
+				PROVISIONING_PROFILE_SPECIFIER = "CarRecognition Staging";
 			};
 			name = Staging;
 		};
@@ -1085,6 +1093,83 @@
 			};
 			name = Staging;
 		};
+		E8ABD40D210898A6004F9513 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Release;
+		};
+		E8ABD40E210898A6004F9513 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8ABD40C210897C3004F9513 /* App-Release.xcconfig */;
+			buildSettings = {
+				DEVELOPMENT_TEAM = SK8PDF7SG9;
+				PROVISIONING_PROFILE = "12cb5f07-a1a1-4e85-b0bd-a2c3b7ed5bf3";
+				PROVISIONING_PROFILE_SPECIFIER = "CarLens Release Provisioning Profile";
+			};
+			name = Release;
+		};
+		E8ABD40F210898A6004F9513 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1092,6 +1177,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7C33E06320BD707D00784D63 /* Development */,
+				E8ABD40D210898A6004F9513 /* Release */,
 				7C33E06620BD708800784D63 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1101,6 +1187,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7C33E06420BD707D00784D63 /* Development */,
+				E8ABD40E210898A6004F9513 /* Release */,
 				7C33E06720BD708800784D63 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1110,6 +1197,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7C33E06520BD707D00784D63 /* Development */,
+				E8ABD40F210898A6004F9513 /* Release */,
 				7C33E06820BD708800784D63 /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
