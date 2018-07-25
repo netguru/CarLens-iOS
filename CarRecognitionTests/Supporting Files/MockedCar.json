@@ -1,0 +1,17 @@
+{
+    "id": "FordFiesta",
+    "brand": "Ford",
+    "model": "Fiesta",
+    "description": "Ford Fiesta has been marketed by Ford since 1976. Ford has sold over 16 million Fiestas since then, making it a best-seller.",
+    "stars": 1,
+    "acceleration_mph": 12.7,
+    "acceleration_kph": 13.2,
+    "speed_mph": 118,
+    "speed_kph": 190,
+    "power": 70,
+    "engine": 1000,
+    "brand_logo_image": "Ford",
+    "brand_logo_image_locked": "Ford_locked",
+    "image": "FordFiesta",
+    "image_locked": "FordFiesta_locked"
+}
