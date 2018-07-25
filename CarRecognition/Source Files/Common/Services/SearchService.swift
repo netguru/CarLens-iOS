@@ -13,15 +13,26 @@ internal final class SearchService {
         case google = "https://www.google.com/search?q="
     }
     
+    /// Service used for opening an URL
+    private var urlOpenerService: URLOpenerService
+    
+    /// Initializes the Search Service
+    ///
+    /// - Parameter urlOpenerService: service to be used for URL opening.
+    init(with urlOpenerService: URLOpenerService = URLOpenerService()) {
+        self.urlOpenerService = urlOpenerService
+    }
+    
     /// Opens search in given service for given car
     ///
     /// - Parameters:
     ///   - service: Service to be searched
     ///   - car: Car to be used for constructing query
-    func search(_ service: Service, for car: Car) {
+    ///   - completion: Completion to be called when URL will open.
+    func search(_ service: Service, for car: Car, completion: ((Bool) -> Void)? = nil) {
         let phrase = "\(car.make) \(car.model)"
         let encoded = phrase.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        guard let url = URL(string: service.rawValue + encoded), UIApplication.shared.canOpenURL(url) else { return }
-        UIApplication.shared.open(url)
+        guard let url = URL(string: service.rawValue + encoded) else { return }
+        urlOpenerService.open(url, completionHandler: completion)
     }
 }
