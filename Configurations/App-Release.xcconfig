@@ -3,7 +3,7 @@
 //  CarRecognition
 //
 
-#include "../Carthage/Checkouts/xcconfigs/Configurations/Debug.xcconfig"
+#include "../Carthage/Checkouts/xcconfigs/Configurations/Release.xcconfig"
 #include "App-Common.xcconfig"
 
 __PRODUCT_BUNDLE_IDENTIFIER_SUFFIX = .release
