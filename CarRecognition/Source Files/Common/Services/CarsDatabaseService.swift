@@ -8,7 +8,14 @@ import Foundation
 
 internal final class CarsDatabaseService {
     
-    private let userDefaults = UserDefaults()
+    private let userDefaults: UserDefaults
+    
+    /// Initializes the Cars Database Service.
+    ///
+    /// - Parameter userDefaults: LUser Defaults used to save the data.
+    init(with userDefaults: UserDefaults = UserDefaults()) {
+        self.userDefaults = userDefaults
+    }
     
     /// Maps car `isDiscovered` parameter to proper value
     ///
