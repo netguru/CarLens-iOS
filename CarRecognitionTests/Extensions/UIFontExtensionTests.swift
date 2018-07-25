@@ -9,7 +9,7 @@ import XCTest
 
 final class UIFontExtensionTests: XCTestCase {
 
-    private struct Constants {
+    private struct MockedParameters {
         static let fontSize: CGFloat = 12
         static let blokkNeueFontName = "BLOKKNeue-Regular"
         static let gliscorGothicFontName = "GliscorGothic"
@@ -18,14 +18,14 @@ final class UIFontExtensionTests: XCTestCase {
     var sut: UIFont!
 
     func testGliscorGothicFont() {
-        sut = UIFont.gliscorGothicFont(ofSize: Constants.fontSize)
-        XCTAssertEqual(sut.pointSize, Constants.fontSize, "Font size should be \(Constants.fontSize)")
-        XCTAssertEqual(sut.fontName, Constants.gliscorGothicFontName, "Font name should be \(Constants.gliscorGothicFontName)")
+        sut = UIFont.gliscorGothicFont(ofSize: MockedParameters.fontSize)
+        XCTAssertEqual(sut.pointSize, MockedParameters.fontSize, "Font size should be \(MockedParameters.fontSize)")
+        XCTAssertEqual(sut.fontName, MockedParameters.gliscorGothicFontName, "Font name should be \(MockedParameters.gliscorGothicFontName)")
     }
 
     func testBlokkNeueFont() {
-        sut = UIFont.blokkNeueFont(ofSize: Constants.fontSize)
-        XCTAssertEqual(sut.pointSize, Constants.fontSize, "Font size should be '\(Constants.fontSize)'")
-        XCTAssertEqual(sut.fontName, Constants.blokkNeueFontName, "Font name should be \(Constants.blokkNeueFontName)")
+        sut = UIFont.blokkNeueFont(ofSize: MockedParameters.fontSize)
+        XCTAssertEqual(sut.pointSize, MockedParameters.fontSize, "Font size should be '\(MockedParameters.fontSize)'")
+        XCTAssertEqual(sut.fontName, MockedParameters.blokkNeueFontName, "Font name should be \(MockedParameters.blokkNeueFontName)")
     }
 }

@@ -9,7 +9,7 @@ import XCTest
 
 final class CarTests: XCTestCase {
 
-    private struct Constants {
+    private struct DesiredParameters {
         static let makeName = "Ford"
         static let modelName = "Fiesta"
         static let engine = 1000
@@ -24,7 +24,13 @@ final class CarTests: XCTestCase {
     var sut: Car!
 
     override func setUp() {
+        super.setUp()
         sut = Car.make()
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        sut = nil
     }
 
     func testCarInitialization() {
@@ -32,14 +38,14 @@ final class CarTests: XCTestCase {
     }
 
     func testCarProperties() {
-        XCTAssertEqual(sut.make, Constants.makeName, "Car's make should be equal to \(Constants.makeName)")
-        XCTAssertEqual(sut.model, Constants.modelName, "Car's model should be equal to \(Constants.modelName)")
-        XCTAssertEqual(sut.engine, Constants.engine, "Car's engine should be equal to \(Constants.engine)")
-        XCTAssertEqual(sut.power, Constants.power, "Car's power should be equal to \(Constants.power)")
-        XCTAssertEqual(sut.id, Constants.id, "Car's id should be equal to \(Constants.id)")
-        XCTAssertEqual(sut.stars, Constants.stars, "Car's stars should be equal to \(Constants.stars)")
-        XCTAssertEqual(sut.image, Constants.image, "Car's image should be equal to \(Constants.image)")
-        XCTAssertEqual(sut.description, Constants.description, "Car's description should be equal to \(Constants.description)")
-        XCTAssertEqual(sut.isDiscovered, Constants.isDiscovered, "Car's idDiscovered property should be equal to \(Constants.isDiscovered)")
+        XCTAssertEqual(sut.make, DesiredParameters.makeName, "Car's make should be equal to \(DesiredParameters.makeName)")
+        XCTAssertEqual(sut.model, DesiredParameters.modelName, "Car's model should be equal to \(DesiredParameters.modelName)")
+        XCTAssertEqual(sut.engine, DesiredParameters.engine, "Car's engine should be equal to \(DesiredParameters.engine)")
+        XCTAssertEqual(sut.power, DesiredParameters.power, "Car's power should be equal to \(DesiredParameters.power)")
+        XCTAssertEqual(sut.id, DesiredParameters.id, "Car's id should be equal to \(DesiredParameters.id)")
+        XCTAssertEqual(sut.stars, DesiredParameters.stars, "Car's stars should be equal to \(DesiredParameters.stars)")
+        XCTAssertEqual(sut.image, DesiredParameters.image, "Car's image should be equal to \(DesiredParameters.image)")
+        XCTAssertEqual(sut.description, DesiredParameters.description, "Car's description should be equal to \(DesiredParameters.description)")
+        XCTAssertEqual(sut.isDiscovered, DesiredParameters.isDiscovered, "Car's idDiscovered property should be equal to \(DesiredParameters.isDiscovered)")
     }
 }
