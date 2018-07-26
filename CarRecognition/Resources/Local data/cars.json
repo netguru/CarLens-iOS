@@ -1,24 +1,7 @@
 {
   "cars": [
     {
-      "id": "ToyotaCamry",
-      "brand": "Toyota",
-      "model": "Camry",
-      "description": "Sold since 1982, spanning multiple generations. Originally compact in size, later Camry models have grown to fit mid-size classification.",
-      "stars": 4,
-      "acceleration_mph": 7.6,
-      "acceleration_kph": 7.9,
-      "speed_mph": 155,
-      "speed_kph": 249,
-      "power": 301,
-      "engine": 3500,
-      "brand_logo_image": "Toyota",
-      "brand_logo_image_locked": "Toyota_locked",
-      "image": "ToyotaCamry",
-      "image_locked": "ToyotaCamry_locked"
-    },
-    {
-      "id": "HondaCivic",
+      "id": "honda civic",
       "brand": "Honda",
       "model": "Civic",
       "description": "Originally a subcompact, the Civic has gone through several generational changes, becoming both larger and more upmarket.",
@@ -35,7 +18,7 @@
       "image_locked": "HondaCivic_locked"
     },
     {
-      "id": "ToyotaCorolla",
+      "id": "toyota corolla",
       "brand": "Toyota",
       "model": "Corolla",
       "description": "The Toyota Corolla is a line of cars manufactured by Toyota. Introduced in 1966, it has been the best-selling car worldwide since 1974.",
@@ -52,7 +35,7 @@
       "image_locked": "ToyotaCorolla_locked"
     },
     {
-      "id": "FordFiesta",
+      "id": "ford fiesta",
       "brand": "Ford",
       "model": "Fiesta",
       "description": "Ford Fiesta has been marketed by Ford since 1976. Ford has sold over 16 million Fiestas since then, making it a best-seller.",
@@ -69,24 +52,7 @@
       "image_locked": "FordFiesta_locked"
     },
     {
-      "id": "VolkswagenGolf",
-      "brand": "Volkswagen",
-      "model": "Golf",
-      "description": "The Volkswagen Golf is a compact car produced by the German manufacturer Volkswagen since 1974, marketed worldwide across seven generations.",
-      "stars": 2,
-      "acceleration_mph": 9.6,
-      "acceleration_kph": 9.9,
-      "speed_mph": 128,
-      "speed_kph": 206,
-      "power": 85,
-      "engine": 1000,
-      "brand_logo_image": "Volkswagen",
-      "brand_logo_image_locked": "Volkswagen_locked",
-      "image": "VolkswagenGolf",
-      "image_locked": "VolkswagenGolf_locked"
-    },
-    {
-      "id": "NissanQashqai",
+      "id": "nissan qashqai",
       "brand": "Nissan",
       "model": "Qashqai",
       "description": "Qashqai is a compact crossover SUV produced by Nissan since 2006. Qashqai used to be called Nissan Dualis in Japan and Australia.",
@@ -103,7 +69,7 @@
       "image_locked": "NissanQashqai_locked"
     },
     {
-      "id": "VolkswagenPassat",
+      "id": "volkswagen passat",
       "brand": "Volkswagen",
       "model": "Passat",
       "description": "Volkswagen Passat is a large family car manufactured and marketed by Volkswagen since 1973, now in its eighth generation. ",
@@ -118,23 +84,6 @@
       "brand_logo_image_locked": "Volkswagen_locked",
       "image": "VolkswagenPassat",
       "image_locked": "VolkswagenPassat_locked"
-    },
-    {
-      "id": "VolkswagenTiguan",
-      "brand": "Volkswagen",
-      "model": "Tiguan",
-      "description": "The Volkswagen Tiguan is a compact crossover vehicle (CUV). Introduced in 2007, it uses the PQ35 platform of the Volkswagen Golf.",
-      "stars": 3,
-      "acceleration_mph": 9.2,
-      "acceleration_kph": 9.5,
-      "speed_mph": 130,
-      "speed_kph": 209,
-      "power": 240,
-      "engine": 2000,
-      "brand_logo_image": "Volkswagen",
-      "brand_logo_image_locked": "Volkswagen_locked",
-      "image": "VolkswagenTiguan",
-      "image_locked": "VolkswagenTiguan_locked"
-    },
+    }
   ]
 }

@@ -42,7 +42,7 @@ internal struct RecognitionResult: CustomStringConvertible {
             recognition = .car(car)
         } else if label == "other car" {
             recognition = .otherCar
-        } else if label == "not car" {
+        } else if label == "not a car" {
             recognition = .notCar
         } else {
             return nil
