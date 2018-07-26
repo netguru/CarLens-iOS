@@ -80,7 +80,9 @@ internal final class RecognitionView: View, ViewSetupable {
             switch mode {
             case .basic:
                 closeButton.isHidden = true
-                modelStackView.isHidden = false
+                #if !ENV_RELEASE
+                    modelStackView.isHidden = false
+                #endif
                 scanButton.isHidden = true
             case .withCard:
                 closeButton.isHidden = true
@@ -88,7 +90,9 @@ internal final class RecognitionView: View, ViewSetupable {
                 scanButton.isHidden = true
             case .afterCardRemoval:
                 closeButton.isHidden = false
-                modelStackView.isHidden = false
+                #if !ENV_RELEASE
+                    modelStackView.isHidden = false
+                #endif
                 scanButton.isHidden = true
             case .explore:
                 closeButton.isHidden = true
@@ -121,5 +125,8 @@ internal final class RecognitionView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
         mode = .basic
+        #if ENV_RELEASE
+            modelStackView.isHidden = true
+        #endif
     }
 }
