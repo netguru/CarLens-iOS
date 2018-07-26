@@ -72,7 +72,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     }
     
     @objc private func recognizeButtonTapAction() {
-        eventTriggered?(.didTapDismiss)
+        discoveredCar == nil ? eventTriggered?(.didTapBackButton) : eventTriggered?(.didTapDismiss)
     }
     
     @objc private func backButtonTapAction() {

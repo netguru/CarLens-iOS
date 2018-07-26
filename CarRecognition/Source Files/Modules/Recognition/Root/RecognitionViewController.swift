@@ -195,7 +195,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     @objc private func scanButtonTapAction() {
         augmentedRealityViews(shouldHide: false)
         classificationService.set(state: .running)
-        customView.mode = .basic
+        customView.mode = .afterCardRemoval
     }
     
     private func checkCameraAccess() {
