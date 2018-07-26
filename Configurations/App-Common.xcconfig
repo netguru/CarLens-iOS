@@ -7,7 +7,7 @@
 #include "../Carthage/Checkouts/xcconfigs/Platforms/iOS.xcconfig"
 #include "../Carthage/Checkouts/xcconfigs/Targets/Application.xcconfig"
 
-_BUILD_VERSION = 0.3
+_BUILD_VERSION = 0.4
 _BUILD_NUMBER = 1
 _COMPILER_SWIFT_VERSION = 4.0
 
