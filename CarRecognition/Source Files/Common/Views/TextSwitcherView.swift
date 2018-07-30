@@ -39,8 +39,7 @@ internal final class TextSwitcherView: View {
 
     /// Initializes the view with given text's
     ///
-    /// - Parameters:
-    ///   - currentText: Initial visible text
+    /// - Parameter currentText: Initial visible text
     init(currentText: String) {
         self.currentText = currentText
         super.init()
@@ -62,8 +61,7 @@ internal final class TextSwitcherView: View {
 extension TextSwitcherView {
     
     /// Switches labels based on current state
-    /// - Parameters:
-    ///   - text: Text to be switched to
+    /// - Parameter text: Text to be switched to
     func switchLabelsWithText(_ text: String) {
         guard text != currentText else { return }
         currentText = text

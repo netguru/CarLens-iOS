@@ -48,8 +48,10 @@ final class CarsDataServiceTests: XCTestCase {
     func testAvailableCars() {
         // given
         var expectedCars = localCarsDataService.cars
-        XCTAssertNil(expectedCars.first, "Cars local data for tests should not be empty.")
-        guard var firstCar = expectedCars.first else { return }
+        guard var firstCar = expectedCars.first else {
+            XCTFail("Cars local data for tests should not be empty.")
+            return
+        }
         sut.mark(car: firstCar, asDiscovered: true)
         firstCar.isDiscovered = true
         expectedCars[0] = firstCar
@@ -64,14 +66,16 @@ final class CarsDataServiceTests: XCTestCase {
     }
    
     func testMarkCar() {
-        let firstCar = localCarsDataService.cars.first
-        XCTAssertNotNil(firstCar, "First car in local data base should not be empty.")
+        //given
         guard let car = testFirstCar() else { return }
+        //when
         sut.mark(car: car, asDiscovered: true)
-        let markedCar = sut.getAvailableCars().filter({ $0.id == car.id }).first
-        XCTAssertNotNil(markedCar, "Updated car after marking should not be nil.")
-        guard let updatedCar = markedCar else { return }
-        XCTAssertEqual(car, updatedCar, "Car should be marked as discovered.")
+        guard let markedCar = sut.getAvailableCars().filter({ $0.id == car.id }).first else {
+            XCTFail("Updated car after marking should not be nil.")
+            return
+        }
+        //then
+        XCTAssertEqual(car, markedCar, "Car should be marked as discovered.")
     }
     
     private func testFirstCar() -> Car? {
