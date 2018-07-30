@@ -7,7 +7,8 @@
 @testable import CarRecognition
 import UIKit
 
-struct UIApplicationMock: URLOpener {
+final class UIApplicationMock: URLOpener {
+    var urlString: String? = nil
     
     var canOpen: Bool = true
     
@@ -17,6 +18,7 @@ struct UIApplicationMock: URLOpener {
     
     func open(_ url: URL, options: [String : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil) {
         if canOpen {
+            self.urlString = url.absoluteString
             completion?(true)
         }
     }
