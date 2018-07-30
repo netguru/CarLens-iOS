@@ -111,7 +111,6 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition, normalizedConfidence: normalizedConfidence)
         switch mostConfidentRecognition.recognition {
         case .car(let car):
-            augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition, normalizedConfidence: normalizedConfidence)
             if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
                 augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
                     self.classificationService.set(state: .paused)
@@ -145,8 +144,9 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     private func augmentedRealityViews(shouldHide: Bool) {
-        augmentedRealityViewController.customView.detectionViewfinderView.isHidden = shouldHide
-        augmentedRealityViewController.customView.dimmView.isHidden = shouldHide
+        let alpha: CGFloat = shouldHide ? 0 : 1
+        augmentedRealityViewController.customView.detectionViewfinderView.alpha = alpha
+        augmentedRealityViewController.customView.dimmView.alpha = alpha
     }
     
     private func addSlidingCard(with car: Car) {
@@ -189,14 +189,20 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     @objc private func closeButtonTapAction() {
-        augmentedRealityViews(shouldHide: true)
-        customView.mode = .explore
+        UIView.animate(withDuration: 0.5) {
+            self.augmentedRealityViews(shouldHide: true)
+            self.customView.mode = .explore
+        }
     }
     
     @objc private func scanButtonTapAction() {
-        augmentedRealityViews(shouldHide: false)
-        classificationService.set(state: .running)
-        customView.mode = .basic
+        UIView.animate(withDuration: 0.5, animations: {
+            self.augmentedRealityViews(shouldHide: false)
+            self.customView.mode = .afterCardRemoval
+        }) { completed in
+            guard completed else { return }
+            self.classificationService.set(state: .running)
+        }
     }
     
     private func checkCameraAccess() {

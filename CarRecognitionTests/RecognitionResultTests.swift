@@ -9,9 +9,9 @@ import XCTest
 
 final class RecognitionResultTests: XCTestCase {
     
-    struct Labels {
+    private struct Labels {
         static let otherCar = "other car"
-        static let notCar = "not car"
+        static let notCar = "not a car"
         static let unknown = "unknown label"
     }
     

@@ -7,7 +7,7 @@
 @testable import CarRecognition
 import XCTest
 
-class FormattersTests: XCTestCase {
+final class FormattersTests: XCTestCase {
     
     func testNumberFormatterFor10Percent() {
         let givenValue = Float(0.1)

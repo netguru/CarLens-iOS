@@ -7,7 +7,7 @@
 @testable import CarRecognition
 import XCTest
 
-class LocalCarsDataServiceTests: XCTestCase {
+final class LocalCarsDataServiceTests: XCTestCase {
     
     var sut: LocalCarsDataService!
     

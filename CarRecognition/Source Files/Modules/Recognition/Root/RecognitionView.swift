@@ -79,21 +79,25 @@ internal final class RecognitionView: View, ViewSetupable {
         didSet {
             switch mode {
             case .basic:
-                closeButton.isHidden = true
-                modelStackView.isHidden = false
-                scanButton.isHidden = true
+                closeButton.alpha = 0
+                #if !ENV_RELEASE
+                modelStackView.alpha = 1
+                #endif
+                scanButton.alpha = 0
             case .withCard:
-                closeButton.isHidden = true
-                modelStackView.isHidden = true
-                scanButton.isHidden = true
+                closeButton.alpha = 0
+                modelStackView.alpha = 0
+                scanButton.alpha = 0
             case .afterCardRemoval:
-                closeButton.isHidden = false
-                modelStackView.isHidden = false
-                scanButton.isHidden = true
+                closeButton.alpha = 1
+                #if !ENV_RELEASE
+                modelStackView.alpha = 1
+                #endif
+                scanButton.alpha = 0
             case .explore:
-                closeButton.isHidden = true
-                modelStackView.isHidden = true
-                scanButton.isHidden = false
+                closeButton.alpha = 0
+                modelStackView.alpha = 0
+                scanButton.alpha = 1
             }
         }
     }
@@ -121,5 +125,8 @@ internal final class RecognitionView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
         mode = .basic
+        #if ENV_RELEASE
+            modelStackView.isHidden = true
+        #endif
     }
 }

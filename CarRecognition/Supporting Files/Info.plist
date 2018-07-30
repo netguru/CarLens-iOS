@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string></string>
+	<string>CarLens</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -26,6 +26,8 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera is used for car detection</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app requires access to the photo library</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>BLOKKNeue-Regular.ttf</string>

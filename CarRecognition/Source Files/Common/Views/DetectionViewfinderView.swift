@@ -20,14 +20,25 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     
     /// Updates the detection state
     ///
-    /// - Parameter result: Result of the detection
+    /// - Parameters:
+    ///     - result: Result of the detection
+    ///     - normalizedConfidence: Normalized confidence of the model
     func update(to result: RecognitionResult, normalizedConfidence: Double) {
         viewfinderAnimationView.animationProgress = CGFloat(normalizedConfidence)
-        guard normalizedConfidence > 0.1 else {
+        guard normalizedConfidence > 0.5 else {
             informationSwitcherView.switchLabelsWithText(Localizable.Recognition.pointCameraAtCar)
             return
         }
-        informationSwitcherView.switchLabelsWithText(Localizable.Recognition.recognizing)
+        let text: String
+        switch result.recognition {
+        case .car(_):
+            text = Localizable.Recognition.recognizing
+        case .otherCar:
+            text = Localizable.Recognition.otherCar
+        case .notCar:
+            text = Localizable.Recognition.pointCameraAtCar
+        }
+        informationSwitcherView.switchLabelsWithText(text)
     }
     
     /// - SeeAlso: ViewSetupable
@@ -38,11 +49,11 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         viewfinderAnimationView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
-        informationSwitcherView.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 0, bottom: 0, right: 0))
+        informationSwitcherView.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
         NSLayoutConstraint.activate([
-            viewfinderAnimationView.bottomAnchor.constraint(equalTo: informationSwitcherView.topAnchor, constant: 30),
+            viewfinderAnimationView.bottomAnchor.constraint(equalTo: informationSwitcherView.topAnchor, constant: 60),
             informationSwitcherView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            informationSwitcherView.heightAnchor.constraint(equalToConstant: 50)
+            informationSwitcherView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
 }
