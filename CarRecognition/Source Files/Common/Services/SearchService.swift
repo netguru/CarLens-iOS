@@ -18,7 +18,7 @@ internal final class SearchService {
     
     /// Initializes the Search Service
     ///
-    /// - Parameter urlOpenerService: service to be used for URL opening.
+    /// - Parameter urlOpenerService: service to be used for URL opening
     init(with urlOpenerService: URLOpenerService = URLOpenerService()) {
         self.urlOpenerService = urlOpenerService
     }
@@ -28,7 +28,7 @@ internal final class SearchService {
     /// - Parameters:
     ///   - service: Service to be searched
     ///   - car: Car to be used for constructing query
-    ///   - completion: Completion to be called when URL will open.
+    ///   - completion: Completion to be called when URL will open
     func search(_ service: Service, for car: Car, completion: ((Bool) -> Void)? = nil) {
         let phrase = "\(car.make) \(car.model)"
         let encoded = phrase.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""

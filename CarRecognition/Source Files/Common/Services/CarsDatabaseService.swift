@@ -12,7 +12,7 @@ internal final class CarsDatabaseService {
     
     /// Initializes the Cars Database Service.
     ///
-    /// - Parameter userDefaults: LUser Defaults used to save the data.
+    /// - Parameter userDefaults: User Defaults used to save the data.
     init(with userDefaults: UserDefaults = UserDefaults()) {
         self.userDefaults = userDefaults
     }

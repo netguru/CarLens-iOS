@@ -16,12 +16,14 @@ final class RecognitionResultTests: XCTestCase {
     }
     
     var sut: RecognitionResult!
+    
     var localCarsDataService: LocalCarsDataService!
+    
     var carsDataService: CarsDataService!
     
     override func setUp() {
         super.setUp()
-        let path = Bundle(for: type(of: self)).path(forResource: "cars", ofType: "json")
+        let path = Bundle(for: type(of: self)).path(forResource: "MockedCars", ofType: "json")
         localCarsDataService = LocalCarsDataService(with: path)
         carsDataService = CarsDataService(localDataService: localCarsDataService)
     }
@@ -34,10 +36,10 @@ final class RecognitionResultTests: XCTestCase {
     }
     
     func testInitizationForCar() {
-        let path = Bundle(for: type(of: self)).path(forResource: "cars", ofType: "json")
-        let car = LocalCarsDataService(with: path).cars.first
-        XCTAssertNotNil(car, "Local car data base should not be empty.")
-        guard let firstCar = car else { return }
+        guard let firstCar = localCarsDataService.cars.first else {
+            XCTFail("Local car data base should not be empty.")
+            return
+        }
         testResult(for: firstCar.id)
         guard let result = sut else { return }
         XCTAssertEqual(result.recognition, RecognitionResult.Recognition.car(firstCar), "Recognition Result should return car for its label.")

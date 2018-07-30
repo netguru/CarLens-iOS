@@ -92,7 +92,7 @@
 		95CA5AB22105F7D2000B4B0D /* LocalCarsDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AB12105F7D2000B4B0D /* LocalCarsDataServiceTests.swift */; };
 		95CA5AB421060064000B4B0D /* RecognitionResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AB321060064000B4B0D /* RecognitionResultTests.swift */; };
 		95CA5AB6210745A1000B4B0D /* CarsDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AB5210745A1000B4B0D /* CarsDataServiceTests.swift */; };
-		95CA5AB821074D35000B4B0D /* cars.json in Resources */ = {isa = PBXBuildFile; fileRef = 95CA5AB721074D35000B4B0D /* cars.json */; };
+		95CA5AB821074D35000B4B0D /* MockedCars.json in Resources */ = {isa = PBXBuildFile; fileRef = 95CA5AB721074D35000B4B0D /* MockedCars.json */; };
 		95CA5ABB21085108000B4B0D /* URLOpenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ABA21085108000B4B0D /* URLOpenerService.swift */; };
 		95CA5ABD210851F0000B4B0D /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ABC210851F0000B4B0D /* UIApplicationExtension.swift */; };
 		95CA5ABF2108536A000B4B0D /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ABE2108536A000B4B0D /* SearchServiceTests.swift */; };
@@ -232,7 +232,7 @@
 		95CA5AB12105F7D2000B4B0D /* LocalCarsDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCarsDataServiceTests.swift; sourceTree = "<group>"; };
 		95CA5AB321060064000B4B0D /* RecognitionResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionResultTests.swift; sourceTree = "<group>"; };
 		95CA5AB5210745A1000B4B0D /* CarsDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsDataServiceTests.swift; sourceTree = "<group>"; };
-		95CA5AB721074D35000B4B0D /* cars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cars.json; sourceTree = "<group>"; };
+		95CA5AB721074D35000B4B0D /* MockedCars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockedCars.json; sourceTree = "<group>"; };
 		95CA5ABA21085108000B4B0D /* URLOpenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpenerService.swift; sourceTree = "<group>"; };
 		95CA5ABC210851F0000B4B0D /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		95CA5ABE2108536A000B4B0D /* SearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
@@ -641,7 +641,7 @@
 		7CFBB8CD20BD94D200058B97 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				95CA5AB721074D35000B4B0D /* cars.json */,
+				95CA5AB721074D35000B4B0D /* MockedCars.json */,
 				7C33E04320BD695700784D63 /* Info.plist */,
 				E8473F1421074F5600EC9EF3 /* MockedCar.json */,
 			);
@@ -802,7 +802,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95CA5AB821074D35000B4B0D /* cars.json in Resources */,
+				95CA5AB821074D35000B4B0D /* MockedCars.json in Resources */,
 				E8473F1521074F5600EC9EF3 /* MockedCar.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

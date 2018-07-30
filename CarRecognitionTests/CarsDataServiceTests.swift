@@ -9,12 +9,14 @@ import XCTest
 final class CarsDataServiceTests: XCTestCase {
     
     var sut: CarsDataService!
+    
     var localCarsDataService: LocalCarsDataService!
+    
     var databaseService: CarsDatabaseService!
     
     override func setUp() {
         super.setUp()
-        let path = Bundle(for: type(of: self)).path(forResource: "cars", ofType: "json")
+        let path = Bundle(for: type(of: self)).path(forResource: "MockedCars", ofType: "json")
         localCarsDataService = LocalCarsDataService(with: path)
         databaseService = CarsDatabaseService()
         sut = CarsDataService(localDataService: localCarsDataService, databaseService: databaseService)
