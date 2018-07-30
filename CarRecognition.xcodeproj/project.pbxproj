@@ -322,7 +322,6 @@
 				95CA5AB12105F7D2000B4B0D /* LocalCarsDataServiceTests.swift */,
 				95CA5AB5210745A1000B4B0D /* CarsDataServiceTests.swift */,
 				95CA5AB321060064000B4B0D /* RecognitionResultTests.swift */,
-				95CA5AC121085668000B4B0D /* UIApplicationMock.swift */,
 				E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */,
 				E8473F19210756F200EC9EF3 /* CarTests.swift */,
 				E8473F1B210757ED00EC9EF3 /* CarARConfigurationTests.swift */,
@@ -660,6 +659,7 @@
 		E8473F0F21074E0100EC9EF3 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				95CA5AC121085668000B4B0D /* UIApplicationMock.swift */,
 				E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */,
 			);
 			path = Mocks;

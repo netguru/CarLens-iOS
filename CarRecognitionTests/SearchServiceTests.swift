@@ -16,8 +16,10 @@ class SearchServiceTests: XCTestCase {
         let urlOpenerService = URLOpenerService(with: UIApplicationMock())
         sut = SearchService(with: urlOpenerService)
         let service = SearchService.Service.google
-        // TODO: here we will use car from Michal changes
-//        let car = CarMock()
+        guard let car = Car.make() else {
+            XCTFail("Local car shouldn't be nil")
+            return
+        }
         let waitForURLToOpen = expectation(description: "Open a search service url.")
         // when
         sut.search(service, for: car, completion: { opened in
