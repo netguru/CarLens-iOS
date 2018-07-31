@@ -101,11 +101,11 @@ extension TextSwitcherView {
 /// ViewSetupable
 extension TextSwitcherView: ViewSetupable {
 
-    /// See also - ViewSetupable
+    /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [firstLabel, secondLabel].forEach(addSubview)
     }
 
-    /// See also - ViewSetupable
+    /// - SeeAlso: ViewSetupable
     func setupConstraints() { }
 }

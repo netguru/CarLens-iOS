@@ -17,7 +17,7 @@ internal final class CameraAccessViewController: TypedViewController<CameraAcces
         case didTriggerRequestAccess
     }
 
-    /// See also 'UIViewController'
+    /// - SeeAlso: 'UIViewController'
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
