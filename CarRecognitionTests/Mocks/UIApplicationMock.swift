@@ -8,6 +8,7 @@
 import UIKit
 
 final class UIApplicationMock: URLOpener {
+    
     var urlString: String? = nil
     
     var canOpen: Bool = true

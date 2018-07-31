@@ -40,11 +40,11 @@ final class CarsDataServiceTests: XCTestCase {
     
     func testMapClassifierForUnknownLabel() {
         // given
-        let uknownLabel = "uknown"
+        let unknownLabel = "unknown"
         // when
-        let result = sut.map(classifierLabel: uknownLabel)
+        let result = sut.map(classifierLabel: unknownLabel)
         // then
-        XCTAssertNil(result, "Cars Data Service should return nil for uknown label.")
+        XCTAssertNil(result, "Cars Data Service should return nil for unknown label.")
     }
     
     func testAvailableCars() {
