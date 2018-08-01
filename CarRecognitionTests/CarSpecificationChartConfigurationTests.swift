@@ -12,7 +12,7 @@ final class CarSpecificationChartConfigurationTests: XCTestCase {
     private struct DesiredParameters {
         static let referenceHorsePower = 320
         static let referenceSpeed = 200
-        static let referenceEngineVolume = 4000
+        static let referenceEngineVolume = 2000
         static let referenceMaxAccelerate = 20.0
         static let referenceMinAccelerate = 2.9
     }
