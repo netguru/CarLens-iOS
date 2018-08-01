@@ -15,7 +15,7 @@ internal struct CarSpecificationChartConfiguration {
     
     /// Reference speed that will be used as 100% depending on the user's system metrics
     var referenceSpeed: Int {
-        switch self.speedType {
+        switch speedType {
         case .mph:
             return referenceSpeedInMiles
         case .kph:
