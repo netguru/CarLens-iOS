@@ -6,9 +6,20 @@
 
 internal final class CarsDataService {
     
-    private let localDataService = LocalCarsDataService()
+    /// Local data service with initial data.
+    private let localDataService: LocalCarsDataService
+    // Data service used to save data after user interaction with it.
+    private let databaseService: CarsDatabaseService
     
-    private let databaseService = CarsDatabaseService()
+    /// Initializes the Cars Data Service.
+    ///
+    /// - Parameters:
+    ///     - localDataService: Local data service with initial data.
+    ///     - databaseService: Data service used to save data after user interaction with it.
+    init(localDataService: LocalCarsDataService = LocalCarsDataService(), databaseService: CarsDatabaseService = CarsDatabaseService()) {
+        self.localDataService = localDataService
+        self.databaseService = databaseService
+    }
     
     /// Maps label received from classifier to car object
     ///

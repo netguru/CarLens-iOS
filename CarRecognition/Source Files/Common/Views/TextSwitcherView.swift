@@ -40,8 +40,7 @@ internal final class TextSwitcherView: View {
 
     /// Initializes the view with given text's
     ///
-    /// - Parameters:
-    ///   - currentText: Initial visible text
+    /// - Parameter currentText: Initial visible text
     init(currentText: String) {
         self.currentText = currentText
         super.init()
@@ -102,11 +101,11 @@ extension TextSwitcherView {
 /// ViewSetupable
 extension TextSwitcherView: ViewSetupable {
 
-    /// See also - ViewSetupable
+    /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [firstLabel, secondLabel].forEach(addSubview)
     }
 
-    /// See also - ViewSetupable
+    /// - SeeAlso: ViewSetupable
     func setupConstraints() { }
 }
