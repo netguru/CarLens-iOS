@@ -44,7 +44,6 @@ final class CarSpecificationChartConfigurationTests: XCTestCase {
         sut = CarSpecificationChartConfiguration(with: speedType)
         // then
         XCTAssertEqual(sut.referenceSpeed, DesiredParameters.referenceSpeedInMiles, "Reference speed for miles should be equal to \(DesiredParameters.referenceSpeedInMiles)")
-        
     }
     
     func testReferenceSpeedForKilometers() {
