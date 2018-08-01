@@ -40,7 +40,7 @@ final class SearchServiceTests: XCTestCase {
         // when
         sut.search(service, for: car, completion: { opened in
             waitForURLToOpen.fulfill()
-            //then
+            // then
             XCTAssert(self.applicationMock.urlString == "https://www.google.com/search?q=\(car.make)%20\(car.model)", "Should have generated a google search service url.")
             XCTAssert(opened == true, "Should have opened a search service url.")
         })

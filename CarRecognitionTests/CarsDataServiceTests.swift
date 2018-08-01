@@ -34,7 +34,7 @@ final class CarsDataServiceTests: XCTestCase {
         guard let car = testFirstCar() else { return }
         // when
         let result = sut.map(classifierLabel: car.id)
-        //then
+        // then
         XCTAssertEqual(result, car, "Cars Data Service should return car object for its label.")
     }
     
@@ -68,15 +68,15 @@ final class CarsDataServiceTests: XCTestCase {
     }
    
     func testMarkCar() {
-        //given
+        // given
         guard let car = testFirstCar() else { return }
-        //when
+        // when
         sut.mark(car: car, asDiscovered: true)
         guard let markedCar = sut.getAvailableCars().filter({ $0.id == car.id }).first else {
             XCTFail("Updated car after marking should not be nil.")
             return
         }
-        //then
+        // then
         XCTAssertEqual(car, markedCar, "Car should be marked as discovered.")
     }
     
