@@ -48,6 +48,7 @@ internal final class FullOvalProgressView: View, ViewSetupable {
         self.maximumNumber = maximumNumber
         super.init()
         setup(currentNumber: currentNumber, maximumNumber: maximumNumber, invalidateChartInstantly: invalidateChartInstantly)
+        accessibilityIdentifier = "carsList/view/ovalProgress"
     }
     
     /// Setups the view with given parameters. Use only inside reusable views.

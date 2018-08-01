@@ -42,6 +42,7 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "carsList/view/main"
         cars = carsDataService.getAvailableCars()
         customView.collectionView.dataSource = self
         customView.collectionView.delegate = self

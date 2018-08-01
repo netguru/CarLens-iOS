@@ -29,6 +29,7 @@ internal final class RecognitionView: View, ViewSetupable {
     lazy var carsListButton: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "button-car-list-gray"), for: .normal)
+        view.accessibilityIdentifier = "recognition/button/cars"
         return view.layoutable()
     }()
     

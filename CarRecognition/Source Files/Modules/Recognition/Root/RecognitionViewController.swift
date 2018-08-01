@@ -70,6 +70,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     override func loadView() {
         super.loadView()
         add(augmentedRealityViewController, inside: customView.augmentedRealityContainer)
+        view.accessibilityIdentifier = "recognition/view/main"
     }
     
     /// Removes car's card.
