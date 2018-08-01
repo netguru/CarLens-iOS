@@ -14,7 +14,7 @@ internal final class SearchService {
     }
     
     /// Service used for opening an URL
-    private var urlOpenerService: URLOpenerService
+    private let urlOpenerService: URLOpenerService
     
     /// Initializes the Search Service
     ///

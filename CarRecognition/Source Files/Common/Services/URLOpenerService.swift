@@ -9,8 +9,10 @@ import UIKit
 
 // Interface for opening an URL
 protocol URLOpener {
+    
     /// - SeeAlso: UIApplication
     func canOpenURL(_ url: URL) -> Bool
+    
     /// - SeeAlso: UIApplication
     func open(_ url: URL, options: [String : Any], completionHandler completion: ((Bool) -> Void)?)
 }

@@ -24,7 +24,7 @@ final class SearchServiceTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
-        urlOpenerService = nil
+        applicationMock = nil
         urlOpenerService = nil
         sut = nil
     }
