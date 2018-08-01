@@ -13,7 +13,7 @@ final class CarSpecificationChartConfigurationTests: XCTestCase {
         static let referenceHorsePower = 320
         static let referenceSpeedInMiles = 200
         static let referenceSpeedInKilometers = 322
-        static let referenceEngineVolume = 4000
+        static let referenceEngineVolume = 2000
         static let referenceMaxAccelerate = 20.0
         static let referenceMinAccelerate = 2.9
     }
