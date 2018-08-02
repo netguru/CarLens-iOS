@@ -13,6 +13,14 @@ final class CarsListTestCase: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        addUIInterruptionMonitor(withDescription: "“CarLens” Would Like to Access the Camera") { (alert) -> Bool in
+            let okButton = alert.buttons["OK"]
+            if okButton.exists {
+                okButton.tap()
+            }
+            return true
+        }
+        
         app.app.launch()
         given("being on cars list view") {
             self.app.on(screen: Recognition.self).goToCarsView()
