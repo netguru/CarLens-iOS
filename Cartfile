@@ -5,3 +5,4 @@
 github "netguru/xcconfigs" == 0.5
 github "bitstadium/HockeySDK-iOS" ~> 5.0
 github "airbnb/lottie-ios" ~> 2.5
+github "uber/ios-snapshot-test-case" ~> 3.0
