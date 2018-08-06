@@ -13,7 +13,6 @@
 		4E2BA30A21185B1500184424 /* GherkinSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30221185B1500184424 /* GherkinSyntax.swift */; };
 		4E2BA30B21185B1500184424 /* XCUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30321185B1500184424 /* XCUITestCase.swift */; };
 		4E2BA30C21185B1500184424 /* TestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30421185B1500184424 /* TestBuilder.swift */; };
-		4E2BA30D21185B1500184424 /* SnapshotTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30521185B1500184424 /* SnapshotTestCase.swift */; };
 		4E2BA30E21185B1500184424 /* UIImage+RemovingStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */; };
 		4E5D80D4211824E600ABA404 /* TestUI-Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */; };
 		4ED4EA662112EFE5008E931A /* CarsListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */; };
@@ -154,7 +153,6 @@
 		4E2BA30221185B1500184424 /* GherkinSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GherkinSyntax.swift; sourceTree = "<group>"; };
 		4E2BA30321185B1500184424 /* XCUITestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUITestCase.swift; sourceTree = "<group>"; };
 		4E2BA30421185B1500184424 /* TestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBuilder.swift; sourceTree = "<group>"; };
-		4E2BA30521185B1500184424 /* SnapshotTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTestCase.swift; sourceTree = "<group>"; };
 		4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RemovingStatusBar.swift"; sourceTree = "<group>"; };
 		4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "TestUI-Common.xcconfig"; sourceTree = "<group>"; };
 		4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListTestCase.swift; sourceTree = "<group>"; };
@@ -331,7 +329,6 @@
 				4E2BA30221185B1500184424 /* GherkinSyntax.swift */,
 				4E2BA30321185B1500184424 /* XCUITestCase.swift */,
 				4E2BA30421185B1500184424 /* TestBuilder.swift */,
-				4E2BA30521185B1500184424 /* SnapshotTestCase.swift */,
 				4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */,
 			);
 			path = "Supporting Files";
@@ -952,7 +949,6 @@
 				4E2BA30721185B1500184424 /* CarsList.swift in Sources */,
 				4E2BA30A21185B1500184424 /* GherkinSyntax.swift in Sources */,
 				4E2BA30E21185B1500184424 /* UIImage+RemovingStatusBar.swift in Sources */,
-				4E2BA30D21185B1500184424 /* SnapshotTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
