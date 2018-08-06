@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4EEF785F21108232002C2AE5"
-               BuildableName = ".xctest"
+               BlueprintIdentifier = "4E3E80C72114797100797302"
+               BuildableName = "CarRecognitionUITests.xctest"
                BlueprintName = "CarRecognitionUITests"
                ReferencedContainer = "container:CarRecognition.xcodeproj">
             </BuildableReference>

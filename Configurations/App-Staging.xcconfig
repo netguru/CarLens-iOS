@@ -2,7 +2,7 @@
 //  App-Staging.xcconfig
 //  CarRecognition
 //
-
+#include "../Carthage/Checkouts/xcconfigs/Targets/Application.xcconfig"
 #include "../Carthage/Checkouts/xcconfigs/Configurations/Debug.xcconfig"
 #include "App-Common.xcconfig"
 

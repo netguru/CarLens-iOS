@@ -5,23 +5,13 @@
 
 
 import XCTest
+import FBSnapshotTestCase
 
-final class CarsListTestCase: XCTestCase {
-    
-    lazy var app: Screen = Screen(XCUIApplication())
+final class CarsListTestCase: XCUITestCase {
     
     override func setUp() {
         super.setUp()
         
-        addUIInterruptionMonitor(withDescription: "“CarLens” Would Like to Access the Camera") { (alert) -> Bool in
-            let okButton = alert.buttons["OK"]
-            if okButton.exists {
-                okButton.tap()
-            }
-            return true
-        }
-        
-        app.app.launch()
         given("being on cars list view") {
             self.app.on(screen: Recognition.self).goToCarsView()
         }
@@ -57,5 +47,52 @@ final class CarsListTestCase: XCTestCase {
         then("recognition should be visible") {
             XCTAssertTrue(self.app.on(screen: Recognition.self).isDisplayed)
         }
+    }
+}
+
+// MARK: - Snapshot tests
+extension CarsListTestCase {
+    
+    private var isOnRecordMode: Bool {
+        return false
+    }
+
+    private func swipeLeft() {
+        app.on(screen: CarsList.self).app.swipeLeft()
+    }
+    
+    @discardableResult
+    private func verifyView(_ identifier: String) -> Screen {
+        return app.on(screen: CarsList.self).wait(for: 2).verifyView(testCase: self, record: isOnRecordMode, agnosticOptions: [.screenSize], identifier: identifier)
+    }
+    
+    func testHondaCivicScreenLook() {
+        verifyView("initial_view")
+    }
+    
+    func testToyotaCorollaScreenLook() {
+        swipeLeft()
+        verifyView("after_1_swipe_left")
+    }
+    
+    func testFordFiestaScreenLook() {
+        for _ in 1...2 {
+        swipeLeft()
+        }
+        verifyView("after_2_swipe_left")
+    }
+    
+    func testNissanQashqaiScreenLook() {
+        for _ in 1...3 {
+            swipeLeft()
+        }
+        verifyView("after_3_swipe_left")
+    }
+    
+    func testVolkswagenPassatScreenLook() {
+        for _ in 1...4 {
+            swipeLeft()
+        }
+        verifyView("after_4_swipe_left")
     }
 }

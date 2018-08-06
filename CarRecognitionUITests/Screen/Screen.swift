@@ -6,6 +6,7 @@
 
 import Foundation
 import XCTest
+import FBSnapshotTestCase
 
 enum UIState: String {
     case exist = "exists == true"
@@ -103,4 +104,29 @@ class Screen: Displayable {
         let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: UIState.exist.rawValue), object: element)
         return XCTWaiter.wait(for: [expectation], timeout: TimeInterval(timeout)) != .timedOut
     }
+
+    
+    @discardableResult
+    func verifyView(testCase: XCUITestCase, record: Bool = false, agnosticOptions: FBSnapshotTestCaseAgnosticOption = .none, identifier: String = "", suffixes: NSOrderedSet = FBSnapshotTestCaseDefaultSuffixes(), tolerance: CGFloat = 0, file: StaticString = #file, line: UInt = #line) -> Screen {
+        makeTestAppWindowKeyAndVisible()
+        testCase.recordMode = record
+        testCase.agnosticOptions = agnosticOptions
+        if let croppedImage = app.screenshot().image.removingStatusBar {
+            testCase.FBSnapshotVerifyView(UIImageView(image: croppedImage), identifier: identifier, suffixes: suffixes, tolerance: tolerance)
+        } else {
+            XCTFail("An error occurred while cropping the screenshot", file: file, line: line)
+        }
+        return self
+    }
 }
+
+// MARK: Private
+private extension Screen {
+    
+    func makeTestAppWindowKeyAndVisible() {
+        let scale = UIScreen.main.scale
+        let frame = app.windows.element(boundBy: 0).frame.applying(CGAffineTransform(scaleX: scale, y: scale))
+        UIWindow(frame: frame).makeKeyAndVisible()
+    }
+}
+

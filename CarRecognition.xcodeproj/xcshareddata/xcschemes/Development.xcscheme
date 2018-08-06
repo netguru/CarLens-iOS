@@ -33,8 +33,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4EEF785F21108232002C2AE5"
-               BuildableName = ".xctest"
+               BlueprintIdentifier = "4E3E80C72114797100797302"
+               BuildableName = "CarRecognitionUITests.xctest"
                BlueprintName = "CarRecognitionUITests"
                ReferencedContainer = "container:CarRecognition.xcodeproj">
             </BuildableReference>
@@ -82,6 +82,18 @@
             ReferencedContainer = "container:CarRecognition.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "FB_REFERENCE_IMAGE_DIR"
+            value = "$(SRCROOT)/$(PROJECT_NAME)TestsImages/ReferenceImages"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "IMAGE_DIFF_DIR"
+            value = "$(SRCROOT)/$(PROJECT_NAME)TestsImages/FailureDiffs"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
