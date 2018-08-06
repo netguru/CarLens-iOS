@@ -1,0 +1,38 @@
+{
+  "cars": [
+    {
+       "id": "ToyotaPrius",
+       "brand": "Toyota",
+       "model": "Prius",
+       "description": "The Toyota Corolla is a line of cars manufactured by Toyota. Introduced in 1966, it has been the best-selling car worldwide since 1974.",
+       "stars": 2,
+       "acceleration_mph": 10.1,
+       "acceleration_kph": 10.5,
+       "speed_mph": 130,
+       "speed_kph": 209,
+       "power": 90,
+       "engine": 1330,
+       "brand_logo_image": "Toyota",
+       "brand_logo_image_locked": "Toyota_locked",
+       "image": "ToyotaCorolla",
+       "image_locked": "ToyotaCorolla_locked"
+    },
+    {
+      "id": "HondaCanada",
+      "brand": "Honda",
+      "model": "Canada",
+      "description": "Originally a subcompact, the Civic has gone through several generational changes, becoming both larger and more upmarket.",
+      "stars": 2,
+      "acceleration_mph": 10.0,
+      "acceleration_kph": 10.4,
+      "speed_mph": 135,
+      "speed_kph": 217,
+      "power": 120,
+      "engine": 1000,
+      "brand_logo_image": "Honda",
+      "brand_logo_image_locked": "Honda_locked",
+      "image": "HondaCivic",
+      "image_locked": "HondaCivic_locked"
+    }
+  ]
+}

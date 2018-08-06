@@ -24,7 +24,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     /// Callback with triggered event
     var eventTriggered: ((Event) -> ())?
     
-    /// See also 'UIViewController'
+    /// - SeeAlso: 'UIViewController'
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
