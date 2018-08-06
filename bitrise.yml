@@ -170,7 +170,7 @@ workflows:
             - xcodebuild_test_options: $XCODEBUILD_OPTIONS
             - generate_code_coverage_files: 'yes'
             - should_build_before_test: 'no'
-            - export_uitest_artifacts: 'yes'
+            - export_uitest_artifacts: 'true'
 
   # Archive an app using `xcodebuild` command.
 
