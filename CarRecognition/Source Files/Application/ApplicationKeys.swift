@@ -13,7 +13,7 @@ internal struct ApplicationKeys {
     /// The Hockey App app identifier
     internal var hockeyAppIdentifier: String {
         #if ENV_RELEASE
-            return ""
+            return keys.hOCKEYAPP_APP_ID_PRODUCTION
         #elseif ENV_STAGING || ENV_DEVELOPMENT
             return keys.hOCKEYAPP_APP_ID_STAGING
         #endif
