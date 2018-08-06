@@ -21,6 +21,7 @@ end
 plugin 'cocoapods-keys', {
     project: 'CarRecognition',
     keys: [
-        'HOCKEYAPP_APP_ID_STAGING',
+        'HOCKEYAPP_APP_ID_STAGING',	
+	'HOCKEYAPP_APP_ID_PRODUCTION'
     ]
 }
