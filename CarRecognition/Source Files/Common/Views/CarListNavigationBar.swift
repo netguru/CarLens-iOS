@@ -40,6 +40,8 @@ internal final class CarListNavigationBar: View, ViewSetupable {
         self.maximumNumber = maximumNumber
         self.currentNumber = currentNumber
         super.init()
+        
+        accessibilityIdentifier = "carsList/navigationBar/main"
     }
     
     /// - SeeAlso: ViewSetupable

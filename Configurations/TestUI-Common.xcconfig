@@ -1,5 +1,5 @@
 //
-//  Test-Common.xcconfig
+//  TestUI-Common.xcconfig
 //  CarRecognition
 //
 
@@ -9,13 +9,12 @@
 __PRODUCT_BUNDLE_IDENTIFIER_SUFFIX = .test
 
 _ENVIRONMENTS = ENV_TESTS
-_BUNDLE_NAME = CarRecognition Tests
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/CarRecognitionTests/Supporting Files/Info.plist
+_BUNDLE_NAME = CarRecognitionUITests
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/CarRecognitionUITests/Info.plist
 
 _CODESIGN_STYLE =
 _CODESIGN_DEVELOPMENT_TEAM =
 _CODESIGN_IDENTITY =
 _CODESIGN_PROFILE_SPECIFIER =
 
-TEST_HOST = $(BUILT_PRODUCTS_DIR)/CarRecognition.app/CarRecognition
-BUNDLE_LOADER = $(TEST_HOST)
+TEST_TARGET_NAME = CarRecognition
