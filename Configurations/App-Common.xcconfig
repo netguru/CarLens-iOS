@@ -5,7 +5,7 @@
 
 #include "../Carthage/Checkouts/xcconfigs/Common/Common.xcconfig"
 #include "../Carthage/Checkouts/xcconfigs/Platforms/iOS.xcconfig"
-#include "../Carthage/Checkouts/xcconfigs/Targets/Application.xcconfig"
+#include "../Carthage/Checkouts/xcconfigs/Common/Carthage.xcconfig"
 
 _BUILD_VERSION = 0.4
 _BUILD_NUMBER = 1
@@ -18,9 +18,6 @@ _BUNDLE_IDENTIFIER = co.netguru.car.recognition$(__PRODUCT_BUNDLE_IDENTIFIER_SUF
 
 _DEPLOYMENT_TARGET_IOS = 11.0
 _CODESIGN_STYLE = Manual
-_CARTHAGE_BUILD_PATH = $(PROJECT_DIR)/Carthage/Build/iOS
-_COMPILER_FRAMEWORK_SEARCH_PATHS = $(inherited) $(SRCROOT)
 
 SWIFT_OBJC_BRIDGING_HEADER = $(SRCROOT)/CarRecognition/Supporting Files/Bridging-Header.h
-ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
-SSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = SplashScreen
+_ASSET_ICON = AppIcon

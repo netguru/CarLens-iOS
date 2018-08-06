@@ -3,8 +3,6 @@
 //  CarRecognitionUITests
 //
 
-
-import Foundation
 import XCTest
 
 enum UIState: String {

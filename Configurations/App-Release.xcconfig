@@ -2,7 +2,7 @@
 //  App-Release.xcconfig
 //  CarRecognition
 //
-
+#include "../Carthage/Checkouts/xcconfigs/Targets/Application.xcconfig"
 #include "../Carthage/Checkouts/xcconfigs/Configurations/Release.xcconfig"
 #include "App-Common.xcconfig"
 
