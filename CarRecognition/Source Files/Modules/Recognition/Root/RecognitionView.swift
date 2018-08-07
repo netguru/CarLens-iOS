@@ -81,7 +81,7 @@ internal final class RecognitionView: View, ViewSetupable {
             switch mode {
             case .basic:
                 closeButton.alpha = 0
-                #if !ENV_RELEASE
+                #if !ENV_PRODUCTION
                 modelStackView.alpha = 1
                 #endif
                 scanButton.alpha = 0
@@ -91,7 +91,7 @@ internal final class RecognitionView: View, ViewSetupable {
                 scanButton.alpha = 0
             case .afterCardRemoval:
                 closeButton.alpha = 1
-                #if !ENV_RELEASE
+                #if !ENV_PRODUCTION
                 modelStackView.alpha = 1
                 #endif
                 scanButton.alpha = 0
@@ -126,7 +126,7 @@ internal final class RecognitionView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
         mode = .basic
-        #if ENV_RELEASE
+        #if ENV_PRODUCTION
             modelStackView.isHidden = true
         #endif
     }
