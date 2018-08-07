@@ -77,7 +77,7 @@ extension CarsListTestCase {
     
     func testFordFiestaScreenLook() {
         for _ in 1...2 {
-        swipeLeft()
+            swipeLeft()
         }
         verifyView("after_2_swipe_left")
     }

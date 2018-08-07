@@ -16,7 +16,6 @@ extension UIImage {
         if let croppedCGImage = cgImage.cropping(to: rect) {
             return UIImage(cgImage: croppedCGImage, scale: scale, orientation: imageOrientation)
         }
-        
         return nil
     }
 }

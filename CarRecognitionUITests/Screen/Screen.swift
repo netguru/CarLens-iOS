@@ -109,11 +109,11 @@ class Screen: Displayable {
         makeTestAppWindowKeyAndVisible()
         testCase.recordMode = record
         testCase.agnosticOptions = agnosticOptions
-        if let croppedImage = app.screenshot().image.removingStatusBar {
-            testCase.FBSnapshotVerifyView(UIImageView(image: croppedImage), identifier: identifier, suffixes: suffixes, tolerance: tolerance)
-        } else {
+        guard let croppedImage = app.screenshot().image.removingStatusBar else {
             XCTFail("An error occurred while cropping the screenshot", file: file, line: line)
+            return self
         }
+        testCase.FBSnapshotVerifyView(UIImageView(image: croppedImage), identifier: identifier, suffixes: suffixes, tolerance: tolerance)
         return self
     }
 }
