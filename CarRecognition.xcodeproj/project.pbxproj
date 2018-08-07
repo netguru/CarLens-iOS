@@ -1186,6 +1186,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E8ABD40C210897C3004F9513 /* App-Release.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = "$(_BUNDLE_TESTABLE)";
 			};
 			name = Release;
 		};
