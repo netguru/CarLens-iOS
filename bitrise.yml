@@ -19,9 +19,8 @@ trigger_map:
   - push_branch: develop
     workflow: build-staging
 
-# Disabled for now - Production scheme not configured at this phase of project
-#  - push_branch: master
-#    workflow: build-release-candidate
+  - push_branch: master
+    workflow: build-release-candidate
 
   - pull_request_target_branch: develop
     workflow: build-pull-request
@@ -73,7 +72,7 @@ workflows:
 
   build-release-candidate:
     envs:
-      - XCODEBUILD_SCHEME: Production
+      - XCODEBUILD_SCHEME: Release
       - HOCKEYAPP_API_TOKEN: $HOCKEYAPP_API_TOKEN_PRODUCTION
       - HOCKEYAPP_APP_ID: $HOCKEYAPP_APP_ID_PRODUCTION
     before_run:
