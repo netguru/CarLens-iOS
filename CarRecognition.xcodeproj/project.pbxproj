@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E2BA30721185B1500184424 /* CarsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA2FE21185B1400184424 /* CarsList.swift */; };
+		4E2BA30821185B1500184424 /* Recognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA2FF21185B1400184424 /* Recognition.swift */; };
+		4E2BA30921185B1500184424 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30021185B1400184424 /* Screen.swift */; };
+		4E2BA30A21185B1500184424 /* GherkinSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30221185B1500184424 /* GherkinSyntax.swift */; };
+		4E2BA30B21185B1500184424 /* XCUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30321185B1500184424 /* XCUITestCase.swift */; };
+		4E2BA30C21185B1500184424 /* TestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30421185B1500184424 /* TestBuilder.swift */; };
+		4E2BA30E21185B1500184424 /* UIImage+RemovingStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */; };
 		4E5D80D4211824E600ABA404 /* TestUI-Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */; };
-		4E5D80D62118267D00ABA404 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5D80D52118267D00ABA404 /* TestCase.swift */; };
 		4ED4EA662112EFE5008E931A /* CarsListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */; };
-		4EEF787021119BB3002C2AE5 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF786F21119BB3002C2AE5 /* Screen.swift */; };
-		4EEF787321119F32002C2AE5 /* Recognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF787221119F32002C2AE5 /* Recognition.swift */; };
-		4EEF78752111A09F002C2AE5 /* CarsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF78742111A09F002C2AE5 /* CarsList.swift */; };
-		4EEF787B2111B653002C2AE5 /* GherkinSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEF787A2111B653002C2AE5 /* GherkinSyntax.swift */; };
 		7C21A13E20EE7ABF001E5714 /* CarListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */; };
 		7C21A14020EE807B001E5714 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A13F20EE807B001E5714 /* UICollectionViewExtension.swift */; };
 		7C21A14220EE819F001E5714 /* CarListFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A14120EE819F001E5714 /* CarListFlowLayout.swift */; };
@@ -98,13 +100,13 @@
 		95CA5AB02105E547000B4B0D /* FormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AAF2105E547000B4B0D /* FormattersTests.swift */; };
 		95CA5AB22105F7D2000B4B0D /* LocalCarsDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AB12105F7D2000B4B0D /* LocalCarsDataServiceTests.swift */; };
 		95CA5AB421060064000B4B0D /* RecognitionResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AB321060064000B4B0D /* RecognitionResultTests.swift */; };
-		95CA5ACC211085CC000B4B0D /* CarRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ACB211085CC000B4B0D /* CarRecognitionModel.mlmodel */; };
 		95CA5AB6210745A1000B4B0D /* CarsDataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AB5210745A1000B4B0D /* CarsDataServiceTests.swift */; };
 		95CA5AB821074D35000B4B0D /* MockedCars.json in Resources */ = {isa = PBXBuildFile; fileRef = 95CA5AB721074D35000B4B0D /* MockedCars.json */; };
 		95CA5ABB21085108000B4B0D /* URLOpenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ABA21085108000B4B0D /* URLOpenerService.swift */; };
 		95CA5ABD210851F0000B4B0D /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ABC210851F0000B4B0D /* UIApplicationExtension.swift */; };
 		95CA5ABF2108536A000B4B0D /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ABE2108536A000B4B0D /* SearchServiceTests.swift */; };
 		95CA5AC221085668000B4B0D /* UIApplicationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AC121085668000B4B0D /* UIApplicationMock.swift */; };
+		95CA5ACC211085CC000B4B0D /* CarRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ACB211085CC000B4B0D /* CarRecognitionModel.mlmodel */; };
 		E8379BB220FE18B9007D759B /* TextSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8379BB120FE18B9007D759B /* TextSwitcherView.swift */; };
 		E8473F0C21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */; };
 		E8473F1121074E0F00EC9EF3 /* ModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */; };
@@ -145,15 +147,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E2BA2FE21185B1400184424 /* CarsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsList.swift; sourceTree = "<group>"; };
+		4E2BA2FF21185B1400184424 /* Recognition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recognition.swift; sourceTree = "<group>"; };
+		4E2BA30021185B1400184424 /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		4E2BA30221185B1500184424 /* GherkinSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GherkinSyntax.swift; sourceTree = "<group>"; };
+		4E2BA30321185B1500184424 /* XCUITestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUITestCase.swift; sourceTree = "<group>"; };
+		4E2BA30421185B1500184424 /* TestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBuilder.swift; sourceTree = "<group>"; };
+		4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RemovingStatusBar.swift"; sourceTree = "<group>"; };
 		4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "TestUI-Common.xcconfig"; sourceTree = "<group>"; };
-		4E5D80D52118267D00ABA404 /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
 		4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListTestCase.swift; sourceTree = "<group>"; };
 		4EEF786021108232002C2AE5 /* CarRecognitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarRecognitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEF786421108232002C2AE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EEF786F21119BB3002C2AE5 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
-		4EEF787221119F32002C2AE5 /* Recognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recognition.swift; sourceTree = "<group>"; };
-		4EEF78742111A09F002C2AE5 /* CarsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsList.swift; sourceTree = "<group>"; };
-		4EEF787A2111B653002C2AE5 /* GherkinSyntax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GherkinSyntax.swift; sourceTree = "<group>"; };
 		7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C21A13F20EE807B001E5714 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		7C21A14120EE819F001E5714 /* CarListFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListFlowLayout.swift; sourceTree = "<group>"; };
@@ -254,13 +258,13 @@
 		95CA5AAF2105E547000B4B0D /* FormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattersTests.swift; sourceTree = "<group>"; };
 		95CA5AB12105F7D2000B4B0D /* LocalCarsDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCarsDataServiceTests.swift; sourceTree = "<group>"; };
 		95CA5AB321060064000B4B0D /* RecognitionResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionResultTests.swift; sourceTree = "<group>"; };
-		95CA5ACB211085CC000B4B0D /* CarRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognitionModel.mlmodel; sourceTree = "<group>"; };
 		95CA5AB5210745A1000B4B0D /* CarsDataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsDataServiceTests.swift; sourceTree = "<group>"; };
 		95CA5AB721074D35000B4B0D /* MockedCars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockedCars.json; sourceTree = "<group>"; };
 		95CA5ABA21085108000B4B0D /* URLOpenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLOpenerService.swift; sourceTree = "<group>"; };
 		95CA5ABC210851F0000B4B0D /* UIApplicationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtension.swift; sourceTree = "<group>"; };
 		95CA5ABE2108536A000B4B0D /* SearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
 		95CA5AC121085668000B4B0D /* UIApplicationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationMock.swift; sourceTree = "<group>"; };
+		95CA5ACB211085CC000B4B0D /* CarRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognitionModel.mlmodel; sourceTree = "<group>"; };
 		E8379BB120FE18B9007D759B /* TextSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSwitcherView.swift; sourceTree = "<group>"; };
 		E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDatabaseServiceTests.swift; sourceTree = "<group>"; };
 		E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsFactory.swift; sourceTree = "<group>"; };
@@ -309,42 +313,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E2BA2FD21185B1400184424 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				4E2BA2FE21185B1400184424 /* CarsList.swift */,
+				4E2BA2FF21185B1400184424 /* Recognition.swift */,
+				4E2BA30021185B1400184424 /* Screen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		4E2BA30121185B1500184424 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E2BA30221185B1500184424 /* GherkinSyntax.swift */,
+				4E2BA30321185B1500184424 /* XCUITestCase.swift */,
+				4E2BA30421185B1500184424 /* TestBuilder.swift */,
+				4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4EEF786121108232002C2AE5 /* CarRecognitionUITests */ = {
 			isa = PBXGroup;
 			children = (
 				4EEF78762111A524002C2AE5 /* Features */,
-				4EEF787121119F13002C2AE5 /* Screens */,
-				4EEF78792111B607002C2AE5 /* Extension */,
+				4E2BA2FD21185B1400184424 /* Screen */,
+				4E2BA30121185B1500184424 /* Supporting Files */,
 				4EEF786421108232002C2AE5 /* Info.plist */,
 			);
 			path = CarRecognitionUITests;
-			sourceTree = "<group>";
-		};
-		4EEF787121119F13002C2AE5 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				4EEF786F21119BB3002C2AE5 /* Screen.swift */,
-				4EEF787221119F32002C2AE5 /* Recognition.swift */,
-				4EEF78742111A09F002C2AE5 /* CarsList.swift */,
-			);
-			path = Screens;
 			sourceTree = "<group>";
 		};
 		4EEF78762111A524002C2AE5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */,
-				4E5D80D52118267D00ABA404 /* TestCase.swift */,
 			);
 			path = Features;
-			sourceTree = "<group>";
-		};
-		4EEF78792111B607002C2AE5 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				4EEF787A2111B653002C2AE5 /* GherkinSyntax.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		7C33E02020BD695600784D63 = {
@@ -814,6 +820,7 @@
 				4EEF785C21108232002C2AE5 /* Sources */,
 				4EEF785D21108232002C2AE5 /* Frameworks */,
 				4EEF785E21108232002C2AE5 /* Resources */,
+				4E9004CB2119793000104235 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -944,6 +951,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4E9004CB2119793000104235 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(_CARTHAGE_BUILD_PATH)/FBSnapshotTestCase.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
 		7CB817E720C9375800B51C3D /* Carthage script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -967,12 +988,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4EEF787B2111B653002C2AE5 /* GherkinSyntax.swift in Sources */,
+				4E2BA30921185B1500184424 /* Screen.swift in Sources */,
 				4ED4EA662112EFE5008E931A /* CarsListTestCase.swift in Sources */,
-				4EEF787321119F32002C2AE5 /* Recognition.swift in Sources */,
-				4EEF78752111A09F002C2AE5 /* CarsList.swift in Sources */,
-				4EEF787021119BB3002C2AE5 /* Screen.swift in Sources */,
-				4E5D80D62118267D00ABA404 /* TestCase.swift in Sources */,
+				4E2BA30821185B1500184424 /* Recognition.swift in Sources */,
+				4E2BA30C21185B1500184424 /* TestBuilder.swift in Sources */,
+				4E2BA30B21185B1500184424 /* XCUITestCase.swift in Sources */,
+				4E2BA30721185B1500184424 /* CarsList.swift in Sources */,
+				4E2BA30A21185B1500184424 /* GherkinSyntax.swift in Sources */,
+				4E2BA30E21185B1500184424 /* UIImage+RemovingStatusBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

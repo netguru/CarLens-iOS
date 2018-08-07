@@ -82,6 +82,18 @@
             ReferencedContainer = "container:CarRecognition.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "FB_REFERENCE_IMAGE_DIR"
+            value = "$(SRCROOT)/$(PROJECT_NAME)TestsImages/ReferenceImages"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "IMAGE_DIFF_DIR"
+            value = "$(SRCROOT)/$(PROJECT_NAME)TestsImages/FailureDiffs"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

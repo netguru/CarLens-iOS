@@ -37,6 +37,7 @@ app:
     - XCODEBUILD_PROJECT: ./CarRecognition.xcodeproj
     - XCODEBUILD_OPTIONS: _BUILD_NUMBER=$BITRISE_BUILD_NUMBER
 
+
 # Workflow declarations.
 #
 # This list contains workflows used in the above trigger map.
@@ -168,6 +169,7 @@ workflows:
             - xcodebuild_test_options: $XCODEBUILD_OPTIONS
             - generate_code_coverage_files: 'yes'
             - should_build_before_test: 'no'
+            - export_uitest_artifacts: 'true'
 
   # Archive an app using `xcodebuild` command.
 
