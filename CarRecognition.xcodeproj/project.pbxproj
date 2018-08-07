@@ -788,6 +788,7 @@
 				4EEF785C21108232002C2AE5 /* Sources */,
 				4EEF785D21108232002C2AE5 /* Frameworks */,
 				4EEF785E21108232002C2AE5 /* Resources */,
+				4E9004CB2119793000104235 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -918,6 +919,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4E9004CB2119793000104235 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(_CARTHAGE_BUILD_PATH)/FBSnapshotTestCase.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "carthage copy-frameworks";
+		};
 		7CB817E720C9375800B51C3D /* Carthage script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
