@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copuright © 2018 by Netguru" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYA-Fn-aCa">
-                                <rect key="frame" x="88.333333333333329" y="746" width="199.33333333333337" height="17"/>
+                                <rect key="frame" x="88.666666666666671" y="739" width="199.33333333333331" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                             <constraint firstAttribute="bottom" secondItem="NBK-EJ-mB3" secondAttribute="bottom" id="BDt-Jo-DU4"/>
                             <constraint firstItem="M15-jF-aNK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HTd-DI-VOl"/>
                             <constraint firstItem="NBK-EJ-mB3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="O9P-DN-L0b"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pYA-Fn-aCa" secondAttribute="bottom" constant="15" id="hkf-D1-uYg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pYA-Fn-aCa" secondAttribute="bottom" constant="22" id="hkf-D1-uYg"/>
                             <constraint firstItem="NBK-EJ-mB3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mHe-ef-vjb"/>
                             <constraint firstItem="NBK-EJ-mB3" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="nmV-W6-bHK"/>
                             <constraint firstItem="M15-jF-aNK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="tpI-3m-lGD"/>
