@@ -14,6 +14,9 @@
 		4E2BA30B21185B1500184424 /* XCUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30321185B1500184424 /* XCUITestCase.swift */; };
 		4E2BA30C21185B1500184424 /* TestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30421185B1500184424 /* TestBuilder.swift */; };
 		4E2BA30E21185B1500184424 /* UIImage+RemovingStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */; };
+		4E3560CE211C423C00AC31C7 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3560CD211C423C00AC31C7 /* OnboardingPageViewController.swift */; };
+		4E3560D0211C436000AC31C7 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3560CF211C436000AC31C7 /* OnboardingViewController.swift */; };
+		4E3560D2211C469F00AC31C7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3560D1211C469F00AC31C7 /* OnboardingView.swift */; };
 		4E5D80D4211824E600ABA404 /* TestUI-Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */; };
 		4ED4EA662112EFE5008E931A /* CarsListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */; };
 		7C21A13E20EE7ABF001E5714 /* CarListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */; };
@@ -154,6 +157,9 @@
 		4E2BA30321185B1500184424 /* XCUITestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUITestCase.swift; sourceTree = "<group>"; };
 		4E2BA30421185B1500184424 /* TestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBuilder.swift; sourceTree = "<group>"; };
 		4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RemovingStatusBar.swift"; sourceTree = "<group>"; };
+		4E3560CD211C423C00AC31C7 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		4E3560CF211C436000AC31C7 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		4E3560D1211C469F00AC31C7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "TestUI-Common.xcconfig"; sourceTree = "<group>"; };
 		4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListTestCase.swift; sourceTree = "<group>"; };
 		4EEF786021108232002C2AE5 /* CarRecognitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarRecognitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,6 +338,16 @@
 				4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E3560CA211C3C9800AC31C7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4E3560CD211C423C00AC31C7 /* OnboardingPageViewController.swift */,
+				4E3560CF211C436000AC31C7 /* OnboardingViewController.swift */,
+				4E3560D1211C469F00AC31C7 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		4EEF786121108232002C2AE5 /* CarRecognitionUITests */ = {
@@ -525,6 +541,7 @@
 		7CB817AF20C9306800B51C3D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4E3560CA211C3C9800AC31C7 /* Onboarding */,
 				7C93D49320E62C9D00AF6FFC /* Recognition */,
 			);
 			path = Modules;
@@ -1013,6 +1030,7 @@
 				7CB817BC20C9320700B51C3D /* CrashLogger.swift in Sources */,
 				7CEDA77220ECD34100DF3AF0 /* FullOvalProgressView.swift in Sources */,
 				7CEDA77020ECD32D00DF3AF0 /* PartOvalProgressView.swift in Sources */,
+				4E3560D0211C436000AC31C7 /* OnboardingViewController.swift in Sources */,
 				7CB817EC20C937FB00B51C3D /* RecognitionView.swift in Sources */,
 				7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */,
 				7CEDA78620ED4EF900DF3AF0 /* NSAttributedStringFactory.swift in Sources */,
@@ -1043,6 +1061,7 @@
 				7C93D49B20E6317300AF6FFC /* AugmentedRealityView.swift in Sources */,
 				7C77741920E65398007B3851 /* Car.swift in Sources */,
 				E8E4B1A020EE2A65009A93B7 /* ModelNameView.swift in Sources */,
+				4E3560CE211C423C00AC31C7 /* OnboardingPageViewController.swift in Sources */,
 				7C3DC69720F771E0005C8865 /* CarScene.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,
 				7C67179520F243C800183AB4 /* CarListCardView.swift in Sources */,
@@ -1070,6 +1089,7 @@
 				7CB817E120C935B200B51C3D /* FlowAwareViewController.swift in Sources */,
 				7CB817F620C95BB200B51C3D /* RecognitionResult.swift in Sources */,
 				E8EC9DF120F630E700368E50 /* CameraAccessViewController.swift in Sources */,
+				4E3560D2211C469F00AC31C7 /* OnboardingView.swift in Sources */,
 				7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */,
 				7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */,
 				7C67179320EF85C600183AB4 /* LabeledCarImageView.swift in Sources */,
