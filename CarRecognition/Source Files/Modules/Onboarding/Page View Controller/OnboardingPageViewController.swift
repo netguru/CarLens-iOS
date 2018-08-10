@@ -17,8 +17,17 @@ internal final class OnboardingPageViewController: UIPageViewController {
     /// Page View Delegated used to inform about onboarding being finished
     weak var onboardingDelegate: OnboardingPageViewControllerDelegate?
     /// Current page index.
-    private var currentIndex = 0
-    /// Content onboarding view used inside Page View
+    private var currentIndex = 0 {
+        didSet {
+            onChangePage?(currentIndex)
+        }
+    }
+    
+    typealias Page = Int
+    /// Variable which gets called on the changing of pages
+    var onChangePage: ((Page) -> Void)?
+    
+    /// Content onboarding views used inside Page View
     private lazy var contentViewControllers = [
         OnboardingContentViewController(type: .recognizeCars),
         OnboardingContentViewController(type: .second),
@@ -71,10 +80,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
         guard let contentViewController = viewController as? OnboardingContentViewController,
             let index = contentViewControllers.index(of: contentViewController) else { return nil }
         let nextIndex = index + 1
-        guard contentViewControllers.count != nextIndex, contentViewControllers.count > nextIndex else {
-            onboardingDelegate?.didFinishOnboarding(onboardingPageViewController: self)
-            return nil
-        }
+        guard contentViewControllers.count != nextIndex, contentViewControllers.count > nextIndex else { return nil }
         return contentViewControllers[nextIndex]
     }
 }

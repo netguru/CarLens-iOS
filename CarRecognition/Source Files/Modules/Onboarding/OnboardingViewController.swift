@@ -24,6 +24,9 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
         super.viewDidLoad()
         
         customView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
+        pageViewController.onChangePage = { [weak self] page in
+            self?.customView.pageControl.currentPage = page
+        }
     }
     
     @objc private func didTapNext() {
