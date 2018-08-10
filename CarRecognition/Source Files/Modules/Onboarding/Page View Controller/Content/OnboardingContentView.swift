@@ -29,7 +29,12 @@ internal final class OnboardingContentView: View, ViewSetupable {
     }()
     
     // MARK: - Setup
-    
+    /// Setup method for the view
+    ///
+    /// - Parameters:
+    ///  - image: Image to be used for an onboarding information.
+    ///  - titleText: The text to be set as a title.
+    ///  - infoText: The description label text.
     func setup(with image: UIImage, titleText: String, infoText: String) {
         mainImageView.image = image
         titleLabel.text = titleText

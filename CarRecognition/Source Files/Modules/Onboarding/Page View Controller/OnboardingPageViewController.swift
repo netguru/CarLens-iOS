@@ -6,16 +6,25 @@
 
 import UIKit
 
+/// The delegate of OnboardingPageViewController.
+protocol OnboardingPageViewControllerDelegate: class {
+    /// Called when user finished last onboarding screen.
+    /// - Parameter onboardingPageViewController: The View Controller from which the delegate was called.
+    func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController)
+}
+
 internal final class OnboardingPageViewController: UIPageViewController {
-    
+    /// Page View Delegated used to inform about onboarding being finished
+    weak var onboardingDelegate: OnboardingPageViewControllerDelegate?
+    /// Current page index.
     private var currentIndex = 0
-    
+    /// Content onboarding view used inside Page View
     private lazy var contentViewControllers = [
         OnboardingContentViewController(type: .recognizeCars),
         OnboardingContentViewController(type: .second),
         OnboardingContentViewController(type: .third)
     ]
-    
+    /// - SeeAlso: UIPageViewController
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
     }
@@ -29,8 +38,12 @@ internal final class OnboardingPageViewController: UIPageViewController {
         setupPageViewController()
     }
     
+    /// The method indicating that the user wants to move to the next page.
     func moveToNextPage() {
-        guard currentIndex != contentViewControllers.endIndex - 1 else { return }
+        guard currentIndex != contentViewControllers.endIndex - 1 else {
+            onboardingDelegate?.didFinishOnboarding(onboardingPageViewController: self)
+            return
+        }
         currentIndex += 1
         setViewControllers([contentViewControllers[currentIndex]], direction: .forward, animated: true, completion: nil)
     }
@@ -46,7 +59,6 @@ internal final class OnboardingPageViewController: UIPageViewController {
 
 // MARK: - UIPageViewControllerDataSource
 extension OnboardingPageViewController: UIPageViewControllerDataSource {
-    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard  let contentViewController = viewController as? OnboardingContentViewController,
             let index = contentViewControllers.index(of: contentViewController) else { return nil }
@@ -59,7 +71,10 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
         guard let contentViewController = viewController as? OnboardingContentViewController,
             let index = contentViewControllers.index(of: contentViewController) else { return nil }
         let nextIndex = index + 1
-        guard contentViewControllers.count != nextIndex, contentViewControllers.count > nextIndex else { return nil }
+        guard contentViewControllers.count != nextIndex, contentViewControllers.count > nextIndex else {
+            onboardingDelegate?.didFinishOnboarding(onboardingPageViewController: self)
+            return nil
+        }
         return contentViewControllers[nextIndex]
     }
 }

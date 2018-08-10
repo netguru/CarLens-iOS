@@ -7,9 +7,11 @@
 import UIKit
 
 internal final class OnboardingViewController: TypedViewController<OnboardingView> {
-
+    
+    /// Page View Controller used for onboarding views
     lazy var pageViewController: OnboardingPageViewController = {
-        return OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
+        let viewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
+        return viewController
     }()
     
     override func loadView() {
