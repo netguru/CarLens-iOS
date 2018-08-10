@@ -26,15 +26,21 @@ internal final class OnboardingPageViewController: UIPageViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setViewControllers([contentViewControllers[0]], direction: .forward, animated: false, completion: nil)
-        dataSource = self
+        setupPageViewController()
     }
     
     func moveToNextPage() {
         guard currentIndex != contentViewControllers.endIndex - 1 else { return }
         currentIndex += 1
         setViewControllers([contentViewControllers[currentIndex]], direction: .forward, animated: true, completion: nil)
+    }
+    
+    private func setupPageViewController() {
+        for viewController in contentViewControllers {
+            viewController.delegate = self
+        }
+        setViewControllers([contentViewControllers[0]], direction: .forward, animated: false, completion: nil)
+        dataSource = self
     }
 }
 
@@ -46,8 +52,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
             let index = contentViewControllers.index(of: contentViewController) else { return nil }
         let previousIndex = index - 1
         guard contentViewControllers.count > previousIndex, previousIndex >= 0 else { return nil }
-        currentIndex = previousIndex
-        return contentViewControllers[currentIndex]
+        return contentViewControllers[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -55,7 +60,13 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
             let index = contentViewControllers.index(of: contentViewController) else { return nil }
         let nextIndex = index + 1
         guard contentViewControllers.count != nextIndex, contentViewControllers.count > nextIndex else { return nil }
-        currentIndex = nextIndex
-        return contentViewControllers[currentIndex]
+        return contentViewControllers[nextIndex]
+    }
+}
+
+// MARK: - OnboardingContentPresentable
+extension OnboardingPageViewController: OnboardingContentPresentable {
+    func didPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
+        currentIndex = type.rawValue
     }
 }
