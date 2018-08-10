@@ -36,7 +36,7 @@ internal final class ApplicationFlowController {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
 //        changeRootFlowController(to: makeRecognitionFlowController())
-        window?.rootViewController = OnboardingPageViewController()
+        window?.rootViewController = OnboardingViewController(viewMaker: OnboardingView())
     }
     
     private func makeRecognitionFlowController() -> FlowController {

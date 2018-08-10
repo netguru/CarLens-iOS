@@ -6,7 +6,7 @@
 
 import UIKit
 
-class OnboardingViewController: TypedViewController<OnboardingView> {
+class OnboardingContentViewController: TypedViewController<OnboardingContentView> {
     
     enum `Type` {
         case recognizeCars
@@ -48,7 +48,7 @@ class OnboardingViewController: TypedViewController<OnboardingView> {
     }
 
     init(type: Type) {
-        super.init(viewMaker: OnboardingView())
+        super.init(viewMaker: OnboardingContentView())
         
         customView.mainImageView.image = type.image
         customView.titleLabel.text = type.title
