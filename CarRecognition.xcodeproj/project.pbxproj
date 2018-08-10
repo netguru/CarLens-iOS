@@ -14,6 +14,7 @@
 		4E2BA30B21185B1500184424 /* XCUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30321185B1500184424 /* XCUITestCase.swift */; };
 		4E2BA30C21185B1500184424 /* TestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30421185B1500184424 /* TestBuilder.swift */; };
 		4E2BA30E21185B1500184424 /* UIImage+RemovingStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */; };
+		4E2D74AC211DB4200051ED6E /* indicator-onboarding.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E2D74AB211DB4200051ED6E /* indicator-onboarding.json */; };
 		4E3560CE211C423C00AC31C7 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3560CD211C423C00AC31C7 /* OnboardingPageViewController.swift */; };
 		4E3560D0211C436000AC31C7 /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3560CF211C436000AC31C7 /* OnboardingContentViewController.swift */; };
 		4E3560D2211C469F00AC31C7 /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3560D1211C469F00AC31C7 /* OnboardingContentView.swift */; };
@@ -159,6 +160,7 @@
 		4E2BA30321185B1500184424 /* XCUITestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUITestCase.swift; sourceTree = "<group>"; };
 		4E2BA30421185B1500184424 /* TestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBuilder.swift; sourceTree = "<group>"; };
 		4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RemovingStatusBar.swift"; sourceTree = "<group>"; };
+		4E2D74AB211DB4200051ED6E /* indicator-onboarding.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "indicator-onboarding.json"; sourceTree = "<group>"; };
 		4E3560CD211C423C00AC31C7 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		4E3560CF211C436000AC31C7 /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
 		4E3560D1211C469F00AC31C7 /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
@@ -717,6 +719,7 @@
 		7CF269D420EA452800DCC27D /* Lottie animations */ = {
 			isa = PBXGroup;
 			children = (
+				4E2D74AB211DB4200051ED6E /* indicator-onboarding.json */,
 				7CF269D520EA454000DCC27D /* viewfinder_bracket.json */,
 				7CBF004A20ECBD5100127A9F /* horizontal-progress-chart.json */,
 				7CBF004D20ECBD5100127A9F /* horizontal-stars.json */,
@@ -970,6 +973,7 @@
 				7C3E01C820F63725003B83D6 /* button-ripple.json in Resources */,
 				7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */,
 				7C3E01C620F5EACB003B83D6 /* BLOKKNeue-Regular.ttf in Resources */,
+				4E2D74AC211DB4200051ED6E /* indicator-onboarding.json in Resources */,
 				7CEDA77E20ED044F00DF3AF0 /* gliscor-gothic.ttf in Resources */,
 				7CB817C720C9337000B51C3D /* Localizable.strings in Resources */,
 				7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */,
