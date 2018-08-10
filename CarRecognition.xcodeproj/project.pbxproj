@@ -98,6 +98,7 @@
 		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
 		7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */; };
+		953793FD211DB76D004C3195 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953793FC211DB76D004C3195 /* NSAttributedStringExtension.swift */; };
 		95C7732720FCF66D001DBCC1 /* SystemMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */; };
 		95C7732A21022879001DBCC1 /* SystemMetricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732921022879001DBCC1 /* SystemMetricsTests.swift */; };
 		95CA5AB02105E547000B4B0D /* FormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AAF2105E547000B4B0D /* FormattersTests.swift */; };
@@ -261,6 +262,7 @@
 		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
 		7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationServiceTests.swift; sourceTree = "<group>"; };
+		953793FC211DB76D004C3195 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetrics.swift; sourceTree = "<group>"; };
 		95C7732921022879001DBCC1 /* SystemMetricsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetricsTests.swift; sourceTree = "<group>"; };
 		95CA5AAF2105E547000B4B0D /* FormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattersTests.swift; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 				7CD6212620EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift */,
 				7C3DC69820F77EFF005C8865 /* UIDeviceExtension.swift */,
 				95CA5ABC210851F0000B4B0D /* UIApplicationExtension.swift */,
+				953793FC211DB76D004C3195 /* NSAttributedStringExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1087,6 +1090,7 @@
 				7C3DC69720F771E0005C8865 /* CarScene.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,
 				7C67179520F243C800183AB4 /* CarListCardView.swift in Sources */,
+				953793FD211DB76D004C3195 /* NSAttributedStringExtension.swift in Sources */,
 				7CAD86D420F383750064D50E /* SearchService.swift in Sources */,
 				7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */,
 				E8ED0A2A20EF8A8A002CF8B7 /* CarImage.swift in Sources */,

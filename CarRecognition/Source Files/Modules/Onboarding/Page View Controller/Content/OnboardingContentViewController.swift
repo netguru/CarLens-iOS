@@ -6,7 +6,7 @@
 
 import UIKit
 
-class OnboardingContentViewController: TypedViewController<OnboardingContentView> {
+internal final class OnboardingContentViewController: TypedViewController<OnboardingContentView> {
     
     enum `Type` {
         case recognizeCars
@@ -16,7 +16,7 @@ class OnboardingContentViewController: TypedViewController<OnboardingContentView
         var image: UIImage {
             switch self {
             case .recognizeCars:
-                return UIImage() //TODO: add once it's ready
+                return #imageLiteral(resourceName: "recognizing-cars")
             case .second:
                 return UIImage() //TODO: add once it's ready
             case .third:
@@ -49,11 +49,6 @@ class OnboardingContentViewController: TypedViewController<OnboardingContentView
 
     init(type: Type) {
         super.init(viewMaker: OnboardingContentView())
-        
-        customView.mainImageView.image = type.image
-        customView.titleLabel.text = type.title
-        customView.infoLabel.text = type.info
+        customView.setup(with: type.image, titleText: type.title, infoText: type.info)
     }
-    
-    
 }

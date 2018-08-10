@@ -10,7 +10,7 @@ internal final class OnboardingView: View, ViewSetupable  {
     
     lazy var nextButton: UIButton = {
         let view = UIButton(type: .system)
-        view.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
+        view.setImage(#imageLiteral(resourceName: "button-next-page"), for: .normal)
         return view.layoutable()
     }()
     
@@ -19,10 +19,6 @@ internal final class OnboardingView: View, ViewSetupable  {
     // MARK: - Setup
     func setupViewHierarchy() {
         [pageView, nextButton].forEach { addSubview($0) }
-    }
-    
-    func setupProperties() {
-//        pageView.backgroundColor = .red
     }
     
     func setupConstraints() {

@@ -6,7 +6,7 @@
 
 import UIKit
 
-class OnboardingPageViewController: UIPageViewController {
+internal final class OnboardingPageViewController: UIPageViewController {
     
     private var currentIndex = 0
     
