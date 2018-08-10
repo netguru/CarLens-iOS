@@ -6,9 +6,22 @@
 
 import UIKit
 
+// Intefrace for notifying parent view controller about current page
+protocol OnboardingContentPresentable: class {
+    /// Notify about current page
+    ///
+    ///   Parameter type: Type of current page
+    func didPresentControllerWithType(_ type: OnboardingContentViewController.ContentType)
+}
+
 class OnboardingContentViewController: TypedViewController<OnboardingContentView> {
     
-    enum `Type` {
+    /// Delegate used to inform about current page
+    weak var delegate: OnboardingContentPresentable?
+    
+    private var type: ContentType
+    
+    enum ContentType: Int {
         case recognizeCars
         case second //TODO: change once it's ready
         case third //TODO: change once it's ready
@@ -47,13 +60,17 @@ class OnboardingContentViewController: TypedViewController<OnboardingContentView
         }
     }
 
-    init(type: Type) {
+    init(type: ContentType) {
+        self.type = type
         super.init(viewMaker: OnboardingContentView())
-        
         customView.mainImageView.image = type.image
         customView.titleLabel.text = type.title
         customView.infoLabel.text = type.info
     }
-    
-    
+
+    /// SeeAlso: UIViewController
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        delegate?.didPresentControllerWithType(type)
+    }
 }
