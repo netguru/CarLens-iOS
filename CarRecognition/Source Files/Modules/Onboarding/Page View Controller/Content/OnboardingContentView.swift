@@ -50,7 +50,7 @@ internal final class OnboardingContentView: View, ViewSetupable {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            mainImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
+                mainImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
                 mainImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
                 mainImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
                 mainImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),

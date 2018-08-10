@@ -44,5 +44,4 @@ internal final class OnboardingView: View, ViewSetupable  {
             nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
         ])
     }
-    
 }
