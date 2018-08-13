@@ -9,6 +9,8 @@ import UIKit
 internal final class OnboardingFlowController: FlowController {
     /// Root view controler of the flow
     private(set) var rootViewController = UIViewController()
+    /// Next Flow Controller to which user should be transitioned from this view
+    private(set) var nextFlowController: FlowController?
     
     private let dependencies: ApplicationDependencies
     
@@ -30,9 +32,9 @@ internal final class OnboardingFlowController: FlowController {
         viewController.eventTriggered = { [unowned self] event in
             switch event {
             case .didTriggerFinishOnboarding:
-                let recognitionFlowController = self.makeRecognitionFlowController()
-                let recognitionController = recognitionFlowController.rootViewController
-                viewController.present(recognitionController, animated: false, completion: nil)
+                self.nextFlowController = self.makeRecognitionFlowController()
+                let recognitionController = self.nextFlowController?.rootViewController
+                viewController.present(recognitionController!, animated: false, completion: nil)
             }
         }
         return viewController
