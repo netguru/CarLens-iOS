@@ -12,15 +12,13 @@ final class CarsListTestCase: XCUITestCase {
     override func setUp() {
         super.setUp()
         
-        given("being on onboarding view") {
+        given("being on cars list view") {
             self.app.on(screen: Onboarding.self).goToRecognitionView()
+            .on(screen: Recognition.self).goToCarsView()
         }
     }
     
     func testProgressViewVisibility() {
-        when("going to cat list view from recognition view") {
-            self.app.on(screen: Recognition.self).goToCarsView()
-        }
         
         then("progressView should be visible") {
           XCTAssertTrue(self.app.on(screen: CarsList.self).isProgressViewVisible)
