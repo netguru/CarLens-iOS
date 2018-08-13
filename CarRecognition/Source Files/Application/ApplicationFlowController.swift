@@ -37,7 +37,7 @@ internal final class ApplicationFlowController {
     func startApp() {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-        if userDefaultsService.shouldShowOnboarding || true {
+        if userDefaultsService.shouldShowOnboarding {
             changeRootFlowController(to: makeOnboardingFlowController())
         } else {
             changeRootFlowController(to: makeRecognitionFlowController())
