@@ -19,7 +19,6 @@ final class CarsListTestCase: XCUITestCase {
     }
     
     func testProgressViewVisibility() {
-        
         then("progressView should be visible") {
           XCTAssertTrue(self.app.on(screen: CarsList.self).isProgressViewVisible)
         }
