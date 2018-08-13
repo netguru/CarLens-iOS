@@ -101,6 +101,8 @@
 		953793FD211DB76D004C3195 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953793FC211DB76D004C3195 /* NSAttributedStringExtension.swift */; };
 		953793FF211DDD2F004C3195 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953793FE211DDD2F004C3195 /* UserDefaultsService.swift */; };
 		9537940121219003004C3195 /* OnboardingFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537940021219003004C3195 /* OnboardingFlowController.swift */; };
+		953794042121A611004C3195 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953794032121A611004C3195 /* Onboarding.swift */; };
+		953794072121B1D7004C3195 /* UserDefaultsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953794062121B1D7004C3195 /* UserDefaultsServiceMock.swift */; };
 		95C7732720FCF66D001DBCC1 /* SystemMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */; };
 		95C7732A21022879001DBCC1 /* SystemMetricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732921022879001DBCC1 /* SystemMetricsTests.swift */; };
 		95CA5AB02105E547000B4B0D /* FormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AAF2105E547000B4B0D /* FormattersTests.swift */; };
@@ -267,6 +269,8 @@
 		953793FC211DB76D004C3195 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		953793FE211DDD2F004C3195 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		9537940021219003004C3195 /* OnboardingFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowController.swift; sourceTree = "<group>"; };
+		953794032121A611004C3195 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		953794062121B1D7004C3195 /* UserDefaultsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsServiceMock.swift; sourceTree = "<group>"; };
 		95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetrics.swift; sourceTree = "<group>"; };
 		95C7732921022879001DBCC1 /* SystemMetricsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetricsTests.swift; sourceTree = "<group>"; };
 		95CA5AAF2105E547000B4B0D /* FormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattersTests.swift; sourceTree = "<group>"; };
@@ -332,6 +336,7 @@
 		4E2BA2FD21185B1400184424 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				953794032121A611004C3195 /* Onboarding.swift */,
 				4E2BA2FE21185B1400184424 /* CarsList.swift */,
 				4E2BA2FF21185B1400184424 /* Recognition.swift */,
 				4E2BA30021185B1400184424 /* Screen.swift */,
@@ -342,6 +347,7 @@
 		4E2BA30121185B1500184424 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				953794052121B1AC004C3195 /* Mocks */,
 				4E2BA30221185B1500184424 /* GherkinSyntax.swift */,
 				4E2BA30321185B1500184424 /* XCUITestCase.swift */,
 				4E2BA30421185B1500184424 /* TestBuilder.swift */,
@@ -752,6 +758,14 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		953794052121B1AC004C3195 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				953794062121B1D7004C3195 /* UserDefaultsServiceMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		95C7732520FCF63F001DBCC1 /* System Metrics */ = {
 			isa = PBXGroup;
 			children = (
@@ -1044,6 +1058,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953794072121B1D7004C3195 /* UserDefaultsServiceMock.swift in Sources */,
+				953794042121A611004C3195 /* Onboarding.swift in Sources */,
 				4E2BA30921185B1500184424 /* Screen.swift in Sources */,
 				4ED4EA662112EFE5008E931A /* CarsListTestCase.swift in Sources */,
 				4E2BA30821185B1500184424 /* Recognition.swift in Sources */,

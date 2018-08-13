@@ -13,6 +13,7 @@ internal final class OnboardingView: View, ViewSetupable  {
     /// Button indicating a possibility of moving to the next page.
     lazy var nextButton: UIButton = {
         let view = UIButton(type: .system)
+        view.accessibilityIdentifier = "onboarding/button/next"
         view.setImage(#imageLiteral(resourceName: "button-next-page"), for: .normal)
         return view.layoutable()
     }()

@@ -31,6 +31,7 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.accessibilityIdentifier = "onboarding/view/main"
         customView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
         pageViewController.onChangePage = { [weak self] page in
             self?.customView.pageControl.currentPage = page
