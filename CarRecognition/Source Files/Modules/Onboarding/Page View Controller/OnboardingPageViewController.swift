@@ -14,7 +14,7 @@ protocol OnboardingPageViewControllerDelegate: class {
 }
 
 internal final class OnboardingPageViewController: UIPageViewController {
-    /// Page View Delegated used to inform about onboarding being finished
+    /// Page View Delegate used to inform about onboarding being finished
     weak var onboardingDelegate: OnboardingPageViewControllerDelegate?
     /// Current page index.
     private var currentIndex = 0 {

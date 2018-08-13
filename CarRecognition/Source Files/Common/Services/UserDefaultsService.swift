@@ -19,7 +19,7 @@ internal final class UserDefaultsService {
     
     /// Initializing the service.
     /// - Parameter userDefaults: userDefaults used for storing data.
-    init(userDefaults: UserDefaults = UserDefaults.standard) {
+    private init(userDefaults: UserDefaults = UserDefaults.standard) {
         self.userDefaults = userDefaults
     }
     

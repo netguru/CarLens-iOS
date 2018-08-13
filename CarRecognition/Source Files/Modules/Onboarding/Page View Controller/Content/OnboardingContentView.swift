@@ -25,7 +25,6 @@ internal final class OnboardingContentView: View, ViewSetupable {
         view.textColor = UIColor.crFontLightGray
         view.numberOfLines = 3
         return view.layoutable()
-       
     }()
     
     // MARK: - Setup
@@ -39,9 +38,9 @@ internal final class OnboardingContentView: View, ViewSetupable {
         mainImageView.image = image
         titleLabel.text = titleText
         infoLabel.attributedText = NSAttributedString(string: infoText)
-                                                        .withKerning(-0.15)
-                                                        .withLineSpacing(1.5, NSTextAlignment.center)
-                                                        .withFont(.systemFont(ofSize: 16))
+                                        .withKerning(-0.15)
+                                        .withLineSpacing(1.5, NSTextAlignment.center)
+                                        .withFont(.systemFont(ofSize: 16))
     }
     
     func setupViewHierarchy() {

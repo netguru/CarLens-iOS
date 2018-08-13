@@ -16,13 +16,11 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
     
     override func loadView() {
         super.loadView()
-        
         add(pageViewController, inside: customView.pageView)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         customView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
         pageViewController.onChangePage = { [weak self] page in
             self?.customView.pageControl.currentPage = page
