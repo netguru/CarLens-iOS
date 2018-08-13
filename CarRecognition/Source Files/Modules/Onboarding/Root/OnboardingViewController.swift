@@ -7,10 +7,20 @@
 import UIKit
 
 internal final class OnboardingViewController: TypedViewController<OnboardingView> {
+    /// Enum describing events that can be triggered by this controller
+    ///
+    /// - didTriggerFinishOnboarding: Send when user is on the last screen of onboarding and triggers the "next" button.
+    enum Event {
+        case didTriggerFinishOnboarding
+    }
+    
+    /// Callback with triggered event
+    var eventTriggered: ((Event) -> ())?
     
     /// Page View Controller used for onboarding views
-    lazy var pageViewController: OnboardingPageViewController = {
+    private lazy var pageViewController: OnboardingPageViewController = {
         let viewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
+        viewController.onboardingDelegate = self
         return viewController
     }()
     
@@ -29,5 +39,11 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
     
     @objc private func didTapNext() {
         pageViewController.moveToNextPage()
+    }
+}
+
+extension OnboardingViewController: OnboardingPageViewControllerDelegate {
+    func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {
+        eventTriggered?(.didTriggerFinishOnboarding)
     }
 }

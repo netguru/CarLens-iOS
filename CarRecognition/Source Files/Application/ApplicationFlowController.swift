@@ -36,12 +36,14 @@ internal final class ApplicationFlowController {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         if UserDefaultsService.shared.shouldShowOnboarding {
-            let onboardingViewController = OnboardingViewController(viewMaker: OnboardingView())
-            window?.rootViewController = onboardingViewController
-            onboardingViewController.pageViewController.onboardingDelegate = self
+            changeRootFlowController(to: makeOnboardingFlowController())
         } else {
             changeRootFlowController(to: makeRecognitionFlowController())
         }
+    }
+    
+    private func makeOnboardingFlowController() -> FlowController {
+        return OnboardingFlowController(dependencies: dependencies, applicationFactory: applicationFactory)
     }
     
     private func makeRecognitionFlowController() -> FlowController {
@@ -51,16 +53,5 @@ internal final class ApplicationFlowController {
     private func changeRootFlowController(to flowController: FlowController) {
         rootFlowController = flowController
         window?.rootViewController = flowController.rootViewController
-    }
-}
-
-extension ApplicationFlowController: OnboardingPageViewControllerDelegate {
-    
-    func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {
-        UserDefaultsService.shared.store(didShowOnboarding: true)
-        guard let window = window else { return }
-        UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.changeRootFlowController(to: self.makeRecognitionFlowController())
-        })
     }
 }

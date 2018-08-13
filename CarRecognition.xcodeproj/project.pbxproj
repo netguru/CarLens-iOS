@@ -100,6 +100,7 @@
 		7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */; };
 		953793FD211DB76D004C3195 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953793FC211DB76D004C3195 /* NSAttributedStringExtension.swift */; };
 		953793FF211DDD2F004C3195 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953793FE211DDD2F004C3195 /* UserDefaultsService.swift */; };
+		9537940121219003004C3195 /* OnboardingFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537940021219003004C3195 /* OnboardingFlowController.swift */; };
 		95C7732720FCF66D001DBCC1 /* SystemMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */; };
 		95C7732A21022879001DBCC1 /* SystemMetricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732921022879001DBCC1 /* SystemMetricsTests.swift */; };
 		95CA5AB02105E547000B4B0D /* FormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AAF2105E547000B4B0D /* FormattersTests.swift */; };
@@ -265,6 +266,7 @@
 		7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationServiceTests.swift; sourceTree = "<group>"; };
 		953793FC211DB76D004C3195 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		953793FE211DDD2F004C3195 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		9537940021219003004C3195 /* OnboardingFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowController.swift; sourceTree = "<group>"; };
 		95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetrics.swift; sourceTree = "<group>"; };
 		95C7732921022879001DBCC1 /* SystemMetricsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetricsTests.swift; sourceTree = "<group>"; };
 		95CA5AAF2105E547000B4B0D /* FormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattersTests.swift; sourceTree = "<group>"; };
@@ -351,9 +353,9 @@
 		4E3560CA211C3C9800AC31C7 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				9537940021219003004C3195 /* OnboardingFlowController.swift */,
+				95379402212196A4004C3195 /* Root */,
 				95DFE7FA211C6F4A00D4D5EE /* Page View Controller */,
-				95DFE7F6211C6DD200D4D5EE /* OnboardingViewController.swift */,
-				95DFE7F8211C6E9900D4D5EE /* OnboardingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -741,6 +743,15 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		95379402212196A4004C3195 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				95DFE7F6211C6DD200D4D5EE /* OnboardingViewController.swift */,
+				95DFE7F8211C6E9900D4D5EE /* OnboardingView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
 		95C7732520FCF63F001DBCC1 /* System Metrics */ = {
 			isa = PBXGroup;
 			children = (
@@ -1108,6 +1119,7 @@
 				95CA5ABD210851F0000B4B0D /* UIApplicationExtension.swift in Sources */,
 				7CEDA78420ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift in Sources */,
 				7C93D49920E6316900AF6FFC /* AugmentedRealityViewController.swift in Sources */,
+				9537940121219003004C3195 /* OnboardingFlowController.swift in Sources */,
 				7CB817E220C935B200B51C3D /* KeyboardAwareViewController.swift in Sources */,
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
 				E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */,

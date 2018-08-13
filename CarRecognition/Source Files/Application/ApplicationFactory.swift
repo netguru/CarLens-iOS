@@ -16,6 +16,13 @@ internal final class ApplicationFactory {
         self.applicationDependencies = applicationDependencies
     }
     
+    /// Creates onboarding view controller
+    ///
+    /// - Returns: Created controller
+    func onboardingViewController() -> OnboardingViewController {
+        return OnboardingViewController(viewMaker: OnboardingView())
+    }
+    
     /// Creates controller with live camera AR view and bottom classification preview
     ///
     /// - Returns: Created controller
