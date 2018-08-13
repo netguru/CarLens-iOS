@@ -23,7 +23,7 @@ internal final class OnboardingContentView: View, ViewSetupable {
     lazy var infoLabel: UILabel = {
         let view = UILabel()
         view.textColor = UIColor.crFontLightGray
-        view.numberOfLines = 3
+        view.numberOfLines = 0
         return view.layoutable()
     }()
     
@@ -56,7 +56,7 @@ internal final class OnboardingContentView: View, ViewSetupable {
                 titleLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 60),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 infoLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32),
-                infoLabel.widthAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 0.75),
+                infoLabel.widthAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 0.7),
                 infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
             ])
     }

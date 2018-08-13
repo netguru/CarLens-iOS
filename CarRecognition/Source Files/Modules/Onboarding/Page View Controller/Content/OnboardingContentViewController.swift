@@ -22,40 +22,33 @@ internal final class OnboardingContentViewController: TypedViewController<Onboar
     private var type: ContentType
     
     enum ContentType: Int {
-        case recognizeCars
-        case second //TODO: change once it's ready
-        case third //TODO: change once it's ready
+        case first
+        case second
+        case third
         
         var image: UIImage {
-            switch self {
-            case .recognizeCars:
-                return #imageLiteral(resourceName: "recognizing-cars")
-            case .second:
-                return UIImage() //TODO: add once it's ready
-            case .third:
-                return UIImage() //TODO: add once it's ready
-            }
+            return UIImage(imageLiteralResourceName: "onboarding-image-\(rawValue + 1)")
         }
         
         var title: String {
             switch self {
-            case .recognizeCars:
+            case .first:
                 return "Recognize Cars"
             case .second:
-                return "Second" //TODO: change once it's ready
+                return "Discover Cars"
             case .third:
-                return "Third"  //TODO: change once it's ready
+                return "Stay updated"
             }
         }
         
         var info: String {
             switch self {
-            case .recognizeCars:
-                return "Point the camera at the front of the car for the best results in image recognition"
+            case .first:
+                return "Point the camera at the front of the car for the best results in image recognition."
             case .second:
-                return "Point the camera at the front of the car for the best results in image recognition" //TODO: change once it's ready
+                return "Search and unlock the models avaliable in the gallery. Catch them all."
             case .third:
-                return "Point the camera at the front of the car for the best results in image recognition" //TODO: change once it's ready
+                return "Fllow the updates. The app is still in development, and we working on adding more cars."
             }
         }
     }

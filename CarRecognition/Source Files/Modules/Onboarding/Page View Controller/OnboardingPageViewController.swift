@@ -29,7 +29,7 @@ internal final class OnboardingPageViewController: UIPageViewController {
     
     /// Content onboarding views used inside Page View
     private lazy var contentViewControllers = [
-        OnboardingContentViewController(type: .recognizeCars),
+        OnboardingContentViewController(type: .first),
         OnboardingContentViewController(type: .second),
         OnboardingContentViewController(type: .third)
     ]
