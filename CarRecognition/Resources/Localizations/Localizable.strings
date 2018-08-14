@@ -10,6 +10,14 @@
 "yes" = "Yes";
 "no" = "No";
 
+// Onboarding
+"onboarding.first.title" = "Recognize Cars";
+"onboarding.first.description" = "Point the camera at the front of the car for the best results in image recognition.";
+"onboarding.second.title" = "Discover Cars";
+"onboarding.second.description" = "Search and unlock the models avaliable in the gallery. Catch them all.";
+"onboarding.third.title" = "Stay updated";
+"onboarding.third.description" = "Follow the updates. The app is still in development, and we working on adding more cars.";
+
 // Recognition
 "recognition.point.camera.at.car" = "Point the camera at a car";
 "recognition.other.car" = "Car has been detected but does not belong to our data base";

@@ -33,22 +33,22 @@ internal final class OnboardingContentViewController: TypedViewController<Onboar
         var title: String {
             switch self {
             case .first:
-                return "Recognize Cars"
+                return Localizable.Onboarding.Title.first
             case .second:
-                return "Discover Cars"
+                return Localizable.Onboarding.Title.second
             case .third:
-                return "Stay updated"
+                return Localizable.Onboarding.Title.third
             }
         }
         
         var info: String {
             switch self {
             case .first:
-                return "Point the camera at the front of the car for the best results in image recognition."
+                return Localizable.Onboarding.Description.first
             case .second:
-                return "Search and unlock the models avaliable in the gallery. Catch them all."
+                return Localizable.Onboarding.Description.second
             case .third:
-                return "Fllow the updates. The app is still in development, and we working on adding more cars."
+                return Localizable.Onboarding.Description.third
             }
         }
     }
