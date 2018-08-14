@@ -7,6 +7,7 @@
 import UIKit
 
 internal final class OnboardingView: View, ViewSetupable  {
+    
     /// Page View with onboarding screens.
     lazy var pageView = UIView().layoutable()
     

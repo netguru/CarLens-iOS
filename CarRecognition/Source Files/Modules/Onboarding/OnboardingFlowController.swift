@@ -7,8 +7,10 @@
 import UIKit
 
 internal final class OnboardingFlowController: FlowController {
+    
     /// Root view controler of the flow
     private(set) var rootViewController = UIViewController()
+    
     /// Next Flow Controller to which user should be transitioned from this view
     private(set) var nextFlowController: FlowController?
     

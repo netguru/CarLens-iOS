@@ -12,8 +12,10 @@ internal final class UserDefaultsService {
     private struct Keys {
         static let didShowOnboardingKey = "didShowOnboardingKey"
     }
+    
     /// UserDefaultsService shared instance.
     static let shared = UserDefaultsService()
+    
     /// UserDefaults used for storing data.
     private var userDefaults: UserDefaults
     

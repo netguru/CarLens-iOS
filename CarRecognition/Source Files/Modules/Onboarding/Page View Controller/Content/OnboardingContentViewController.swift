@@ -8,6 +8,7 @@ import UIKit
 
 // Intefrace for notifying parent view controller about current page
 protocol OnboardingContentPresentable: class {
+    
     /// Notify about current page
     ///
     ///   Parameter type: Type of current page

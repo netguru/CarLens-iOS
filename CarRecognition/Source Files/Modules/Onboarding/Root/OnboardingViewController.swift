@@ -7,6 +7,7 @@
 import UIKit
 
 internal final class OnboardingViewController: TypedViewController<OnboardingView> {
+    
     /// Enum describing events that can be triggered by this controller
     ///
     /// - didTriggerFinishOnboarding: Send when user is on the last screen of onboarding and triggers the "next" button.
@@ -44,6 +45,7 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
 }
 
 extension OnboardingViewController: OnboardingPageViewControllerDelegate {
+    
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {
         eventTriggered?(.didTriggerFinishOnboarding)
     }

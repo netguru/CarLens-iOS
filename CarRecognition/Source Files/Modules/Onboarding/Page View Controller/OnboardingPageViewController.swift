@@ -8,14 +8,17 @@ import UIKit
 
 /// The delegate of OnboardingPageViewController.
 protocol OnboardingPageViewControllerDelegate: class {
+    
     /// Called when user finished last onboarding screen.
     /// - Parameter onboardingPageViewController: The View Controller from which the delegate was called.
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController)
 }
 
 internal final class OnboardingPageViewController: UIPageViewController {
+    
     /// Page View Delegate used to inform about onboarding being finished
     weak var onboardingDelegate: OnboardingPageViewControllerDelegate?
+    
     /// Current page index.
     private var currentIndex = 0 {
         didSet {
@@ -23,7 +26,9 @@ internal final class OnboardingPageViewController: UIPageViewController {
         }
     }
     
+    ///Typealias indicating the page which we are on
     typealias Page = Int
+    
     /// Variable which gets called on the changing of pages
     var onChangePage: ((Page) -> Void)?
     
@@ -33,6 +38,7 @@ internal final class OnboardingPageViewController: UIPageViewController {
         OnboardingContentViewController(type: .second),
         OnboardingContentViewController(type: .third)
     ]
+    
     /// - SeeAlso: UIPageViewController
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
@@ -68,6 +74,7 @@ internal final class OnboardingPageViewController: UIPageViewController {
 
 // MARK: - UIPageViewControllerDataSource
 extension OnboardingPageViewController: UIPageViewControllerDataSource {
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard  let contentViewController = viewController as? OnboardingContentViewController,
             let index = contentViewControllers.index(of: contentViewController) else { return nil }
@@ -87,6 +94,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 
 // MARK: - OnboardingContentPresentable
 extension OnboardingPageViewController: OnboardingContentPresentable {
+    
     func didPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
         currentIndex = type.rawValue
     }
