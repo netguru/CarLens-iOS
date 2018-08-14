@@ -53,4 +53,12 @@ internal extension UIColor {
     class var crDeepOrange: UIColor {
         return .init(hex: 0xFF8D3D)
     }
+    
+    class var crOnboardingDeepOrange: UIColor {
+        return .init(hex: 0xFF8742)
+    }
+    
+    class var crOnboardingLightOrange: UIColor {
+        return .init(hex: 0xFFD2B8)
+    }
 }

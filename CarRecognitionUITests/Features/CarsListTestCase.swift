@@ -11,8 +11,14 @@ final class CarsListTestCase: XCUITestCase {
     
     override func setUp() {
         super.setUp()
-        
         given("being on cars list view") {
+            self.app.on(screen: Onboarding.self).goToRecognitionView()
+            /// Waiting for a recognition screen to appear in order to add an alert handler too it
+            /// It's needed to investigate whether it's the best solution to handle alerts like that
+            let recognitionScreen = Recognition(self.app.app)
+            self.app.wait(for: recognitionScreen.mainView, status: .exist, timeout: 5)
+            super.setUpAlertHandler()
+            /// Then transfering to Car List View
             self.app.on(screen: Recognition.self).goToCarsView()
         }
     }
