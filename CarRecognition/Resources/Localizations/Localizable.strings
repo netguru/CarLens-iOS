@@ -16,7 +16,7 @@
 "onboarding.second.title" = "Discover Cars";
 "onboarding.second.description" = "Search and unlock the models avaliable in the gallery. Catch them all.";
 "onboarding.third.title" = "Stay updated";
-"onboarding.third.description" = "Follow the updates. The app is still in development, and we working on adding more cars.";
+"onboarding.third.description" = "Expect updates with more cars and improved recognition algorithm.";
 
 // Recognition
 "recognition.point.camera.at.car" = "Point the camera at a car";
