@@ -9,6 +9,14 @@ import UIKit
 /// The delegate of OnboardingPageViewController.
 protocol OnboardingPageViewControllerDelegate: class {
     
+    /// Called when user wants to change a page via swipe gesture or by tapping next button.
+    ///
+    /// - Parameters:
+    /// - onboardingPageViewController: The View Controller from which the delegate was called.
+    /// - currentPageIndex: Page on which user is currently now.
+    /// - nextPageIndex: Next page to which user wants to transition.
+    func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController, willTransitionFrom currentPageIndex: Int, to nextPageIndex: Int)
+    
     /// Called when user finished last onboarding screen.
     /// - Parameter onboardingPageViewController: The View Controller from which the delegate was called.
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController)
@@ -20,17 +28,7 @@ internal final class OnboardingPageViewController: UIPageViewController {
     weak var onboardingDelegate: OnboardingPageViewControllerDelegate?
     
     /// Current page index.
-    private var currentIndex = 0 {
-        didSet {
-            onChangePage?(currentIndex)
-        }
-    }
-    
-    ///Typealias indicating the page which we are on
-    typealias Page = Int
-    
-    /// Variable which gets called on the changing of pages
-    var onChangePage: ((Page) -> Void)?
+    private var currentIndex = 0
     
     /// Content onboarding views used inside Page View
     private lazy var contentViewControllers = [
@@ -38,6 +36,9 @@ internal final class OnboardingPageViewController: UIPageViewController {
         OnboardingContentViewController(type: .second),
         OnboardingContentViewController(type: .third)
     ]
+    
+    /// Number of content onboarding view controllers used inside Page View.
+    lazy var numberOfPages = contentViewControllers.count
     
     /// - SeeAlso: UIPageViewController
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
@@ -59,6 +60,7 @@ internal final class OnboardingPageViewController: UIPageViewController {
             onboardingDelegate?.didFinishOnboarding(onboardingPageViewController: self)
             return
         }
+        onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: currentIndex, to: currentIndex + 1)
         currentIndex += 1
         setViewControllers([contentViewControllers[currentIndex]], direction: .forward, animated: true, completion: nil)
     }
@@ -96,6 +98,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 extension OnboardingPageViewController: OnboardingContentPresentable {
     
     func didPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
+        onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: currentIndex, to: type.rawValue)
         currentIndex = type.rawValue
     }
 }
