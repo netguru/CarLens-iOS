@@ -15,7 +15,7 @@ protocol OnboardingPageViewControllerDelegate: class {
     /// - onboardingPageViewController: The View Controller from which the delegate was called.
     /// - currentPageIndex: Page on which user is currently now.
     /// - nextPageIndex: Next page to which user wants to transition.
-    func willMove(onboardingPageViewController: OnboardingPageViewController, fromPage currentPageIndex: Int, to nextPageIndex: Int)
+    func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController, willTransitionFrom currentPageIndex: Int, to nextPageIndex: Int)
     
     /// Called when user finished last onboarding screen.
     /// - Parameter onboardingPageViewController: The View Controller from which the delegate was called.
@@ -62,7 +62,7 @@ internal final class OnboardingPageViewController: UIPageViewController {
             onboardingDelegate?.didFinishOnboarding(onboardingPageViewController: self)
             return
         }
-        onboardingDelegate?.willMove(onboardingPageViewController: self, fromPage: currentIndex, to: currentIndex + 1)
+        onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: currentIndex, to: currentIndex + 1)
         currentIndex += 1
         setViewControllers([contentViewControllers[currentIndex]], direction: .forward, animated: true, completion: nil)
     }
@@ -100,7 +100,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 extension OnboardingPageViewController: OnboardingContentPresentable {
     
     func didPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
-        onboardingDelegate?.willMove(onboardingPageViewController: self, fromPage: currentIndex, to: type.rawValue)
+        onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: currentIndex, to: type.rawValue)
         currentIndex = type.rawValue
     }
 }

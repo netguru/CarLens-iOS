@@ -43,7 +43,7 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
 
 extension OnboardingViewController: OnboardingPageViewControllerDelegate {
     
-    func willMove(onboardingPageViewController: OnboardingPageViewController, fromPage currentPageIndex: Int, to nextPageIndex: Int) {
+    func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController, willTransitionFrom currentPageIndex: Int, to nextPageIndex: Int) {
         let lastPageIndex = onboardingPageViewController.numberOfPages - 1
         if nextPageIndex == lastPageIndex {
             customView.nextButton.setImage(#imageLiteral(resourceName: "button-scan-with-shadow"), for: .normal)
