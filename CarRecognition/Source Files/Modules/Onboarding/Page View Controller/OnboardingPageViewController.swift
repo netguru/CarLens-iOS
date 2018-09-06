@@ -38,9 +38,7 @@ internal final class OnboardingPageViewController: UIPageViewController {
     ]
     
     /// Number of content onboarding view controllers used inside Page View.
-    lazy var numberOfPages: Int = {
-        return contentViewControllers.count
-    }()
+    lazy var numberOfPages = contentViewControllers.count
     
     /// - SeeAlso: UIPageViewController
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
