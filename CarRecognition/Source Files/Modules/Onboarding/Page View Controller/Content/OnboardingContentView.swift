@@ -16,7 +16,7 @@ internal final class OnboardingContentView: View, ViewSetupable {
     
     lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.font = .systemFont(ofSize: 22)
+        view.font = .systemFont(ofSize: 22, weight: .semibold)
         return view.layoutable()
     }()
     
