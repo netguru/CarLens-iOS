@@ -34,9 +34,6 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
         super.viewDidLoad()
         view.accessibilityIdentifier = "onboarding/view/main"
         customView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
-        pageViewController.onChangePage = { [weak self] page in
-            self?.customView.pageControl.currentPage = page
-        }
     }
     
     @objc private func didTapNext() {
@@ -45,6 +42,16 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
 }
 
 extension OnboardingViewController: OnboardingPageViewControllerDelegate {
+    
+    func willMove(onboardingPageViewController: OnboardingPageViewController, fromPage currentPageIndex: Int, to nextPageIndex: Int) {
+        let lastPageIndex = onboardingPageViewController.numberOfPages - 1
+        if nextPageIndex == lastPageIndex {
+            customView.nextButton.setImage(#imageLiteral(resourceName: "button-scan-with-shadow"), for: .normal)
+        } else if currentPageIndex == lastPageIndex {
+            customView.nextButton.setImage(#imageLiteral(resourceName: "button-next-page"), for: .normal)
+        }
+        customView.pageControl.currentPage = nextPageIndex
+    }
     
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {
         eventTriggered?(.didTriggerFinishOnboarding)
