@@ -25,6 +25,7 @@ internal final class OnboardingView: View, ViewSetupable  {
         view.pageIndicatorTintColor = UIColor.crOnboardingLightOrange
         view.currentPage = 0
         view.numberOfPages = 3
+        view.isUserInteractionEnabled = false
         return view
     }()
     
