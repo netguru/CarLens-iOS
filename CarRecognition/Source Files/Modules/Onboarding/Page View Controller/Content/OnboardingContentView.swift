@@ -45,19 +45,20 @@ internal final class OnboardingContentView: View, ViewSetupable {
     }
     
     func setupViewHierarchy() {
-        [mainImageView, titleLabel, infoLabel].forEach { addSubview($0) }
+        [titleLabel, infoLabel].forEach { addSubview($0) }
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-                mainImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
-                mainImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
-                mainImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-                mainImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
-                titleLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 60),
+//                mainImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
+//                mainImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
+//                mainImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
+//                mainImageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
+//                titleLabel.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 60),
+                titleLabel.topAnchor.constraint(equalTo: topAnchor),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 infoLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32),
-                infoLabel.widthAnchor.constraint(equalTo: mainImageView.widthAnchor, multiplier: 0.7),
+                infoLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
                 infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
             ])
     }
