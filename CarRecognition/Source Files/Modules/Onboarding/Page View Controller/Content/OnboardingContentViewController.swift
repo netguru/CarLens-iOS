@@ -26,11 +26,7 @@ internal final class OnboardingContentViewController: TypedViewController<Onboar
         case first
         case second
         case third
-        
-        var image: UIImage {
-            return UIImage(imageLiteralResourceName: "onboarding-image-\(rawValue + 1)")
-        }
-        
+    
         var title: String {
             switch self {
             case .first:
@@ -57,7 +53,7 @@ internal final class OnboardingContentViewController: TypedViewController<Onboar
     init(type: ContentType) {
         self.type = type
         super.init(viewMaker: OnboardingContentView())
-        customView.setup(with: type.image, titleText: type.title, infoText: type.info)
+        customView.setup(with: type.title, infoText: type.info)
     }
 
     /// SeeAlso: UIViewController

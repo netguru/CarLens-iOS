@@ -8,6 +8,8 @@ import UIKit
 
 internal final class OnboardingView: View, ViewSetupable  {
     
+    lazy var animatedView = UIView().layoutable()
+    
     /// Page View with onboarding screens.
     lazy var pageView = UIView().layoutable()
     
@@ -30,19 +32,23 @@ internal final class OnboardingView: View, ViewSetupable  {
     
     // MARK: - Setup
     func setupViewHierarchy() {
-        [pageView, pageControl, nextButton].forEach { addSubview($0) }
+        [animatedView, pageView, pageControl, nextButton].forEach { addSubview($0) }
     }
     
     func setupConstraints() {
-        pageView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
+        animatedView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
+        pageView.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom])
         
         NSLayoutConstraint.activate([
-            pageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
-            pageControl.topAnchor.constraint(equalTo: pageView.bottomAnchor, constant: 4),
+            animatedView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.55),
+            pageView.topAnchor.constraint(equalTo: animatedView.bottomAnchor, constant: 4),
+            pageView.bottomAnchor.constraint(equalTo: pageControl.topAnchor, constant: 8),
             pageControl.widthAnchor.constraint(equalToConstant: 150),
-            pageControl.heightAnchor.constraint(equalToConstant: 20),
+            pageControl.heightAnchor.constraint(equalToConstant: 40),
             pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: 8),
             nextButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nextButton.heightAnchor.constraint(equalToConstant: 100),
             nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
         ])
     }

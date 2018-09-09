@@ -15,25 +15,52 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
         case didTriggerFinishOnboarding
     }
     
-    /// Callback with triggered event
+    /// Callback with triggered event.
     var eventTriggered: ((Event) -> ())?
     
-    /// Page View Controller used for onboarding views
+    /// Page View Controller used for onboarding views.
     private lazy var pageViewController: OnboardingPageViewController = {
         let viewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
         viewController.onboardingDelegate = self
         return viewController
     }()
     
+    /// Animation Player handling animation by animation player view controller.
+    private lazy var animationPlayer = OnboardingAnimationPlayer()
+    
     override func loadView() {
         super.loadView()
-        add(pageViewController, inside: customView.pageView)
+        addChildViewControllers()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
+    }
+    
+    private func addChildViewControllers() {
+        add(pageViewController, inside: customView.pageView)
+        add(animationPlayer.playerViewController, inside: customView.animatedView)
+    }
+    
+    private func setUpView() {
         view.accessibilityIdentifier = "onboarding/view/main"
         customView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft))
+        swipeLeft.direction = .left
+        customView.animatedView.addGestureRecognizer(swipeLeft)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRight))
+        swipeRight.direction = .right
+        customView.animatedView.addGestureRecognizer(swipeRight)
+    }
+    
+     @objc private func handleSwipeLeft() {
+        // TODO: handle swiping left if needed.
+//        pageViewController.moveToNextPage()
+    }
+    
+    @objc private func handleSwipeRight() {
+        pageViewController.moveToNextPage()
     }
     
     @objc private func didTapNext() {
@@ -51,6 +78,7 @@ extension OnboardingViewController: OnboardingPageViewControllerDelegate {
             customView.nextButton.setImage(#imageLiteral(resourceName: "button-next-page"), for: .normal)
         }
         customView.pageControl.currentPage = nextPageIndex
+        animationPlayer.animate(fromPage: currentPageIndex, to: nextPageIndex)
     }
     
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {
