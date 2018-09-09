@@ -46,23 +46,25 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
     private func setUpView() {
         view.accessibilityIdentifier = "onboarding/view/main"
         customView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft))
-        swipeLeft.direction = .left
-        customView.animatedView.addGestureRecognizer(swipeLeft)
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRight))
-        swipeRight.direction = .right
-        customView.animatedView.addGestureRecognizer(swipeRight)
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        customView.animatedView.addGestureRecognizer(panGesture)
     }
     
-     @objc private func handleSwipeLeft() {
-        // TODO: handle swiping left if needed.
-//        pageViewController.moveToNextPage()
+     @objc private func handleSwipe(_ sender:UIPanGestureRecognizer) {
+        if sender.direction == .rightToLeft {
+            guard sender.state == .ended else { return }
+            let swipeLocation = sender.translation(in: customView)
+            guard abs(swipeLocation.x) > customView.frame.size.width/2 else { return }
+            pageViewController.moveToNextPage()
+        }
+        if sender.direction == .leftToRight {
+            guard sender.state == .ended else { return }
+            let swipeLocation = sender.translation(in: customView)
+            guard swipeLocation.x > customView.frame.size.width/2 else { return }
+//            pageViewController.moveToNextPage()
+        }
     }
-    
-    @objc private func handleSwipeRight() {
-        pageViewController.moveToNextPage()
-    }
-    
     @objc private func didTapNext() {
         pageViewController.moveToNextPage()
     }
