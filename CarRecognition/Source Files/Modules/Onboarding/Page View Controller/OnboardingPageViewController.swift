@@ -60,7 +60,6 @@ internal final class OnboardingPageViewController: UIPageViewController {
             onboardingDelegate?.didFinishOnboarding(onboardingPageViewController: self)
             return
         }
-        onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: currentIndex, to: currentIndex + 1)
         currentIndex += 1
         setViewControllers([contentViewControllers[currentIndex]], direction: .forward, animated: true, completion: nil)
     }
