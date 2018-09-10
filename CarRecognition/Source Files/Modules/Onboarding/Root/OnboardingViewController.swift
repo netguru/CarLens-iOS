@@ -25,12 +25,9 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
         return viewController
     }()
     
-    /// Animation Player handling animation by animation player view controller.
-    private lazy var animationPlayer = OnboardingAnimationPlayer()
-    
     override func loadView() {
         super.loadView()
-        addChildViewControllers()
+        add(pageViewController, inside: customView.pageView)
     }
     
     override func viewDidLoad() {
@@ -38,33 +35,11 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
         setUpView()
     }
     
-    private func addChildViewControllers() {
-        add(pageViewController, inside: customView.pageView)
-        add(animationPlayer.playerViewController, inside: customView.animatedView)
-    }
-    
     private func setUpView() {
         view.accessibilityIdentifier = "onboarding/view/main"
         customView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
-        
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
-        customView.animatedView.addGestureRecognizer(panGesture)
     }
     
-     @objc private func handleSwipe(_ sender:UIPanGestureRecognizer) {
-        if sender.direction == .rightToLeft {
-            guard sender.state == .ended else { return }
-            let swipeLocation = sender.translation(in: customView)
-            guard abs(swipeLocation.x) > customView.frame.size.width/2 else { return }
-            pageViewController.moveToNextPage()
-        }
-        if sender.direction == .leftToRight {
-            guard sender.state == .ended else { return }
-            let swipeLocation = sender.translation(in: customView)
-            guard swipeLocation.x > customView.frame.size.width/2 else { return }
-//            pageViewController.moveToNextPage()
-        }
-    }
     @objc private func didTapNext() {
         pageViewController.moveToNextPage()
     }
@@ -80,7 +55,6 @@ extension OnboardingViewController: OnboardingPageViewControllerDelegate {
             customView.nextButton.setImage(#imageLiteral(resourceName: "button-next-page"), for: .normal)
         }
         customView.pageControl.currentPage = nextPageIndex
-        animationPlayer.animate(fromPage: currentPageIndex, to: nextPageIndex)
     }
     
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {

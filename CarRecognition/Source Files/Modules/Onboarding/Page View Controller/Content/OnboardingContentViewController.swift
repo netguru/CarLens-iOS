@@ -9,18 +9,21 @@ import UIKit
 // Intefrace for notifying parent view controller about current page
 protocol OnboardingContentPresentable: class {
     
-    /// Notify about current page
+    /// Notify about current page.
     ///
-    ///   Parameter type: Type of current page
+    /// - Parameter type: Type of current page.
     func didPresentControllerWithType(_ type: OnboardingContentViewController.ContentType)
 }
 
 internal final class OnboardingContentViewController: TypedViewController<OnboardingContentView> {
     
-    /// Delegate used to inform about current page
+    /// Delegate used to inform about current page.
     weak var delegate: OnboardingContentPresentable?
     
     private var type: ContentType
+    
+    /// Animation Player handling animation by animation player view controller.
+    private lazy var animationPlayer = OnboardingAnimationPlayer()
     
     enum ContentType: Int {
         case first
@@ -49,16 +52,34 @@ internal final class OnboardingContentViewController: TypedViewController<Onboar
             }
         }
     }
-
+    
     init(type: ContentType) {
         self.type = type
         super.init(viewMaker: OnboardingContentView())
         customView.setup(with: type.title, infoText: type.info)
+    }
+    
+    override func loadView() {
+        super.loadView()
+        add(animationPlayer.playerViewController, inside: customView.animationView)
     }
 
     /// SeeAlso: UIViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         delegate?.didPresentControllerWithType(type)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        animationPlayer.playerViewController.player?.pause()
+    }
+    
+    /// Handling animation of the view by changing the content video.
+    ///
+    /// - Parameters:
+    /// - previousPage: Page what was presented before this content view controller.
+    func animate(fromPage previousPage: Int) {
+        animationPlayer.animate(fromPage: previousPage, to: type.rawValue)
     }
 }
