@@ -8,8 +8,6 @@ import UIKit
 
 internal final class OnboardingContentView: View, ViewSetupable {
     
-    lazy var animationView = UIView().layoutable()
-    
     lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.font = .systemFont(ofSize: 22, weight: .semibold)
@@ -40,20 +38,15 @@ internal final class OnboardingContentView: View, ViewSetupable {
     }
     
     func setupViewHierarchy() {
-        [animationView, titleLabel, infoLabel].forEach { addSubview($0) }
+        [titleLabel, infoLabel].forEach { addSubview($0) }
     }
     
     func setupConstraints() {
-        // TODO: Change constraints if needed once the design arrives.
         NSLayoutConstraint.activate([
-                animationView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
-                animationView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
-                animationView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-                animationView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
-                titleLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 60),
+                titleLabel.topAnchor.constraint(equalTo: topAnchor),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 infoLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32),
-                infoLabel.widthAnchor.constraint(equalTo: animationView.widthAnchor, multiplier: 0.7),
+                infoLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
                 infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
             ])
     }

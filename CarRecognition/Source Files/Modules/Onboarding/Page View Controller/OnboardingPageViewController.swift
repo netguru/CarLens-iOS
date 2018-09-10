@@ -40,9 +40,6 @@ internal final class OnboardingPageViewController: UIPageViewController {
     /// Number of content onboarding view controllers used inside Page View.
     lazy var numberOfPages = contentViewControllers.count
     
-    /// Animation Player handling animation by animation player view controller.
-    private lazy var animationPlayer = OnboardingAnimationPlayer()
-    
     /// - SeeAlso: UIPageViewController
     override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
@@ -106,11 +103,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 extension OnboardingPageViewController: OnboardingContentPresentable {
     
     func willPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
-        if (currentIndex == 0 && type.rawValue == 0) {
-            contentViewControllers[currentIndex].animate(fromPage: currentIndex)
-        } else {
-            guard currentIndex != type.rawValue else { return }
-            update(toPage: type.rawValue)
-        }
+        guard currentIndex != type.rawValue else { return }
+        update(toPage: type.rawValue)
     }
 }
