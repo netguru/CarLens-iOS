@@ -99,7 +99,7 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 // MARK: - OnboardingContentPresentable
 extension OnboardingPageViewController: OnboardingContentPresentable {
     
-    func didPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
+    func willPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
         onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: currentIndex, to: type.rawValue)
         contentViewControllers[type.rawValue].animate(fromPage: currentIndex)
         currentIndex = type.rawValue

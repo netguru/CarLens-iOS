@@ -12,7 +12,7 @@ protocol OnboardingContentPresentable: class {
     /// Notify about current page.
     ///
     /// - Parameter type: Type of current page.
-    func didPresentControllerWithType(_ type: OnboardingContentViewController.ContentType)
+    func willPresentControllerWithType(_ type: OnboardingContentViewController.ContentType)
 }
 
 internal final class OnboardingContentViewController: TypedViewController<OnboardingContentView> {
@@ -65,9 +65,9 @@ internal final class OnboardingContentViewController: TypedViewController<Onboar
     }
 
     /// SeeAlso: UIViewController
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        delegate?.didPresentControllerWithType(type)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        delegate?.willPresentControllerWithType(type)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
