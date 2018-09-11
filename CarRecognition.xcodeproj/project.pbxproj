@@ -116,9 +116,9 @@
 		95F3D2252145AD3100D4636C /* button-ripple.json in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D21F2145AD3100D4636C /* button-ripple.json */; };
 		95F3D2262145AD3100D4636C /* horizontal-stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D2202145AD3100D4636C /* horizontal-stars.json */; };
 		95F3D2272145AD3100D4636C /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D2212145AD3100D4636C /* viewfinder_bracket.json */; };
-		95F3D2282145AD3100D4636C /* Onboarding.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D2232145AD3100D4636C /* Onboarding.mp4 */; };
 		95F3D22C2145AF8400D4636C /* OnboardingAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D22A2145AF8400D4636C /* OnboardingAnimationPlayer.swift */; };
 		95F3D22D2145AF8400D4636C /* OnboardingTransitionAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D22B2145AF8400D4636C /* OnboardingTransitionAnimationState.swift */; };
+		95F3D22F2146ABB100D4636C /* onboarding.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D22E2146ABB100D4636C /* onboarding.mp4 */; };
 		E8379BB220FE18B9007D759B /* TextSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8379BB120FE18B9007D759B /* TextSwitcherView.swift */; };
 		E8473F0C21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */; };
 		E8473F1121074E0F00EC9EF3 /* ModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */; };
@@ -286,9 +286,9 @@
 		95F3D21F2145AD3100D4636C /* button-ripple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "button-ripple.json"; sourceTree = "<group>"; };
 		95F3D2202145AD3100D4636C /* horizontal-stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "horizontal-stars.json"; sourceTree = "<group>"; };
 		95F3D2212145AD3100D4636C /* viewfinder_bracket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
-		95F3D2232145AD3100D4636C /* Onboarding.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding.mp4; sourceTree = "<group>"; };
 		95F3D22A2145AF8400D4636C /* OnboardingAnimationPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingAnimationPlayer.swift; sourceTree = "<group>"; };
 		95F3D22B2145AF8400D4636C /* OnboardingTransitionAnimationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingTransitionAnimationState.swift; sourceTree = "<group>"; };
+		95F3D22E2146ABB100D4636C /* onboarding.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding.mp4; sourceTree = "<group>"; };
 		E8379BB120FE18B9007D759B /* TextSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSwitcherView.swift; sourceTree = "<group>"; };
 		E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDatabaseServiceTests.swift; sourceTree = "<group>"; };
 		E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsFactory.swift; sourceTree = "<group>"; };
@@ -843,7 +843,7 @@
 		95F3D2222145AD3100D4636C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				95F3D2232145AD3100D4636C /* Onboarding.mp4 */,
+				95F3D22E2146ABB100D4636C /* onboarding.mp4 */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1022,13 +1022,13 @@
 				7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */,
 				7C3E01C620F5EACB003B83D6 /* BLOKKNeue-Regular.ttf in Resources */,
 				7CEDA77E20ED044F00DF3AF0 /* gliscor-gothic.ttf in Resources */,
-				95F3D2282145AD3100D4636C /* Onboarding.mp4 in Resources */,
 				95F3D2272145AD3100D4636C /* viewfinder_bracket.json in Resources */,
 				95F3D2252145AD3100D4636C /* button-ripple.json in Resources */,
 				7CB817C720C9337000B51C3D /* Localizable.strings in Resources */,
 				7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */,
 				7CAD86E120F4B13D0064D50E /* cars.json in Resources */,
 				7C33E03420BD695700784D63 /* Assets.xcassets in Resources */,
+				95F3D22F2146ABB100D4636C /* onboarding.mp4 in Resources */,
 				95F3D2262145AD3100D4636C /* horizontal-stars.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -48,6 +48,7 @@ internal final class OnboardingContentView: View, ViewSetupable {
                 infoLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32),
                 infoLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
                 infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+//                infoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 12)
             ])
     }
 }

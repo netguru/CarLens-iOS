@@ -36,17 +36,23 @@ internal final class OnboardingView: View, ViewSetupable  {
     }
     
     func setupConstraints() {
-        animatedView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
+//        animatedView.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom])
         pageView.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom])
         
         NSLayoutConstraint.activate([
-            animatedView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.55),
-            pageView.topAnchor.constraint(equalTo: animatedView.bottomAnchor, constant: 4),
-            pageView.bottomAnchor.constraint(equalTo: pageControl.topAnchor, constant: 8),
+            animatedView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.45),
+            animatedView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            animatedView.widthAnchor.constraint(equalTo: animatedView.heightAnchor, multiplier: 636/720),
+//            animatedView.heightAnchor.constraint(equalTo: animatedView.widthAnchor, multiplier: 720/636),
+            animatedView.bottomAnchor.constraint(equalTo: pageView.topAnchor, constant: 4),
+//            pageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2),
+            pageView.heightAnchor.constraint(equalToConstant: 150),
+//            pageView.topAnchor.constraint(equalTo: animatedView.bottomAnchor, constant: 4),
+            pageView.bottomAnchor.constraint(equalTo: pageControl.topAnchor, constant: -20),
             pageControl.widthAnchor.constraint(equalToConstant: 150),
             pageControl.heightAnchor.constraint(equalToConstant: 40),
             pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: 8),
+            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20),
             nextButton.centerXAnchor.constraint(equalTo: centerXAnchor),
             nextButton.heightAnchor.constraint(equalToConstant: 100),
             nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)

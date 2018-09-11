@@ -73,7 +73,6 @@ internal final class OnboardingPageViewController: UIPageViewController {
     }
     
     private func update(toPage nextPage: Int) {
-        contentViewControllers[nextPage].animate(fromPage: currentIndex)
         onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: currentIndex, to: nextPage)
         currentIndex = nextPage
     }
@@ -103,7 +102,6 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 extension OnboardingPageViewController: OnboardingContentPresentable {
     
     func willPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
-        guard currentIndex != type.rawValue else { return }
         update(toPage: type.rawValue)
     }
 }
