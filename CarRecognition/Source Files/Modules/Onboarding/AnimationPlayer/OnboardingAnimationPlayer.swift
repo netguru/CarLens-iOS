@@ -12,11 +12,9 @@ internal final class OnboardingAnimationPlayer {
     
     private var bundle: Bundle
     
-    private var animationState: OnboardingTransitionAnimationState = .first
+    private var animationState: OnboardingTransitionAnimationState = .onFirst
     
     private var playerObserver: Any?
-    
-    private var isPlaying = false
     
     init(with bundle: Bundle = Bundle.main) {
         self.bundle = bundle
@@ -30,6 +28,7 @@ internal final class OnboardingAnimationPlayer {
         viewController.player = AVPlayer(url: videoUrl)
         viewController.showsPlaybackControls = false
         viewController.player?.externalPlaybackVideoGravity = .resizeAspectFill
+        viewController.view.backgroundColor = UIColor.clear
         return viewController
     }()
     
@@ -39,34 +38,26 @@ internal final class OnboardingAnimationPlayer {
     /// - currentPageIndex: Page on which user is currently now.
     /// - nextPageIndex: Next page to which user wants to transition.
     func animate(fromPage currentPageIndex: Int, to nextPageIndex: Int) {
-        guard let state = OnboardingTransitionAnimationState(toPage: nextPageIndex) else { return }
+        guard let state = OnboardingTransitionAnimationState(fromPage: currentPageIndex, to: nextPageIndex) else { return }
         animationState = state
-//        guard !isPlaying else {
-//            removeTimeObserver()
-//            return
-//        }
-//        playerViewController.player?.pause()
-
         switch animationState {
-        case .first:
-            let deadlineTime = DispatchTime.now() + .milliseconds(600)
+        case .onFirst:
+            let deadlineTime = DispatchTime.now() + .milliseconds(400)
             DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
                 self.addTimeObserver(for: state.endingTime)
                 self.playerViewController.player?.play()
-//                self.isPlaying = true
             })
-        case .second:
+            return
+        case .fromFirstToSecond,
+             .fromSecondToThird,
+             .fromSecondToFirst:
             removeTimeObserver()
-            addTimeObserver(for: state.endingTime)
-            self.playerViewController.player?.seek(to: state.startingTime)
-            playerViewController.player?.play()
-        case .third:
-            removeTimeObserver()
-            self.playerObserver = nil
-            self.playerViewController.player?.seek(to: state.startingTime)
-            playerViewController.player?.play()
+        case .fromThirdToSecond:
+            break
         }
-        
+        addTimeObserver(for: state.endingTime)
+        playerViewController.player?.seek(to: state.startingTime)
+        playerViewController.player?.play()
     }
  
     private func removeTimeObserver() {
@@ -77,14 +68,12 @@ internal final class OnboardingAnimationPlayer {
     }
     
     private func addTimeObserver(for time: CMTime?) {
-        removeTimeObserver()
         guard let time = time else {
             playerObserver = nil
             return
         }
         self.playerObserver = playerViewController.player?.addBoundaryTimeObserver(forTimes: [NSValue.init(time: time)], queue: nil, using: { [weak self] in
             self?.playerViewController.player?.pause()
-//            self?.isPlaying = false
         })
     }
 }
