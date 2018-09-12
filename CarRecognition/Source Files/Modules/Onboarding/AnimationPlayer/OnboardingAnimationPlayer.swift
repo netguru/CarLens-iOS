@@ -27,7 +27,6 @@ internal final class OnboardingAnimationPlayer {
         let videoUrl = URL(fileURLWithPath: videoPath)
         viewController.player = AVPlayer(url: videoUrl)
         viewController.showsPlaybackControls = false
-        viewController.player?.externalPlaybackVideoGravity = .resizeAspectFill
         viewController.view.backgroundColor = UIColor.clear
         return viewController
     }()

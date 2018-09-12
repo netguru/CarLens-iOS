@@ -33,7 +33,7 @@ internal final class OnboardingContentView: View, ViewSetupable {
         titleLabel.text = titleText
         infoLabel.attributedText = NSAttributedString(string: infoText)
                                         .withKerning(-0.15)
-                                        .withLineSpacing(1.5, NSTextAlignment.center)
+                                        .withLineSpacing(4.5, NSTextAlignment.center)
                                         .withFont(.systemFont(ofSize: 16))
     }
     
@@ -43,12 +43,11 @@ internal final class OnboardingContentView: View, ViewSetupable {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-                titleLabel.topAnchor.constraint(equalTo: topAnchor),
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-                infoLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32),
-                infoLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
-                infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
-//                infoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 12)
+                titleLabel.bottomAnchor.constraint(equalTo: infoLabel.topAnchor, constant: -28),
+                infoLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
+                infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+                infoLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
     }
 }
