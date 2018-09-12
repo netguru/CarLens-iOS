@@ -45,10 +45,10 @@ enum OnboardingTransitionAnimationState {
     /// Initializing the OnboardingTransitionAnimationState instance
     ///
     /// - Parameters:
+    /// - previousPageIndex: Previous page from which user transitioned.
     /// - currentPageIndex: Page on which user is currently now.
-    /// - nextPageIndex: Next page to which user wants to transition.
-    init?(fromPage currentPage: Int, to nextPage: Int) {
-        let pages = (currentPage, nextPage)
+    init?(fromPage previousPageIndex: Int, to currentPageIndex: Int) {
+        let pages = (previousPageIndex, currentPageIndex)
         switch pages {
         case (0, 0):
             self = .onFirst

@@ -17,6 +17,14 @@ protocol OnboardingPageViewControllerDelegate: class {
     /// - nextPageIndex: Next page to which user wants to transition.
     func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController, willTransitionFrom currentPageIndex: Int, to nextPageIndex: Int)
     
+    /// Called when the new page was presented to the user.
+    ///
+    /// - Parameters:
+    /// - onboardingPageViewController: The View Controller from which the delegate was called.
+    /// - previousPageIndex: Page on which user was previously.
+    /// - currentPageIndex: Page which was presented.
+    func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController, didTransitionFrom previousPageIndex: Int, to currentPageIndex: Int)
+    
     /// Called when user finished last onboarding screen.
     /// - Parameter onboardingPageViewController: The View Controller from which the delegate was called.
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController)
@@ -28,7 +36,14 @@ internal final class OnboardingPageViewController: UIPageViewController {
     weak var onboardingDelegate: OnboardingPageViewControllerDelegate?
     
     /// Current page index.
-    private var currentIndex = 0
+    private var currentIndex = 0 {
+        didSet {
+            previousIndex = oldValue
+        }
+    }
+    
+    /// Previous page index.
+    private var previousIndex = 0
     
     /// Content onboarding views used inside Page View
     private lazy var contentViewControllers = [
@@ -73,8 +88,8 @@ internal final class OnboardingPageViewController: UIPageViewController {
     }
     
     private func update(toPage nextPage: Int) {
-        onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: currentIndex, to: nextPage)
         currentIndex = nextPage
+        onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: previousIndex, to: currentIndex)
     }
 }
 
@@ -101,7 +116,11 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 // MARK: - OnboardingContentPresentable
 extension OnboardingPageViewController: OnboardingContentPresentable {
     
-    func willPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
-        update(toPage: type.rawValue)
+    func willPresentOnboardingContentViewController(_ onboardingContentViewController: OnboardingContentViewController) {
+        update(toPage: onboardingContentViewController.type.rawValue)
+    }
+    
+    func didPresentOnboardingContentViewController(_ onboardingContentViewController: OnboardingContentViewController) {
+        onboardingDelegate?.onboardingPageViewController(self, didTransitionFrom: previousIndex, to: currentIndex)
     }
 }

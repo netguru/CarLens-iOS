@@ -14,7 +14,7 @@ internal final class OnboardingAnimationPlayer {
     
     private var animationState: OnboardingTransitionAnimationState = .onFirst
     
-    private var playerObserver: Any?
+    private var playerTimeObserver: Any?
     
     init(with bundle: Bundle = Bundle.main) {
         self.bundle = bundle
@@ -34,10 +34,10 @@ internal final class OnboardingAnimationPlayer {
     /// Handling animation of the view by changing the content video.
     ///
     /// - Parameters:
+    /// - previousPageIndex: Previous page from which user transitioned.
     /// - currentPageIndex: Page on which user is currently now.
-    /// - nextPageIndex: Next page to which user wants to transition.
-    func animate(fromPage currentPageIndex: Int, to nextPageIndex: Int) {
-        guard let state = OnboardingTransitionAnimationState(fromPage: currentPageIndex, to: nextPageIndex) else { return }
+    func animate(fromPage previousPageIndex: Int, to currentPageIndex: Int) {
+        guard let state = OnboardingTransitionAnimationState(fromPage: previousPageIndex, to: currentPageIndex) else { return }
         animationState = state
         switch animationState {
         case .onFirst:
@@ -60,18 +60,18 @@ internal final class OnboardingAnimationPlayer {
     }
  
     private func removeTimeObserver() {
-        guard let playerObserver = playerObserver else {
+        guard let playerTimeObserver = playerTimeObserver else {
             return
         }
-        playerViewController.player?.removeTimeObserver(playerObserver)
+        playerViewController.player?.removeTimeObserver(playerTimeObserver)
     }
     
     private func addTimeObserver(for time: CMTime?) {
         guard let time = time else {
-            playerObserver = nil
+            playerTimeObserver = nil
             return
         }
-        self.playerObserver = playerViewController.player?.addBoundaryTimeObserver(forTimes: [NSValue.init(time: time)], queue: nil, using: { [weak self] in
+        self.playerTimeObserver = playerViewController.player?.addBoundaryTimeObserver(forTimes: [NSValue.init(time: time)], queue: nil, using: { [weak self] in
             self?.playerViewController.player?.pause()
         })
     }

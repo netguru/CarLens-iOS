@@ -9,10 +9,15 @@ import UIKit
 // Intefrace for notifying parent view controller about current page
 protocol OnboardingContentPresentable: class {
     
-    /// Notify about current page
+    /// Notifying that soon the new page will be presented.
     ///
-    /// - Parameter type: Type of current page.
-    func willPresentControllerWithType(_ type: OnboardingContentViewController.ContentType)
+    /// - Parameter onboardingContentViewController: View Controller to be presented.
+    func willPresentOnboardingContentViewController(_ onboardingContentViewController: OnboardingContentViewController)
+    
+    /// Notifying that the new page was presented.
+    ///
+    /// - Parameter onboardingContentViewController: View Controller that was presented.
+    func didPresentOnboardingContentViewController(_ onboardingContentViewController: OnboardingContentViewController)
 }
 
 internal final class OnboardingContentViewController: TypedViewController<OnboardingContentView> {
@@ -20,7 +25,8 @@ internal final class OnboardingContentViewController: TypedViewController<Onboar
     /// Delegate used to inform about current page
     weak var delegate: OnboardingContentPresentable?
     
-    private var type: ContentType
+    /// The index of the current view controller.
+    var type: ContentType
     
     enum ContentType: Int {
         case first
@@ -59,6 +65,11 @@ internal final class OnboardingContentViewController: TypedViewController<Onboar
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        delegate?.willPresentControllerWithType(type)
+        delegate?.willPresentOnboardingContentViewController(self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        delegate?.didPresentOnboardingContentViewController(self)
     }
 }
