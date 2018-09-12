@@ -20,9 +20,9 @@ enum OnboardingTransitionAnimationState {
             value = 0
         case .fromFirstToSecond,
              .fromThirdToSecond:
-            value = 184
+            value = Constants.OnboardingAnimation.StartFrames.secondScreen
         case .fromSecondToThird:
-            value = 334
+            value = Constants.OnboardingAnimation.StartFrames.thirdScreen
         }
         return CMTimeMake(value, 60)
     }
@@ -32,17 +32,17 @@ enum OnboardingTransitionAnimationState {
         switch self {
         case .onFirst,
              .fromSecondToFirst:
-            value = 184
+            value = Constants.OnboardingAnimation.StartFrames.secondScreen
         case .fromFirstToSecond,
              .fromThirdToSecond:
-            value = 334
+            value = Constants.OnboardingAnimation.StartFrames.thirdScreen
         case .fromSecondToThird:
             return nil
         }
         return CMTimeMake(value, 60)
     }
     
-    /// Initializing the OnboardingTransitionAnimationState instance
+    /// Initializing the OnboardingTransitionAnimationState instance.
     ///
     /// - Parameters:
     /// - previousPageIndex: Previous page from which user transitioned.

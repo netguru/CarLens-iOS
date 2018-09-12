@@ -20,7 +20,7 @@ internal final class OnboardingAnimationPlayer {
         self.bundle = bundle
     }
     
-    /// Video View Controller, which playes video as an animation.
+    /// Video View Controller which playes video as an animation.
     lazy var playerViewController: AVPlayerViewController = {
         let viewController = AVPlayerViewController()
         guard let videoPath = bundle.path(forResource: "onboarding", ofType: "mp4") else { return viewController }
@@ -41,7 +41,7 @@ internal final class OnboardingAnimationPlayer {
         animationState = state
         switch animationState {
         case .onFirst:
-            let deadlineTime = DispatchTime.now() + .milliseconds(400)
+            let deadlineTime = DispatchTime.now() + .milliseconds(Constants.OnboardingAnimation.initialAnimationDelayInMilliseconds)
             DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
                 self.addTimeObserver(for: state.endingTime)
                 self.playerViewController.player?.play()
@@ -60,9 +60,7 @@ internal final class OnboardingAnimationPlayer {
     }
  
     private func removeTimeObserver() {
-        guard let playerTimeObserver = playerTimeObserver else {
-            return
-        }
+        guard let playerTimeObserver = playerTimeObserver else { return }
         playerViewController.player?.removeTimeObserver(playerTimeObserver)
     }
     

@@ -7,6 +7,7 @@
 import UIKit
 
 internal final class OnboardingView: View, ViewSetupable  {
+    
     /// Animation View which is responsible for showing the onboarding animation.
     lazy var animationView = UIView().layoutable()
     

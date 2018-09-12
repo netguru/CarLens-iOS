@@ -25,7 +25,7 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
         return viewController
     }()
     
-    /// Animation Player handling animation by animation player view controller.
+    /// Animation Player handling the animation by playing video.
     private lazy var animationPlayer = OnboardingAnimationPlayer()
     
     override func loadView() {

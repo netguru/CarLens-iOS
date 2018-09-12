@@ -119,6 +119,7 @@
 		95F3D24221496F4B00D4636C /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23A21496F4B00D4636C /* OnboardingContentView.swift */; };
 		95F3D24321496F4B00D4636C /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23B21496F4B00D4636C /* OnboardingContentViewController.swift */; };
 		95F3D24421496F4B00D4636C /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23C21496F4B00D4636C /* OnboardingPageViewController.swift */; };
+		95F3D246214974BB00D4636C /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D245214974BB00D4636C /* ApplicationConstants.swift */; };
 		E8379BB220FE18B9007D759B /* TextSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8379BB120FE18B9007D759B /* TextSwitcherView.swift */; };
 		E8473F0C21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */; };
 		E8473F1121074E0F00EC9EF3 /* ModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */; };
@@ -289,6 +290,7 @@
 		95F3D23A21496F4B00D4636C /* OnboardingContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
 		95F3D23B21496F4B00D4636C /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
 		95F3D23C21496F4B00D4636C /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		95F3D245214974BB00D4636C /* ApplicationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConstants.swift; sourceTree = "<group>"; };
 		E8379BB120FE18B9007D759B /* TextSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSwitcherView.swift; sourceTree = "<group>"; };
 		E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDatabaseServiceTests.swift; sourceTree = "<group>"; };
 		E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsFactory.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 				7CB817E520C9368300B51C3D /* ApplicationFlowController.swift */,
 				7C93D48F20E627EB00AF6FFC /* ApplicationFactory.swift */,
 				7CB817B020C930E200B51C3D /* ApplicationKeys.swift */,
+				95F3D245214974BB00D4636C /* ApplicationConstants.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -1167,6 +1170,7 @@
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
 				E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */,
 				95CA5ABB21085108000B4B0D /* URLOpenerService.swift in Sources */,
+				95F3D246214974BB00D4636C /* ApplicationConstants.swift in Sources */,
 				E8EC9DF320F630F000368E50 /* CameraAccessView.swift in Sources */,
 				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
