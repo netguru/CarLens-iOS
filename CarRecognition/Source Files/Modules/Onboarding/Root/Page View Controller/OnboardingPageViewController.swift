@@ -75,8 +75,9 @@ internal final class OnboardingPageViewController: UIPageViewController {
             onboardingDelegate?.didFinishOnboarding(onboardingPageViewController: self)
             return
         }
-        update(toPage: currentIndex + 1)
+        currentIndex += 1
         setViewControllers([contentViewControllers[currentIndex]], direction: .forward, animated: true, completion: nil)
+        onboardingDelegate?.onboardingPageViewController(self, didTransitionFrom: previousIndex, to: currentIndex)
     }
     
     private func setupPageViewController() {
@@ -87,10 +88,6 @@ internal final class OnboardingPageViewController: UIPageViewController {
         dataSource = self
     }
     
-    private func update(toPage nextPage: Int) {
-        currentIndex = nextPage
-        onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: previousIndex, to: currentIndex)
-    }
 }
 
 // MARK: - UIPageViewControllerDataSource
@@ -117,7 +114,8 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 extension OnboardingPageViewController: OnboardingContentPresentable {
     
     func willPresentOnboardingContentViewController(_ onboardingContentViewController: OnboardingContentViewController) {
-        update(toPage: onboardingContentViewController.type.rawValue)
+        currentIndex = onboardingContentViewController.type.rawValue
+        onboardingDelegate?.onboardingPageViewController(self, willTransitionFrom: previousIndex, to: currentIndex)
     }
     
     func didPresentOnboardingContentViewController(_ onboardingContentViewController: OnboardingContentViewController) {
