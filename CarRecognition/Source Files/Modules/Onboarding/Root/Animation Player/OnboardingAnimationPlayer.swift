@@ -47,9 +47,7 @@ internal final class OnboardingAnimationPlayer {
                 self.playerViewController.player?.play()
             })
             return
-        case .fromFirstToSecond,
-             .fromSecondToThird,
-             .fromSecondToFirst:
+        case .fromFirstToSecond, .fromSecondToThird, .fromSecondToFirst:
             removeTimeObserver()
         case .fromThirdToSecond:
             break
