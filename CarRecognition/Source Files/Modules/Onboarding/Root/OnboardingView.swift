@@ -8,6 +8,9 @@ import UIKit
 
 internal final class OnboardingView: View, ViewSetupable  {
     
+    /// Animation View which is responsible for showing the onboarding animation.
+    lazy var animationView = UIView().layoutable()
+    
     /// Page View with onboarding screens.
     lazy var pageView = UIView().layoutable()
     
@@ -31,20 +34,26 @@ internal final class OnboardingView: View, ViewSetupable  {
     
     // MARK: - Setup
     func setupViewHierarchy() {
-        [pageView, pageControl, nextButton].forEach { addSubview($0) }
+        [animationView, pageView, pageControl, nextButton].forEach { addSubview($0) }
     }
     
     func setupConstraints() {
-        pageView.constraintToSuperviewEdges(excludingAnchors: [.bottom])
+        pageView.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom])
         
         NSLayoutConstraint.activate([
-            pageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.8),
-            pageControl.topAnchor.constraint(equalTo: pageView.bottomAnchor, constant: 4),
+            animationView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
+            animationView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            animationView.widthAnchor.constraint(equalTo: animationView.heightAnchor, multiplier: 636/720),
+            animationView.bottomAnchor.constraint(equalTo: pageView.topAnchor, constant: 4),
+            pageView.heightAnchor.constraint(equalToConstant: 125),
+            pageView.bottomAnchor.constraint(equalTo: pageControl.topAnchor, constant: -14),
             pageControl.widthAnchor.constraint(equalToConstant: 150),
-            pageControl.heightAnchor.constraint(equalToConstant: 20),
+            pageControl.heightAnchor.constraint(equalToConstant: 40),
             pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -24),
             nextButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
+            nextButton.heightAnchor.constraint(equalToConstant: 100),
+            nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -18)
         ])
     }
     

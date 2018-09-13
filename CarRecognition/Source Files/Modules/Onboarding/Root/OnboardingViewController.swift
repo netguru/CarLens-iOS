@@ -15,23 +15,35 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
         case didTriggerFinishOnboarding
     }
     
-    /// Callback with triggered event
+    /// Callback with triggered event.
     var eventTriggered: ((Event) -> ())?
     
-    /// Page View Controller used for onboarding views
+    /// Page View Controller used for onboarding views.
     private lazy var pageViewController: OnboardingPageViewController = {
         let viewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
         viewController.onboardingDelegate = self
         return viewController
     }()
     
+    /// Animation Player handling the animation by playing video.
+    private lazy var animationPlayer = OnboardingAnimationPlayer()
+    
     override func loadView() {
         super.loadView()
-        add(pageViewController, inside: customView.pageView)
+        addChildViewControllers()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
+    }
+    
+    private func addChildViewControllers() {
+        add(pageViewController, inside: customView.pageView)
+        add(animationPlayer.playerViewController, inside: customView.animationView)
+    }
+    
+    private func setUpView() {
         view.accessibilityIdentifier = "onboarding/view/main"
         customView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
     }
@@ -51,6 +63,10 @@ extension OnboardingViewController: OnboardingPageViewControllerDelegate {
             customView.nextButton.setImage(#imageLiteral(resourceName: "button-next-page"), for: .normal)
         }
         customView.pageControl.currentPage = nextPageIndex
+    }
+    
+    func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController, didTransitionFrom previousPageIndex: Int, to currentPageIndex: Int) {
+        animationPlayer.animate(fromPage: previousPageIndex, to: currentPageIndex)
     }
     
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {

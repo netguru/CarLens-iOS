@@ -14,9 +14,6 @@
 		4E2BA30B21185B1500184424 /* XCUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30321185B1500184424 /* XCUITestCase.swift */; };
 		4E2BA30C21185B1500184424 /* TestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30421185B1500184424 /* TestBuilder.swift */; };
 		4E2BA30E21185B1500184424 /* UIImage+RemovingStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */; };
-		4E3560CE211C423C00AC31C7 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3560CD211C423C00AC31C7 /* OnboardingPageViewController.swift */; };
-		4E3560D0211C436000AC31C7 /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3560CF211C436000AC31C7 /* OnboardingContentViewController.swift */; };
-		4E3560D2211C469F00AC31C7 /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3560D1211C469F00AC31C7 /* OnboardingContentView.swift */; };
 		4E5D80D4211824E600ABA404 /* TestUI-Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */; };
 		4ED4EA662112EFE5008E931A /* CarsListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */; };
 		7C21A13E20EE7ABF001E5714 /* CarListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */; };
@@ -31,7 +28,6 @@
 		7C3DC69720F771E0005C8865 /* CarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DC69620F771E0005C8865 /* CarScene.swift */; };
 		7C3DC69920F77EFF005C8865 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3DC69820F77EFF005C8865 /* UIDeviceExtension.swift */; };
 		7C3E01C620F5EACB003B83D6 /* BLOKKNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C3E01C520F5EA6D003B83D6 /* BLOKKNeue-Regular.ttf */; };
-		7C3E01C820F63725003B83D6 /* button-ripple.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C3E01C720F63725003B83D6 /* button-ripple.json */; };
 		7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */; };
 		7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */; };
 		7C67179320EF85C600183AB4 /* LabeledCarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67179220EF85C600183AB4 /* LabeledCarImageView.swift */; };
@@ -79,8 +75,6 @@
 		7CB817F620C95BB200B51C3D /* RecognitionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F520C95BB200B51C3D /* RecognitionResult.swift */; };
 		7CB817F920C9686300B51C3D /* CRNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */; };
 		7CB817FD20CA865700B51C3D /* CRTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817FC20CA865700B51C3D /* CRTimeFormatter.swift */; };
-		7CBF004E20ECBD5100127A9F /* horizontal-progress-chart.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF004A20ECBD5100127A9F /* horizontal-progress-chart.json */; };
-		7CBF005120ECBD5100127A9F /* horizontal-stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF004D20ECBD5100127A9F /* horizontal-stars.json */; };
 		7CD6212720EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6212620EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift */; };
 		7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */; };
 		7CE4290420D13A9B00539FC6 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */; };
@@ -95,12 +89,10 @@
 		7CEDA78420ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA78320ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift */; };
 		7CEDA78620ED4EF900DF3AF0 /* NSAttributedStringFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEDA78520ED4EF900DF3AF0 /* NSAttributedStringFactory.swift */; };
 		7CF269D320EA432100DCC27D /* DetectionViewfinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */; };
-		7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CF269D520EA454000DCC27D /* viewfinder_bracket.json */; };
 		7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */; };
 		7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */; };
 		953793FD211DB76D004C3195 /* NSAttributedStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953793FC211DB76D004C3195 /* NSAttributedStringExtension.swift */; };
 		953793FF211DDD2F004C3195 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953793FE211DDD2F004C3195 /* UserDefaultsService.swift */; };
-		9537940121219003004C3195 /* OnboardingFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537940021219003004C3195 /* OnboardingFlowController.swift */; };
 		953794042121A611004C3195 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953794032121A611004C3195 /* Onboarding.swift */; };
 		95C7732720FCF66D001DBCC1 /* SystemMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */; };
 		95C7732A21022879001DBCC1 /* SystemMetricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732921022879001DBCC1 /* SystemMetricsTests.swift */; };
@@ -114,8 +106,20 @@
 		95CA5ABF2108536A000B4B0D /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ABE2108536A000B4B0D /* SearchServiceTests.swift */; };
 		95CA5AC221085668000B4B0D /* UIApplicationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AC121085668000B4B0D /* UIApplicationMock.swift */; };
 		95CA5ACC211085CC000B4B0D /* CarRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5ACB211085CC000B4B0D /* CarRecognitionModel.mlmodel */; };
-		95DFE7F7211C6DD200D4D5EE /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE7F6211C6DD200D4D5EE /* OnboardingViewController.swift */; };
-		95DFE7F9211C6E9900D4D5EE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DFE7F8211C6E9900D4D5EE /* OnboardingView.swift */; };
+		95F3D2242145AD3100D4636C /* horizontal-progress-chart.json in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D21E2145AD3100D4636C /* horizontal-progress-chart.json */; };
+		95F3D2252145AD3100D4636C /* button-ripple.json in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D21F2145AD3100D4636C /* button-ripple.json */; };
+		95F3D2262145AD3100D4636C /* horizontal-stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D2202145AD3100D4636C /* horizontal-stars.json */; };
+		95F3D2272145AD3100D4636C /* viewfinder_bracket.json in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D2212145AD3100D4636C /* viewfinder_bracket.json */; };
+		95F3D22F2146ABB100D4636C /* onboarding.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 95F3D22E2146ABB100D4636C /* onboarding.mp4 */; };
+		95F3D23D21496F4B00D4636C /* OnboardingFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23121496F4B00D4636C /* OnboardingFlowController.swift */; };
+		95F3D23E21496F4B00D4636C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23321496F4B00D4636C /* OnboardingViewController.swift */; };
+		95F3D23F21496F4B00D4636C /* OnboardingAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23521496F4B00D4636C /* OnboardingAnimationPlayer.swift */; };
+		95F3D24021496F4B00D4636C /* OnboardingTransitionAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23621496F4B00D4636C /* OnboardingTransitionAnimationState.swift */; };
+		95F3D24121496F4B00D4636C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23721496F4B00D4636C /* OnboardingView.swift */; };
+		95F3D24221496F4B00D4636C /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23A21496F4B00D4636C /* OnboardingContentView.swift */; };
+		95F3D24321496F4B00D4636C /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23B21496F4B00D4636C /* OnboardingContentViewController.swift */; };
+		95F3D24421496F4B00D4636C /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23C21496F4B00D4636C /* OnboardingPageViewController.swift */; };
+		95F3D246214974BB00D4636C /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D245214974BB00D4636C /* ApplicationConstants.swift */; };
 		E8379BB220FE18B9007D759B /* TextSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8379BB120FE18B9007D759B /* TextSwitcherView.swift */; };
 		E8473F0C21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */; };
 		E8473F1121074E0F00EC9EF3 /* ModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */; };
@@ -163,9 +167,6 @@
 		4E2BA30321185B1500184424 /* XCUITestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUITestCase.swift; sourceTree = "<group>"; };
 		4E2BA30421185B1500184424 /* TestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBuilder.swift; sourceTree = "<group>"; };
 		4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RemovingStatusBar.swift"; sourceTree = "<group>"; };
-		4E3560CD211C423C00AC31C7 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
-		4E3560CF211C436000AC31C7 /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
-		4E3560D1211C469F00AC31C7 /* OnboardingContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
 		4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "TestUI-Common.xcconfig"; sourceTree = "<group>"; };
 		4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListTestCase.swift; sourceTree = "<group>"; };
 		4EEF786021108232002C2AE5 /* CarRecognitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarRecognitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,7 +199,6 @@
 		7C3DC69620F771E0005C8865 /* CarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarScene.swift; sourceTree = "<group>"; };
 		7C3DC69820F77EFF005C8865 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		7C3E01C520F5EA6D003B83D6 /* BLOKKNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BLOKKNeue-Regular.ttf"; sourceTree = "<group>"; };
-		7C3E01C720F63725003B83D6 /* button-ripple.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "button-ripple.json"; sourceTree = "<group>"; };
 		7C57310D20EB897B00BE5751 /* CarARConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarARConfiguration.swift; sourceTree = "<group>"; };
 		7C57310F20EB904100BE5751 /* ARAnchorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARAnchorExtension.swift; sourceTree = "<group>"; };
 		7C67179220EF85C600183AB4 /* LabeledCarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledCarImageView.swift; sourceTree = "<group>"; };
@@ -246,8 +246,6 @@
 		7CB817F520C95BB200B51C3D /* RecognitionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecognitionResult.swift; sourceTree = "<group>"; };
 		7CB817F820C9686300B51C3D /* CRNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRNumberFormatter.swift; sourceTree = "<group>"; };
 		7CB817FC20CA865700B51C3D /* CRTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRTimeFormatter.swift; sourceTree = "<group>"; };
-		7CBF004A20ECBD5100127A9F /* horizontal-progress-chart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "horizontal-progress-chart.json"; sourceTree = "<group>"; };
-		7CBF004D20ECBD5100127A9F /* horizontal-stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "horizontal-stars.json"; sourceTree = "<group>"; };
 		7CD6212620EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOTAnimationViewExtension.swift; sourceTree = "<group>"; };
 		7CE4290120D13A7D00539FC6 /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
@@ -262,12 +260,10 @@
 		7CEDA78320ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSpecificationChartConfiguration.swift; sourceTree = "<group>"; };
 		7CEDA78520ED4EF900DF3AF0 /* NSAttributedStringFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringFactory.swift; sourceTree = "<group>"; };
 		7CF269D220EA432100DCC27D /* DetectionViewfinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionViewfinderView.swift; sourceTree = "<group>"; };
-		7CF269D520EA454000DCC27D /* viewfinder_bracket.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
 		7CF269D720EA4FBB00DCC27D /* InputNormalizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationService.swift; sourceTree = "<group>"; };
 		7CF269D920EA527500DCC27D /* InputNormalizationServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputNormalizationServiceTests.swift; sourceTree = "<group>"; };
 		953793FC211DB76D004C3195 /* NSAttributedStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtension.swift; sourceTree = "<group>"; };
 		953793FE211DDD2F004C3195 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
-		9537940021219003004C3195 /* OnboardingFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowController.swift; sourceTree = "<group>"; };
 		953794032121A611004C3195 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetrics.swift; sourceTree = "<group>"; };
 		95C7732921022879001DBCC1 /* SystemMetricsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetricsTests.swift; sourceTree = "<group>"; };
@@ -281,8 +277,20 @@
 		95CA5ABE2108536A000B4B0D /* SearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
 		95CA5AC121085668000B4B0D /* UIApplicationMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationMock.swift; sourceTree = "<group>"; };
 		95CA5ACB211085CC000B4B0D /* CarRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognitionModel.mlmodel; sourceTree = "<group>"; };
-		95DFE7F6211C6DD200D4D5EE /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		95DFE7F8211C6E9900D4D5EE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		95F3D21E2145AD3100D4636C /* horizontal-progress-chart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "horizontal-progress-chart.json"; sourceTree = "<group>"; };
+		95F3D21F2145AD3100D4636C /* button-ripple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "button-ripple.json"; sourceTree = "<group>"; };
+		95F3D2202145AD3100D4636C /* horizontal-stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "horizontal-stars.json"; sourceTree = "<group>"; };
+		95F3D2212145AD3100D4636C /* viewfinder_bracket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = viewfinder_bracket.json; sourceTree = "<group>"; };
+		95F3D22E2146ABB100D4636C /* onboarding.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = onboarding.mp4; sourceTree = "<group>"; };
+		95F3D23121496F4B00D4636C /* OnboardingFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFlowController.swift; sourceTree = "<group>"; };
+		95F3D23321496F4B00D4636C /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		95F3D23521496F4B00D4636C /* OnboardingAnimationPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingAnimationPlayer.swift; sourceTree = "<group>"; };
+		95F3D23621496F4B00D4636C /* OnboardingTransitionAnimationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingTransitionAnimationState.swift; sourceTree = "<group>"; };
+		95F3D23721496F4B00D4636C /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		95F3D23A21496F4B00D4636C /* OnboardingContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContentView.swift; sourceTree = "<group>"; };
+		95F3D23B21496F4B00D4636C /* OnboardingContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingContentViewController.swift; sourceTree = "<group>"; };
+		95F3D23C21496F4B00D4636C /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		95F3D245214974BB00D4636C /* ApplicationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationConstants.swift; sourceTree = "<group>"; };
 		E8379BB120FE18B9007D759B /* TextSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSwitcherView.swift; sourceTree = "<group>"; };
 		E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDatabaseServiceTests.swift; sourceTree = "<group>"; };
 		E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsFactory.swift; sourceTree = "<group>"; };
@@ -351,16 +359,6 @@
 				4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4E3560CA211C3C9800AC31C7 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				9537940021219003004C3195 /* OnboardingFlowController.swift */,
-				95379402212196A4004C3195 /* Root */,
-				95DFE7FA211C6F4A00D4D5EE /* Page View Controller */,
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		4EEF786121108232002C2AE5 /* CarRecognitionUITests */ = {
@@ -437,10 +435,10 @@
 		7C33E04D20BD69A200784D63 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				95F3D21C2145AD3100D4636C /* Animations */,
 				7CAD86D520F4A21B0064D50E /* Local data */,
 				7CB817C320C9335300B51C3D /* Localizations */,
 				7CEDA77C20ED03B400DF3AF0 /* Fonts */,
-				7CF269D420EA452800DCC27D /* Lottie animations */,
 				7CB817A920C9275900B51C3D /* ML Models */,
 				7C33E03320BD695700784D63 /* Assets.xcassets */,
 				7C33E03520BD695700784D63 /* LaunchScreen.storyboard */,
@@ -547,6 +545,7 @@
 				7CB817E520C9368300B51C3D /* ApplicationFlowController.swift */,
 				7C93D48F20E627EB00AF6FFC /* ApplicationFactory.swift */,
 				7CB817B020C930E200B51C3D /* ApplicationKeys.swift */,
+				95F3D245214974BB00D4636C /* ApplicationConstants.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -554,7 +553,7 @@
 		7CB817AF20C9306800B51C3D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				4E3560CA211C3C9800AC31C7 /* Onboarding */,
+				95F3D23021496F4B00D4636C /* Onboarding */,
 				7C93D49320E62C9D00AF6FFC /* Recognition */,
 			);
 			path = Modules;
@@ -725,17 +724,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		7CF269D420EA452800DCC27D /* Lottie animations */ = {
-			isa = PBXGroup;
-			children = (
-				7CF269D520EA454000DCC27D /* viewfinder_bracket.json */,
-				7CBF004A20ECBD5100127A9F /* horizontal-progress-chart.json */,
-				7CBF004D20ECBD5100127A9F /* horizontal-stars.json */,
-				7C3E01C720F63725003B83D6 /* button-ripple.json */,
-			);
-			path = "Lottie animations";
-			sourceTree = "<group>";
-		};
 		7CFBB8CD20BD94D200058B97 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,15 +732,6 @@
 				E8473F1421074F5600EC9EF3 /* MockedCar.json */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		95379402212196A4004C3195 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				95DFE7F6211C6DD200D4D5EE /* OnboardingViewController.swift */,
-				95DFE7F8211C6E9900D4D5EE /* OnboardingView.swift */,
-			);
-			path = Root;
 			sourceTree = "<group>";
 		};
 		95C7732520FCF63F001DBCC1 /* System Metrics */ = {
@@ -806,20 +785,77 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		95DFE7FA211C6F4A00D4D5EE /* Page View Controller */ = {
+		95F3D21C2145AD3100D4636C /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				4E3560CD211C423C00AC31C7 /* OnboardingPageViewController.swift */,
-				95DFE7FB211C6F7200D4D5EE /* Content */,
+				95F3D21D2145AD3100D4636C /* Lottie animations */,
+				95F3D2222145AD3100D4636C /* Onboarding */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		95F3D21D2145AD3100D4636C /* Lottie animations */ = {
+			isa = PBXGroup;
+			children = (
+				95F3D21E2145AD3100D4636C /* horizontal-progress-chart.json */,
+				95F3D21F2145AD3100D4636C /* button-ripple.json */,
+				95F3D2202145AD3100D4636C /* horizontal-stars.json */,
+				95F3D2212145AD3100D4636C /* viewfinder_bracket.json */,
+			);
+			path = "Lottie animations";
+			sourceTree = "<group>";
+		};
+		95F3D2222145AD3100D4636C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				95F3D22E2146ABB100D4636C /* onboarding.mp4 */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		95F3D23021496F4B00D4636C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				95F3D23121496F4B00D4636C /* OnboardingFlowController.swift */,
+				95F3D23221496F4B00D4636C /* Root */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		95F3D23221496F4B00D4636C /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				95F3D23321496F4B00D4636C /* OnboardingViewController.swift */,
+				95F3D23721496F4B00D4636C /* OnboardingView.swift */,
+				95F3D23421496F4B00D4636C /* Animation Player */,
+				95F3D23821496F4B00D4636C /* Page View Controller */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		95F3D23421496F4B00D4636C /* Animation Player */ = {
+			isa = PBXGroup;
+			children = (
+				95F3D23521496F4B00D4636C /* OnboardingAnimationPlayer.swift */,
+				95F3D23621496F4B00D4636C /* OnboardingTransitionAnimationState.swift */,
+			);
+			path = "Animation Player";
+			sourceTree = "<group>";
+		};
+		95F3D23821496F4B00D4636C /* Page View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				95F3D23921496F4B00D4636C /* Content */,
+				95F3D23C21496F4B00D4636C /* OnboardingPageViewController.swift */,
 			);
 			path = "Page View Controller";
 			sourceTree = "<group>";
 		};
-		95DFE7FB211C6F7200D4D5EE /* Content */ = {
+		95F3D23921496F4B00D4636C /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				4E3560CF211C436000AC31C7 /* OnboardingContentViewController.swift */,
-				4E3560D1211C469F00AC31C7 /* OnboardingContentView.swift */,
+				95F3D23A21496F4B00D4636C /* OnboardingContentView.swift */,
+				95F3D23B21496F4B00D4636C /* OnboardingContentViewController.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -983,18 +1019,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CBF005120ECBD5100127A9F /* horizontal-stars.json in Resources */,
+				95F3D2242145AD3100D4636C /* horizontal-progress-chart.json in Resources */,
 				4E5D80D4211824E600ABA404 /* TestUI-Common.xcconfig in Resources */,
-				7CBF004E20ECBD5100127A9F /* horizontal-progress-chart.json in Resources */,
 				7C33E03720BD695700784D63 /* LaunchScreen.storyboard in Resources */,
-				7C3E01C820F63725003B83D6 /* button-ripple.json in Resources */,
-				7CF269D620EA454000DCC27D /* viewfinder_bracket.json in Resources */,
 				7C3E01C620F5EACB003B83D6 /* BLOKKNeue-Regular.ttf in Resources */,
 				7CEDA77E20ED044F00DF3AF0 /* gliscor-gothic.ttf in Resources */,
+				95F3D2272145AD3100D4636C /* viewfinder_bracket.json in Resources */,
+				95F3D2252145AD3100D4636C /* button-ripple.json in Resources */,
 				7CB817C720C9337000B51C3D /* Localizable.strings in Resources */,
 				7C33E06E20BD729B00784D63 /* Keys.podspec.json in Resources */,
 				7CAD86E120F4B13D0064D50E /* cars.json in Resources */,
 				7C33E03420BD695700784D63 /* Assets.xcassets in Resources */,
+				95F3D22F2146ABB100D4636C /* onboarding.mp4 in Resources */,
+				95F3D2262145AD3100D4636C /* horizontal-stars.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1100,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F3D23F21496F4B00D4636C /* OnboardingAnimationPlayer.swift in Sources */,
 				7CB817BE20C932E500B51C3D /* AlertPresentable.swift in Sources */,
 				7C21A13E20EE7ABF001E5714 /* CarListCollectionViewCell.swift in Sources */,
 				7CE4290420D13A9B00539FC6 /* NSObjectExtension.swift in Sources */,
@@ -1073,7 +1111,6 @@
 				7CB817BC20C9320700B51C3D /* CrashLogger.swift in Sources */,
 				7CEDA77220ECD34100DF3AF0 /* FullOvalProgressView.swift in Sources */,
 				7CEDA77020ECD32D00DF3AF0 /* PartOvalProgressView.swift in Sources */,
-				4E3560D0211C436000AC31C7 /* OnboardingContentViewController.swift in Sources */,
 				7CB817EC20C937FB00B51C3D /* RecognitionView.swift in Sources */,
 				953793FF211DDD2F004C3195 /* UserDefaultsService.swift in Sources */,
 				7CE4290220D13A7D00539FC6 /* UITableViewExtension.swift in Sources */,
@@ -1084,28 +1121,34 @@
 				7CAD86D920F4AB840064D50E /* LocalCarsDataService.swift in Sources */,
 				7CEDA77420ECD35400DF3AF0 /* HorizontalProgressChartView.swift in Sources */,
 				E852940920FCC377005B7A1A /* ViewProgressable.swift in Sources */,
+				95F3D24121496F4B00D4636C /* OnboardingView.swift in Sources */,
 				7CB817EA20C937EA00B51C3D /* RecognitionViewController.swift in Sources */,
 				7CAD86E320F4B4840064D50E /* CarsDatabaseService.swift in Sources */,
 				95CA5ACC211085CC000B4B0D /* CarRecognitionModel.mlmodel in Sources */,
+				95F3D24321496F4B00D4636C /* OnboardingContentViewController.swift in Sources */,
+				95F3D24421496F4B00D4636C /* OnboardingPageViewController.swift in Sources */,
 				7CEDA77920ECD5F100DF3AF0 /* CarsListViewController.swift in Sources */,
 				7C93D49D20E6367000AF6FFC /* UIViewControllerExtension.swift in Sources */,
 				7CB817E020C935B200B51C3D /* View.swift in Sources */,
 				7CAD86E520F4B6720064D50E /* CarsDataService.swift in Sources */,
+				95F3D24221496F4B00D4636C /* OnboardingContentView.swift in Sources */,
 				7CB817DF20C935B200B51C3D /* TypedViewController.swift in Sources */,
 				7CEDA78020ED04DE00DF3AF0 /* UIFontExtension.swift in Sources */,
 				7C3DC69920F77EFF005C8865 /* UIDeviceExtension.swift in Sources */,
 				7C93D49020E627EB00AF6FFC /* ApplicationFactory.swift in Sources */,
+				95F3D24021496F4B00D4636C /* OnboardingTransitionAnimationState.swift in Sources */,
 				7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */,
 				7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */,
 				7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */,
 				7CB817D420C9353200B51C3D /* BoolExtension.swift in Sources */,
 				7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */,
+				95F3D23D21496F4B00D4636C /* OnboardingFlowController.swift in Sources */,
+				95F3D23E21496F4B00D4636C /* OnboardingViewController.swift in Sources */,
 				E89D791820ECB230006D2D8D /* CarCardViewController.swift in Sources */,
 				7CD6212720EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift in Sources */,
 				7C93D49B20E6317300AF6FFC /* AugmentedRealityView.swift in Sources */,
 				7C77741920E65398007B3851 /* Car.swift in Sources */,
 				E8E4B1A020EE2A65009A93B7 /* ModelNameView.swift in Sources */,
-				4E3560CE211C423C00AC31C7 /* OnboardingPageViewController.swift in Sources */,
 				7C3DC69720F771E0005C8865 /* CarScene.swift in Sources */,
 				7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */,
 				7C67179520F243C800183AB4 /* CarListCardView.swift in Sources */,
@@ -1123,21 +1166,18 @@
 				95CA5ABD210851F0000B4B0D /* UIApplicationExtension.swift in Sources */,
 				7CEDA78420ED474D00DF3AF0 /* CarSpecificationChartConfiguration.swift in Sources */,
 				7C93D49920E6316900AF6FFC /* AugmentedRealityViewController.swift in Sources */,
-				9537940121219003004C3195 /* OnboardingFlowController.swift in Sources */,
 				7CB817E220C935B200B51C3D /* KeyboardAwareViewController.swift in Sources */,
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
 				E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */,
 				95CA5ABB21085108000B4B0D /* URLOpenerService.swift in Sources */,
-				95DFE7F7211C6DD200D4D5EE /* OnboardingViewController.swift in Sources */,
+				95F3D246214974BB00D4636C /* ApplicationConstants.swift in Sources */,
 				E8EC9DF320F630F000368E50 /* CameraAccessView.swift in Sources */,
 				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
 				7C21A14420EE8770001E5714 /* CarListLayoutAttributes.swift in Sources */,
-				95DFE7F9211C6E9900D4D5EE /* OnboardingView.swift in Sources */,
 				7CB817E120C935B200B51C3D /* FlowAwareViewController.swift in Sources */,
 				7CB817F620C95BB200B51C3D /* RecognitionResult.swift in Sources */,
 				E8EC9DF120F630E700368E50 /* CameraAccessViewController.swift in Sources */,
-				4E3560D2211C469F00AC31C7 /* OnboardingContentView.swift in Sources */,
 				7CB817B320C9313500B51C3D /* ApplicationDependencies.swift in Sources */,
 				7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */,
 				7C67179320EF85C600183AB4 /* LabeledCarImageView.swift in Sources */,
