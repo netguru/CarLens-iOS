@@ -26,7 +26,7 @@ internal final class OnboardingContentViewController: TypedViewController<Onboar
     weak var delegate: OnboardingContentPresentable?
     
     /// The index of the current view controller.
-    var type: ContentType
+    private(set) var type: ContentType
     
     enum ContentType: Int {
         case first

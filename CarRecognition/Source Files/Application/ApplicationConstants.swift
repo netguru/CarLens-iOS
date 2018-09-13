@@ -3,9 +3,6 @@
 //  CarRecognition
 //
 
-
-import Foundation
-
 /// Keeping the constant values used in the project.
 struct Constants {
     
@@ -16,6 +13,13 @@ struct Constants {
         struct StartFrames {
             static let secondScreen: Int64 = 184
             static let thirdScreen: Int64 = 334
+        }
+        
+        /// Video frames at which the animation should end.
+        struct FinishFrames {
+            static let firstScreen = StartFrames.secondScreen
+            static let secondScreen = StartFrames.thirdScreen
+            static let thirdScreen: Int64 = 452
         }
         
         static let initialAnimationDelayInMilliseconds = 400

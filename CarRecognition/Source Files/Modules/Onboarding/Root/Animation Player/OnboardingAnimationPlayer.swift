@@ -47,12 +47,14 @@ internal final class OnboardingAnimationPlayer {
                 self.playerViewController.player?.play()
             })
             return
-        case .fromFirstToSecond, .fromSecondToThird, .fromSecondToFirst:
+        case .fromFirstToSecond, .fromSecondToFirst:
+            removeTimeObserver()
+            addTimeObserver(for: state.endingTime)
+        case .fromSecondToThird:
             removeTimeObserver()
         case .fromThirdToSecond:
-            break
+            addTimeObserver(for: state.endingTime)
         }
-        addTimeObserver(for: state.endingTime)
         playerViewController.player?.seek(to: state.startingTime)
         playerViewController.player?.play()
     }
@@ -62,11 +64,7 @@ internal final class OnboardingAnimationPlayer {
         playerViewController.player?.removeTimeObserver(playerTimeObserver)
     }
     
-    private func addTimeObserver(for time: CMTime?) {
-        guard let time = time else {
-            playerTimeObserver = nil
-            return
-        }
+    private func addTimeObserver(for time: CMTime) {
         self.playerTimeObserver = playerViewController.player?.addBoundaryTimeObserver(forTimes: [NSValue.init(time: time)], queue: nil, using: { [weak self] in
             self?.playerViewController.player?.pause()
         })

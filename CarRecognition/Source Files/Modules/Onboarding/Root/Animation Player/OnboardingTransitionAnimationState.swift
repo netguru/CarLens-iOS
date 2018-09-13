@@ -27,17 +27,17 @@ enum OnboardingTransitionAnimationState {
         return CMTimeMake(value, 60)
     }
     
-    var endingTime: CMTime? {
+    var endingTime: CMTime {
         let value: Int64
         switch self {
         case .onFirst,
              .fromSecondToFirst:
-            value = Constants.OnboardingAnimation.StartFrames.secondScreen
+            value = Constants.OnboardingAnimation.FinishFrames.firstScreen
         case .fromFirstToSecond,
              .fromThirdToSecond:
-            value = Constants.OnboardingAnimation.StartFrames.thirdScreen
+            value = Constants.OnboardingAnimation.FinishFrames.secondScreen
         case .fromSecondToThird:
-            return nil
+            value = Constants.OnboardingAnimation.FinishFrames.thirdScreen
         }
         return CMTimeMake(value, 60)
     }
