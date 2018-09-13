@@ -12,11 +12,11 @@
 
 // Onboarding
 "onboarding.first.title" = "Recognize Cars";
-"onboarding.first.description" = "Point the camera at the front \n of the car for the best results \n in image recognition.";
+"onboarding.first.description" = "Point the camera at the front\nof the car for the best results\nin image recognition.";
 "onboarding.second.title" = "Discover Cars";
-"onboarding.second.description" = "Search and unlock the models \n avaliable in the gallery. \n Catch them all.";
+"onboarding.second.description" = "Search and unlock the models\navaliable in the gallery.\nCatch them all.";
 "onboarding.third.title" = "Stay updated";
-"onboarding.third.description" = "Expect updates with more cars \n and improved recognition \n algorithm.";
+"onboarding.third.description" = "Expect updates with more cars\nand improved recognition\nalgorithm.";
 
 // Recognition
 "recognition.point.camera.at.car" = "Point the camera at a car";
