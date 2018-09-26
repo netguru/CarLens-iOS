@@ -19,6 +19,8 @@ internal final class CarCardView: View, ViewSetupable {
         static let mechanicalTopOffset: CGFloat = UIDevice.screenSizeBiggerThan4_7Inches ? 20 : 30
         static let rippleInitialFrame: NSNumber = 61
         static let rippleLastFrame: NSNumber = 122
+        static let attachPinErrorLabelHeight: CGFloat = 40
+        static let attachPinErrorLabelFontSize: CGFloat = 20.0
     }
 
     /// Car instance used to initialize subviews
@@ -72,6 +74,19 @@ internal final class CarCardView: View, ViewSetupable {
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView.layoutable()
+    }()
+    
+    private lazy var attachPinErrorLabel: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .black
+        label.alpha = 0.0
+        label.layer.cornerRadius = Constants.attachPinErrorLabelHeight / 2.0
+        label.clipsToBounds = true
+        label.text = Localizable.CarCard.attachPinError
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        return label
     }()
 
     private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed), invalidateChartInstantly: false)
@@ -162,11 +177,24 @@ internal final class CarCardView: View, ViewSetupable {
             view.invalidateChart(animated: true)
         }
     }
+    
+    /// Animates attach pin error label
+    func animateAttachPinError() {
+        UIView.animate(withDuration: 0.3, delay: 1.0, options: [], animations: {
+            self.attachPinErrorLabel.alpha = 0.5
+        }) { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.attachPinErrorLabel.alpha = 0.0
+                })
+            })
+        }
+    }
 
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         addSubview(containerView)
-        [gradientView, topBeamView, modelStackView, performanceStackView, mechanicalStackView, rippleAnimationView, scanButton, googleButton, carListButton].forEach(containerView.addSubview)
+        [gradientView, topBeamView, modelStackView, performanceStackView, mechanicalStackView, rippleAnimationView, scanButton, googleButton, carListButton, attachPinErrorLabel].forEach(containerView.addSubview)
     }
 
     /// - SeeAlso: ViewSetupable
@@ -202,7 +230,13 @@ internal final class CarCardView: View, ViewSetupable {
             googleButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -32),
             performanceStackView.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight + 30),
             mechanicalStackView.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight - 20),
-            modelStackView.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight + 2)
+            modelStackView.heightAnchor.constraint(equalToConstant: Constants.stackViewHeight + 2),
+            attachPinErrorLabel.heightAnchor.constraint(equalToConstant: Constants.attachPinErrorLabelHeight),
+            attachPinErrorLabel.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.9)
+            
         ])
+        
+        attachPinErrorLabel.constraintCenterToSuperview(axis: [.horizontal], withConstant: .zero)
+        attachPinErrorLabel.constraintToEdges(of: scanButton, excludingAnchors: [.left, .right, .bottom], withInsets: .zero)
     }
 }

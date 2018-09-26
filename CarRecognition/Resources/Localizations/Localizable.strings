@@ -33,6 +33,7 @@
 "car.card.kph" = "km/h";
 "car.card.hp" = "hp";
 "car.card.engine.capacity" = "cc";
+"car.card.attach.pin.error" = "Could not atttach pin, please try again";
 
 // Cars list
 "cars.list.title" = "Discovered";

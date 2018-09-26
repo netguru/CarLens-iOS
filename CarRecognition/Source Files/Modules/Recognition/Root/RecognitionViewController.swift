@@ -112,16 +112,19 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition, normalizedConfidence: normalizedConfidence)
         switch mostConfidentRecognition.recognition {
         case .car(let car):
+            classificationService.set(state: .paused)
+            inputNormalizationService.reset()
+            addSlidingCard(with: car)
+            carsDataService.mark(car: car, asDiscovered: true)
+            
             if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
-                augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
-                    self.classificationService.set(state: .paused)
-                    self.inputNormalizationService.reset()
-                    self.addSlidingCard(with: car)
-                    self.carsDataService.mark(car: car, asDiscovered: true)
-                }, error: { [unowned self] error in
+                augmentedRealityViewController.addPin(to: car, completion: nil) { [unowned self] error in
                     // TODO: Debug information, remove from final version
                     self.customView.analyzeTimeLabel.text = error.rawValue
-                })
+                    self.carCardViewController?.customView.animateAttachPinError()
+                }
+            } else {
+                self.carCardViewController?.customView.animateAttachPinError()
             }
         case .otherCar, .notCar:
             break
