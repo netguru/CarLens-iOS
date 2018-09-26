@@ -62,6 +62,7 @@ internal final class OnboardingAnimationPlayer {
     private func removeTimeObserver() {
         guard let playerTimeObserver = playerTimeObserver else { return }
         playerViewController.player?.removeTimeObserver(playerTimeObserver)
+        self.playerTimeObserver = nil
     }
     
     private func addTimeObserver(for time: CMTime) {
