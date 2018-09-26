@@ -48,6 +48,7 @@ internal struct Localizable {
         static let kph = localized("car.card.kph")
         static let hp = localized("car.card.hp")
         static let cc = localized("car.card.engine.capacity")
+        static let attachPinError = localized("car.card.attach.pin.error")
     }
     
     struct CarsList {

@@ -76,7 +76,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     ///   - car: Car to be pinned
     ///   - completion: Completion handler called when pin was successfully addded
     ///   - error: Error handler called when error occurred during pin adding
-    func addPin(to car: Car, completion: (Car) -> (), error: ((CarARLabelError) -> ())? = nil) {
+    func addPin(to car: Car, completion: ((Car) -> ())?, error: ((CarARLabelError) -> ())? = nil) {
         let hitTests = customView.previewView.hitTest(config.pointForHitTest, types: [.featurePoint])
         guard hitTests.count > 0 else {
             error?(.hitTestFailed)
@@ -98,7 +98,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         if shouldAdd(anchor: anchor) {
             addedAnchors[anchor] = car
             customView.previewView.session.add(anchor: anchor)
-            completion(car)
+            completion?(car)
         } else {
             error?(.pinAlreadyAdded)
         }
