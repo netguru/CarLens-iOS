@@ -119,7 +119,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             
             if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
                 augmentedRealityViewController.addPin(to: car, completion: nil) { [unowned self] error in
-                    // TODO: Debug information, remove from final version
+                    // Debug information, invisible in production
                     self.customView.analyzeTimeLabel.text = error.rawValue
                     self.carCardViewController?.customView.animateAttachPinError()
                 }
@@ -130,7 +130,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             break
         }
         
-        // TODO: Debug information, remove from final version
+        // Debug information, invisible in production
         customView.detectedModelLabel.text = mostConfidentRecognition.description
     }
     

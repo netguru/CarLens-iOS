@@ -15,6 +15,7 @@
 		4E2BA30C21185B1500184424 /* TestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30421185B1500184424 /* TestBuilder.swift */; };
 		4E2BA30E21185B1500184424 /* UIImage+RemovingStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */; };
 		4E40F1FE215B78010051E98B /* CarRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4E40F1FD215B78010051E98B /* CarRecognitionModel.mlmodel */; };
+		4E4CE75C215B9F030053C24B /* ToastDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CE75B215B9F030053C24B /* ToastDisplayer.swift */; };
 		4E5D80D4211824E600ABA404 /* TestUI-Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */; };
 		4ED4EA662112EFE5008E931A /* CarsListTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */; };
 		7C21A13E20EE7ABF001E5714 /* CarListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C21A13D20EE7ABF001E5714 /* CarListCollectionViewCell.swift */; };
@@ -168,6 +169,7 @@
 		4E2BA30421185B1500184424 /* TestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBuilder.swift; sourceTree = "<group>"; };
 		4E2BA30621185B1500184424 /* UIImage+RemovingStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RemovingStatusBar.swift"; sourceTree = "<group>"; };
 		4E40F1FD215B78010051E98B /* CarRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognitionModel.mlmodel; sourceTree = "<group>"; };
+		4E4CE75B215B9F030053C24B /* ToastDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastDisplayer.swift; sourceTree = "<group>"; };
 		4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "TestUI-Common.xcconfig"; sourceTree = "<group>"; };
 		4ED4EA652112EFE5008E931A /* CarsListTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsListTestCase.swift; sourceTree = "<group>"; };
 		4EEF786021108232002C2AE5 /* CarRecognitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarRecognitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -669,6 +671,7 @@
 				7CAD86E220F4B4840064D50E /* CarsDatabaseService.swift */,
 				95CA5ABA21085108000B4B0D /* URLOpenerService.swift */,
 				7CAD86E420F4B6720064D50E /* CarsDataService.swift */,
+				4E4CE75B215B9F030053C24B /* ToastDisplayer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1169,6 +1172,7 @@
 				7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */,
 				E8B63C7220F37588003C7F89 /* OvalProgressLayerView.swift in Sources */,
 				95CA5ABB21085108000B4B0D /* URLOpenerService.swift in Sources */,
+				4E4CE75C215B9F030053C24B /* ToastDisplayer.swift in Sources */,
 				95F3D246214974BB00D4636C /* ApplicationConstants.swift in Sources */,
 				E8EC9DF320F630F000368E50 /* CameraAccessView.swift in Sources */,
 				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
