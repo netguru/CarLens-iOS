@@ -10,6 +10,14 @@
 "yes" = "Yes";
 "no" = "No";
 
+// Onboarding
+"onboarding.first.title" = "Recognize Cars";
+"onboarding.first.description" = "Point the camera at the front\nof the car for the best results\nin image recognition.";
+"onboarding.second.title" = "Discover Cars";
+"onboarding.second.description" = "Search and unlock the models\navaliable in the gallery.\nCatch them all.";
+"onboarding.third.title" = "Stay updated";
+"onboarding.third.description" = "Expect updates with more cars\nand improved recognition\nalgorithm.";
+
 // Recognition
 "recognition.point.camera.at.car" = "Point the camera at a car";
 "recognition.other.car" = "Car has been detected but does not belong to our data base";
@@ -25,6 +33,7 @@
 "car.card.kph" = "km/h";
 "car.card.hp" = "hp";
 "car.card.engine.capacity" = "cc";
+"car.card.attach.pin.error" = "Could not atttach pin, please try again";
 
 // Cars list
 "cars.list.title" = "Discovered";

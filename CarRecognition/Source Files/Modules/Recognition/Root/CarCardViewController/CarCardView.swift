@@ -162,6 +162,12 @@ internal final class CarCardView: View, ViewSetupable {
             view.invalidateChart(animated: true)
         }
     }
+    
+    /// Animates attach pin error label
+    func animateAttachPinError() {
+        ToastDisplayer.show(in: containerView,
+                            text: Localizable.CarCard.attachPinError)
+    }
 
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {

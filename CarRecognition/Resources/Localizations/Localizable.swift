@@ -19,6 +19,19 @@ internal struct Localizable {
         static let no = localized("no")
     }
     
+    struct Onboarding {
+        struct Title {
+            static let first = localized("onboarding.first.title")
+            static let second = localized("onboarding.second.title")
+            static let third = localized("onboarding.third.title")
+        }
+        struct Description {
+            static let first = localized("onboarding.first.description")
+            static let second = localized("onboarding.second.description")
+            static let third = localized("onboarding.third.description")
+        }
+    }
+    
     struct Recognition {
         static let pointCameraAtCar = localized("recognition.point.camera.at.car")
         static let otherCar = localized("recognition.other.car")
@@ -35,6 +48,7 @@ internal struct Localizable {
         static let kph = localized("car.card.kph")
         static let hp = localized("car.card.hp")
         static let cc = localized("car.card.engine.capacity")
+        static let attachPinError = localized("car.card.attach.pin.error")
     }
     
     struct CarsList {
