@@ -8,12 +8,7 @@ import UIKit
 
 class OnboardingPageViewController: UIPageViewController {
     
-    typealias Page = Int
-    
     private var currentIndex = 0
-    private var nextIndex = 0
-    
-    var onChangePage: ((Page) -> Void)?
     
     private lazy var contentViewControllers = [
         OnboardingContentViewController(type: .recognizeCars),
@@ -46,7 +41,6 @@ class OnboardingPageViewController: UIPageViewController {
         }
         setViewControllers([contentViewControllers[0]], direction: .forward, animated: false, completion: nil)
         dataSource = self
-        delegate = self
     }
 }
 
@@ -74,22 +68,5 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 extension OnboardingPageViewController: OnboardingContentPresentable {
     func didPresentControllerWithType(_ type: OnboardingContentViewController.ContentType) {
         currentIndex = type.rawValue
-    }
-}
-
-extension OnboardingPageViewController: UIPageViewControllerDelegate {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        guard
-            let newViewController = pendingViewControllers.first as? OnboardingContentViewController,
-            let newIndex = contentViewControllers.index(of: newViewController) else { return }
-        nextIndex = newIndex
-    }
-    
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if finished {
-            currentIndex = nextIndex
-            onChangePage?(currentIndex)
-        }
     }
 }
