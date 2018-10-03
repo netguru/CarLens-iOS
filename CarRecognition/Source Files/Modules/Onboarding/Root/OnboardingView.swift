@@ -22,16 +22,6 @@ internal final class OnboardingView: View, ViewSetupable  {
         return view.layoutable()
     }()
     
-    lazy var pageControl: UIPageControl = {
-        let view = UIPageControl().layoutable()
-        view.currentPageIndicatorTintColor = UIColor.crOnboardingDeepOrange
-        view.pageIndicatorTintColor = UIColor.crOnboardingLightOrange
-        view.currentPage = 0
-        view.numberOfPages = 3
-        view.isUserInteractionEnabled = false
-        return view
-    }()
-    
     let indicatorAnimationView = OnboardingIndicatorAnimationView().layoutable()
     
     // MARK: - Setup
@@ -50,7 +40,7 @@ internal final class OnboardingView: View, ViewSetupable  {
             pageView.heightAnchor.constraint(equalToConstant: 125),
             pageView.bottomAnchor.constraint(equalTo: indicatorAnimationView.topAnchor, constant: -32),
             indicatorAnimationView.widthAnchor.constraint(equalToConstant: indicatorAnimationView.viewWidth),
-            indicatorAnimationView.heightAnchor.constraint(equalToConstant: indicatorAnimationView.dotWidth),
+            indicatorAnimationView.heightAnchor.constraint(equalToConstant: indicatorAnimationView.viewHeight),
             indicatorAnimationView.centerXAnchor.constraint(equalTo: centerXAnchor),
             indicatorAnimationView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -42),
             nextButton.centerXAnchor.constraint(equalTo: centerXAnchor),
