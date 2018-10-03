@@ -18,10 +18,10 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
     
     private let dotViews = [UIView().layoutable(), UIView().layoutable(), UIView().layoutable()]
     
-    /// The view width depending on the dots' sizes
+    /// The view width depending on the dots' sizes.
     private(set) var viewWidth = Constants.dotExtendedWidth + (Constants.dotWidth + Constants.spacing) * 2
     
-    /// The view height depending on the dots' sizes
+    /// The view height depending on the dots' sizes.
     private(set) var viewHeight = Constants.dotWidth
     
     /// Animating the indicator dots on changing of the pages.
