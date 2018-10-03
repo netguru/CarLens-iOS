@@ -30,10 +30,7 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
         }
     }
     
-    let firstDotView = UIView().layoutable()
-    let secondDotView = UIView().layoutable()
-    let thirdDotView = UIView().layoutable()
-    let dotViews: [UIView] = Array.init(repeating: UIView().layoutable(), count: 3)
+    let dotViews: [UIView] = [UIView().layoutable(), UIView().layoutable(), UIView().layoutable()]
     let dotWidth: CGFloat = 5
     let dotExtendedWidth: CGFloat = 20
     let spacing: CGFloat = 5
@@ -50,31 +47,31 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
             return
         case .fromFirstToSecond:
             animations = {
-                self.firstDotView.backgroundColor = UIColor.crOnboardingLightOrange
-                self.firstDotView.frame = Frames.Initial.first
-                self.secondDotView.frame = Frames.Extended.second
-                self.secondDotView.backgroundColor = UIColor.crOnboardingDeepOrange
+                self.dotViews[0].backgroundColor = UIColor.crOnboardingLightOrange
+                self.dotViews[0].frame = Frames.Initial.first
+                self.dotViews[1].frame = Frames.Extended.second
+                self.dotViews[1].backgroundColor = UIColor.crOnboardingDeepOrange
             }
         case .fromSecondToThird:
             animations = {
-                self.secondDotView.backgroundColor = UIColor.crOnboardingLightOrange
-                self.secondDotView.frame = Frames.Initial.secondFromThird
-                self.thirdDotView.frame = Frames.Extended.third
-                self.thirdDotView.backgroundColor = UIColor.crOnboardingDeepOrange
+                self.dotViews[1].backgroundColor = UIColor.crOnboardingLightOrange
+                self.dotViews[1].frame = Frames.Initial.secondFromThird
+                self.dotViews[2].frame = Frames.Extended.third
+                self.dotViews[2].backgroundColor = UIColor.crOnboardingDeepOrange
             }
         case .fromThirdToSecond:
             animations = {
-                self.thirdDotView.backgroundColor = UIColor.crOnboardingLightOrange
-                self.thirdDotView.frame = Frames.Initial.third
-                self.secondDotView.frame = Frames.Extended.second
-                self.secondDotView.backgroundColor = UIColor.crOnboardingDeepOrange
+                self.dotViews[2].backgroundColor = UIColor.crOnboardingLightOrange
+                self.dotViews[2].frame = Frames.Initial.third
+                self.dotViews[1].frame = Frames.Extended.second
+                self.dotViews[1].backgroundColor = UIColor.crOnboardingDeepOrange
             }
         case .fromSecondToFirst:
             animations = {
-                self.secondDotView.backgroundColor = UIColor.crOnboardingLightOrange
-                self.secondDotView.frame = Frames.Initial.secondFromFirst
-                self.firstDotView.frame = Frames.Extended.first
-                self.firstDotView.backgroundColor = UIColor.crOnboardingDeepOrange
+                self.dotViews[1].backgroundColor = UIColor.crOnboardingLightOrange
+                self.dotViews[1].frame = Frames.Initial.secondFromFirst
+                self.dotViews[0].frame = Frames.Extended.first
+                self.dotViews[0].backgroundColor = UIColor.crOnboardingDeepOrange
             }
         }
         guard let animationsArray = animations else { return }
@@ -82,21 +79,19 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
     }
     
     func setupViewHierarchy() {
-        [firstDotView, secondDotView, thirdDotView].forEach { addSubview($0) }
+        dotViews.forEach { addSubview($0) }
     }
     
     func setupConstraints() {
-        firstDotView.frame = Frames.Initial.first
-        secondDotView.frame = Frames.Initial.secondFromFirst
-        thirdDotView.frame = Frames.Initial.third
+        dotViews[0].frame = Frames.Extended.first
+        dotViews[1].frame = Frames.Initial.secondFromFirst
+        dotViews[2].frame = Frames.Initial.third
     }
     
     func setupProperties() {
-        firstDotView.backgroundColor = UIColor.crOnboardingDeepOrange
-        firstDotView.layer.cornerRadius = dotWidth/2
-        secondDotView.backgroundColor = UIColor.crOnboardingLightOrange
-        secondDotView.layer.cornerRadius = dotWidth/2
-        thirdDotView.backgroundColor = UIColor.crOnboardingLightOrange
-        thirdDotView.layer.cornerRadius = dotWidth/2
+        for (i, view) in dotViews.enumerated() {
+            view.layer.cornerRadius = Constants.dotWidth/2
+            view.backgroundColor = (i == 0) ? UIColor.crOnboardingDeepOrange : UIColor.crOnboardingLightOrange
+        }
     }
 }
