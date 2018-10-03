@@ -13,16 +13,25 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
         static let dotWidth: CGFloat = 5
         static let dotExtendedWidth = dotWidth * 4
         static let spacing: CGFloat = 5
+        static let animationTime = 0.5
     }
     
     private let dotViews = [UIView().layoutable(), UIView().layoutable(), UIView().layoutable()]
     
-    private(set) var viewWidth = Constants.dotWidth * 2 + Constants.spacing * 2 + Constants.dotExtendedWidth
+    /// The view width depending on the dots' sizes
+    private(set) var viewWidth = Constants.dotExtendedWidth + (Constants.dotWidth + Constants.spacing) * 2
+    
+    /// The view height depending on the dots' sizes
     private(set) var viewHeight = Constants.dotWidth
     
+    /// Animating the indicator dots on changing of the pages.
+    ///
+    /// - Parameters:
+    ///     - previousPageIndex: Previous page from which user transitioned.
+    ///     - currentPageIndex: Page on which user is currently now.
     func animate(fromPage previousPageIndex: Int, to currentPageIndex: Int) {
         guard previousPageIndex != currentPageIndex else { return }
-        UIView.animate(withDuration: 0.5) {
+        UIView.animate(withDuration: Constants.animationTime) {
             self.dotViews[previousPageIndex].backgroundColor = UIColor.crOnboardingLightOrange
             self.dotViews[currentPageIndex].backgroundColor = UIColor.crOnboardingDeepOrange
             self.dotViews[previousPageIndex].frame = self.initialFrame(forDot: previousPageIndex, extendedDot: currentPageIndex)
@@ -42,11 +51,12 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
     
     func setupProperties() {
         for (i, view) in dotViews.enumerated() {
-            view.layer.cornerRadius = Constants.dotWidth/2
+            view.layer.cornerRadius = Constants.dotWidth / 2
             view.backgroundColor = (i == 0) ? UIColor.crOnboardingDeepOrange : UIColor.crOnboardingLightOrange
         }
     }
     
+    /// The frame for an extended dot which is going to be animated. The dot indicating the page on which the user is now.
     private func extendedFrame(forDot dot: Int) -> CGRect {
         let dotWidthWithSpacing = Constants.dotWidth + Constants.spacing
         let x: CGFloat
@@ -63,6 +73,7 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
         return frame(forX: x, width: Constants.dotExtendedWidth)
     }
     
+     /// The initial frame of a dot.
     private func initialFrame(forDot dot: Int, extendedDot: Int? = nil) -> CGRect {
         let dotWidthWithSpacing = Constants.dotWidth + Constants.spacing
         let extendedDotWidthWithSpacing = Constants.dotExtendedWidth + Constants.spacing
@@ -81,6 +92,7 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
         return frame(forX: x, width: Constants.dotWidth)
     }
     
+    /// Helper method for a dot's frame.
     private func frame(forX x: CGFloat, width: CGFloat) -> CGRect {
         return CGRect(x: x, y: 0, width: width, height: Constants.dotWidth)
     }

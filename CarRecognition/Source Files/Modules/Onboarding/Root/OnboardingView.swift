@@ -22,6 +22,7 @@ internal final class OnboardingView: View, ViewSetupable  {
         return view.layoutable()
     }()
     
+    /// Page Indicator animation view.
     let indicatorAnimationView = OnboardingIndicatorAnimationView().layoutable()
     
     // MARK: - Setup
