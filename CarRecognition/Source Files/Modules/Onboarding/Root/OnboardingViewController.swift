@@ -67,6 +67,7 @@ extension OnboardingViewController: OnboardingPageViewControllerDelegate {
     
     func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController, didTransitionFrom previousPageIndex: Int, to currentPageIndex: Int) {
         animationPlayer.animate(fromPage: previousPageIndex, to: currentPageIndex)
+        customView.indicatorAnimationView.animate(fromPage: previousPageIndex, to: currentPageIndex)
     }
     
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {
