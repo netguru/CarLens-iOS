@@ -32,8 +32,8 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
     func animate(fromPage previousPageIndex: Int, to currentPageIndex: Int) {
         guard previousPageIndex != currentPageIndex else { return }
         UIView.animate(withDuration: Constants.animationTime) {
-            self.dotViews[previousPageIndex].backgroundColor = UIColor.crOnboardingLightOrange
-            self.dotViews[currentPageIndex].backgroundColor = UIColor.crOnboardingDeepOrange
+            self.dotViews[previousPageIndex].backgroundColor = .crOnboardingLightOrange
+            self.dotViews[currentPageIndex].backgroundColor = .crOnboardingDeepOrange
             self.dotViews[previousPageIndex].frame = self.initialFrame(forDot: previousPageIndex, extendedDot: currentPageIndex)
             self.dotViews[currentPageIndex].frame = self.extendedFrame(forDot: currentPageIndex)
         }
@@ -52,7 +52,7 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
     func setupProperties() {
         for (i, view) in dotViews.enumerated() {
             view.layer.cornerRadius = Constants.dotWidth / 2
-            view.backgroundColor = (i == 0) ? UIColor.crOnboardingDeepOrange : UIColor.crOnboardingLightOrange
+            view.backgroundColor = (i == 0) ? .crOnboardingDeepOrange : .crOnboardingLightOrange
         }
     }
     
