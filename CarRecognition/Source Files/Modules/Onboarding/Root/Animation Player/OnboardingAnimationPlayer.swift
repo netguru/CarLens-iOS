@@ -34,8 +34,8 @@ internal final class OnboardingAnimationPlayer {
     /// Handling animation of the view by changing the content video.
     ///
     /// - Parameters:
-    /// - previousPageIndex: Previous page from which user transitioned.
-    /// - currentPageIndex: Page on which user is currently now.
+    ///    - previousPageIndex: Previous page from which user transitioned.
+    ///    - currentPageIndex: Page on which user is currently now.
     func animate(fromPage previousPageIndex: Int, to currentPageIndex: Int) {
         guard let state = OnboardingTransitionAnimationState(fromPage: previousPageIndex, to: currentPageIndex) else { return }
         animationState = state

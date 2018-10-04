@@ -62,11 +62,11 @@ extension OnboardingViewController: OnboardingPageViewControllerDelegate {
         } else if currentPageIndex == lastPageIndex {
             customView.nextButton.setImage(#imageLiteral(resourceName: "button-next-page"), for: .normal)
         }
-        customView.pageControl.currentPage = nextPageIndex
     }
     
     func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController, didTransitionFrom previousPageIndex: Int, to currentPageIndex: Int) {
         animationPlayer.animate(fromPage: previousPageIndex, to: currentPageIndex)
+        customView.indicatorAnimationView.animate(fromPage: previousPageIndex, to: currentPageIndex)
     }
     
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {
