@@ -25,4 +25,23 @@ struct Constants {
         static let initialAnimationDelayInMilliseconds = 400
     }
     
+    /// Constants used in recognition process.
+    struct Recognition {
+        
+        ///Thresholds for the recognition confidence values.
+        struct Threshold {
+            
+            /// Minimum threshold filtering the results at the beginning.
+            static let minimum: Float = 0.1
+            
+            /// Threshold stating whether the recognition of the car is in progress.
+            static let neededToShowProgress: Float = 0.4
+        
+            /// Confidence needed to pin the AR label.
+            static let neededToPinARLabel: Float = 0.75
+        }
+        
+        /// Number of last results that should be normalized.
+        static let normalizationCount = 5
+    }
 }

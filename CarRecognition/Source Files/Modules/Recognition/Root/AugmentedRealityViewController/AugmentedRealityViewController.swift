@@ -66,8 +66,8 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// Updates the detection viewfinder with given state
     ///
     /// - Parameter result: Result to be set
-    func updateDetectionViewfinder(to result: RecognitionResult, normalizedConfidence: Double) {
-        customView.detectionViewfinderView.update(to: result, normalizedConfidence: normalizedConfidence)
+    func updateDetectionViewfinder(to result: RecognitionResult) {
+        customView.detectionViewfinderView.update(to: result)
     }
     
     /// Tries to add augmented reality pin to the car in 3D world

@@ -76,7 +76,8 @@ internal final class CarClassificationService {
         else {
             return
         }
-        let recognitionResult = classifications.compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence, carsDataService: carsDataService) }
+        let recognitionResult = classifications.filter { $0.confidence > Constants.Recognition.Threshold.minimum }
+                                            .compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence, carsDataService: carsDataService) }
         completionHandler?(recognitionResult)
     }
 }

@@ -22,10 +22,9 @@ internal final class DetectionViewfinderView: View, ViewSetupable {
     ///
     /// - Parameters:
     ///     - result: Result of the detection
-    ///     - normalizedConfidence: Normalized confidence of the model
-    func update(to result: RecognitionResult, normalizedConfidence: Double) {
-        viewfinderAnimationView.animationProgress = CGFloat(normalizedConfidence)
-        guard normalizedConfidence > 0.5 else {
+    func update(to result: RecognitionResult) {
+        viewfinderAnimationView.animationProgress = CGFloat(result.confidence)
+        guard result.confidence > Constants.Recognition.Threshold.neededToShowProgress else {
             informationSwitcherView.switchLabelsWithText(Localizable.Recognition.pointCameraAtCar)
             return
         }
