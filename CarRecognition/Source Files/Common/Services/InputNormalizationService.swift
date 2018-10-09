@@ -33,8 +33,8 @@ internal final class InputNormalizationService {
     /// - Returns: Normalized RecognitionResult value.
     func normalizeConfidence(from recognitionData: [RecognitionResult]) -> RecognitionResult? {
         let sortedResults = recognitionData.sorted(by: { $0.confidence > $1.confidence })
-        let resultsNumberNeeded = numberOfValuesNeeded - recognitionResults.count
-        let resultsNeeded = sortedResults.prefix(resultsNumberNeeded)
+        let numberOfResultsNeeded = numberOfValuesNeeded - recognitionResults.count
+        let resultsNeeded = sortedResults.prefix(numberOfResultsNeeded)
         recognitionResults.append(contentsOf: resultsNeeded)
         guard recognitionResults.count == numberOfValuesNeeded else { return nil }
         let averageConfidencesForEachLabel: [String: Float] = dictionaryWithValuesSum(from: recognitionResults).mapValues { countAverage($0) }
