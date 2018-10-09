@@ -99,34 +99,42 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             guard self.carCardViewController != nil else { return }
             self.removeSlidingCard()
         }
-        classificationService.completionHandler = { [weak self] result in
+        classificationService.completionHandler = { [weak self] results in
             DispatchQueue.main.async {
-                self?.handleRecognition(result: result)
+                self?.handleRecognition(results: results)
             }
         }
     }
     
-    private func handleRecognition(result: [RecognitionResult]) {
-        guard let mostConfidentRecognition = inputNormalizationService.normalizeConfidence(from: result) else { return }
-        inputNormalizationService.reset()
-        augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition)
-        switch mostConfidentRecognition.recognition {
-        case .car(let car):
-            guard mostConfidentRecognition.confidence >= Constants.Recognition.Threshold.neededToPinARLabel else { return }
-            classificationService.set(state: .paused)
-            addSlidingCard(with: car)
-            carsDataService.mark(car: car, asDiscovered: true)
-            augmentedRealityViewController.addPin(to: car, completion: nil) { [unowned self] error in
-                // Debug information, invisible in production
-                self.customView.analyzeTimeLabel.text = error.rawValue
-                self.carCardViewController?.customView.animateAttachPinError()
+    private func handleRecognition(results: [RecognitionResult]) {
+        guard let result = results.first else { return }
+        var recognitionResult: RecognitionResult
+        if result.recognition == .notCar {
+            recognitionResult = result
+            augmentedRealityViewController.updateDetectionViewfinder(to: recognitionResult)
+        } else {
+            guard let mostConfidentRecognition = inputNormalizationService.normalizeConfidence(from: results) else { return }
+            inputNormalizationService.reset()
+            recognitionResult = mostConfidentRecognition
+            augmentedRealityViewController.updateDetectionViewfinder(to: recognitionResult)
+            switch mostConfidentRecognition.recognition {
+            case .car(let car):
+                guard mostConfidentRecognition.confidence >= Constants.Recognition.Threshold.neededToPinARLabel else { break }
+                classificationService.set(state: .paused)
+                addSlidingCard(with: car)
+                carsDataService.mark(car: car, asDiscovered: true)
+                augmentedRealityViewController.addPin(to: car, completion: nil) { [unowned self] error in
+                    // Debug information, invisible in production
+                    self.customView.analyzeTimeLabel.text = error.rawValue
+                    self.carCardViewController?.customView.animateAttachPinError()
+                }
+            case .otherCar, .notCar:
+                break
             }
-        case .otherCar, .notCar:
-            break
         }
         
         // Debug information, invisible in production
-        customView.detectedModelLabel.text = mostConfidentRecognition.description
+        customView.detectedModelLabel.text = recognitionResult.description
     }
     
     private func toggleViewsTo(cardMode: Bool, animated: Bool) {

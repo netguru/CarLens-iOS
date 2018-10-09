@@ -44,4 +44,16 @@ struct Constants {
         /// Number of last results that should be normalized.
         static let normalizationCount = 5
     }
+    
+    /// Constants used in detection process.
+    struct Detection {
+        
+        /// ML class labels.
+        struct Labels {
+            
+            static let notCar = "0"
+            
+            static let car = "1"
+        }
+    }
 }

@@ -17,6 +17,24 @@ internal final class CarClassificationService {
         case paused
     }
     
+    /// Types of classifications performed by the service.
+    enum ClassificationType {
+        
+        /// Detecting whether object is a car or not.
+        case detection
+        
+        /// Recognizing the concrete model of the car.
+        case recognition
+        
+        /// ML Model for a concrete classification type.
+        var model: MLModel {
+            switch self {
+            case .detection: return CarDetector().model
+            case .recognition: return CarRecognizer().model
+            }
+        }
+    }
+    
     /// Completion handler for recognized cars
     var completionHandler: (([RecognitionResult]) -> ())?
     
@@ -35,31 +53,25 @@ internal final class CarClassificationService {
     /// Current state of the service
     private(set) var state: State = .running
     
+    /// Current type of task to be perfomed.
+    private var type: ClassificationType = .detection
+    
     private var currentBuffer: CVPixelBuffer?
     
-    private lazy var request: VNCoreMLRequest = { [unowned self] in
-        guard let model = try? VNCoreMLModel(for: CarRecognitionModel().model) else {
-            fatalError("Core ML model initialization failed")
-        }
-        let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
-            self?.handleDetection(request: request, error: error)
-        })
-        request.imageCropAndScaleOption = .centerCrop
-        return request
+    private lazy var detectionRequest: VNCoreMLRequest = { [unowned self] in
+        return self.request(for: .detection)
+    }()
+    
+    private lazy var recognitionRequest: VNCoreMLRequest = { [unowned self] in
+        return self.request(for: .recognition)
     }()
     
     /// Perform ML analyze on given buffer. Will do the analyze only when finished last one.
     ///
     /// - Parameter pixelBuffer: Pixel buffer to be analyzed
     func perform(on pixelBuffer: CVPixelBuffer) {
-        guard state == .running, isReadyForNextFrame else { return }
-        self.currentBuffer = pixelBuffer
-        let orientation = CGImagePropertyOrientation.right
-        let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: [:])
-        DispatchQueue.global(qos: .userInitiated).async {
-            defer { self.currentBuffer = nil }
-            try? handler.perform([self.request])
-        }
+        guard type == .detection else { return }
+        performClassification(on: pixelBuffer)
     }
     
     /// Updates the state of service
@@ -69,16 +81,62 @@ internal final class CarClassificationService {
         self.state = state
     }
     
-    private func handleDetection(request: VNRequest, error: Error?) {
-        guard
-            let results = request.results,
-            let classifications = results as? [VNClassificationObservation]
-        else {
-            return
+    private func performClassification(on pixelBuffer: CVPixelBuffer) {
+        guard state == .running else { return }
+        if type == .detection {
+            guard isReadyForNextFrame else { return }
         }
-        let recognitionResult = classifications
-            .filter { $0.confidence > Constants.Recognition.Threshold.minimum }
-            .compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence, carsDataService: carsDataService) }
-        completionHandler?(recognitionResult)
+        self.currentBuffer = pixelBuffer
+        let orientation = CGImagePropertyOrientation.right
+        let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: [:])
+        DispatchQueue.global(qos: .userInitiated).async {
+            var request: VNCoreMLRequest
+            switch self.type {
+            case .detection:
+                request = self.detectionRequest
+            case .recognition:
+                request = self.recognitionRequest
+            }
+            try? handler.perform([request])
+        }
+    }
+    
+    private func handleResults(request: VNRequest, error: Error?, for type: ClassificationType) {
+        guard let results = request.results,
+            let classifications = results as? [VNClassificationObservation] else { return }
+        switch type {
+        case .detection:
+            handleDetection(with: classifications)
+        case .recognition:
+            let recognitionResult = classifications
+                .filter { $0.confidence > Constants.Recognition.Threshold.minimum }
+                .compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence, carsDataService: carsDataService) }
+            self.currentBuffer = nil
+            self.type = .detection
+            completionHandler?(recognitionResult)
+        }
+    }
+    
+    private func handleDetection(with classifications: [VNClassificationObservation]) {
+        guard let bestClassification = classifications.max(by: { $0.confidence < $1.confidence }), let buffer = currentBuffer else { return }
+        if bestClassification.identifier == Constants.Detection.Labels.notCar {
+            guard let bestRecognition = RecognitionResult(label: bestClassification.identifier, confidence: bestClassification.confidence, carsDataService: carsDataService) else { return }
+            self.currentBuffer = nil
+            completionHandler?([bestRecognition])
+        } else if bestClassification.identifier == Constants.Detection.Labels.car {
+            self.type = .recognition
+            performClassification(on: buffer)
+        }
+    }
+    
+    private func request(for type: ClassificationType) -> VNCoreMLRequest {
+        guard let model = try? VNCoreMLModel(for: type.model) else {
+            fatalError("Core ML model initialization failed")
+        }
+        let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
+            self?.handleResults(request: request, error: error, for: type)
+        })
+        request.imageCropAndScaleOption = .centerCrop
+        return request
     }
 }
