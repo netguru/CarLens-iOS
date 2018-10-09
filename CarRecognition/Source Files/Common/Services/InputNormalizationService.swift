@@ -9,13 +9,8 @@ internal final class InputNormalizationService {
     /// Number of recognition results needed for normalization to begin.
     private let numberOfValuesNeeded: Int
     
-    /// Storage of recognition results to be normilized.
+    /// Storage of recognition results to be normalized.
     private var recognitionResults: [RecognitionResult] = []
-    
-    /// Indicating whether is ready for performing normalization.
-    private var isReadyToNormalize: Bool {
-        return recognitionResults.count == numberOfValuesNeeded
-    }
     
     private let carsDataService: CarsDataService
     
@@ -37,17 +32,12 @@ internal final class InputNormalizationService {
     /// - Parameter recognitionData: Recognition Results to be normalized.
     /// - Returns: Normalized RecognitionResult value.
     func normalizeConfidence(from recognitionData: [RecognitionResult]) -> RecognitionResult? {
-        let resultsNumberNeeded = numberOfValuesNeeded - self.recognitionResults.count
-        let resultsNeeded = recognitionData.prefix(resultsNumberNeeded)
-        let sortedResults = resultsNeeded.sorted(by: { $0.confidence > $1.confidence })
-        self.recognitionResults.append(contentsOf: sortedResults)
-        guard isReadyToNormalize else { return nil }
-        let sumOfConfidencesForEachLabel: [String: [Float]] = recognitionResults.reduce(into: [:]) { (counts, result) in
-                                                counts[result.label, default: []].append(result.confidence)
-                                            }
-        let averageConfidencesForEachLabel: [String: Float] = sumOfConfidencesForEachLabel.mapValues {
-                                                $0.reduce(0, {$0 + $1}) / Float($0.count)
-                                            }
+        let sortedResults = recognitionData.sorted(by: { $0.confidence > $1.confidence })
+        let resultsNumberNeeded = numberOfValuesNeeded - recognitionResults.count
+        let resultsNeeded = sortedResults.prefix(resultsNumberNeeded)
+        recognitionResults.append(contentsOf: resultsNeeded)
+        guard recognitionResults.count == numberOfValuesNeeded else { return nil }
+        let averageConfidencesForEachLabel: [String: Float] = dictionaryWithValuesSum(from: recognitionResults).mapValues { countAverage($0) }
         guard let bestResult = averageConfidencesForEachLabel.max(by: { $0.value < $1.value }) else { return nil }
         return RecognitionResult(label: bestResult.0, confidence: bestResult.1, carsDataService: carsDataService)
     }
@@ -55,5 +45,15 @@ internal final class InputNormalizationService {
     /// Resets the normalizer.
     func reset() {
         recognitionResults = []
+    }
+    
+    private func dictionaryWithValuesSum(from recognitionResults: [RecognitionResult]) -> [String: [Float]] {
+        return recognitionResults.reduce(into: [:]) { (counts, result) in
+            counts[result.label, default: []].append(result.confidence)
+        }
+    }
+    
+    private func countAverage(_ array: [Float]) -> Float {
+        return array.reduce(0, {$0 + $1}) / Float(array.count)
     }
 }
