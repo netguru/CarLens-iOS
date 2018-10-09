@@ -39,7 +39,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     private let arConfig = CarARConfiguration()
     
-    private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: arConfig.normalizationCount)
+    private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: Constants.Recognition.normalizationCount, carsDataService: carsDataService)
     
     /// Initializes view controller with given dependencies
     ///
@@ -107,23 +107,18 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
     
     private func handleRecognition(result: [RecognitionResult]) {
-        guard let mostConfidentRecognition = result.first else { return }
-        let normalizedConfidence = inputNormalizationService.normalizeConfidence(from: mostConfidentRecognition)
-        augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition, normalizedConfidence: normalizedConfidence)
+        guard let mostConfidentRecognition = inputNormalizationService.normalizeConfidence(from: result) else { return }
+        inputNormalizationService.reset()
+        augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition)
         switch mostConfidentRecognition.recognition {
         case .car(let car):
+            guard mostConfidentRecognition.confidence >= Constants.Recognition.Threshold.neededToPinARLabel else { return }
             classificationService.set(state: .paused)
-            inputNormalizationService.reset()
             addSlidingCard(with: car)
             carsDataService.mark(car: car, asDiscovered: true)
-            
-            if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
-                augmentedRealityViewController.addPin(to: car, completion: nil) { [unowned self] error in
-                    // Debug information, invisible in production
-                    self.customView.analyzeTimeLabel.text = error.rawValue
-                    self.carCardViewController?.customView.animateAttachPinError()
-                }
-            } else {
+            augmentedRealityViewController.addPin(to: car, completion: nil) { [unowned self] error in
+                // Debug information, invisible in production
+                self.customView.analyzeTimeLabel.text = error.rawValue
                 self.carCardViewController?.customView.animateAttachPinError()
             }
         case .otherCar, .notCar:

@@ -28,7 +28,11 @@ internal struct RecognitionResult: CustomStringConvertible {
     }
     
     let recognition: Recognition
+    
     let confidence: Float
+    
+    /// Label returned by a model.
+    let label: String
     
     /// Initializes the object from given parameters
     ///
@@ -38,6 +42,7 @@ internal struct RecognitionResult: CustomStringConvertible {
     ///   - carsDataService: Data Service with cars
     init?(label: String, confidence: Float, carsDataService: CarsDataService) {
         self.confidence = confidence
+        self.label = label
         if let car = carsDataService.map(classifierLabel: label) {
             recognition = .car(car)
         } else if label == "other car" {

@@ -24,12 +24,6 @@ internal struct CarARConfiguration {
     /// Place for doing the hit test
     let pointForHitTest = CGPoint(x: 0.5, y: 0.5)
     
-    /// Minimum confidence nedded to pin the label
-    let neededConfidenceToPinLabel = 0.96
-    
-    /// Number of last values that should be normalized
-    let normalizationCount = 10
-    
     init() {
         #if ENV_DEVELOPMENT
             nodeShift = NodeShift(depth: 0, elevation: 0)
