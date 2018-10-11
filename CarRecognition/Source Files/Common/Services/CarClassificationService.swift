@@ -53,7 +53,7 @@ internal final class CarClassificationService {
     /// Current state of the service
     private(set) var state: State = .running
     
-    /// Current type of task to be perfomed.
+    /// Current type of task to be performed.
     private var type: ClassificationType = .detection
     
     private var currentBuffer: CVPixelBuffer?
@@ -86,7 +86,7 @@ internal final class CarClassificationService {
         if type == .detection {
             guard isReadyForNextFrame else { return }
         }
-        self.currentBuffer = pixelBuffer
+        currentBuffer = pixelBuffer
         let orientation = CGImagePropertyOrientation.right
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: [:])
         DispatchQueue.global(qos: .userInitiated).async {
@@ -111,7 +111,7 @@ internal final class CarClassificationService {
             let recognitionResult = classifications
                 .filter { $0.confidence > Constants.Recognition.Threshold.minimum }
                 .compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence, carsDataService: carsDataService) }
-            self.currentBuffer = nil
+            currentBuffer = nil
             self.type = .detection
             completionHandler?(recognitionResult)
         }
@@ -121,10 +121,10 @@ internal final class CarClassificationService {
         guard let bestClassification = classifications.max(by: { $0.confidence < $1.confidence }), let buffer = currentBuffer else { return }
         if bestClassification.identifier == Constants.Detection.Labels.notCar {
             guard let bestRecognition = RecognitionResult(label: bestClassification.identifier, confidence: bestClassification.confidence, carsDataService: carsDataService) else { return }
-            self.currentBuffer = nil
+            currentBuffer = nil
             completionHandler?([bestRecognition])
         } else if bestClassification.identifier == Constants.Detection.Labels.car {
-            self.type = .recognition
+            type = .recognition
             performClassification(on: buffer)
         }
     }
