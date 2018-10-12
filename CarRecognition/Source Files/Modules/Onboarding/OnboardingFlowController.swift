@@ -37,16 +37,6 @@ internal final class OnboardingFlowController: FlowController {
             viewController.present(recognitionController!, animated: false, completion: nil)
         }
         return viewController
-//        let viewController = applicationFactory.onboardingViewController()
-//        viewController.eventTriggered = { [unowned self] event in
-//            switch event {
-//            case .didTriggerFinishOnboarding:
-//                self.nextFlowController = self.makeRecognitionFlowController()
-//                let recognitionController = self.nextFlowController?.rootViewController
-//                viewController.present(recognitionController!, animated: false, completion: nil)
-//            }
-//        }
-//        return viewController
     }
     
         private func makeRecognitionFlowController(with model: TestingModel) -> FlowController {
