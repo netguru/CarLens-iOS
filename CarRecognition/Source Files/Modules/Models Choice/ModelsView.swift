@@ -39,6 +39,7 @@ class ModelsView: View, ViewSetupable {
             button.tag = i
             button.setTitleColor(.blue, for: .normal)
             button.backgroundColor = .yellow
+            button.accessibilityIdentifier = "onboarding/button"
         }
     }
     

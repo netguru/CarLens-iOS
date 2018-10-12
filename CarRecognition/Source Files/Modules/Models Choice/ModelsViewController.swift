@@ -15,6 +15,7 @@ class ModelsViewController: TypedViewController<ModelsView> {
         for button in customView.buttons {
             button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
         }
+        view.accessibilityIdentifier = "onboarding/view"
     }
     
     @objc private func didTapButton(_ sender: UIButton) {
