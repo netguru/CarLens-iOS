@@ -83,9 +83,7 @@ internal final class CarClassificationService {
     
     private func performClassification(on pixelBuffer: CVPixelBuffer) {
         guard state == .running else { return }
-        if type == .detection {
-            guard isReadyForNextFrame else { return }
-        }
+        if type == .detection && !isReadyForNextFrame { return }
         currentBuffer = pixelBuffer
         let orientation = CGImagePropertyOrientation.right
         let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: orientation, options: [:])
@@ -119,11 +117,11 @@ internal final class CarClassificationService {
     
     private func handleDetection(with classifications: [VNClassificationObservation]) {
         guard let bestClassification = classifications.max(by: { $0.confidence < $1.confidence }), let buffer = currentBuffer else { return }
-        if bestClassification.identifier == Constants.Detection.Labels.notCar {
+        if bestClassification.identifier == Constants.Labels.Detection.notCar {
             guard let bestRecognition = RecognitionResult(label: bestClassification.identifier, confidence: bestClassification.confidence, carsDataService: carsDataService) else { return }
             currentBuffer = nil
             completionHandler?([bestRecognition])
-        } else if bestClassification.identifier == Constants.Detection.Labels.car {
+        } else if bestClassification.identifier == Constants.Labels.Detection.car {
             type = .recognition
             performClassification(on: buffer)
         }

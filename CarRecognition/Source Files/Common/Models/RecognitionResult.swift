@@ -45,9 +45,9 @@ internal struct RecognitionResult: CustomStringConvertible {
         self.label = label
         if let car = carsDataService.map(classifierLabel: label) {
             recognition = .car(car)
-        } else if label == "other_car" {
+        } else if label == Constants.Labels.Recognition.otherCar {
             recognition = .otherCar
-        } else if label == Constants.Detection.Labels.notCar {
+        } else if label == Constants.Labels.Detection.notCar {
             recognition = .notCar
         } else {
             return nil
