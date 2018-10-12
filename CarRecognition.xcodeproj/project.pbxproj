@@ -98,6 +98,14 @@
 		953794042121A611004C3195 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953794032121A611004C3195 /* Onboarding.swift */; };
 		958B6F94216F866D00154E24 /* CarRecognizer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 958B6F92216F866D00154E24 /* CarRecognizer.mlmodel */; };
 		958B6F95216F866D00154E24 /* CarDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 958B6F93216F866D00154E24 /* CarDetector.mlmodel */; };
+		958B6FA02170887000154E24 /* ModelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958B6F9F2170887000154E24 /* ModelsViewController.swift */; };
+		958B6FA22170895100154E24 /* ModelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958B6FA12170895100154E24 /* ModelsView.swift */; };
+		958B6FA92170934500154E24 /* CarClassifierModel_181012_0807.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 958B6FA32170934400154E24 /* CarClassifierModel_181012_0807.mlmodel */; };
+		958B6FAA2170934500154E24 /* CarClassificator_20181011_1943.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 958B6FA42170934500154E24 /* CarClassificator_20181011_1943.mlmodel */; };
+		958B6FAB2170934500154E24 /* CarClassifierModel_181011_1212.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 958B6FA52170934500154E24 /* CarClassifierModel_181011_1212.mlmodel */; };
+		958B6FAC2170934500154E24 /* CarClassificator_20181011_1556.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 958B6FA62170934500154E24 /* CarClassificator_20181011_1556.mlmodel */; };
+		958B6FAD2170934500154E24 /* CarClassifierModel_181011_1448.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 958B6FA72170934500154E24 /* CarClassifierModel_181011_1448.mlmodel */; };
+		958B6FAE2170934500154E24 /* CarClassifierModel_181012_0744.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 958B6FA82170934500154E24 /* CarClassifierModel_181012_0744.mlmodel */; };
 		95C7732720FCF66D001DBCC1 /* SystemMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */; };
 		95C7732A21022879001DBCC1 /* SystemMetricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C7732921022879001DBCC1 /* SystemMetricsTests.swift */; };
 		95CA5AB02105E547000B4B0D /* FormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CA5AAF2105E547000B4B0D /* FormattersTests.swift */; };
@@ -272,6 +280,14 @@
 		953794032121A611004C3195 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		958B6F92216F866D00154E24 /* CarRecognizer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarRecognizer.mlmodel; sourceTree = "<group>"; };
 		958B6F93216F866D00154E24 /* CarDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarDetector.mlmodel; sourceTree = "<group>"; };
+		958B6F9F2170887000154E24 /* ModelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsViewController.swift; sourceTree = "<group>"; };
+		958B6FA12170895100154E24 /* ModelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsView.swift; sourceTree = "<group>"; };
+		958B6FA32170934400154E24 /* CarClassifierModel_181012_0807.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarClassifierModel_181012_0807.mlmodel; sourceTree = "<group>"; };
+		958B6FA42170934500154E24 /* CarClassificator_20181011_1943.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarClassificator_20181011_1943.mlmodel; sourceTree = "<group>"; };
+		958B6FA52170934500154E24 /* CarClassifierModel_181011_1212.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarClassifierModel_181011_1212.mlmodel; sourceTree = "<group>"; };
+		958B6FA62170934500154E24 /* CarClassificator_20181011_1556.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarClassificator_20181011_1556.mlmodel; sourceTree = "<group>"; };
+		958B6FA72170934500154E24 /* CarClassifierModel_181011_1448.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarClassifierModel_181011_1448.mlmodel; sourceTree = "<group>"; };
+		958B6FA82170934500154E24 /* CarClassifierModel_181012_0744.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CarClassifierModel_181012_0744.mlmodel; sourceTree = "<group>"; };
 		95C7732620FCF66D001DBCC1 /* SystemMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetrics.swift; sourceTree = "<group>"; };
 		95C7732921022879001DBCC1 /* SystemMetricsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetricsTests.swift; sourceTree = "<group>"; };
 		95CA5AAF2105E547000B4B0D /* FormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattersTests.swift; sourceTree = "<group>"; };
@@ -538,6 +554,12 @@
 		7CB817A920C9275900B51C3D /* ML Models */ = {
 			isa = PBXGroup;
 			children = (
+				958B6FA62170934500154E24 /* CarClassificator_20181011_1556.mlmodel */,
+				958B6FA42170934500154E24 /* CarClassificator_20181011_1943.mlmodel */,
+				958B6FA52170934500154E24 /* CarClassifierModel_181011_1212.mlmodel */,
+				958B6FA72170934500154E24 /* CarClassifierModel_181011_1448.mlmodel */,
+				958B6FA82170934500154E24 /* CarClassifierModel_181012_0744.mlmodel */,
+				958B6FA32170934400154E24 /* CarClassifierModel_181012_0807.mlmodel */,
 				958B6F93216F866D00154E24 /* CarDetector.mlmodel */,
 				958B6F92216F866D00154E24 /* CarRecognizer.mlmodel */,
 			);
@@ -560,6 +582,7 @@
 		7CB817AF20C9306800B51C3D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				958B6F9E2170885000154E24 /* Models Choice */,
 				95F3D23021496F4B00D4636C /* Onboarding */,
 				7C93D49320E62C9D00AF6FFC /* Recognition */,
 			);
@@ -748,6 +771,15 @@
 				950EC1A32163D3B4008BFC92 /* OnboardingIndicatorAnimationView.swift */,
 			);
 			path = "Indicator Animation";
+			sourceTree = "<group>";
+		};
+		958B6F9E2170885000154E24 /* Models Choice */ = {
+			isa = PBXGroup;
+			children = (
+				958B6F9F2170887000154E24 /* ModelsViewController.swift */,
+				958B6FA12170895100154E24 /* ModelsView.swift */,
+			);
+			path = "Models Choice";
 			sourceTree = "<group>";
 		};
 		95C7732520FCF63F001DBCC1 /* System Metrics */ = {
@@ -1139,6 +1171,7 @@
 				7CEDA77420ECD35400DF3AF0 /* HorizontalProgressChartView.swift in Sources */,
 				E852940920FCC377005B7A1A /* ViewProgressable.swift in Sources */,
 				95F3D24121496F4B00D4636C /* OnboardingView.swift in Sources */,
+				958B6FAB2170934500154E24 /* CarClassifierModel_181011_1212.mlmodel in Sources */,
 				7CB817EA20C937EA00B51C3D /* RecognitionViewController.swift in Sources */,
 				7CAD86E320F4B4840064D50E /* CarsDatabaseService.swift in Sources */,
 				95F3D24321496F4B00D4636C /* OnboardingContentViewController.swift in Sources */,
@@ -1153,6 +1186,7 @@
 				7C3DC69920F77EFF005C8865 /* UIDeviceExtension.swift in Sources */,
 				7C93D49020E627EB00AF6FFC /* ApplicationFactory.swift in Sources */,
 				95F3D24021496F4B00D4636C /* OnboardingTransitionAnimationState.swift in Sources */,
+				958B6FAE2170934500154E24 /* CarClassifierModel_181012_0744.mlmodel in Sources */,
 				7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */,
 				7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */,
 				7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */,
@@ -1160,6 +1194,7 @@
 				7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */,
 				95F3D23D21496F4B00D4636C /* OnboardingFlowController.swift in Sources */,
 				95F3D23E21496F4B00D4636C /* OnboardingViewController.swift in Sources */,
+				958B6FAA2170934500154E24 /* CarClassificator_20181011_1943.mlmodel in Sources */,
 				E89D791820ECB230006D2D8D /* CarCardViewController.swift in Sources */,
 				7CD6212720EDF9DE0035DDD7 /* LOTAnimationViewExtension.swift in Sources */,
 				7C93D49B20E6317300AF6FFC /* AugmentedRealityView.swift in Sources */,
@@ -1173,6 +1208,8 @@
 				7CAD86D420F383750064D50E /* SearchService.swift in Sources */,
 				7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */,
 				E8ED0A2A20EF8A8A002CF8B7 /* CarImage.swift in Sources */,
+				958B6FA02170887000154E24 /* ModelsViewController.swift in Sources */,
+				958B6FAC2170934500154E24 /* CarClassificator_20181011_1556.mlmodel in Sources */,
 				7C57311020EB904100BE5751 /* ARAnchorExtension.swift in Sources */,
 				7CB817D620C9353200B51C3D /* UIViewExtension+Constraint.swift in Sources */,
 				E89D791D20ECF9F0006D2D8D /* UIPanGestureRecognizerExtensions.swift in Sources */,
@@ -1190,6 +1227,7 @@
 				95CA5ABB21085108000B4B0D /* URLOpenerService.swift in Sources */,
 				4E4CE75C215B9F030053C24B /* ToastDisplayer.swift in Sources */,
 				95F3D246214974BB00D4636C /* ApplicationConstants.swift in Sources */,
+				958B6FA92170934500154E24 /* CarClassifierModel_181012_0807.mlmodel in Sources */,
 				E8EC9DF320F630F000368E50 /* CameraAccessView.swift in Sources */,
 				7CF269D820EA4FBB00DCC27D /* InputNormalizationService.swift in Sources */,
 				7CB817E420C9362400B51C3D /* NavigationBarSetupable.swift in Sources */,
@@ -1202,8 +1240,10 @@
 				7C77741620E650EC007B3851 /* SKNodeFactory.swift in Sources */,
 				7C67179320EF85C600183AB4 /* LabeledCarImageView.swift in Sources */,
 				95C7732720FCF66D001DBCC1 /* SystemMetrics.swift in Sources */,
+				958B6FA22170895100154E24 /* ModelsView.swift in Sources */,
 				7CB817D320C9353200B51C3D /* UIStackViewExtension.swift in Sources */,
 				7C77741320E64EC8007B3851 /* NodeShift.swift in Sources */,
+				958B6FAD2170934500154E24 /* CarClassifierModel_181011_1448.mlmodel in Sources */,
 				7CB817C920C933CB00B51C3D /* HockeyAppService.swift in Sources */,
 				7C21A14220EE819F001E5714 /* CarListFlowLayout.swift in Sources */,
 				7CAD86D220F342CB0064D50E /* CarListNavigationBar.swift in Sources */,

@@ -7,6 +7,32 @@ import CoreML
 import Vision
 import UIKit.UIImage
 
+enum TestingModel: Int {
+    case one, two, three, four, five, six
+    
+    var model: MLModel {
+        switch self {
+        case .one: return CarClassificator_20181011_1556().model
+        case .two: return CarClassificator_20181011_1943().model
+        case .three: return CarClassifierModel_181011_1212().model
+        case .four: return CarClassifierModel_181011_1448().model
+        case .five: return CarClassifierModel_181012_0744().model
+        case .six: return CarClassifierModel_181012_0807().model
+        }
+    }
+    
+    var name: String {
+        switch self {
+        case .one: return "CarClassificator_20181011_1556"
+        case .two: return "CarClassificator_20181011_1943"
+        case .three: return "CarClassifierModel_181011_1212"
+        case .four: return "CarClassifierModel_181011_1448"
+        case .five: return "CarClassifierModel_181012_0744"
+        case .six: return "CarClassifierModel_181012_0807"
+        }
+    }
+}
+
 internal final class CarClassificationService {
     
     private let carsDataService: CarsDataService
@@ -42,12 +68,15 @@ internal final class CarClassificationService {
     var isReadyForNextFrame: Bool {
         return currentBuffer == nil
     }
+
+    var recognitionModel: MLModel
     
     /// Initializes the object with given parameters
     ///
     /// - Parameter carsDataService: DataService with avialable cars
-    init(carsDataService: CarsDataService) {
+    init(carsDataService: CarsDataService, recognitionModel: TestingModel) {
         self.carsDataService = carsDataService
+        self.recognitionModel = recognitionModel.model
     }
     
     /// Current state of the service
@@ -128,7 +157,12 @@ internal final class CarClassificationService {
     }
     
     private func request(for type: ClassificationType) -> VNCoreMLRequest {
-        guard let model = try? VNCoreMLModel(for: type.model) else {
+        let mlModel: MLModel
+        switch type {
+        case .detection: mlModel = type.model
+        case .recognition: mlModel = recognitionModel
+        }
+        guard let model = try? VNCoreMLModel(for: mlModel) else {
             fatalError("Core ML model initialization failed")
         }
         let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
