@@ -112,7 +112,7 @@ internal final class RecognitionView: View, ViewSetupable {
     func setupConstraints() {
         augmentedRealityContainer.constraintToSuperviewEdges()
         carsListButton.constraintToConstant(.init(width: 45, height: 45))
-        modelStackView.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 8, right: 8))
+        modelStackView.constraintToSuperviewEdges(excludingAnchors: [.bottom], withInsets: .init(top: 20, left: 8, bottom: 0, right: 8))
         NSLayoutConstraint.activate([
             carsListButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             carsListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),

@@ -37,11 +37,7 @@ internal final class ApplicationFlowController {
     func startApp() {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
-        if userDefaultsService.shouldShowOnboarding {
-            changeRootFlowController(to: makeOnboardingFlowController())
-        } else {
-            changeRootFlowController(to: makeRecognitionFlowController())
-        }
+        changeRootFlowController(to: makeOnboardingFlowController())
     }
     
     private func makeOnboardingFlowController() -> FlowController {
@@ -49,7 +45,7 @@ internal final class ApplicationFlowController {
     }
     
     private func makeRecognitionFlowController() -> FlowController {
-        return RecognitionFlowController(dependencies: dependencies, applicationFactory: applicationFactory)
+        return RecognitionFlowController(dependencies: dependencies, applicationFactory: applicationFactory, with: TestingModel.one)
     }
     
     private func changeRootFlowController(to flowController: FlowController) {

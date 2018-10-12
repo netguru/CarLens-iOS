@@ -26,10 +26,10 @@ internal final class ApplicationFactory {
     /// Creates controller with live camera AR view and bottom classification preview
     ///
     /// - Returns: Created controller
-    func recognitionViewController() -> RecognitionViewController {
+    func recognitionViewController(with model: TestingModel) -> RecognitionViewController {
         return RecognitionViewController(
             augmentedRealityViewController: augmentedRealityViewController(),
-            classificationService: CarClassificationService(carsDataService: applicationDependencies.carsDataService),
+            classificationService: CarClassificationService(carsDataService: applicationDependencies.carsDataService, recognitionModel: model),
             carsDataService: applicationDependencies.carsDataService
         )
     }

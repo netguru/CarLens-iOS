@@ -12,14 +12,17 @@ internal final class RecognitionFlowController: FlowController {
     
     private let applicationFactory: ApplicationFactory
     
+    private let model: TestingModel
+    
     /// Initializes flow controllers with given dependencies
     ///
     /// - Parameters:
     ///   - dependencies: Dependencies to use in the class
     ///   - applicationFactory: Factory used to create controller with injected dependencies
-    init(dependencies: ApplicationDependencies, applicationFactory: ApplicationFactory) {
+    init(dependencies: ApplicationDependencies, applicationFactory: ApplicationFactory, with model: TestingModel) {
         self.dependencies = dependencies
         self.applicationFactory = applicationFactory
+        self.model = model
         rootViewController = makeRecognitionViewController()
     }
     
@@ -27,7 +30,7 @@ internal final class RecognitionFlowController: FlowController {
     private(set) var rootViewController = UIViewController()
     
     private func makeRecognitionViewController() -> RecognitionViewController {
-        let viewController = applicationFactory.recognitionViewController()
+        let viewController = applicationFactory.recognitionViewController(with: model)
         viewController.eventTriggered = { [unowned self] event in
             switch event {
             case .didTriggerShowCarsList(let car):
