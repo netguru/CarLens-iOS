@@ -9,17 +9,17 @@ import FBSnapshotTestCase
 
 internal final class Onboarding: Screen {
     
+    private lazy var nextButton = app.buttons["onboarding/button/next"]
+    
     override var viewIdentifier: String {
-        return "onboarding/view"
+        return "onboarding/view/main"
     }
     
     @discardableResult
     func goToRecognitionView() -> Screen {
-        let buttons = self.app.buttons.matching(identifier: "onboarding/button")
-        if buttons.count > 0 {
-            let firstButton = buttons.element(boundBy: 0)
-            firstButton.tap()
-        }
+        nextButton.tap()
+        nextButton.tap()
+        nextButton.tap()
         return self
     }
 }
