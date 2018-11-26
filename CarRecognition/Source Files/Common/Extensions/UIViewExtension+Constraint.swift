@@ -106,7 +106,7 @@ internal extension UIView {
     ///   - axis: Axis that should be constraint
     ///   - constant: Constant value to use for constraining
     /// - Returns: Created constraints
-    @discardableResult func constraintCenterToSuperview(axis: [UILayoutConstraintAxis] = [.horizontal, .vertical], withConstant constant: CGPoint = .zero) -> [NSLayoutConstraint] {
+    @discardableResult func constraintCenterToSuperview(axis: [NSLayoutConstraint.Axis] = [.horizontal, .vertical], withConstant constant: CGPoint = .zero) -> [NSLayoutConstraint] {
         guard let superview = superview else {
             fatalError("Cannot constrain to nil superview")
         }
@@ -120,7 +120,7 @@ internal extension UIView {
     ///   - axis: Axis that should be constraint
     ///   - constant: Constant value to use for constraining
     /// - Returns: Created constraints
-    @discardableResult func constraintCenter(to view: UIView, axis: [UILayoutConstraintAxis] = [.horizontal, .vertical], withConstant constant: CGPoint = .zero) -> [NSLayoutConstraint] {
+    @discardableResult func constraintCenter(to view: UIView, axis: [NSLayoutConstraint.Axis] = [.horizontal, .vertical], withConstant constant: CGPoint = .zero) -> [NSLayoutConstraint] {
         var constraints = [NSLayoutConstraint]()
         if axis.contains(.horizontal) { constraints.append(centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: constant.x)) }
         if axis.contains(.vertical) { constraints.append(centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant.y)) }

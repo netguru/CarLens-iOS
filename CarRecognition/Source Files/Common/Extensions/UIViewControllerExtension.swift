@@ -14,9 +14,9 @@ internal extension UIViewController {
     ///   - child: Controller to be added as child
     ///   - container: Container to which child should be added
     func add(_ child: UIViewController, inside container: UIView) {
-        addChildViewController(child)
+        addChild(child)
         container.addSubview(child.view)
-        child.didMove(toParentViewController: self)
+        child.didMove(toParent: self)
         child.view.translatesAutoresizingMaskIntoConstraints = false
         child.view.constraintToSuperviewEdges()
     }
@@ -26,8 +26,8 @@ internal extension UIViewController {
         guard parent != nil else {
             return
         }
-        willMove(toParentViewController: nil)
-        removeFromParentViewController()
+        willMove(toParent: nil)
+        removeFromParent()
         view.removeFromSuperview()
     }
 }

@@ -67,10 +67,10 @@ extension OvalProgressLayerView {
         }
         progressLayer.isHidden = false
         let initialAnimation = CABasicAnimation(keyPath: Constants.animationKey)
-        initialAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        initialAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         initialAnimation.toValue = progress
         initialAnimation.duration = animationDuration
-        initialAnimation.fillMode = kCAFillModeForwards
+        initialAnimation.fillMode = CAMediaTimingFillMode.forwards
         initialAnimation.isRemovedOnCompletion = false
         
         progressLayer.add(initialAnimation, forKey: "PartOvalProgressView.ProgressLayer.animation")
@@ -87,14 +87,14 @@ extension OvalProgressLayerView {
         trackLayer.strokeColor = trackStrokeColor.cgColor
         trackLayer.lineWidth = lineWidth
         trackLayer.fillColor = UIColor.clear.cgColor
-        trackLayer.lineCap = kCALineCapRound
+        trackLayer.lineCap = CAShapeLayerLineCap.round
         layer.addSublayer(trackLayer)
 
         progressLayer.path = circularPath.cgPath
         progressLayer.strokeColor = progressStrokeColor.cgColor
         progressLayer.lineWidth = lineWidth
         progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.lineCap = kCALineCapRound
+        progressLayer.lineCap = CAShapeLayerLineCap.round
 
         let gradientLayer = generateGradient()
         gradientLayer.mask = progressLayer

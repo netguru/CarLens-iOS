@@ -20,7 +20,7 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
     
     /// Page View Controller used for onboarding views.
     private lazy var pageViewController: OnboardingPageViewController = {
-        let viewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: [:])
+        let viewController = OnboardingPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: convertToOptionalUIPageViewControllerOptionsKeyDictionary([:]))
         viewController.onboardingDelegate = self
         return viewController
     }()
@@ -72,4 +72,10 @@ extension OnboardingViewController: OnboardingPageViewControllerDelegate {
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController) {
         eventTriggered?(.didTriggerFinishOnboarding)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalUIPageViewControllerOptionsKeyDictionary(_ input: [String: Any]?) -> [UIPageViewController.OptionsKey: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIPageViewController.OptionsKey(rawValue: key), value)})
 }

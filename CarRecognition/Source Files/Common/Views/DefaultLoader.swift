@@ -39,7 +39,7 @@ internal class DefaultLoader: Loader {
         guard let contentView = contentView else { return }
         contentView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
         baseView.addSubview(contentView)
-        baseView.bringSubview(toFront: contentView)
+        baseView.bringSubviewToFront(contentView)
         baseView.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.2, animations: {
             self.contentView?.transform = .identity
@@ -50,7 +50,7 @@ internal class DefaultLoader: Loader {
         let background = UIView().layoutable()
         background.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         background.layer.cornerRadius = 15
-        let loader = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge).layoutable()
+        let loader = UIActivityIndicatorView(style: .whiteLarge).layoutable()
         loader.startAnimating()
         
         background.addSubview(loader)

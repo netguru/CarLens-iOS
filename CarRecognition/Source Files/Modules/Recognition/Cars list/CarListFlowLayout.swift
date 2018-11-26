@@ -26,7 +26,7 @@ internal final class CarListFlowLayout: UICollectionViewFlowLayout {
         itemSize = CGSize(width: collectionView.bounds.width - 80, height: collectionView.bounds.height)
         let inset = (collectionView.bounds.width - itemSize.width) / 2
         collectionView.contentInset = .init(top: 0, left: inset, bottom: 0, right: inset)
-        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
     
     /// SeeAlso: UICollectionViewFlowLayout

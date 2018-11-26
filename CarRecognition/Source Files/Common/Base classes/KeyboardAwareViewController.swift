@@ -18,14 +18,14 @@ internal class KeyboardAwareViewController: UIViewController {
     /// - SeeAlso: UIViewController.viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowSelector), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideSelector), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowSelector), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideSelector), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     @objc private func keyboardWillShowSelector(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
-        let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)
-        let keyboardAnimation: TimeInterval? = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
+        let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)
+        let keyboardAnimation: TimeInterval? = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
         guard let keyboardRect = keyboardFrame?.cgRectValue, let keyboardAnimationDuration = keyboardAnimation else { return }
         let convertedKeyboardRect = view.convert(keyboardRect, from: nil)
         let height = convertedKeyboardRect.size.height
@@ -34,7 +34,7 @@ internal class KeyboardAwareViewController: UIViewController {
     
     @objc private func keyboardWillHideSelector(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
-        let keyboardAnimation: TimeInterval? = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
+        let keyboardAnimation: TimeInterval? = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue
         guard let keyboardAnimationDuration = keyboardAnimation else { return }
         keyboardWillHide(keyboardAnimationDuration)
     }

@@ -17,12 +17,12 @@ internal final class ApplicationDelegate: UIResponder, UIApplicationDelegate {
     /// - SeeAlso: UIApplicationDelegate.window
     lazy var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
     
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         applicationDependencies.crashLogger.start()
         return true
     }
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         flowController.startApp()
         return true
     }

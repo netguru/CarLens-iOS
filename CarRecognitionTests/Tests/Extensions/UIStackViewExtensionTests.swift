@@ -12,8 +12,8 @@ final class UIStackViewExtensionTests: XCTestCase {
     private struct MockedParameters {
         static let arrangedSubviews = [UIView(), UIButton(), UILabel()]
         static let spacing: CGFloat = 10
-        static let distribution: UIStackViewDistribution = .fillEqually
-        static let axis: UILayoutConstraintAxis = .horizontal
+        static let distribution: UIStackView.Distribution = .fillEqually
+        static let axis: NSLayoutConstraint.Axis = .horizontal
     }
 
     var sut: UIStackView!

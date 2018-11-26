@@ -131,7 +131,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     }
     
     private func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterBackground), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(cameraIsReadyToRecord), name: NSNotification.Name.AVCaptureSessionDidStartRunning, object: nil)
     }
     
