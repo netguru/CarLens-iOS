@@ -60,7 +60,6 @@
 		7CB817CC20C934A900B51C3D /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817CB20C934A900B51C3D /* SeparatorView.swift */; };
 		7CB817CE20C934DE00B51C3D /* DefaultLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817CD20C934DE00B51C3D /* DefaultLoader.swift */; };
 		7CB817D320C9353200B51C3D /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817CF20C9353100B51C3D /* UIStackViewExtension.swift */; };
-		7CB817D420C9353200B51C3D /* BoolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817D020C9353100B51C3D /* BoolExtension.swift */; };
 		7CB817D520C9353200B51C3D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817D120C9353200B51C3D /* UIColorExtension.swift */; };
 		7CB817D620C9353200B51C3D /* UIViewExtension+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817D220C9353200B51C3D /* UIViewExtension+Constraint.swift */; };
 		7CB817DE20C935B200B51C3D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB817D820C935B100B51C3D /* TableViewCell.swift */; };
@@ -131,7 +130,6 @@
 		E8473F1A210756F200EC9EF3 /* CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F19210756F200EC9EF3 /* CarTests.swift */; };
 		E8473F1C210757ED00EC9EF3 /* CarARConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F1B210757ED00EC9EF3 /* CarARConfigurationTests.swift */; };
 		E8473F1E21075D7800EC9EF3 /* CarSpecificationChartConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F1D21075D7800EC9EF3 /* CarSpecificationChartConfigurationTests.swift */; };
-		E8473F2321075E6D00EC9EF3 /* BoolExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F2221075E6D00EC9EF3 /* BoolExtensionTests.swift */; };
 		E8473F2521075F0B00EC9EF3 /* UIStackViewExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F2421075F0B00EC9EF3 /* UIStackViewExtensionTests.swift */; };
 		E8473F27210760B300EC9EF3 /* UIFontExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F26210760B300EC9EF3 /* UIFontExtensionTests.swift */; };
 		E852940920FCC377005B7A1A /* ViewProgressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E852940820FCC377005B7A1A /* ViewProgressable.swift */; };
@@ -234,7 +232,6 @@
 		7CB817CB20C934A900B51C3D /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		7CB817CD20C934DE00B51C3D /* DefaultLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLoader.swift; sourceTree = "<group>"; };
 		7CB817CF20C9353100B51C3D /* UIStackViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
-		7CB817D020C9353100B51C3D /* BoolExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolExtension.swift; sourceTree = "<group>"; };
 		7CB817D120C9353200B51C3D /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		7CB817D220C9353200B51C3D /* UIViewExtension+Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewExtension+Constraint.swift"; sourceTree = "<group>"; };
 		7CB817D820C935B100B51C3D /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -305,7 +302,6 @@
 		E8473F19210756F200EC9EF3 /* CarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTests.swift; sourceTree = "<group>"; };
 		E8473F1B210757ED00EC9EF3 /* CarARConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarARConfigurationTests.swift; sourceTree = "<group>"; };
 		E8473F1D21075D7800EC9EF3 /* CarSpecificationChartConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSpecificationChartConfigurationTests.swift; sourceTree = "<group>"; };
-		E8473F2221075E6D00EC9EF3 /* BoolExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolExtensionTests.swift; sourceTree = "<group>"; };
 		E8473F2421075F0B00EC9EF3 /* UIStackViewExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionTests.swift; sourceTree = "<group>"; };
 		E8473F26210760B300EC9EF3 /* UIFontExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionTests.swift; sourceTree = "<group>"; };
 		E852940820FCC377005B7A1A /* ViewProgressable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProgressable.swift; sourceTree = "<group>"; };
@@ -612,7 +608,6 @@
 			isa = PBXGroup;
 			children = (
 				7CE4290320D13A9B00539FC6 /* NSObjectExtension.swift */,
-				7CB817D020C9353100B51C3D /* BoolExtension.swift */,
 				7CB817D120C9353200B51C3D /* UIColorExtension.swift */,
 				7CB817D220C9353200B51C3D /* UIViewExtension+Constraint.swift */,
 				7C93D49C20E6367000AF6FFC /* UIViewControllerExtension.swift */,
@@ -897,7 +892,6 @@
 		E8473F28210760B900EC9EF3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E8473F2221075E6D00EC9EF3 /* BoolExtensionTests.swift */,
 				E8473F2421075F0B00EC9EF3 /* UIStackViewExtensionTests.swift */,
 				E8473F26210760B300EC9EF3 /* UIFontExtensionTests.swift */,
 			);
@@ -1158,7 +1152,6 @@
 				7C33E06F20BD729B00784D63 /* CarRecognitionKeys.m in Sources */,
 				7C57310E20EB897B00BE5751 /* CarARConfiguration.swift in Sources */,
 				7C33E02D20BD695600784D63 /* ApplicationDelegate.swift in Sources */,
-				7CB817D420C9353200B51C3D /* BoolExtension.swift in Sources */,
 				7CB817E620C9368300B51C3D /* ApplicationFlowController.swift in Sources */,
 				95F3D23D21496F4B00D4636C /* OnboardingFlowController.swift in Sources */,
 				95F3D23E21496F4B00D4636C /* OnboardingViewController.swift in Sources */,
@@ -1236,7 +1229,6 @@
 				E8473F1A210756F200EC9EF3 /* CarTests.swift in Sources */,
 				7CF269DA20EA527500DCC27D /* InputNormalizationServiceTests.swift in Sources */,
 				E8473F1C210757ED00EC9EF3 /* CarARConfigurationTests.swift in Sources */,
-				E8473F2321075E6D00EC9EF3 /* BoolExtensionTests.swift in Sources */,
 				E8473F18210752A300EC9EF3 /* JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
