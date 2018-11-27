@@ -1264,7 +1264,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.2;
 			};
 			name = Development;
 		};
@@ -1272,7 +1271,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1280,7 +1278,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E5D80D3211824E600ABA404 /* TestUI-Common.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.2;
 			};
 			name = Staging;
 		};
@@ -1294,7 +1291,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06220BD6E6200784D63 /* App-Development.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.2;
 			};
 			name = Development;
 		};
@@ -1302,7 +1298,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.2;
 			};
 			name = Development;
 		};
@@ -1316,7 +1311,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E05F20BD6E6100784D63 /* App-Staging.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.2;
 			};
 			name = Staging;
 		};
@@ -1324,7 +1318,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.2;
 			};
 			name = Staging;
 		};
@@ -1339,7 +1332,6 @@
 			baseConfigurationReference = E8ABD40C210897C3004F9513 /* App-Release.xcconfig */;
 			buildSettings = {
 				ENABLE_TESTABILITY = "$(_BUNDLE_TESTABLE)";
-				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1347,7 +1339,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C33E06020BD6E6100784D63 /* Test-Common.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
