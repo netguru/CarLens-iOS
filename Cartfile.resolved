@@ -1,4 +1,4 @@
-github "airbnb/lottie-ios" "2.5.0"
-github "bitstadium/HockeySDK-iOS" "5.1.2"
+github "airbnb/lottie-ios" "2.5.2"
+github "bitstadium/HockeySDK-iOS" "5.1.4"
 github "netguru/xcconfigs" "0.6"
-github "uber/ios-snapshot-test-case" "3.0.0"
+github "uber/ios-snapshot-test-case" "3.1.0"
