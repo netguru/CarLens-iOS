@@ -56,7 +56,7 @@ internal final class OnboardingPageViewController: UIPageViewController {
     lazy var numberOfPages = contentViewControllers.count
     
     /// - SeeAlso: UIPageViewController
-    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : Any]? = nil) {
+    override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
     }
     

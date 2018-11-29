@@ -4,7 +4,7 @@ Welcome to the **Car Regonition** project. It's an internal application made for
 
 ## Team
 
-* [Miłosz Szyński](mailto:milosz.szynski@netguru.pl) - Project Manager
+* [Julia Wolszczak](mailto:julia.wolszczak@netguru.co) - Project Manager
 * [Michał Kwiecień](mailto:michal.kwiecien@netguru.co) - iOS Developer
 * [Michał Warchał](mailto:michal.warchal@netguru.co) - iOS Developer
 * [Anna-Mariia Shkarlinska](mailto:anna-mariia.shkarlinska@netguru.co) - iOS Developer
@@ -12,7 +12,7 @@ Welcome to the **Car Regonition** project. It's an internal application made for
 ## Tools & Services
 
 * Tools:
-	* Xcode 9.4 with latest iOS SDK (11.4)
+	* Xcode 10.1 with latest iOS stable SDK (12.0) and Swift 4.2
 	* [Carthage](https://github.com/Carthage/Carthage) 0.29 or higher
 	* [CocoaPods](https://github.com/CocoaPods/CocoaPods) 1.5 or higher
 * Services:

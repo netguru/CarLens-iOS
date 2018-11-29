@@ -24,7 +24,7 @@ internal class FlowAwareViewController: KeyboardAwareViewController {
         if let navigationBarCustomizable = self as? NavigationBarSetupable, let navigationController = navigationController {
             navigationBarCustomizable.setup(navigationBar: navigationController.navigationBar)
         }
-        if isMovingToParentViewController {
+        if isMovingToParent {
             onMovingToParentViewController?()
         }
     }
@@ -32,14 +32,14 @@ internal class FlowAwareViewController: KeyboardAwareViewController {
     /// - SeeAlso: UIViewController.viewWillDisappear()
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if isMovingFromParentViewController {
+        if isMovingFromParent {
             onMovingFromParentViewController?()
         }
     }
     
     /// - SeeAlso: UIViewController.willMove()
-    override func willMove(toParentViewController parent: UIViewController?) {
-        super.willMove(toParentViewController: parent)
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
         willMoveToParentViewController?(parent)
         
         // Fix for the glitch when NavigationBar not changed it's style to the end of the pop animation

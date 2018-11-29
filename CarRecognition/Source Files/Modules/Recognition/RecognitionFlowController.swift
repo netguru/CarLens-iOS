@@ -70,7 +70,7 @@ internal final class RecognitionFlowController: FlowController {
     }
     
     private func openCameraSettings() {
-        guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.open(url)
     }
 }

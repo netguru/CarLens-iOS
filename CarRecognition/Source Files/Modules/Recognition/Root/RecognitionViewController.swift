@@ -182,9 +182,9 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
                 self.customView.mode = .afterCardRemoval
             }
         }
-        addChildViewController(carCardViewController)
+        addChild(carCardViewController)
         view.addSubview(carCardViewController.view)
-        carCardViewController.didMove(toParentViewController: self)
+        carCardViewController.didMove(toParent: self)
         
         let height = CarCardViewController.Constants.cardHeight
         let width  = UIScreen.main.bounds.width

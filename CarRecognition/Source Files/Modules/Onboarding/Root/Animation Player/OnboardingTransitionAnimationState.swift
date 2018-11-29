@@ -24,7 +24,7 @@ enum OnboardingTransitionAnimationState {
         case .fromSecondToThird:
             value = Constants.OnboardingAnimation.StartFrames.thirdScreen
         }
-        return CMTimeMake(value, 60)
+        return CMTimeMake(value: value, timescale: 60)
     }
     
     var endingTime: CMTime {
@@ -39,7 +39,7 @@ enum OnboardingTransitionAnimationState {
         case .fromSecondToThird:
             value = Constants.OnboardingAnimation.FinishFrames.thirdScreen
         }
-        return CMTimeMake(value, 60)
+        return CMTimeMake(value: value, timescale: 60)
     }
     
     /// Initializing the OnboardingTransitionAnimationState instance.
