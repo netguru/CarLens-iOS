@@ -39,7 +39,7 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     
     private let arConfig = CarARConfiguration()
     
-    private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: arConfig.normalizationCount)
+    private lazy var inputNormalizationService = InputNormalizationService(numberOfValues: Constants.Recognition.normalizationCount, carsDataService: carsDataService)
     
     /// Initializes view controller with given dependencies
     ///
@@ -99,36 +99,42 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
             guard self.carCardViewController != nil else { return }
             self.removeSlidingCard()
         }
-        classificationService.completionHandler = { [weak self] result in
+        classificationService.completionHandler = { [weak self] results in
             DispatchQueue.main.async {
-                self?.handleRecognition(result: result)
+                self?.handleRecognition(results: results)
             }
         }
     }
     
-    private func handleRecognition(result: [RecognitionResult]) {
-        guard let mostConfidentRecognition = result.first else { return }
-        let normalizedConfidence = inputNormalizationService.normalizeConfidence(from: mostConfidentRecognition)
-        augmentedRealityViewController.updateDetectionViewfinder(to: mostConfidentRecognition, normalizedConfidence: normalizedConfidence)
-        switch mostConfidentRecognition.recognition {
-        case .car(let car):
-            if normalizedConfidence >= arConfig.neededConfidenceToPinLabel {
-                augmentedRealityViewController.addPin(to: car, completion: { [unowned self] car in
-                    self.classificationService.set(state: .paused)
-                    self.inputNormalizationService.reset()
-                    self.addSlidingCard(with: car)
-                    self.carsDataService.mark(car: car, asDiscovered: true)
-                }, error: { [unowned self] error in
-                    // TODO: Debug information, remove from final version
+    private func handleRecognition(results: [RecognitionResult]) {
+        guard let result = results.first else { return }
+        var recognitionResult: RecognitionResult
+        if result.recognition == .notCar {
+            recognitionResult = result
+            augmentedRealityViewController.updateDetectionViewfinder(to: recognitionResult)
+        } else {
+            guard let mostConfidentRecognition = inputNormalizationService.normalizeConfidence(from: results) else { return }
+            inputNormalizationService.reset()
+            recognitionResult = mostConfidentRecognition
+            augmentedRealityViewController.updateDetectionViewfinder(to: recognitionResult)
+            switch mostConfidentRecognition.recognition {
+            case .car(let car):
+                guard mostConfidentRecognition.confidence >= Constants.Recognition.Threshold.neededToPinARLabel else { break }
+                classificationService.set(state: .paused)
+                addSlidingCard(with: car)
+                carsDataService.mark(car: car, asDiscovered: true)
+                augmentedRealityViewController.addPin(to: car, completion: nil) { [unowned self] error in
+                    // Debug information, invisible in production
                     self.customView.analyzeTimeLabel.text = error.rawValue
-                })
+                    self.carCardViewController?.customView.animateAttachPinError()
+                }
+            case .otherCar, .notCar:
+                break
             }
-        case .otherCar, .notCar:
-            break
         }
         
-        // TODO: Debug information, remove from final version
-        customView.detectedModelLabel.text = mostConfidentRecognition.description
+        // Debug information, invisible in production
+        customView.detectedModelLabel.text = recognitionResult.description
     }
     
     private func toggleViewsTo(cardMode: Bool, animated: Bool) {
@@ -176,9 +182,9 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
                 self.customView.mode = .afterCardRemoval
             }
         }
-        addChildViewController(carCardViewController)
+        addChild(carCardViewController)
         view.addSubview(carCardViewController.view)
-        carCardViewController.didMove(toParentViewController: self)
+        carCardViewController.didMove(toParent: self)
         
         let height = CarCardViewController.Constants.cardHeight
         let width  = UIScreen.main.bounds.width

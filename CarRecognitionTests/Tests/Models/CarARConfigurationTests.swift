@@ -33,16 +33,14 @@ final class CarARConfigurationTests: XCTestCase {
 
     func testConfigurationParameters() {
         XCTAssertEqual(sut.pointForHitTest, DesiredParameters.pointForHitTest, "Point for hit test should be equal to \(DesiredParameters.pointForHitTest)")
-        XCTAssertEqual(sut.neededConfidenceToPinLabel, DesiredParameters.neededConfidenceToPinLabel, "Needed confidence to pin the label should be equal to \(DesiredParameters.neededConfidenceToPinLabel)")
-        XCTAssertEqual(sut.normalizationCount, DesiredParameters.normalizationCount, "Normalization count should be equal to \(DesiredParameters.normalizationCount)")
     }
 
     func testEnvironmentVariables() {
         #if ENV_TESTS
             XCTAssertEqual(sut.nodeShift, DesiredParameters.nodeShift, "Node shift should be equal to \(DesiredParameters.nodeShift)")
-            XCTAssertEqual(sut.minimumDistanceFromDevice, DesiredParameters.minimumDistanceFromDevice, "Miinmum distance from device should be equal to \(DesiredParameters.minimumDistanceFromDevice)")
-            XCTAssertEqual(sut.minimumDistanceBetweenNodes, DesiredParameters.minimumDistanceBetweenNodes, "Mininmum distance between nodes should be equal to \(DesiredParameters.minimumDistanceBetweenNodes)")
-            XCTAssertEqual(sut.maximumDistanceFromDevice, DesiredParameters.maximumDistanceFromDevice, "Maximum distance from device should be equal to \(DesiredParameters.maximumDistanceFromDevice)")
+            XCTAssertEqual(sut.minimumDistanceFromDevice, DesiredParameters.minimumDistanceFromDevice, "Minimal distance from device should be equal to \(DesiredParameters.minimumDistanceFromDevice)")
+            XCTAssertEqual(sut.minimumDistanceBetweenNodes, DesiredParameters.minimumDistanceBetweenNodes, "Minimal distance between nodes should be equal to \(DesiredParameters.minimumDistanceBetweenNodes)")
+            XCTAssertEqual(sut.maximumDistanceFromDevice, DesiredParameters.maximumDistanceFromDevice, "Maximal distance from device should be equal to \(DesiredParameters.maximumDistanceFromDevice)")
         #endif
     }
 }

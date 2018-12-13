@@ -30,7 +30,7 @@ internal extension UITableView {
     func relayoutTableHeaderView() {
         guard let tableHeaderView = tableHeaderView else { return }
         tableHeaderView.layoutIfNeeded()
-        tableHeaderView.frame.size = tableHeaderView.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        tableHeaderView.frame.size = tableHeaderView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         self.tableHeaderView = tableHeaderView
     }
 }

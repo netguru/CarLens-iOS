@@ -1,7 +1,7 @@
 {
   "cars": [
     {
-      "id": "honda civic",
+      "id": "honda_civic",
       "brand": "Honda",
       "model": "Civic",
       "description": "Originally a subcompact, the Civic has gone through several generational changes, becoming both larger and more upmarket.",
@@ -18,7 +18,7 @@
       "image_locked": "HondaCivic_locked"
     },
     {
-      "id": "toyota corolla",
+      "id": "toyota_corolla",
       "brand": "Toyota",
       "model": "Corolla",
       "description": "The Toyota Corolla is a line of cars manufactured by Toyota. Introduced in 1966, it has been the best-selling car worldwide since 1974.",
@@ -35,7 +35,7 @@
       "image_locked": "ToyotaCorolla_locked"
     },
     {
-      "id": "ford fiesta",
+      "id": "ford_fiesta",
       "brand": "Ford",
       "model": "Fiesta",
       "description": "Ford Fiesta has been marketed by Ford since 1976. Ford has sold over 16 million Fiestas since then, making it a best-seller.",
@@ -52,7 +52,7 @@
       "image_locked": "FordFiesta_locked"
     },
     {
-      "id": "nissan qashqai",
+      "id": "nissan_qashqai",
       "brand": "Nissan",
       "model": "Qashqai",
       "description": "Qashqai is a compact crossover SUV produced by Nissan since 2006. Qashqai used to be called Nissan Dualis in Japan and Australia.",
@@ -69,7 +69,7 @@
       "image_locked": "NissanQashqai_locked"
     },
     {
-      "id": "volkswagen passat",
+      "id": "volkswagen_passat",
       "brand": "Volkswagen",
       "model": "Passat",
       "description": "Volkswagen Passat is a large family car manufactured and marketed by Volkswagen since 1973, now in its eighth generation. ",

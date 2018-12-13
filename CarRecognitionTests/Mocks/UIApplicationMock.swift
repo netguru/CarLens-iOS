@@ -17,7 +17,7 @@ final class UIApplicationMock: URLOpener {
         return canOpen
     }
     
-    func open(_ url: URL, options: [String : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil) {
+    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:], completionHandler completion: ((Bool) -> Void)? = nil) {
         if canOpen {
             self.urlString = url.absoluteString
             completion?(true)

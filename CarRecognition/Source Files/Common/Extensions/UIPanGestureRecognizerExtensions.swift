@@ -26,7 +26,7 @@ internal extension UIPanGestureRecognizer {
     /// Holds information about the direction of Pan gesture
     var direction: UIPanGestureRecognizerDirection {
         let velocity = self.velocity(in: view)
-        let isVertical = fabs(velocity.y) > fabs(velocity.x)
+        let isVertical = abs(velocity.y) > abs(velocity.x)
 
         let direction: UIPanGestureRecognizerDirection
 

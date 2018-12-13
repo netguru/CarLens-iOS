@@ -66,8 +66,8 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     /// Updates the detection viewfinder with given state
     ///
     /// - Parameter result: Result to be set
-    func updateDetectionViewfinder(to result: RecognitionResult, normalizedConfidence: Double) {
-        customView.detectionViewfinderView.update(to: result, normalizedConfidence: normalizedConfidence)
+    func updateDetectionViewfinder(to result: RecognitionResult) {
+        customView.detectionViewfinderView.update(to: result)
     }
     
     /// Tries to add augmented reality pin to the car in 3D world
@@ -76,7 +76,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     ///   - car: Car to be pinned
     ///   - completion: Completion handler called when pin was successfully addded
     ///   - error: Error handler called when error occurred during pin adding
-    func addPin(to car: Car, completion: (Car) -> (), error: ((CarARLabelError) -> ())? = nil) {
+    func addPin(to car: Car, completion: ((Car) -> ())?, error: ((CarARLabelError) -> ())? = nil) {
         let hitTests = customView.previewView.hitTest(config.pointForHitTest, types: [.featurePoint])
         guard hitTests.count > 0 else {
             error?(.hitTestFailed)
@@ -98,7 +98,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         if shouldAdd(anchor: anchor) {
             addedAnchors[anchor] = car
             customView.previewView.session.add(anchor: anchor)
-            completion(car)
+            completion?(car)
         } else {
             error?(.pinAlreadyAdded)
         }
@@ -131,7 +131,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     }
     
     private func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterBackground), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(cameraIsReadyToRecord), name: NSNotification.Name.AVCaptureSessionDidStartRunning, object: nil)
     }
     
