@@ -1,6 +1,6 @@
-# Car Regonition
+# Carlens
 
-Welcome to the **Car Regonition** project. It's an internal application made for detecting cars and showing informations about them.
+Welcome to the **Carlens** project. It's an internal Netguru's application, which uses Machine Learning and Augumented Reality technologies. Its main aim is **car recognition**. The application uses Core ML, ARKit, Vision, and Lottie frameworks. 
 
 ## Team
 
