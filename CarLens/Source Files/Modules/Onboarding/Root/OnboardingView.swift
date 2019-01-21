@@ -19,6 +19,7 @@ internal final class OnboardingView: View, ViewSetupable  {
         let view = UIButton(type: .system)
         view.accessibilityIdentifier = "onboarding/button/next"
         view.setImage(#imageLiteral(resourceName: "button-next-page"), for: .normal)
+        view.imageView?.contentMode = .scaleAspectFit
         return view.layoutable()
     }()
     
@@ -32,11 +33,11 @@ internal final class OnboardingView: View, ViewSetupable  {
     
     func setupConstraints() {
         pageView.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom])
-        
+        let animationViewHeightMultiplier: CGFloat = UIDevice.screenSizeBiggerThan4Inches ? 0.5 : 0.4
         NSLayoutConstraint.activate([
-            animationView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
+            animationView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: animationViewHeightMultiplier),
+            animationView.widthAnchor.constraint(equalTo: animationView.heightAnchor, multiplier: 1.1),
             animationView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            animationView.widthAnchor.constraint(equalTo: animationView.heightAnchor, multiplier: 636/720),
             animationView.bottomAnchor.constraint(equalTo: pageView.topAnchor, constant: 4),
             pageView.heightAnchor.constraint(equalToConstant: 125),
             pageView.bottomAnchor.constraint(equalTo: indicatorAnimationView.topAnchor, constant: -32),
@@ -45,7 +46,7 @@ internal final class OnboardingView: View, ViewSetupable  {
             indicatorAnimationView.centerXAnchor.constraint(equalTo: centerXAnchor),
             indicatorAnimationView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -42),
             nextButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            nextButton.heightAnchor.constraint(equalToConstant: 100),
+            nextButton.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 0.3),
             nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -18)
         ])
     }
