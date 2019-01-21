@@ -60,7 +60,7 @@ Welcome to the **CarLens** project. It's an internal Netguru's application, whic
 	bundle exec pod install
 	```
 
-6. Open `Car Recognition.xcworkspace` file and build the project.
+6. Open `CarLens.xcodeproj` file and build the project.
 
 
 ## Coding guidelines
