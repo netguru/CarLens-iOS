@@ -1,6 +1,6 @@
 //
 //  App-Development.xcconfig
-//  CarRecognition
+//  CarLens
 //
 
 #include "../Carthage/Checkouts/xcconfigs/Targets/Application.xcconfig"

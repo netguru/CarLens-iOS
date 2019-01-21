@@ -1,6 +1,6 @@
 //
 //  App-Release.xcconfig
-//  CarRecognition
+//  CarLens
 //
 #include "../Carthage/Checkouts/xcconfigs/Targets/Application.xcconfig"
 #include "../Carthage/Checkouts/xcconfigs/Configurations/Release.xcconfig"

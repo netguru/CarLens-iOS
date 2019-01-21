@@ -1,6 +1,6 @@
 //
 //  App-Common.xcconfig
-//  CarRecognition
+//  CarLens
 //
 
 #include "../Carthage/Checkouts/xcconfigs/Common/Common.xcconfig"
@@ -11,13 +11,13 @@ _BUILD_VERSION = 0.7
 _BUILD_NUMBER = 1
 _COMPILER_SWIFT_VERSION = 4.2
 
-_BUNDLE_NAME = CarRecognition
+_BUNDLE_NAME = CarLens
 _PRODUCT_NAME = CarLens
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/CarRecognition/Supporting Files/Info.plist
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/CarLens/Supporting Files/Info.plist
 _BUNDLE_IDENTIFIER = co.netguru.car.recognition$(__PRODUCT_BUNDLE_IDENTIFIER_SUFFIX)
 
 _DEPLOYMENT_TARGET_IOS = 11.0
 _CODESIGN_STYLE = Manual
 
-SWIFT_OBJC_BRIDGING_HEADER = $(SRCROOT)/CarRecognition/Supporting Files/Bridging-Header.h
+SWIFT_OBJC_BRIDGING_HEADER = $(SRCROOT)/CarLens/Supporting Files/Bridging-Header.h
 _ASSET_ICON = AppIcon

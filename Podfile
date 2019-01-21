@@ -10,16 +10,16 @@ def pods
 
 end
 
-target 'CarRecognition' do
+target 'CarLens' do
     pods
 end
 
-target 'CarRecognitionTests' do
+target 'CarLensTests' do
     pods
 end
 
 plugin 'cocoapods-keys', {
-    project: 'CarRecognition',
+    project: 'CarLens',
     keys: [
         'HOCKEYAPP_APP_ID_STAGING',	
 	'HOCKEYAPP_APP_ID_PRODUCTION'
