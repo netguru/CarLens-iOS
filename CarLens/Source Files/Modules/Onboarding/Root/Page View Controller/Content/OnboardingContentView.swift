@@ -45,7 +45,7 @@ internal final class OnboardingContentView: View, ViewSetupable {
         NSLayoutConstraint.activate([
                 titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 titleLabel.bottomAnchor.constraint(equalTo: infoLabel.topAnchor, constant: -28),
-                infoLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
+                infoLabel.widthAnchor.constraint(greaterThanOrEqualTo: widthAnchor, multiplier: 0.6),
                 infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
                 infoLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
