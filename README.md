@@ -1,6 +1,6 @@
-# Carlens
+# CarLens
 
-Welcome to the **Carlens** project. It's an internal Netguru's application, which uses Machine Learning and Augumented Reality technologies. Its main aim is **car recognition**. The application uses Core ML, ARKit, Vision, and Lottie frameworks. 
+Welcome to the **CarLens** project. It's an internal Netguru's application, which uses Machine Learning and Augumented Reality technologies. Its main aim is **car recognition**. The application uses Core ML, ARKit, Vision, and Lottie frameworks. 
 
 ## Team
 

@@ -1,6 +1,6 @@
 //
 //  Test-Common.xcconfig
-//  CarRecognition
+//  CarLens
 //
 
 #include "../Carthage/Checkouts/xcconfigs/Targets/Tests.xcconfig"
@@ -9,13 +9,13 @@
 __PRODUCT_BUNDLE_IDENTIFIER_SUFFIX = .test
 
 _ENVIRONMENTS = ENV_TESTS
-_BUNDLE_NAME = CarRecognition Tests
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/CarRecognitionTests/Supporting Files/Info.plist
+_BUNDLE_NAME = CarLens Tests
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/CarLensTests/Supporting Files/Info.plist
 
 _CODESIGN_STYLE =
 _CODESIGN_DEVELOPMENT_TEAM =
 _CODESIGN_IDENTITY =
 _CODESIGN_PROFILE_SPECIFIER =
 
-TEST_HOST = $(BUILT_PRODUCTS_DIR)/CarRecognition.app/CarRecognition
+TEST_HOST = $(BUILT_PRODUCTS_DIR)/CarLens.app/CarLens
 BUNDLE_LOADER = $(TEST_HOST)

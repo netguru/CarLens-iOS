@@ -1,6 +1,6 @@
 //
 //  TestUI-Common.xcconfig
-//  CarRecognition
+//  CarLens
 //
 
 #include "../Carthage/Checkouts/xcconfigs/Targets/Tests.xcconfig"
@@ -9,12 +9,12 @@
 __PRODUCT_BUNDLE_IDENTIFIER_SUFFIX = .test
 
 _ENVIRONMENTS = ENV_TESTS
-_BUNDLE_NAME = CarRecognitionUITests
-_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/CarRecognitionUITests/Info.plist
+_BUNDLE_NAME = CarLensUITests
+_BUNDLE_INFOPLIST_PATH = $(SRCROOT)/CarLensUITests/Info.plist
 
 _CODESIGN_STYLE =
 _CODESIGN_DEVELOPMENT_TEAM =
 _CODESIGN_IDENTITY =
 _CODESIGN_PROFILE_SPECIFIER =
 
-TEST_TARGET_NAME = CarRecognition
+TEST_TARGET_NAME = CarLens
