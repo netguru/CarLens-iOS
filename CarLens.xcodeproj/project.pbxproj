@@ -122,6 +122,8 @@
 		95F3D24321496F4B00D4636C /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23B21496F4B00D4636C /* OnboardingContentViewController.swift */; };
 		95F3D24421496F4B00D4636C /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D23C21496F4B00D4636C /* OnboardingPageViewController.swift */; };
 		95F3D246214974BB00D4636C /* ApplicationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F3D245214974BB00D4636C /* ApplicationConstants.swift */; };
+		B9A1E017D16F772BEC144FE2 /* Pods_CarLens.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AD0F05AC9E2ADF2CE8415A /* Pods_CarLens.framework */; };
+		D25F5EB2EBE157A1A4382BF4 /* Pods_CarLensTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A465178B0EC7A84B60C3539 /* Pods_CarLensTests.framework */; };
 		E8379BB220FE18B9007D759B /* TextSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8379BB120FE18B9007D759B /* TextSwitcherView.swift */; };
 		E8473F0C21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F0B21074C9A00EC9EF3 /* CarDatabaseServiceTests.swift */; };
 		E8473F1121074E0F00EC9EF3 /* ModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8473F1021074E0F00EC9EF3 /* ModelsFactory.swift */; };
@@ -161,6 +163,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A465178B0EC7A84B60C3539 /* Pods_CarLensTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarLensTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23AD0F05AC9E2ADF2CE8415A /* Pods_CarLens.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarLens.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2BA2FE21185B1400184424 /* CarsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarsList.swift; sourceTree = "<group>"; };
 		4E2BA2FF21185B1400184424 /* Recognition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recognition.swift; sourceTree = "<group>"; };
 		4E2BA30021185B1400184424 /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9A1E017D16F772BEC144FE2 /* Pods_CarLens.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,12 +340,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D25F5EB2EBE157A1A4382BF4 /* Pods_CarLensTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19A9B359AD2CB2F40C23E4FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2C58F5BE74095CCD40987AF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23AD0F05AC9E2ADF2CE8415A /* Pods_CarLens.framework */,
+				1A465178B0EC7A84B60C3539 /* Pods_CarLensTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E2BA2FD21185B1400184424 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +413,8 @@
 				7C33E04F20BD6A3B00784D63 /* Other Files */,
 				4EEF786121108232002C2AE5 /* CarLensUITests */,
 				7C33E02A20BD695600784D63 /* Products */,
+				19A9B359AD2CB2F40C23E4FA /* Pods */,
+				2C58F5BE74095CCD40987AF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -942,10 +966,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C33E04620BD695700784D63 /* Build configuration list for PBXNativeTarget "CarLens" */;
 			buildPhases = (
+				75E0C2ACCB25C730EC702F0E /* [CP] Check Pods Manifest.lock */,
 				7C33E02520BD695600784D63 /* Sources */,
 				7C33E02620BD695600784D63 /* Frameworks */,
 				7C33E02720BD695600784D63 /* Resources */,
 				7CB817E720C9375800B51C3D /* Carthage script */,
+				0E4B4194CF848D1003A95A22 /* [CP] Embed Pods Frameworks */,
+				95AED3C321F7463200F6E968 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -960,6 +987,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7C33E04920BD695700784D63 /* Build configuration list for PBXNativeTarget "CarLensTests" */;
 			buildPhases = (
+				8AFA9C374FC87AE189B23282 /* [CP] Check Pods Manifest.lock */,
 				7C33E03920BD695700784D63 /* Sources */,
 				7C33E03A20BD695700784D63 /* Frameworks */,
 				7C33E03B20BD695700784D63 /* Resources */,
@@ -1060,6 +1088,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E4B4194CF848D1003A95A22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CarLens/Pods-CarLens-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Keys/Keys.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Keys.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarLens/Pods-CarLens-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4E9004CB2119793000104235 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1073,6 +1123,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "carthage copy-frameworks";
+		};
+		75E0C2ACCB25C730EC702F0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarLens-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		7CB817E720C9375800B51C3D /* Carthage script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1089,6 +1161,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "carthage copy-frameworks";
+		};
+		8AFA9C374FC87AE189B23282 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarLensTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95AED3C321F7463200F6E968 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/Pods/SwiftLint/swiftlint\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1345,7 +1456,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4EEF786A21108232002C2AE5 /* Build configuration list for PBXNativeTarget "CarRecognitionUITests" */ = {
+		4EEF786A21108232002C2AE5 /* Build configuration list for PBXNativeTarget "CarLensUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4EEF786721108232002C2AE5 /* Development */,
