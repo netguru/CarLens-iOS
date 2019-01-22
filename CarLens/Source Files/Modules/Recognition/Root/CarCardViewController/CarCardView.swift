@@ -16,7 +16,7 @@ internal final class CarCardView: View, ViewSetupable {
         static let regularButtonDimension = 45.0
         static let bigButtonDimension = 70.0
         static let gradientHeight: CGFloat = 140.0
-        static let mechanicalTopOffset: CGFloat = UIDevice.screenSizeBiggerThan4_7Inches ? 20 : 30
+        static let mechanicalTopOffset: CGFloat = UIDevice.screenSizeBiggerThan4point7Inches ? 20 : 30
         static let rippleInitialFrame: NSNumber = 61
         static let rippleLastFrame: NSNumber = 122
     }

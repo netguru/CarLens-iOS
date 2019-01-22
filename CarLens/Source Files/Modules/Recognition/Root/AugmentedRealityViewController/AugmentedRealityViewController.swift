@@ -78,7 +78,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
     ///   - error: Error handler called when error occurred during pin adding
     func addPin(to car: Car, completion: ((Car) -> ())?, error: ((CarARLabelError) -> ())? = nil) {
         let hitTests = customView.previewView.hitTest(config.pointForHitTest, types: [.featurePoint])
-        guard hitTests.count > 0 else {
+        guard !hitTests.isEmpty else {
             error?(.hitTestFailed)
             return
         }

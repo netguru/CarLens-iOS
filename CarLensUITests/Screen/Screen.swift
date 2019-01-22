@@ -105,7 +105,9 @@ class Screen: Displayable {
 
     
     @discardableResult
-    func verifyView(testCase: XCUITestCase, record: Bool = false, agnosticOptions: FBSnapshotTestCaseAgnosticOption = .none, identifier: String = "", suffixes: NSOrderedSet = FBSnapshotTestCaseDefaultSuffixes(), tolerance: CGFloat = 0, file: StaticString = #file, line: UInt = #line) -> Screen {
+    func verifyView(testCase: XCUITestCase, record: Bool = false, agnosticOptions: FBSnapshotTestCaseAgnosticOption = .none,
+                    identifier: String = "", suffixes: NSOrderedSet = FBSnapshotTestCaseDefaultSuffixes(),
+                    tolerance: CGFloat = 0, file: StaticString = #file, line: UInt = #line) -> Screen {
         makeTestAppWindowKeyAndVisible()
         testCase.recordMode = record
         testCase.agnosticOptions = agnosticOptions
