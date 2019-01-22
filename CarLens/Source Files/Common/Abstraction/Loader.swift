@@ -3,7 +3,6 @@
 //  CarLens
 //
 
-
 /// Interface for displaying loader covering the view
 internal protocol Loader {
 

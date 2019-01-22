@@ -23,7 +23,8 @@ internal final class ApplicationFlowController {
     /// - Parameters:
     ///   - window: Main window of the app
     ///   - dependencies: Deppendencies to use in the app
-    init(window: UIWindow?, dependencies: ApplicationDependencies,
+    init(window: UIWindow?,
+         dependencies: ApplicationDependencies,
          userDefaultsService: UserDefaultsService = UserDefaultsService.shared) {
         guard let window = window else {
             fatalError("Window given to the App Flow Controller was nil")

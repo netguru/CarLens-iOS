@@ -9,7 +9,7 @@ import UIKit
 
 internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
 
-    private struct Constants {
+    private enum Constants {
         static let dotWidth: CGFloat = 5
         static let dotExtendedWidth = dotWidth * 4
         static let spacing: CGFloat = 5

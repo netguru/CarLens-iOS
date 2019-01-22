@@ -58,7 +58,8 @@ internal final class OnboardingViewController: TypedViewController<OnboardingVie
 extension OnboardingViewController: OnboardingPageViewControllerDelegate {
 
     func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController,
-                                      willTransitionFrom currentPageIndex: Int, to nextPageIndex: Int) {
+                                      willTransitionFrom currentPageIndex: Int,
+                                      to nextPageIndex: Int) {
         let lastPageIndex = onboardingPageViewController.numberOfPages - 1
         if nextPageIndex == lastPageIndex {
             customView.nextButton.setImage(#imageLiteral(resourceName: "button-scan-with-shadow"), for: .normal)
@@ -68,7 +69,8 @@ extension OnboardingViewController: OnboardingPageViewControllerDelegate {
     }
 
     func onboardingPageViewController(_ onboardingPageViewController: OnboardingPageViewController,
-                                      didTransitionFrom previousPageIndex: Int, to currentPageIndex: Int) {
+                                      didTransitionFrom previousPageIndex: Int,
+                                      to currentPageIndex: Int) {
         animationPlayer.animate(fromPage: previousPageIndex, to: currentPageIndex)
         customView.indicatorAnimationView.animate(fromPage: previousPageIndex, to: currentPageIndex)
     }

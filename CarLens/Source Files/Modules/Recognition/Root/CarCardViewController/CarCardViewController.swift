@@ -21,7 +21,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
         case didDismissView
     }
 
-    struct Constants {
+    enum Constants {
         static let cardHeight: CGFloat = 420
         static let entryPosition = UIScreen.main.bounds.maxY - Constants.cardHeight
         static let exitPosition = UIScreen.main.bounds.maxY
@@ -99,8 +99,10 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
             if recognizer.direction == .bottomToTop, exitAnimator.fractionComplete == 0 {
                 exitAnimator.stopAnimation(true)
                 UIView.animate(withDuration: 0.5) {
-                    self.view.frame = CGRect(x: 0, y: Constants.entryPosition,
-                                             width: self.view.frame.width, height: self.view.frame.height)
+                    self.view.frame = CGRect(x: 0,
+                                             y: Constants.entryPosition,
+                                             width: self.view.frame.width,
+                                             height: self.view.frame.height)
                 }
             }
         case .ended:

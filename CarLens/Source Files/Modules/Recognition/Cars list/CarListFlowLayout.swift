@@ -35,7 +35,7 @@ internal final class CarListFlowLayout: UICollectionViewFlowLayout {
     }
 
     /// SeeAlso: UICollectionViewFlowLayout
-    override public class var layoutAttributesClass: AnyClass {
+    override class var layoutAttributesClass: AnyClass {
         return CarListLayoutAttributes.self
     }
 

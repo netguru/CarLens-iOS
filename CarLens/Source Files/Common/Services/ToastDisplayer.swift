@@ -5,9 +5,9 @@
 
 import UIKit
 
-struct ToastDisplayer {
+enum ToastDisplayer {
 
-    private struct Constants {
+    private enum Constants {
         static let attachPinErrorLabelHeight: CGFloat = 40
         static let attachPinErrorLabelFontSize: CGFloat = 20
         static let animationDuration = 0.3
@@ -39,11 +39,15 @@ struct ToastDisplayer {
         toastLabel.heightAnchor.constraint(equalToConstant: Constants.attachPinErrorLabelHeight)
         toastLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
 
-        UIView.animate(withDuration: Constants.animationDuration, delay: 1.0, options: [], animations: {
+        UIView.animate(withDuration: Constants.animationDuration,
+                       delay: 1.0,
+                       options: [],
+                       animations: {
             self.toastLabel.alpha = 0.8
         }) { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                UIView.animate(withDuration: Constants.animationDuration, animations: {
+                UIView.animate(withDuration: Constants.animationDuration,
+                               animations: {
                     self.toastLabel.alpha = 0.0
                 }) { _ in
                    self.toastLabel.removeFromSuperview()

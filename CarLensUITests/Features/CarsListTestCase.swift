@@ -70,8 +70,10 @@ extension CarsListTestCase {
     @discardableResult
     private func verifyView(_ identifier: String) -> Screen {
         return app.on(screen: CarsList.self)
-            .wait(for: 2).verifyView(testCase: self, record: isOnRecordMode,
-                                     agnosticOptions: [.screenSize], identifier: identifier)
+            .wait(for: 2).verifyView(testCase: self,
+                                     record: isOnRecordMode,
+                                     agnosticOptions: [.screenSize],
+                                     identifier: identifier)
     }
 
     func testHondaCivicScreenLook() {

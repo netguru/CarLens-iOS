@@ -49,12 +49,12 @@ internal final class InputNormalizationService {
     }
 
     private func dictionaryWithValuesSum(from recognitionResults: [RecognitionResult]) -> [String: [Float]] {
-        return recognitionResults.reduce(into: [:]) { (counts, result) in
+        return recognitionResults.reduce(into: [:]) { counts, result in
             counts[result.label, default: []].append(result.confidence)
         }
     }
 
     private func countAverage(_ array: [Float]) -> Float {
-        return array.reduce(0, {$0 + $1}) / Float(array.count)
+        return array.reduce(0, { $0 + $1 }) / Float(array.count)
     }
 }

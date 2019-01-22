@@ -3,7 +3,6 @@
 //  CarLens
 //
 
-
 internal enum Localizable {
 
     enum Common {

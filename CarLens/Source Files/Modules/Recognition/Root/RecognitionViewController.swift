@@ -196,7 +196,9 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
         let height = CarCardViewController.Constants.cardHeight
         let width  = UIScreen.main.bounds.width
         carCardViewController.view.frame = CGRect(x: 0,
-                                                  y: UIScreen.main.bounds.maxY + height, width: width, height: height)
+                                                  y: UIScreen.main.bounds.maxY + height,
+                                                  width: width,
+                                                  height: height)
     }
 
     @objc private func carsListButtonTapAction() {
@@ -211,7 +213,8 @@ internal final class RecognitionViewController: TypedViewController<RecognitionV
     }
 
     @objc private func scanButtonTapAction() {
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.5,
+                       animations: {
             self.augmentedRealityViews(shouldHide: false)
             self.customView.mode = .afterCardRemoval
         }) { completed in

@@ -20,10 +20,12 @@ internal class KeyboardAwareViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShowSelector),
-                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillHideSelector),
-                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
 
     @objc private func keyboardWillShowSelector(notification: NSNotification) {

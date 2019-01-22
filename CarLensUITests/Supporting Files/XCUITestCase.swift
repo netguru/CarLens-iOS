@@ -18,7 +18,7 @@ class XCUITestCase: FBSnapshotTestCase {
 
     func setUpAlertHandler() {
         let allowButtonPredicate = NSPredicate(format: "label == 'Always Allow' || label == 'Allow' || label == 'OK'")
-        _ = addUIInterruptionMonitor(withDescription: "Alert Handler") { (alert) -> Bool in
+        _ = addUIInterruptionMonitor(withDescription: "Alert Handler") { alert -> Bool in
             let alertAllowButton = alert.buttons.matching(allowButtonPredicate).element.firstMatch
             if alertAllowButton.exists {
                 alertAllowButton.tap()

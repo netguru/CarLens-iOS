@@ -10,7 +10,7 @@ import Lottie
 internal final class CarCardView: View, ViewSetupable {
 
     /// Struct that holds informations about view's dimensions and constants
-    struct Constants {
+    enum Constants {
         static let topBeamHorizontalInset = UIScreen.main.bounds.width * 0.4
         static let stackViewHeight: CGFloat = 65
         static let regularButtonDimension = 45.0
@@ -98,7 +98,7 @@ internal final class CarCardView: View, ViewSetupable {
     private lazy var mechanicalStackView = UIStackView.make(
         axis: .horizontal,
         with: [powerHorizontalProgressView,
-        engineHorizontalProgressView],
+               engineHorizontalProgressView],
         spacing: 30.0,
         distribution: .fillEqually
     )
@@ -189,7 +189,8 @@ internal final class CarCardView: View, ViewSetupable {
                                                withInsets: .init(top: 11, left: Constants.topBeamHorizontalInset,
                                                                  bottom: 0, right: Constants.topBeamHorizontalInset))
 
-        modelStackView.constraintToEdges(of: containerView, excludingAnchors: [.bottom],
+        modelStackView.constraintToEdges(of: containerView,
+                                         excludingAnchors: [.bottom],
                                          withInsets: .init(top: 37, left: 35, bottom: 0, right: 35))
 
         [performanceStackView, mechanicalStackView].forEach { stackView in

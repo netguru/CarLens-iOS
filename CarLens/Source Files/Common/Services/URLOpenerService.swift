@@ -14,7 +14,8 @@ protocol URLOpener {
     func canOpenURL(_ url: URL) -> Bool
 
     /// - SeeAlso: UIApplication
-    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any],
+    func open(_ url: URL,
+              options: [UIApplication.OpenExternalURLOptionsKey: Any],
               completionHandler completion: ((Bool) -> Void)?)
 }
 
@@ -31,7 +32,8 @@ struct URLOpenerService {
     }
 
     /// - SeeAlso: UIApplication
-    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey: Any] = [:],
+    func open(_ url: URL,
+              options: [UIApplication.OpenExternalURLOptionsKey: Any] = [:],
               completionHandler completion: ((Bool) -> Void)? = nil) {
         if application.canOpenURL(url) {
             application.open(url, options: options, completionHandler: completion)

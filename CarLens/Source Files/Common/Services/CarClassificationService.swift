@@ -108,8 +108,10 @@ internal final class CarClassificationService {
         case .recognition:
             let recognitionResult = classifications
                 .filter { $0.confidence > Constants.Recognition.Threshold.minimum }
-                .compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence,
-                                                carsDataService: carsDataService) }
+                .compactMap { RecognitionResult(label: $0.identifier,
+                                                confidence: $0.confidence,
+                                                carsDataService: carsDataService)
+                }
             currentBuffer = nil
             self.type = .detection
             completionHandler?(recognitionResult)

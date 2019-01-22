@@ -105,10 +105,14 @@ class Screen: Displayable {
     }
 
     @discardableResult
-    func verifyView(testCase: XCUITestCase, record: Bool = false,
+    func verifyView(testCase: XCUITestCase,
+                    record: Bool = false,
                     agnosticOptions: FBSnapshotTestCaseAgnosticOption = .none,
-                    identifier: String = "", suffixes: NSOrderedSet = FBSnapshotTestCaseDefaultSuffixes(),
-                    tolerance: CGFloat = 0, file: StaticString = #file, line: UInt = #line) -> Screen {
+                    identifier: String = "",
+                    suffixes: NSOrderedSet = FBSnapshotTestCaseDefaultSuffixes(),
+                    tolerance: CGFloat = 0,
+                    file: StaticString = #file,
+                    line: UInt = #line) -> Screen {
         makeTestAppWindowKeyAndVisible()
         testCase.recordMode = record
         testCase.agnosticOptions = agnosticOptions
@@ -116,8 +120,10 @@ class Screen: Displayable {
             XCTFail("An error occurred while cropping the screenshot", file: file, line: line)
             return self
         }
-        testCase.FBSnapshotVerifyView(UIImageView(image: croppedImage), identifier: identifier,
-                                      suffixes: suffixes, tolerance: tolerance)
+        testCase.FBSnapshotVerifyView(UIImageView(image: croppedImage),
+                                      identifier: identifier,
+                                      suffixes: suffixes,
+                                      tolerance: tolerance)
         return self
     }
 }

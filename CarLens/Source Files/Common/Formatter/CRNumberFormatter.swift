@@ -4,7 +4,7 @@
 //
 
 
-internal final class CRNumberFormatter {
+enum CRNumberFormatter {
 
     static private let numberFormatter = NumberFormatter()
 

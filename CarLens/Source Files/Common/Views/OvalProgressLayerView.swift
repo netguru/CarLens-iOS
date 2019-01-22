@@ -8,7 +8,7 @@ import UIKit
 
 final class OvalProgressLayerView: View {
 
-    private struct Constants {
+    private enum Constants {
         static let animationKey = "strokeEnd"
         static let fullOvalStartAngle: CGFloat = 3/2 * .pi
     }
@@ -36,8 +36,12 @@ final class OvalProgressLayerView: View {
     ///   - lineWidth: Width of line
     ///   - progressStrokeColor: Color of progress stroke
     ///   - trackStrokeColor: Color of track stroke
-    init(startAngle: CGFloat, endAngle: CGFloat, animationDuration: Double = 0.5, lineWidth: CGFloat = 6,
-         progressStrokeColor: UIColor, trackStrokeColor: UIColor = .crProgressDarkGray) {
+    init(startAngle: CGFloat,
+         endAngle: CGFloat,
+         animationDuration: Double = 0.5,
+         lineWidth: CGFloat = 6,
+         progressStrokeColor: UIColor,
+         trackStrokeColor: UIColor = .crProgressDarkGray) {
         self.startAngle = startAngle
         self.endAngle = endAngle
         self.animationDuration = animationDuration

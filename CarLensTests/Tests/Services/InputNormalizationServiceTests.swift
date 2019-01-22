@@ -3,7 +3,6 @@
 //  CarLensTests
 //
 
-
 @testable import CarLens
 import XCTest
 
@@ -28,8 +27,8 @@ final class InputNormalizationServiceTests: XCTestCase {
         }
         let result = sut.normalizeConfidence(from: [recognitionResult])
         XCTAssertNil(result,
-                    "Result should be nil if the recognition results count is" +
-                    "less then number of values for a normalization")
+                     "Result should be nil if the recognition results count is" +
+                     "less then number of values for a normalization")
     }
 
     func testAfterAddingValues() {

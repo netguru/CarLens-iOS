@@ -10,7 +10,7 @@ import Lottie
 internal final class FullOvalProgressView: View, ViewSetupable {
 
     /// Struct with dimensions
-    struct Dimensions {
+    enum Dimensions {
         static let startAngle: CGFloat = 3/2 * .pi
         static let endAngle: CGFloat = 7/2 * .pi
         static let lineWidth: CGFloat = 4

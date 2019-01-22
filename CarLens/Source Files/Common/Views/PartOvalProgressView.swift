@@ -16,7 +16,7 @@ internal final class PartOvalProgressView: View, ViewSetupable {
     }
 
     /// Struct with dimensions
-    struct Dimensions {
+    enum Dimensions {
         static let startAngle: CGFloat = 0.8 * .pi
         static let endAngle: CGFloat = 0.2 * .pi
         static let valueFontSize: CGFloat = 20

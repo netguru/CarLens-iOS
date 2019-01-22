@@ -27,7 +27,8 @@ internal class DefaultLoader: Loader {
     /// - SeeAlso: Loader.toggle()
     func toggle(_ show: Bool) {
         guard show else {
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.2,
+                           animations: {
                 self.contentView?.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
             }, completion: { _ in
                 self.contentView?.removeFromSuperview()
