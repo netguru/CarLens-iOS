@@ -6,7 +6,7 @@
 
 import SpriteKit
 
-internal final class CarScene: SKScene {
+final class CarScene: SKScene {
 
     /// Callback called when user tapped AR pin with given car id
     var didTapCar: ((String) -> Void)?

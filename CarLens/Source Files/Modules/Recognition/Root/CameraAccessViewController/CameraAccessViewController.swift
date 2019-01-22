@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class CameraAccessViewController: TypedViewController<CameraAccessView> {
+final class CameraAccessViewController: TypedViewController<CameraAccessView> {
 
     /// Enum describing events that can be triggered by this controller
     ///

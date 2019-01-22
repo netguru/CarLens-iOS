@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class CarCardViewController: TypedViewController<CarCardView> {
+final class CarCardViewController: TypedViewController<CarCardView> {
 
     /// Enum describing events that can be triggered by this controller
     ///

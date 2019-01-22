@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class OnboardingViewController: TypedViewController<OnboardingView> {
+final class OnboardingViewController: TypedViewController<OnboardingView> {
 
     /// Enum describing events that can be triggered by this controller
     ///

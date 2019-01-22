@@ -7,7 +7,7 @@
 import UIKit
 
 /// Model containing configuration used for application augmented reality view
-internal struct CarARConfiguration {
+struct CarARConfiguration {
 
     /// Node shift from the place of detected anchor
     let nodeShift: NodeShift

@@ -5,7 +5,7 @@
 
 import UIKit
 
-internal final class ModelNameView: View, ViewSetupable {
+final class ModelNameView: View, ViewSetupable {
 
     /// Car object used to initlaize labels
     private let car: Car

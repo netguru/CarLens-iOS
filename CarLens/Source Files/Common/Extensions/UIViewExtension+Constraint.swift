@@ -6,10 +6,10 @@
 
 import UIKit
 
-internal extension UIView {
+extension UIView {
 
     /// Anchor of the view
-    internal enum Anchor {
+    enum Anchor {
         case top
         case right
         case bottom

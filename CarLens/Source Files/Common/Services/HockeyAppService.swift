@@ -6,7 +6,7 @@
 
 import HockeySDK
 
-internal class HockeyAppService: CrashLogger {
+class HockeyAppService: CrashLogger {
 
     private lazy var hockeyManager: BITHockeyManager? = { [unowned self] in
         #if ENV_DEVELOPMENT

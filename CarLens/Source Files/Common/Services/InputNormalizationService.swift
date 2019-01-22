@@ -4,7 +4,7 @@
 //
 
 
-internal final class InputNormalizationService {
+final class InputNormalizationService {
 
     /// Number of recognition results needed for normalization to begin.
     private let numberOfValuesNeeded: Int

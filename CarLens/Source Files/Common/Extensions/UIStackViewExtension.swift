@@ -5,7 +5,7 @@
 
 import UIKit
 
-internal extension UIStackView {
+extension UIStackView {
 
     /// Convenience maker for the UIStackView
     ///

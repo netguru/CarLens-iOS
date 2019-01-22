@@ -4,7 +4,7 @@
 //
 
 
-internal final class CarsDataService {
+final class CarsDataService {
 
     /// Local data service with initial data.
     private let localDataService: LocalCarsDataService

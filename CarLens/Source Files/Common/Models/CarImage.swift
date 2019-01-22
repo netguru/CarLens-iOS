@@ -6,7 +6,7 @@
 import UIKit.UIImage
 
 /// Internal struct that holds information about locked and unlocked images for concrete car
-internal struct CarImage: Equatable {
+struct CarImage: Equatable {
     let unlocked: UIImage
     let locked: UIImage
     let logoUnlocked: UIImage

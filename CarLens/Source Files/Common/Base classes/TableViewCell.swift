@@ -7,7 +7,7 @@
 import UIKit
 
 /// Base class reducing boilerplate inside UITableViewCell subclasses
-internal class TableViewCell: UITableViewCell {
+class TableViewCell: UITableViewCell {
 
     /// - SeeAlso: UITableViewCell
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

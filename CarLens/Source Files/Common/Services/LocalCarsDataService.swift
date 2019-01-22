@@ -4,7 +4,7 @@
 //
 
 
-internal final class LocalCarsDataService {
+final class LocalCarsDataService {
 
     /// Array of local car objects
     var cars: [Car] = []

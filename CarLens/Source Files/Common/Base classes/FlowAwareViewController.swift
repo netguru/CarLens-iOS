@@ -7,7 +7,7 @@
 import UIKit
 
 /// Simple View controller class with helper callbacks for flow management
-internal class FlowAwareViewController: KeyboardAwareViewController {
+class FlowAwareViewController: KeyboardAwareViewController {
 
     /// Closure triggered when view controller will be popped from navigation stack
     var willMoveToParentViewController: ((UIViewController?) -> Void)?

@@ -6,7 +6,7 @@
 
 import ARKit
 
-internal extension ARAnchor {
+extension ARAnchor {
 
     /// Initializes Augemnted Reality anchor from given parameters
     ///

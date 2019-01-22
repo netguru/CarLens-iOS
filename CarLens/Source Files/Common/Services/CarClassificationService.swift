@@ -7,7 +7,7 @@ import CoreML
 import Vision
 import UIKit.UIImage
 
-internal final class CarClassificationService {
+final class CarClassificationService {
 
     private let carsDataService: CarsDataService
 

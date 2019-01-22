@@ -13,14 +13,14 @@ import ARKit
 /// - withCard: Recognition mode with card pn a view.
 /// - afterCardRemoval: Recognition mode after card was removed.
 /// - explore: Exploration mode of AR world. No active recognition.
-internal enum RecognitionViewMode {
+enum RecognitionViewMode {
     case basic
     case withCard
     case afterCardRemoval
     case explore
 }
 
-internal final class RecognitionView: View, ViewSetupable {
+final class RecognitionView: View, ViewSetupable {
 
     /// Container for augmented reality view controller content
     lazy var augmentedRealityContainer = UIView().layoutable()

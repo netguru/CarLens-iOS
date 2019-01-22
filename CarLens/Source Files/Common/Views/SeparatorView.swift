@@ -7,7 +7,7 @@
 import UIKit
 
 /// Empty separator view, mainly for UIStackView
-internal final class SeparatorView: View {
+final class SeparatorView: View {
 
     private let axis: NSLayoutConstraint.Axis
 
@@ -19,7 +19,7 @@ internal final class SeparatorView: View {
     ///     - axis: The axis of the separator view.
     ///     - thickness: The thickness of the separator view.
     ///     - color: The background color of the separator view. Transparent by default
-    internal init(axis: NSLayoutConstraint.Axis, thickness: CGFloat, color: UIColor = .clear) {
+    init(axis: NSLayoutConstraint.Axis, thickness: CGFloat, color: UIColor = .clear) {
         self.axis = axis
         self.thickness = thickness
         super.init()
@@ -32,7 +32,7 @@ internal final class SeparatorView: View {
     }
 }
 
-internal extension UIView {
+extension UIView {
 
     /// Initialize an separator view
     ///

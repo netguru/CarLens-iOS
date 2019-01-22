@@ -7,7 +7,7 @@
 import UIKit
 
 /// Main Flow controller of the app, has access to the main window and can change root controller
-internal final class ApplicationFlowController {
+final class ApplicationFlowController {
 
     private weak var window: UIWindow?
 

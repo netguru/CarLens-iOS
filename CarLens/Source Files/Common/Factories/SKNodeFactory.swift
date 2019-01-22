@@ -8,7 +8,7 @@ import SpriteKit
 import UIKit
 
 /// Factory for creating SpriteKit nodes
-internal final class SKNodeFactory {
+final class SKNodeFactory {
 
     private enum Constants {
         static let blurType = "CIGaussianBlur"

@@ -7,7 +7,7 @@
 import UIKit
 import Lottie
 
-internal final class CarCardView: View, ViewSetupable {
+final class CarCardView: View, ViewSetupable {
 
     /// Struct that holds informations about view's dimensions and constants
     enum Constants {
@@ -104,7 +104,7 @@ internal final class CarCardView: View, ViewSetupable {
     )
 
     /// Google button in bottom right corner
-    internal var googleButton: UIButton = {
+    var googleButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-google"), for: .normal)
         button.imageView?.contentMode = .scaleToFill
@@ -115,7 +115,7 @@ internal final class CarCardView: View, ViewSetupable {
     }()
 
     /// Car list button visible in bottom left corner
-    internal var carListButton: UIButton = {
+    var carListButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-car-list-white"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
@@ -126,7 +126,7 @@ internal final class CarCardView: View, ViewSetupable {
     }()
 
     /// Recognize button visible at the bottom
-    internal var scanButton: UIButton = {
+    var scanButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill

@@ -7,7 +7,7 @@
 import UIKit
 import Lottie
 
-internal final class HorizontalProgressChartView: View, ViewSetupable {
+final class HorizontalProgressChartView: View, ViewSetupable {
 
     /// States available to display by this view
     enum State {

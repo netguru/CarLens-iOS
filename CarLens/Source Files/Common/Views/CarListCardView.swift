@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class CarListCardView: View, ViewSetupable {
+final class CarListCardView: View, ViewSetupable {
 
     private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(0),
                                                                  invalidateChartInstantly: false)

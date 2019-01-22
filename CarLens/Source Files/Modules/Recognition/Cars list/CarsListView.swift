@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class CarsListView: View, ViewSetupable {
+final class CarsListView: View, ViewSetupable {
 
     /// Cars list collectiom view
     lazy var collectionView: UICollectionView = {

@@ -5,7 +5,7 @@
 
 
 /// Model containing configuration used when displaying car specification charts
-internal struct CarSpecificationChartConfiguration {
+struct CarSpecificationChartConfiguration {
 
     /// Speed metrics type to be used for referenceSpeed calculating
     private let speedType: SpeedMetricsType

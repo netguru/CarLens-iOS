@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal class DefaultLoader: Loader {
+class DefaultLoader: Loader {
 
     private let baseView: UIView
 

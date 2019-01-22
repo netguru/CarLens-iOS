@@ -7,7 +7,7 @@
 import UIKit
 import Lottie
 
-internal final class FullOvalProgressView: View, ViewSetupable {
+final class FullOvalProgressView: View, ViewSetupable {
 
     /// Struct with dimensions
     enum Dimensions {

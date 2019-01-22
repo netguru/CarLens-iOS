@@ -3,7 +3,7 @@
 //  CarLens
 //
 
-internal enum Localizable {
+enum Localizable {
 
     enum Common {
         static let loremIpsum = localized("lorem.ipsum")

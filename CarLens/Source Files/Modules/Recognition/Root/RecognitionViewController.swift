@@ -8,7 +8,7 @@ import UIKit
 import SpriteKit
 import ARKit
 
-internal final class RecognitionViewController: TypedViewController<RecognitionView> {
+final class RecognitionViewController: TypedViewController<RecognitionView> {
 
     /// Enum describing events that can be triggered by this controller
     ///

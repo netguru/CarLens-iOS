@@ -7,7 +7,7 @@
 import UIKit
 import Lottie
 
-internal final class HorizontalStarsView: View, ViewSetupable {
+final class HorizontalStarsView: View, ViewSetupable {
 
     private var starCount: Int
 

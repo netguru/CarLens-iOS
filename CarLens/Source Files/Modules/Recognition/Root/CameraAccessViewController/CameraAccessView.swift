@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class CameraAccessView: View, ViewSetupable {
+final class CameraAccessView: View, ViewSetupable {
 
     /// Struct with view's dimensions
     enum Dimensions {
@@ -15,14 +15,14 @@ internal final class CameraAccessView: View, ViewSetupable {
     }
 
     /// Cars list button in the left bottom corner
-    internal let carsListButton: UIButton = {
+    let carsListButton: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "button-car-list-gray"), for: .normal)
         return view.layoutable()
     }()
 
      /// Access button in the bottom center
-    internal let accessButton: UIButton = {
+    let accessButton: UIButton = {
         let view = UIButton(type: .system)
         view.setTitle(Localizable.CameraAccess.accessButton, for: .normal)
         view.setTitleColor(UIColor(hex: 0xFF6163), for: .normal)

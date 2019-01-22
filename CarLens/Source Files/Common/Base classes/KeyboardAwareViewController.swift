@@ -7,7 +7,7 @@
 import UIKit
 
 /// Simple View controller class with helper methods for keyboard management
-internal class KeyboardAwareViewController: UIViewController {
+class KeyboardAwareViewController: UIViewController {
 
     /// Closure triggered when keyboard will show up
     var keyboardWillShow: (_ height: CGFloat, _ animationDuration: TimeInterval) -> Void = { _, _ in }

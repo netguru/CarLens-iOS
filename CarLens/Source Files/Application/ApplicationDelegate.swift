@@ -6,7 +6,7 @@
 import UIKit
 
 @UIApplicationMain
-internal final class ApplicationDelegate: UIResponder, UIApplicationDelegate {
+final class ApplicationDelegate: UIResponder, UIApplicationDelegate {
 
     /// Shared dependencies used extensively in the application
     private let applicationDependencies = ApplicationDependencies()

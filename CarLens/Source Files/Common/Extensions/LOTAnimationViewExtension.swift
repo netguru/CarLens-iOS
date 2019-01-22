@@ -6,7 +6,7 @@
 
 import Lottie
 
-internal extension LOTAnimationView {
+extension LOTAnimationView {
 
     /// Sets the progress on the animation
     ///

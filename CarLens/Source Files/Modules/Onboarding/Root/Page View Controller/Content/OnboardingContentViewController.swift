@@ -20,7 +20,7 @@ protocol OnboardingContentPresentable: AnyObject {
     func didPresentOnboardingContentViewController(_ onboardingContentViewController: OnboardingContentViewController)
 }
 
-internal final class OnboardingContentViewController: TypedViewController<OnboardingContentView> {
+final class OnboardingContentViewController: TypedViewController<OnboardingContentView> {
 
     /// Delegate used to inform about current page
     weak var delegate: OnboardingContentPresentable?

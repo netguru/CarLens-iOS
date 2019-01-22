@@ -6,7 +6,7 @@
 
 import UIKit.UITableView
 
-internal extension UITableView {
+extension UITableView {
 
     /// - SeeAlso: UITableView.register
     func register<T: UITableViewCell>(cell: T.Type) {

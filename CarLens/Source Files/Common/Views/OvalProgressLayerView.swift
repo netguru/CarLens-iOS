@@ -61,7 +61,7 @@ final class OvalProgressLayerView: View {
 extension OvalProgressLayerView {
 
     /// Set progress value either animated or not animated
-    internal func set(progress: Double, animated: Bool) {
+    func set(progress: Double, animated: Bool) {
         guard animated else {
             progressLayer.isHidden = progress == 0
             CATransaction.begin()

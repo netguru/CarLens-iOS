@@ -13,7 +13,7 @@ import UIKit
 /// - topToBottom: pan gesture from top to bottom
 /// - rightToLeft: pan gesture from right to left
 /// - leftToRight: pan gesture from left to right
-internal enum UIPanGestureRecognizerDirection {
+enum UIPanGestureRecognizerDirection {
     case undefined
     case bottomToTop
     case topToBottom
@@ -21,7 +21,7 @@ internal enum UIPanGestureRecognizerDirection {
     case leftToRight
 }
 
-internal extension UIPanGestureRecognizer {
+extension UIPanGestureRecognizer {
 
     /// Holds information about the direction of Pan gesture
     var direction: UIPanGestureRecognizerDirection {

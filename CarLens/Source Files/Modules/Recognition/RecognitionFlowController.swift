@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class RecognitionFlowController: FlowController {
+final class RecognitionFlowController: FlowController {
 
     private let dependencies: ApplicationDependencies
 

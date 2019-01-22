@@ -7,7 +7,7 @@
 import UIKit
 
 /// Base class for UIView sublclasses to remove boilerplate from custom views
-internal class View: UIView {
+class View: UIView {
 
     /// Indicating if keyboard should be closed on touch
     var closeKeyboardOnTouch = true

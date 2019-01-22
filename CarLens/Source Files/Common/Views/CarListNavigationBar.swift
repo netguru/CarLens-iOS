@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class CarListNavigationBar: View, ViewSetupable {
+final class CarListNavigationBar: View, ViewSetupable {
 
     private let maximumNumber: Int
 
@@ -24,16 +24,16 @@ internal final class CarListNavigationBar: View, ViewSetupable {
     }()
 
     /// Back button with arrow
-    internal let backButton: UIButton = {
+    let backButton: UIButton = {
         let view = UIButton()
         view.setImage(#imageLiteral(resourceName: "button-back-arrow"), for: .normal)
         return view.layoutable()
     }()
 
     /// Progress view displayed as full oval figure
-    internal lazy var progressView = FullOvalProgressView(currentNumber: currentNumber,
-                                                          maximumNumber: maximumNumber,
-                                                          invalidateChartInstantly: false).layoutable()
+    lazy var progressView = FullOvalProgressView(currentNumber: currentNumber,
+                                                 maximumNumber: maximumNumber,
+                                                 invalidateChartInstantly: false).layoutable()
 
     /// Initializes CarListNavigationBar
     ///

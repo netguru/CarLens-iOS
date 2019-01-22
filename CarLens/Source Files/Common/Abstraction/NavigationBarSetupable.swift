@@ -7,7 +7,7 @@
 import UIKit.UINavigationBar
 
 /// Interface for setting up the navigation bar
-internal protocol NavigationBarSetupable {
+protocol NavigationBarSetupable {
 
     /// Called to setup the navigation bar
     ///

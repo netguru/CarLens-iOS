@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class OnboardingFlowController: FlowController {
+final class OnboardingFlowController: FlowController {
 
     /// Root view controler of the flow
     private(set) var rootViewController = UIViewController()

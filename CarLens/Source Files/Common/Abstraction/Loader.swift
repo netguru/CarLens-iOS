@@ -4,7 +4,7 @@
 //
 
 /// Interface for displaying loader covering the view
-internal protocol Loader {
+protocol Loader {
 
     /// Indicating if loader is currently spinning
     var isSpinning: Bool { get }

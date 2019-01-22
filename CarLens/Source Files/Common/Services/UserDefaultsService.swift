@@ -7,7 +7,7 @@
 import Foundation
 
 /// UserDefaults Service used for storing data.
-internal final class UserDefaultsService {
+final class UserDefaultsService {
 
     private enum Keys {
         static let didShowOnboardingKey = "didShowOnboardingKey"

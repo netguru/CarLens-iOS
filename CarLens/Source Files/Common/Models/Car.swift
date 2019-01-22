@@ -5,7 +5,7 @@
 
 import UIKit.UIImage
 
-internal struct Car: Decodable, Equatable {
+struct Car: Decodable, Equatable {
     let id: String
     let make: String
     let model: String

@@ -4,7 +4,7 @@
 //
 
 /// Shared dependencies used extensively in the application
-internal class ApplicationDependencies {
+class ApplicationDependencies {
 
     lazy var applicationKeys: ApplicationKeys = ApplicationKeys(keys: CarLensKeys())
 

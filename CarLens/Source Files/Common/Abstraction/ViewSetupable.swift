@@ -3,9 +3,8 @@
 //  CarLens
 //
 
-
 /// Interface for setting up the view
-internal protocol ViewSetupable {
+protocol ViewSetupable {
 
     /// Add subviews to the view when called
     func setupViewHierarchy()
@@ -17,7 +16,7 @@ internal protocol ViewSetupable {
     func setupProperties()
 }
 
-internal extension ViewSetupable {
+extension ViewSetupable {
 
     // Empty default implementation - not every class need this method
     func setupProperties() { }

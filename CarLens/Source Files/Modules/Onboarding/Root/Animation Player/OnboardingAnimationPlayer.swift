@@ -8,7 +8,7 @@ import Foundation
 import AVKit
 
 /// Class which handles onboarding animation by using AVPlayerViewController.
-internal final class OnboardingAnimationPlayer {
+final class OnboardingAnimationPlayer {
 
     private var bundle: Bundle
 

@@ -6,7 +6,7 @@
 
 import UIKit.UIColor
 
-internal extension UIColor {
+extension UIColor {
 
     /// Convenience intitializer for hex format
     ///

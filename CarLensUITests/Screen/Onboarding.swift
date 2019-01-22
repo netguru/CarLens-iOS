@@ -7,7 +7,7 @@
 import Foundation
 import FBSnapshotTestCase
 
-internal final class Onboarding: Screen {
+final class Onboarding: Screen {
 
     private lazy var nextButton = app.buttons["onboarding/button/next"]
 

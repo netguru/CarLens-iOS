@@ -3,10 +3,9 @@
 //  CarLens
 //
 
-
 import Foundation
 
-internal final class CarsDatabaseService {
+final class CarsDatabaseService {
 
     private let userDefaults: UserDefaults
 

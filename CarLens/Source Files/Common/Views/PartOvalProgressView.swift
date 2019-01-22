@@ -7,7 +7,7 @@
 import UIKit
 import Lottie
 
-internal final class PartOvalProgressView: View, ViewSetupable {
+final class PartOvalProgressView: View, ViewSetupable {
 
     /// States available to display by this view
     enum State {

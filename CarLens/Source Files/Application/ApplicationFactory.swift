@@ -5,7 +5,7 @@
 
 
 /// Factory class that creates view controllers with proper dependencies
-internal final class ApplicationFactory {
+final class ApplicationFactory {
 
     private let applicationDependencies: ApplicationDependencies
 

@@ -3,11 +3,10 @@
 //  CarLens
 //
 
-
 import UIKit
 import ARKit
 
-internal final class AugmentedRealityView: View, ViewSetupable {
+final class AugmentedRealityView: View, ViewSetupable {
 
     /// View with camera preview
     lazy var previewView: ARSKView = {
@@ -17,7 +16,7 @@ internal final class AugmentedRealityView: View, ViewSetupable {
     }()
 
     /// Blur effect view presented when camera is not ready to show content
-    internal let blurEffectView: UIVisualEffectView = {
+    let blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let view = UIVisualEffectView(effect: blurEffect)
         return view.layoutable()

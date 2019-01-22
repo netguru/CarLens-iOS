@@ -6,7 +6,7 @@
 
 import UIKit.UICollectionView
 
-internal final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupable {
+final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupable {
 
     /// Indicates if the cell is currently displayed as primary cell
     var isCurrentlyPrimary = false

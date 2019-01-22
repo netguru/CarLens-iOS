@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class LabeledCarImageView: View, ViewSetupable {
+final class LabeledCarImageView: View, ViewSetupable {
 
     private lazy var modelLabel: UILabel = {
         let view = UILabel()

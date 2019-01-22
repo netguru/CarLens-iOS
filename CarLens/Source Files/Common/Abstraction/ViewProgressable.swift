@@ -3,9 +3,8 @@
 //  CarLens
 //
 
-
 /// Interface for progressing the view
-internal protocol ViewProgressable {
+protocol ViewProgressable {
 
     /// Invalidates the progress shown on the chart
     ///

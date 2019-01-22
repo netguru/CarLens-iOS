@@ -7,7 +7,7 @@
 import UIKit
 import Lottie
 
-internal final class DetectionViewfinderView: View, ViewSetupable {
+final class DetectionViewfinderView: View, ViewSetupable {
 
     /// Error that can occur durning updating state
     enum DetectionViewfinderViewError: Error {

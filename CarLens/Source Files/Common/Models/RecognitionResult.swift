@@ -5,7 +5,7 @@
 
 
 /// Describes car recognized by the classifier
-internal struct RecognitionResult: CustomStringConvertible {
+struct RecognitionResult: CustomStringConvertible {
 
     /// Available recognitions
     enum Recognition: Equatable {

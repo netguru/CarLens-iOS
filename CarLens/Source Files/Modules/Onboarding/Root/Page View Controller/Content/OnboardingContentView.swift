@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class OnboardingContentView: View, ViewSetupable {
+final class OnboardingContentView: View, ViewSetupable {
 
     lazy var titleLabel: UILabel = {
         let view = UILabel()

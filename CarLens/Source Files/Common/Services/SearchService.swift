@@ -6,7 +6,7 @@
 
 import UIKit.UIApplication
 
-internal final class SearchService {
+final class SearchService {
 
     /// Services available to search with added base URLs as rawValue
     enum Service: String {

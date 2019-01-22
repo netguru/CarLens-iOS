@@ -7,7 +7,7 @@
 import UIKit
 
 /// Base class for view controllers with programatically created `View`
-internal class TypedViewController<View: UIView>: FlowAwareViewController {
+class TypedViewController<View: UIView>: FlowAwareViewController {
 
     /// Custom View
     let customView: View

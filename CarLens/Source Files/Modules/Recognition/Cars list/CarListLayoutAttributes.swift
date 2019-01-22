@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class CarListLayoutAttributes: UICollectionViewLayoutAttributes {
+final class CarListLayoutAttributes: UICollectionViewLayoutAttributes {
 
     /// Progress towards the center of the screen, value between 0 and 1.
     var progress = 0.0

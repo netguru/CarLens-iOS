@@ -6,7 +6,7 @@
 
 import UIKit.UIViewController
 
-internal extension UIViewController {
+extension UIViewController {
 
     /// Adds view controller as a child (calls all required methods automatically)
     ///

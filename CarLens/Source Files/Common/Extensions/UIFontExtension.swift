@@ -3,10 +3,9 @@
 //  CarLens
 //
 
-
 import UIKit.UIFont
 
-internal extension UIFont {
+extension UIFont {
 
     /// Returns the `Gliscor Gothic` font object in the specified size
     ///

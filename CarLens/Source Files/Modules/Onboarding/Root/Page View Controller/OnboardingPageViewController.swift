@@ -34,7 +34,7 @@ protocol OnboardingPageViewControllerDelegate: AnyObject {
     func didFinishOnboarding(onboardingPageViewController: OnboardingPageViewController)
 }
 
-internal final class OnboardingPageViewController: UIPageViewController {
+final class OnboardingPageViewController: UIPageViewController {
 
     /// Page View Delegate used to inform about onboarding being finished
     weak var onboardingDelegate: OnboardingPageViewControllerDelegate?

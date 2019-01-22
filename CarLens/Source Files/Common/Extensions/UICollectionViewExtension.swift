@@ -6,7 +6,7 @@
 
 import UIKit.UICollectionView
 
-internal extension UICollectionView {
+extension UICollectionView {
 
     /// - SeeAlso: UICollectionView.register
     func register<T: UICollectionViewCell>(cell: T.Type) {

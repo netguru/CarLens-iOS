@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class TextSwitcherView: View {
+final class TextSwitcherView: View {
 
     private enum State {
         case animationIsRunning

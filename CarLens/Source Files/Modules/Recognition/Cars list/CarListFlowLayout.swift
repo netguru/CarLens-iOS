@@ -6,7 +6,7 @@
 
 import UIKit
 
-internal final class CarListFlowLayout: UICollectionViewFlowLayout {
+final class CarListFlowLayout: UICollectionViewFlowLayout {
 
     private var firstSetupDone = false
 

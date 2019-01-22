@@ -6,7 +6,7 @@
 
 import UIKit.UIDevice
 
-internal extension UIDevice {
+extension UIDevice {
 
     /// Indicates if screen size of the device is bigger than 4 inches
     static var screenSizeBiggerThan4Inches: Bool {

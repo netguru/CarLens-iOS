@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 
-internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
+class OnboardingIndicatorAnimationView: View, ViewSetupable {
 
     private enum Constants {
         static let dotWidth: CGFloat = 5

@@ -3,13 +3,12 @@
 //  CarLens
 //
 
-
 import UIKit.UIAlertController
 
 /// Protocol adding convenience methods for showing alerts inside view controller
-internal protocol AlertPresentable { }
+protocol AlertPresentable { }
 
-internal extension AlertPresentable where Self: UIViewController {
+extension AlertPresentable where Self: UIViewController {
 
     /// Shows default Alert with single OK button
     ///

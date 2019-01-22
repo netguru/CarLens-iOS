@@ -10,13 +10,13 @@ import Foundation
 ///
 /// - mph: Miles per hour.
 /// - kph: Kilometers per hour.
-internal enum SpeedMetricsType {
+enum SpeedMetricsType {
     case mph
     case kph
 }
 
 /// A struct used for determining user's metrics.
-internal struct SystemMetrics {
+struct SystemMetrics {
 
     /// The shared instance of SystemMetrics.
     static let shared: SystemMetrics = SystemMetrics()
