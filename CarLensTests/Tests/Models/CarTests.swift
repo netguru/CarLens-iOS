@@ -16,7 +16,7 @@ final class CarTests: XCTestCase {
         static let id = "FordFiesta"
         static let stars = 1
         static let image = CarImage(unlocked: #imageLiteral(resourceName: "FordFiesta"), locked: #imageLiteral(resourceName: "FordFiesta_locked"), logoUnlocked: #imageLiteral(resourceName: "Ford"), logoLocked: #imageLiteral(resourceName: "Ford_locked"))
-        static let description = "Ford Fiesta has been marketed by Ford since 1976." +
+        static let description = "Ford Fiesta has been marketed by Ford since 1976. " +
                                 "Ford has sold over 16 million Fiestas since then, making it a best-seller."
         static let isDiscovered = false
     }

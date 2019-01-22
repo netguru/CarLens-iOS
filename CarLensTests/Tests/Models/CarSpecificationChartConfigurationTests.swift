@@ -64,6 +64,6 @@ final class CarSpecificationChartConfigurationTests: XCTestCase {
         XCTAssertEqual(sut.referenceSpeed,
                        DesiredParameters.referenceSpeedInKilometers,
                        "Reference speed for kilometers should be equal to" +
-                        DesiredParameters.referenceSpeedInKilometers)
+                        String(DesiredParameters.referenceSpeedInKilometers))
     }
 }

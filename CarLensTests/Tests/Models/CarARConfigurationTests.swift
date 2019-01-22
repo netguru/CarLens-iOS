@@ -44,15 +44,15 @@ final class CarARConfigurationTests: XCTestCase {
             XCTAssertEqual(sut.minimumDistanceFromDevice,
                            DesiredParameters.minimumDistanceFromDevice,
                            "Minimal distance from device should be equal to" +
-                            DesiredParameters.minimumDistanceFromDevice)
+                            "\(DesiredParameters.minimumDistanceFromDevice)")
             XCTAssertEqual(sut.minimumDistanceBetweenNodes,
                            DesiredParameters.minimumDistanceBetweenNodes,
                            "Minimal distance between nodes should be equal to" +
-                            DesiredParameters.minimumDistanceBetweenNodes)
+                           "\(DesiredParameters.minimumDistanceBetweenNodes)")
             XCTAssertEqual(sut.maximumDistanceFromDevice,
                            DesiredParameters.maximumDistanceFromDevice,
                            "Maximal distance from device should be equal to" +
-                            DesiredParameters.maximumDistanceFromDevice)
+                           "\(DesiredParameters.maximumDistanceFromDevice)")
         #endif
     }
 }
