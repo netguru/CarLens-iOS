@@ -16,7 +16,7 @@ internal extension UIFont {
     static func gliscorGothicFont(ofSize size: CGFloat) -> UIFont {
         return UIFont(name: "GliscorGothic", size: size)!
     }
-    
+
     /// Returns the `BLOKK Neue` font object in the specified size
     ///
     /// - Parameters:

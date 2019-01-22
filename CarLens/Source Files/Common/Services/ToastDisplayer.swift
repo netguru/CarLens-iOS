@@ -6,13 +6,13 @@
 import UIKit
 
 struct ToastDisplayer {
-    
+
     private struct Constants {
         static let attachPinErrorLabelHeight: CGFloat = 40
         static let attachPinErrorLabelFontSize: CGFloat = 20
         static let animationDuration = 0.3
     }
-    
+
     private static var toastLabel: UILabel = {
         let label = UILabel()
         label.backgroundColor = .black
@@ -24,12 +24,12 @@ struct ToastDisplayer {
         label.textAlignment = .center
         return label
     }()
-    
+
     static func show(in view: UIView, text: String) {
         toastLabel.text = text
-        
+
         view.addSubview(toastLabel)
-        
+
         toastLabel.constraintCenterToSuperview(axis: [.horizontal])
         NSLayoutConstraint.activate([
             toastLabel.heightAnchor.constraint(equalToConstant: Constants.attachPinErrorLabelHeight),
@@ -38,7 +38,7 @@ struct ToastDisplayer {
         ])
         toastLabel.heightAnchor.constraint(equalToConstant: Constants.attachPinErrorLabelHeight)
         toastLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
-        
+
         UIView.animate(withDuration: Constants.animationDuration, delay: 1.0, options: [], animations: {
             self.toastLabel.alpha = 0.8
         }) { _ in

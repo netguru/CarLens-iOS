@@ -7,13 +7,13 @@
 import SpriteKit
 
 internal final class CarScene: SKScene {
-    
+
     /// Callback called when user tapped AR pin with given car id
-    var didTapCar: ((String) -> ())?
-    
+    var didTapCar: ((String) -> Void)?
+
     /// Callback called when user tapped view excluding the AR pin
-    var didTapBackgroundView: (() -> ())?
-    
+    var didTapBackgroundView: (() -> Void)?
+
     /// SeeAlso: SKScene
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)

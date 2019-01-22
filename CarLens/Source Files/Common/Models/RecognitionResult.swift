@@ -6,14 +6,14 @@
 
 /// Describes car recognized by the classifier
 internal struct RecognitionResult: CustomStringConvertible {
-    
+
     /// Available recognitions
     enum Recognition: Equatable {
         case car(Car)
         case otherCar
         case notCar
-        
-        static func ==(lhs: Recognition, rhs: Recognition) -> Bool {
+
+        static func == (lhs: Recognition, rhs: Recognition) -> Bool {
             switch (lhs, rhs) {
             case (let .car(carLHS), let .car(carRHS)):
                 return carLHS == carRHS
@@ -26,14 +26,14 @@ internal struct RecognitionResult: CustomStringConvertible {
             }
         }
     }
-    
+
     let recognition: Recognition
-    
+
     let confidence: Float
-    
+
     /// Label returned by a model.
     let label: String
-    
+
     /// Initializes the object from given parameters
     ///
     /// - Parameters:
@@ -53,7 +53,7 @@ internal struct RecognitionResult: CustomStringConvertible {
             return nil
         }
     }
-    
+
     /// SeeAlso: CustomStringConvertible
     var description: String {
         switch recognition {

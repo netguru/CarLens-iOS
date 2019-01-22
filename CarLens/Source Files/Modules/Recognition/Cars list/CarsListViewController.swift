@@ -6,16 +6,17 @@
 
 import UIKit
 
-internal final class CarsListViewController: TypedViewController<CarsListView>, UICollectionViewDataSource, UICollectionViewDelegate {
-    
+final class CarsListViewController: TypedViewController<CarsListView>,
+                                    UICollectionViewDataSource, UICollectionViewDelegate {
+
     private var didCheckCarScroll = false
-    
+
     private let carsDataService: CarsDataService
-    
+
     private let discoveredCar: Car?
-    
+
     private var cars = [Car]()
-    
+
     /// Enum describing events that can be triggered by this controller
     ///
     /// - didTapDismiss: send when user want to dismiss the view
@@ -26,8 +27,8 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     }
 
     /// Callback with triggered event
-    var eventTriggered: ((Event) -> ())?
-    
+    var eventTriggered: ((Event) -> Void)?
+
     /// Initializes the view controller with given parameters
     ///
     /// - Parameters:
@@ -36,9 +37,10 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     init(discoveredCar: Car? = nil, carsDataService: CarsDataService) {
         self.discoveredCar = discoveredCar
         self.carsDataService = carsDataService
-        super.init(viewMaker: CarsListView(discoveredCar: discoveredCar, availableCars: carsDataService.getNumberOfCars()))
+        super.init(viewMaker: CarsListView(discoveredCar: discoveredCar,
+                                           availableCars: carsDataService.getNumberOfCars()))
     }
-    
+
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,20 +52,20 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         customView.recognizeButton.addTarget(self, action: #selector(recognizeButtonTapAction), for: .touchUpInside)
         customView.topView.backButton.addTarget(self, action: #selector(backButtonTapAction), for: .touchUpInside)
     }
-    
+
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         invalidateDiscoveredProgressView()
     }
-    
+
     /// SeeAlso: UIViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateVisibleCells()
         customView.topView.progressView.invalidateChart(animated: true)
     }
-    
+
     /// SeeAlso: UIViewController
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -71,21 +73,21 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
         scrollToDiscoveredCarIfNeeded()
         didCheckCarScroll = true
     }
-    
+
     @objc private func recognizeButtonTapAction() {
         eventTriggered?(discoveredCar == nil ? .didTapBackButton : .didTapDismiss)
     }
-    
+
     @objc private func backButtonTapAction() {
         eventTriggered?(.didTapBackButton)
     }
-    
+
     private func scrollToDiscoveredCarIfNeeded() {
         guard let discoveredCar = discoveredCar, let index = cars.index(of: discoveredCar) else { return }
         let indexPath = IndexPath(item: index, section: 0)
         customView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
     }
-    
+
     private func animateVisibleCells() {
         let cells = customView.collectionView.visibleCells.compactMap { $0 as? CarListCollectionViewCell }
         cells.forEach {
@@ -100,28 +102,31 @@ internal final class CarsListViewController: TypedViewController<CarsListView>, 
     private func invalidateDiscoveredProgressView() {
         let discoveredCars = carsDataService.getNumberOfDiscoveredCars()
         let availableCars = carsDataService.getNumberOfCars()
-        customView.topView.progressView.setup(currentNumber: discoveredCars, maximumNumber: availableCars, invalidateChartInstantly: false)
+        customView.topView.progressView.setup(currentNumber: discoveredCars,
+                                              maximumNumber: availableCars,
+                                              invalidateChartInstantly: false)
     }
 
     /// SeeAlso: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return carsDataService.getNumberOfCars()
     }
-    
+
     /// SeeAlso: UICollectionViewDataSource
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell: CarListCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath) else {
             return UICollectionViewCell()
         }
         cell.setup(with: cars[indexPath.row])
         return cell
     }
-    
+
     /// SeeAlso: UICollectionViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         animateVisibleCells()
     }
-    
+
     /// SeeAlso: UICollectionViewDelegate
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         animateVisibleCells()

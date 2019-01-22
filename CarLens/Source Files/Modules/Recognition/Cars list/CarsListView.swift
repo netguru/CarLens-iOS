@@ -16,7 +16,7 @@ internal final class CarsListView: View, ViewSetupable {
         view.accessibilityIdentifier = "carsList/collectionView/cars"
         return view.layoutable()
     }()
-    
+
     /// Recognize button visible at the bottom
     lazy var recognizeButton: UIButton = {
         let view = UIButton(type: .system)
@@ -30,9 +30,9 @@ internal final class CarsListView: View, ViewSetupable {
 
     /// Custom navigation bar added at the top
     lazy var topView = CarListNavigationBar(currentNumber: 0, maximumNumber: availableCars).layoutable()
-    
+
     private let discoveredCar: Car?
-    
+
     private let availableCars: Int
 
     /// Initializes the view with given car
@@ -50,7 +50,7 @@ internal final class CarsListView: View, ViewSetupable {
     func setupViewHierarchy() {
         [topView, collectionView, recognizeButton].forEach(addSubview)
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         topView.constraintToSuperviewLayoutGuide(excludingAnchors: [.bottom])
@@ -58,13 +58,14 @@ internal final class CarsListView: View, ViewSetupable {
         recognizeButton.constraintToConstant(.init(width: 80, height: 80))
         NSLayoutConstraint.activate([
             topView.heightAnchor.constraint(equalToConstant: 70),
-            collectionView.topAnchor.constraint(equalTo: topView.bottomAnchor, constant: UIDevice.screenSizeBiggerThan4Inches ? 20 : 0),
+            collectionView.topAnchor.constraint(equalTo: topView.bottomAnchor,
+                                                constant: UIDevice.screenSizeBiggerThan4Inches ? 20 : 0),
             collectionView.bottomAnchor.constraint(equalTo: recognizeButton.topAnchor, constant: -20),
             recognizeButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8),
             recognizeButton.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
         backgroundColor = .crBackgroundGray

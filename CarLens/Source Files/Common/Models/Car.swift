@@ -21,9 +21,12 @@ internal struct Car: Decodable, Equatable {
     private let imageLocked: UIImage
     var isDiscovered: Bool = false
     var image: CarImage {
-        return CarImage(unlocked: imageUnlocked, locked: imageLocked, logoUnlocked: brandLogoImageUnlocked, logoLocked: brandLogoImageLocked)
+        return CarImage(unlocked: imageUnlocked,
+                        locked: imageLocked,
+                        logoUnlocked: brandLogoImageUnlocked,
+                        logoLocked: brandLogoImageLocked)
     }
-    
+
     /// SeeAlso: Decodable
     enum CodingKeys: String, CodingKey {
         case id
@@ -42,7 +45,7 @@ internal struct Car: Decodable, Equatable {
         case imageUnlocked = "image"
         case imageLocked = "image_locked"
     }
-    
+
     /// SeeAlso: Decodable
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -61,7 +64,7 @@ internal struct Car: Decodable, Equatable {
         }
         power = try values.decode(Int.self, forKey: .power)
         engine = try values.decode(Int.self, forKey: .engine)
-        
+
         let brandLogoImageName = try values.decode(String.self, forKey: .brandLogoImageUnlocked)
         brandLogoImageUnlocked = UIImage(named: brandLogoImageName)!
         let brandLogoImageLockedName = try values.decode(String.self, forKey: .brandLogoImageLocked)
@@ -71,7 +74,7 @@ internal struct Car: Decodable, Equatable {
         let imageLockedName = try values.decode(String.self, forKey: .imageLocked)
         imageLocked = UIImage(named: imageLockedName)!
     }
-    
+
     /// SeeAlso: Equatable
     static func == (lhs: Car, rhs: Car) -> Bool {
         return lhs.id == rhs.id

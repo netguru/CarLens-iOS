@@ -7,7 +7,7 @@
 import UIKit
 
 final class OvalProgressLayerView: View {
-    
+
     private struct Constants {
         static let animationKey = "strokeEnd"
         static let fullOvalStartAngle: CGFloat = 3/2 * .pi
@@ -18,15 +18,15 @@ final class OvalProgressLayerView: View {
     private let endAngle: CGFloat
 
     private let progressStrokeColor: UIColor
-    
+
     private let trackStrokeColor: UIColor
-    
+
     private let lineWidth: CGFloat
-    
+
     private let animationDuration: Double
 
     private let progressLayer = CAShapeLayer()
-    
+
     /// Initializes the view with given angles and stroke color
     ///
     /// - Parameters:
@@ -36,7 +36,8 @@ final class OvalProgressLayerView: View {
     ///   - lineWidth: Width of line
     ///   - progressStrokeColor: Color of progress stroke
     ///   - trackStrokeColor: Color of track stroke
-    init(startAngle: CGFloat, endAngle: CGFloat, animationDuration: Double = 0.5, lineWidth: CGFloat = 6, progressStrokeColor: UIColor, trackStrokeColor: UIColor = .crProgressDarkGray) {
+    init(startAngle: CGFloat, endAngle: CGFloat, animationDuration: Double = 0.5, lineWidth: CGFloat = 6,
+         progressStrokeColor: UIColor, trackStrokeColor: UIColor = .crProgressDarkGray) {
         self.startAngle = startAngle
         self.endAngle = endAngle
         self.animationDuration = animationDuration
@@ -45,7 +46,7 @@ final class OvalProgressLayerView: View {
         self.trackStrokeColor = trackStrokeColor
         super.init()
     }
-    
+
     /// - SeeAlso: UIView.layoutSubviews()
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -72,7 +73,7 @@ extension OvalProgressLayerView {
         initialAnimation.duration = animationDuration
         initialAnimation.fillMode = CAMediaTimingFillMode.forwards
         initialAnimation.isRemovedOnCompletion = false
-        
+
         progressLayer.add(initialAnimation, forKey: "PartOvalProgressView.ProgressLayer.animation")
     }
 

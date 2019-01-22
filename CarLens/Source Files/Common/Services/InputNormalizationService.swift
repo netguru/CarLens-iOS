@@ -5,15 +5,15 @@
 
 
 internal final class InputNormalizationService {
-    
+
     /// Number of recognition results needed for normalization to begin.
     private let numberOfValuesNeeded: Int
-    
+
     /// Storage of recognition results to be normalized.
     private var recognitionResults: [RecognitionResult] = []
-    
+
     private let carsDataService: CarsDataService
-    
+
     /// Initializes the normalizer
     ///
     /// - Parameters:
@@ -26,7 +26,7 @@ internal final class InputNormalizationService {
         self.numberOfValuesNeeded = numberOfValues
         self.carsDataService = carsDataService
     }
-    
+
     /// Normalizes given value.
     ///
     /// - Parameter recognitionData: Recognition Results to be normalized.
@@ -37,22 +37,23 @@ internal final class InputNormalizationService {
         let resultsNeeded = sortedResults.prefix(numberOfResultsNeeded)
         recognitionResults.append(contentsOf: resultsNeeded)
         guard recognitionResults.count == numberOfValuesNeeded else { return nil }
-        let averageConfidencesForEachLabel: [String: Float] = dictionaryWithValuesSum(from: recognitionResults).mapValues { countAverage($0) }
+        let averageConfidencesForEachLabel: [String: Float] = dictionaryWithValuesSum(from: recognitionResults)
+            .mapValues { countAverage($0) }
         guard let bestResult = averageConfidencesForEachLabel.max(by: { $0.value < $1.value }) else { return nil }
         return RecognitionResult(label: bestResult.0, confidence: bestResult.1, carsDataService: carsDataService)
     }
-    
+
     /// Resets the normalizer.
     func reset() {
         recognitionResults = []
     }
-    
+
     private func dictionaryWithValuesSum(from recognitionResults: [RecognitionResult]) -> [String: [Float]] {
         return recognitionResults.reduce(into: [:]) { (counts, result) in
             counts[result.label, default: []].append(result.confidence)
         }
     }
-    
+
     private func countAverage(_ array: [Float]) -> Float {
         return array.reduce(0, {$0 + $1}) / Float(array.count)
     }

@@ -10,7 +10,8 @@ internal final class CameraAccessViewController: TypedViewController<CameraAcces
 
     /// Enum describing events that can be triggered by this controller
     ///
-    /// - didTriggerShowCarsList: Send when user should see the list of available cars passing car if any is displayed be the bottom sheet.
+    /// - didTriggerShowCarsList: Send when user should see the list of available cars passing car
+    ///                           if any is displayed be the bottom sheet.
     /// - didTriggerRequestAccess: Send when user should open Settings with camera access.
     enum Event {
         case didTriggerShowCarsList
@@ -23,7 +24,7 @@ internal final class CameraAccessViewController: TypedViewController<CameraAcces
     }
 
     /// Callback with triggered event
-    var eventTriggered: ((Event) -> ())?
+    var eventTriggered: ((Event) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()

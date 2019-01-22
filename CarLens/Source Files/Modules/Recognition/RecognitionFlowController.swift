@@ -7,11 +7,11 @@
 import UIKit
 
 internal final class RecognitionFlowController: FlowController {
-    
+
     private let dependencies: ApplicationDependencies
-    
+
     private let applicationFactory: ApplicationFactory
-    
+
     /// Initializes flow controllers with given dependencies
     ///
     /// - Parameters:
@@ -22,10 +22,10 @@ internal final class RecognitionFlowController: FlowController {
         self.applicationFactory = applicationFactory
         rootViewController = makeRecognitionViewController()
     }
-    
+
     /// Root view controler of the flow
     private(set) var rootViewController = UIViewController()
-    
+
     private func makeRecognitionViewController() -> RecognitionViewController {
         let viewController = applicationFactory.recognitionViewController()
         viewController.eventTriggered = { [unowned self] event in
@@ -40,13 +40,14 @@ internal final class RecognitionFlowController: FlowController {
         }
         return viewController
     }
-    
+
     private func makeCarsListViewController(with scannedCar: Car?) -> CarsListViewController {
         let viewController = applicationFactory.carsListViewController(with: scannedCar)
         viewController.eventTriggered = { [unowned viewController, self] event in
             switch event {
             case .didTapDismiss:
-                guard let recognitionViewController = self.rootViewController as? RecognitionViewController else { return }
+                guard let recognitionViewController = self.rootViewController as? RecognitionViewController
+                    else { return }
                 recognitionViewController.removeSlidingCard()
                 viewController.dismiss(animated: true)
             case .didTapBackButton:
@@ -55,7 +56,7 @@ internal final class RecognitionFlowController: FlowController {
         }
         return viewController
     }
-    
+
     private func makeCameraAccessViewController() -> CameraAccessViewController {
         let viewController = applicationFactory.cameraAccessViewController()
         viewController.eventTriggered = { [unowned self] event in
@@ -68,7 +69,7 @@ internal final class RecognitionFlowController: FlowController {
         }
         return viewController
     }
-    
+
     private func openCameraSettings() {
         guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.open(url)

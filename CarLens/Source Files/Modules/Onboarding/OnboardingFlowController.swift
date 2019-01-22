@@ -7,17 +7,17 @@
 import UIKit
 
 internal final class OnboardingFlowController: FlowController {
-    
+
     /// Root view controler of the flow
     private(set) var rootViewController = UIViewController()
-    
+
     /// Next Flow Controller to which user should be transitioned from this view
     private(set) var nextFlowController: FlowController?
-    
+
     private let dependencies: ApplicationDependencies
-    
+
     private let applicationFactory: ApplicationFactory
-    
+
     /// Initializes flow controllers with given dependencies
     ///
     /// - Parameters:
@@ -28,7 +28,7 @@ internal final class OnboardingFlowController: FlowController {
         self.applicationFactory = applicationFactory
         rootViewController = makeOnboardingViewController()
     }
-    
+
     private func makeOnboardingViewController() -> UIViewController {
         let viewController = applicationFactory.onboardingViewController()
         viewController.eventTriggered = { [unowned self] event in
@@ -41,7 +41,7 @@ internal final class OnboardingFlowController: FlowController {
         }
         return viewController
     }
-    
+
     private func makeRecognitionFlowController() -> FlowController {
         return RecognitionFlowController(dependencies: dependencies, applicationFactory: applicationFactory)
     }

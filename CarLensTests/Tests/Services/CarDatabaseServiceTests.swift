@@ -18,7 +18,7 @@ final class CarsDatabaseServiceTests: XCTestCase {
         sut = CarsDatabaseService()
         car = Car.make()
     }
-    
+
     override func tearDown() {
         super.tearDown()
         car = nil
