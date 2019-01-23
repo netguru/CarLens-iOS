@@ -1,7 +1,7 @@
 # CarLens
-![blog post image 1440x500 1](https://user-images.githubusercontent.com/18245585/51602699-ea70bd80-1f07-11e9-9bf9-8e333ffb63da.png)
+![](https://user-images.githubusercontent.com/18245585/51602699-ea70bd80-1f07-11e9-9bf9-8e333ffb63da.png)
 
-[<img src="https://user-images.githubusercontent.com/18245585/51603579-771c7b00-1f0a-11e9-866d-5ce9fb0d1aca.png" width="150">](https://itunes.apple.com/us/app/carlens/id1417168518?mt=8)
+[![](https://user-images.githubusercontent.com/18245585/51617944-92e54880-1f2d-11e9-8f0b-92c6044d64d7.png)](https://itunes.apple.com/us/app/carlens/id1417168518?mt=8)
 
 **CarLens** is a mobile app that uses **Augmented Reality** and **Machine Learning** to detect different car models. It connects to your smartphone camera and enables you to verify cars around as you walk on the streets. 
 
@@ -13,8 +13,8 @@ We currently support the newest versions of 4 cars in CarLens:
 
 Discover **car recognition** together with CarLens!
 
-<img src="https://user-images.githubusercontent.com/18245585/51602207-af21bf00-1f06-11e9-8306-2dbc7310928d.gif" width="800">
-<img src="https://user-images.githubusercontent.com/18245585/51602423-2e16f780-1f07-11e9-8491-af4144111b44.png" width="800">
+![](https://user-images.githubusercontent.com/18245585/51602207-af21bf00-1f06-11e9-8306-2dbc7310928d.gif)
+![](https://user-images.githubusercontent.com/18245585/51618047-cb852200-1f2d-11e9-89f1-36ab44763192.png)
 
 ## Tools & Frameworks
 
@@ -76,7 +76,7 @@ Discover **car recognition** together with CarLens!
 As a part of CarLens we've launched another open source tool - **CarLensCollectionViewLayout**. Its an easy-to-use Collection View Layout for card-like animation 🎉. [Make sure to check it out too!](https://github.com/netguru/CarLensCollectionViewLayout) 
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/18245585/50694808-2b795e80-103b-11e9-839d-f2d8dc533bb4.gif" width="250">
+	<img src="https://user-images.githubusercontent.com/18245585/51618234-33d40380-1f2e-11e9-9c32-d9e713b9fb48.gif">
 </p>
 
 ## About
