@@ -61,7 +61,7 @@ Discover **car recognition** together with CarLens!
 	carthage bootstrap --platform iOS --cache-builds
 	```
 
-4. Rename `.env.sample` to `.env`. If you're Netguru employee update it with values from project's 1password vault.
+4. Rename `.env.sample` to `.env`.
 
 5. Install pods through Bundler:
 
