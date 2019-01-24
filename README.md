@@ -76,7 +76,7 @@ Discover **car recognition** together with CarLens!
 As a part of CarLens we've launched another open source tool - **CarLensCollectionViewLayout**. Its an easy-to-use Collection View Layout for card-like animation 🎉. [Make sure to check it out too!](https://github.com/netguru/CarLensCollectionViewLayout) 
 
 <p align="center">
-	<img src="https://user-images.githubusercontent.com/18245585/51618234-33d40380-1f2e-11e9-9c32-d9e713b9fb48.gif">
+	<img src="https://user-images.githubusercontent.com/18245585/51667915-4d725b00-1fc1-11e9-86fc-29863bf22448.gif">
 </p>
 
 ## About
