@@ -1,5 +1,5 @@
 # CarLens
-![](https://user-images.githubusercontent.com/18245585/51602699-ea70bd80-1f07-11e9-9bf9-8e333ffb63da.png)
+![](https://user-images.githubusercontent.com/18245585/51826144-a48c6e80-22e6-11e9-8210-1384382e5541.png)
 
 [![](https://user-images.githubusercontent.com/18245585/51617944-92e54880-1f2d-11e9-8f0b-92c6044d64d7.png)](https://itunes.apple.com/us/app/carlens/id1417168518?mt=8)
 
