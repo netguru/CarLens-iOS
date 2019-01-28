@@ -3,10 +3,9 @@
 //  CarLens
 //
 
+enum Localizable {
 
-internal struct Localizable {
-    
-    struct Common {
+    enum Common {
         static let loremIpsum = localized("lorem.ipsum")
         static let ok = localized("ok")
         static let cancel = localized("cancel")
@@ -18,27 +17,27 @@ internal struct Localizable {
         static let yes = localized("yes")
         static let no = localized("no")
     }
-    
-    struct Onboarding {
-        struct Title {
+
+    enum Onboarding {
+        enum Title {
             static let first = localized("onboarding.first.title")
             static let second = localized("onboarding.second.title")
             static let third = localized("onboarding.third.title")
         }
-        struct Description {
+        enum Description {
             static let first = localized("onboarding.first.description")
             static let second = localized("onboarding.second.description")
             static let third = localized("onboarding.third.description")
         }
     }
-    
-    struct Recognition {
+
+    enum Recognition {
         static let pointCameraAtCar = localized("recognition.point.camera.at.car")
         static let otherCar = localized("recognition.other.car")
         static let recognizing = localized("recognition.recognizing")
     }
-    
-    struct CarCard {
+
+    enum CarCard {
         static let accelerate0to60mph = localized("car.card.accelerate.0.to.60.mph")
         static let accelerate0to100kph = localized("car.card.accelerate.0.to.100.kph")
         static let topSpeed = localized("car.card.top.speed")
@@ -50,17 +49,17 @@ internal struct Localizable {
         static let cc = localized("car.card.engine.capacity")
         static let attachPinError = localized("car.card.attach.pin.error")
     }
-    
-    struct CarsList {
+
+    enum CarsList {
         static let title = localized("cars.list.title")
     }
-    
-    struct CameraAccess {
+
+    enum CameraAccess {
         static let information = localized("camera-access.information")
         static let accessButton = localized("camera-access.button.text")
     }
-    
-    struct Error {
+
+    enum Error {
         static let title = localized("error.title")
         static let unknownErrorOccurred = localized("error.unknown.error.occurred")
     }

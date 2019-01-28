@@ -6,8 +6,8 @@
 
 import UIKit.UIViewController
 
-internal extension UIViewController {
-    
+extension UIViewController {
+
     /// Adds view controller as a child (calls all required methods automatically)
     ///
     /// - Parameters:
@@ -20,7 +20,7 @@ internal extension UIViewController {
         child.view.translatesAutoresizingMaskIntoConstraints = false
         child.view.constraintToSuperviewEdges()
     }
-    
+
     /// Removes view controller from parent if added as child (calls all required methods automatically)
     func remove() {
         guard parent != nil else {

@@ -6,14 +6,14 @@
 
 import UIKit
 
-internal final class OnboardingView: View, ViewSetupable  {
-    
+final class OnboardingView: View, ViewSetupable {
+
     /// Animation View which is responsible for showing the onboarding animation.
     lazy var animationView = UIView().layoutable()
-    
+
     /// Page View with onboarding screens.
     lazy var pageView = UIView().layoutable()
-    
+
     /// Button indicating a possibility of moving to the next page.
     lazy var nextButton: UIButton = {
         let view = UIButton(type: .system)
@@ -22,15 +22,15 @@ internal final class OnboardingView: View, ViewSetupable  {
         view.imageView?.contentMode = .scaleAspectFit
         return view.layoutable()
     }()
-    
+
     /// Page Indicator animation view.
     let indicatorAnimationView = OnboardingIndicatorAnimationView().layoutable()
-    
+
     // MARK: - Setup
     func setupViewHierarchy() {
         [animationView, pageView, indicatorAnimationView, nextButton].forEach { addSubview($0) }
     }
-    
+
     func setupConstraints() {
         pageView.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom])
         let animationViewHeightMultiplier: CGFloat = UIDevice.screenSizeBiggerThan4Inches ? 0.5 : 0.4
@@ -50,7 +50,7 @@ internal final class OnboardingView: View, ViewSetupable  {
             nextButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -18)
         ])
     }
-    
+
     func setupProperties() {
         backgroundColor = UIColor.crBackgroundGray
     }

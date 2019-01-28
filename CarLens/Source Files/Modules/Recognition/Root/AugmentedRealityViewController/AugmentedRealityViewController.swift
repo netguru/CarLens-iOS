@@ -8,8 +8,9 @@ import UIKit
 import SpriteKit
 import ARKit
 
-internal final class AugmentedRealityViewController: TypedViewController<AugmentedRealityView>, ARSessionDelegate, ARSKViewDelegate {
-    
+final class AugmentedRealityViewController: TypedViewController<AugmentedRealityView>,
+                                            ARSessionDelegate, ARSKViewDelegate {
+
     /// Possiblle errors that can occur during applying AR labels
     enum CarARLabelError: String, Error {
         case pinAlreadyAdded
@@ -18,20 +19,20 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         case hitTestTooFar
         case noRecentFrameFound
     }
-    
+
     /// Callback called when new augemented reality frame was captured
-    var didCapturedARFrame: ((ARFrame) -> ())?
-    
+    var didCapturedARFrame: ((ARFrame) -> Void)?
+
     /// Callback called when user tapped AR pin with given car id
-    var didTapCar: ((String) -> ())?
-    
+    var didTapCar: ((String) -> Void)?
+
     /// Callback called when user tapped the view excluding the AR pin
-    var didTapBackgroundView: (() -> ())?
-    
+    var didTapBackgroundView: (() -> Void)?
+
     private let config = CarARConfiguration()
-    
+
     private var addedAnchors: [ARAnchor: Car] = [:]
-    
+
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,46 +40,46 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         customView.sceneView.didTapCar = { [unowned self] id in
             self.didTapCar?(id)
         }
-        
+
         customView.sceneView.didTapBackgroundView = { [unowned self] in
             self.didTapBackgroundView?()
         }
     }
-    
+
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupSession()
     }
-    
+
     /// SeeAlso: UIViewController
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         customView.previewView.session.pause()
     }
-    
+
     /// SeeAlso: UIViewController
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         customView.sceneView.size = customView.previewView.bounds.size
     }
-    
+
     /// Updates the detection viewfinder with given state
     ///
     /// - Parameter result: Result to be set
     func updateDetectionViewfinder(to result: RecognitionResult) {
         customView.detectionViewfinderView.update(to: result)
     }
-    
+
     /// Tries to add augmented reality pin to the car in 3D world
     ///
     /// - Parameters:
     ///   - car: Car to be pinned
     ///   - completion: Completion handler called when pin was successfully addded
     ///   - error: Error handler called when error occurred during pin adding
-    func addPin(to car: Car, completion: ((Car) -> ())?, error: ((CarARLabelError) -> ())? = nil) {
+    func addPin(to car: Car, completion: ((Car) -> Void)?, error: ((CarARLabelError) -> Void)? = nil) {
         let hitTests = customView.previewView.hitTest(config.pointForHitTest, types: [.featurePoint])
-        guard hitTests.count > 0 else {
+        guard !hitTests.isEmpty else {
             error?(.hitTestFailed)
             return
         }
@@ -103,7 +104,7 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
             error?(.pinAlreadyAdded)
         }
     }
-    
+
     /// Checks if new node at given anchor could be added.
     /// It shouldn't allow adding two anchors too close to each other.
     ///
@@ -117,11 +118,11 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         }
         return true
     }
-    
+
     private func setupSession() {
         customView.previewView.delegate = self
         customView.previewView.session.delegate = self
-        
+
         let configuration = ARWorldTrackingConfiguration()
         if #available(iOS 11.3, *) {
             configuration.planeDetection = [.vertical]
@@ -129,22 +130,28 @@ internal final class AugmentedRealityViewController: TypedViewController<Augment
         }
         customView.previewView.session.run(configuration)
     }
-    
+
     private func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(cameraIsReadyToRecord), name: NSNotification.Name.AVCaptureSessionDidStartRunning, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationWillEnterBackground),
+                                               name: UIApplication.didEnterBackgroundNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(cameraIsReadyToRecord),
+                                               name: NSNotification.Name.AVCaptureSessionDidStartRunning,
+                                               object: nil)
     }
-    
+
     @objc private func cameraIsReadyToRecord() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [unowned self] in
             self.customView.blurEffectView.isHidden = true
         }
     }
-    
+
     @objc private func applicationWillEnterBackground() {
         customView.blurEffectView.isHidden = false
     }
-    
+
     /// SeeAlso: ARSessionDelegate
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
         didCapturedARFrame?(frame)

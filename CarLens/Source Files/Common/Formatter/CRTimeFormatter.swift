@@ -4,8 +4,8 @@
 //
 
 
-internal struct CRTimeFormatter {
-    
+enum CRTimeFormatter {
+
     /// Returns miliseconds formatted interval string from given time interval.
     ///
     /// - Parameter value: Value to be formatted

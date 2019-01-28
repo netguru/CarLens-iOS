@@ -7,25 +7,25 @@ import CoreML
 import Vision
 import UIKit.UIImage
 
-internal final class CarClassificationService {
-    
+final class CarClassificationService {
+
     private let carsDataService: CarsDataService
-    
+
     /// Available states of the service
     enum State {
         case running
         case paused
     }
-    
+
     /// Types of classifications performed by the service.
     enum ClassificationType {
-        
+
         /// Detecting whether object is a car or not.
         case detection
-        
+
         /// Recognizing the concrete model of the car.
         case recognition
-        
+
         /// ML Model for a concrete classification type.
         var model: MLModel {
             switch self {
@@ -34,38 +34,38 @@ internal final class CarClassificationService {
             }
         }
     }
-    
+
     /// Completion handler for recognized cars
-    var completionHandler: (([RecognitionResult]) -> ())?
-    
+    var completionHandler: (([RecognitionResult]) -> Void)?
+
     /// Indicates if recognizer is ready to analyze next frame
     var isReadyForNextFrame: Bool {
         return currentBuffer == nil
     }
-    
+
     /// Initializes the object with given parameters
     ///
     /// - Parameter carsDataService: DataService with avialable cars
     init(carsDataService: CarsDataService) {
         self.carsDataService = carsDataService
     }
-    
+
     /// Current state of the service
     private(set) var state: State = .running
-    
+
     /// Current type of task to be performed.
     private var type: ClassificationType = .detection
-    
+
     private var currentBuffer: CVPixelBuffer?
-    
+
     private lazy var detectionRequest: VNCoreMLRequest = { [unowned self] in
         return self.request(for: .detection)
     }()
-    
+
     private lazy var recognitionRequest: VNCoreMLRequest = { [unowned self] in
         return self.request(for: .recognition)
     }()
-    
+
     /// Perform ML analyze on given buffer. Will do the analyze only when finished last one.
     ///
     /// - Parameter pixelBuffer: Pixel buffer to be analyzed
@@ -73,14 +73,14 @@ internal final class CarClassificationService {
         guard type == .detection else { return }
         performClassification(on: pixelBuffer)
     }
-    
+
     /// Updates the state of service
     ///
     /// - Parameter state: State to be set
     func set(state: State) {
         self.state = state
     }
-    
+
     private func performClassification(on pixelBuffer: CVPixelBuffer) {
         guard state == .running else { return }
         if type == .detection && !isReadyForNextFrame { return }
@@ -98,7 +98,7 @@ internal final class CarClassificationService {
             try? handler.perform([request])
         }
     }
-    
+
     private func handleResults(request: VNRequest, error: Error?, for type: ClassificationType) {
         guard let results = request.results,
             let classifications = results as? [VNClassificationObservation] else { return }
@@ -108,17 +108,23 @@ internal final class CarClassificationService {
         case .recognition:
             let recognitionResult = classifications
                 .filter { $0.confidence > Constants.Recognition.Threshold.minimum }
-                .compactMap { RecognitionResult(label: $0.identifier, confidence: $0.confidence, carsDataService: carsDataService) }
+                .compactMap { RecognitionResult(label: $0.identifier,
+                                                confidence: $0.confidence,
+                                                carsDataService: carsDataService)
+                }
             currentBuffer = nil
             self.type = .detection
             completionHandler?(recognitionResult)
         }
     }
-    
+
     private func handleDetection(with classifications: [VNClassificationObservation]) {
-        guard let bestClassification = classifications.max(by: { $0.confidence < $1.confidence }), let buffer = currentBuffer else { return }
+        guard let bestClassification = classifications.max(by: { $0.confidence < $1.confidence }),
+            let buffer = currentBuffer else { return }
         if bestClassification.identifier == Constants.Labels.Detection.notCar {
-            guard let bestRecognition = RecognitionResult(label: bestClassification.identifier, confidence: bestClassification.confidence, carsDataService: carsDataService) else { return }
+            guard let bestRecognition = RecognitionResult(label: bestClassification.identifier,
+                                                          confidence: bestClassification.confidence,
+                                                          carsDataService: carsDataService) else { return }
             currentBuffer = nil
             completionHandler?([bestRecognition])
         } else if bestClassification.identifier == Constants.Labels.Detection.car {
@@ -126,7 +132,7 @@ internal final class CarClassificationService {
             performClassification(on: buffer)
         }
     }
-    
+
     private func request(for type: ClassificationType) -> VNCoreMLRequest {
         guard let model = try? VNCoreMLModel(for: type.model) else {
             fatalError("Core ML model initialization failed")

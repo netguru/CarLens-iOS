@@ -6,8 +6,8 @@
 
 import UIKit
 
-internal final class CarCardViewController: TypedViewController<CarCardView> {
-    
+final class CarCardViewController: TypedViewController<CarCardView> {
+
     /// Enum describing events that can be triggered by this controller
     ///
     /// - didTapCarsList: Called when user tapped the car list button passing the displayed car object
@@ -20,22 +20,22 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
         case didDismissViewByScanButtonTap
         case didDismissView
     }
-    
-    struct Constants {
+
+    enum Constants {
         static let cardHeight: CGFloat = 420
         static let entryPosition = UIScreen.main.bounds.maxY - Constants.cardHeight
         static let exitPosition = UIScreen.main.bounds.maxY
     }
-    
+
     /// Callback with triggered event
-    var eventTriggered: ((Event) -> ())?
-    
+    var eventTriggered: ((Event) -> Void)?
+
     private let entryAnimator = UIViewPropertyAnimator(duration: 0.6, curve: .easeOut)
 
     private let exitAnimator = UIViewPropertyAnimator(duration: 0.4, curve: .easeOut)
-    
+
     private let car: Car
-    
+
     /// Initializes the view controller with given parameters
     ///
     /// - Parameter car: Car to be displayed by the view controller
@@ -43,13 +43,13 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
         self.car = car
         super.init(viewMaker: CarCardView(car: car))
     }
-    
+
     /// SeeAlso: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProperties()
     }
-    
+
     /// Animates card view from bottom of screen to desired position
     func animateIn() {
         entryAnimator.addCompletion { [unowned self] _ in
@@ -61,7 +61,7 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
         }
         entryAnimator.startAnimation()
     }
-    
+
     /// Animates card view from center of the screen to the bottom
     func animateOut() {
         exitAnimator.addAnimations {
@@ -95,11 +95,14 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
         case .changed:
             let translation = recognizer.translation(in: view)
             exitAnimator.fractionComplete = translation.y / Constants.entryPosition
-            
+
             if recognizer.direction == .bottomToTop, exitAnimator.fractionComplete == 0 {
                 exitAnimator.stopAnimation(true)
                 UIView.animate(withDuration: 0.5) {
-                    self.view.frame = CGRect(x: 0, y: Constants.entryPosition, width: self.view.frame.width, height: self.view.frame.height)
+                    self.view.frame = CGRect(x: 0,
+                                             y: Constants.entryPosition,
+                                             width: self.view.frame.width,
+                                             height: self.view.frame.height)
                 }
             }
         case .ended:
@@ -108,16 +111,16 @@ internal final class CarCardViewController: TypedViewController<CarCardView> {
         default: break
         }
     }
-    
+
     @objc private func carsListButtonTapAction() {
         customView.hideRippleEffect()
         eventTriggered?(.didTapCarsList(car))
     }
-    
+
     @objc private func googleButtonTapAction() {
         eventTriggered?(.didTapSearchGoogle(car))
     }
-    
+
     @objc private func primaryButtonTapAction() {
         animateOut()
         eventTriggered?(.didDismissViewByScanButtonTap)

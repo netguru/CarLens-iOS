@@ -7,7 +7,7 @@
 import UIKit
 
 extension UIImage {
-    
+
     var removingStatusBar: UIImage? {
         guard let cgImage = cgImage, let window = UIApplication.shared.keyWindow else { return nil }
         let isIPhoneX = window.frame.size == CGSize(width: 1125, height: 2436)

@@ -7,16 +7,16 @@
 import UIKit
 import Lottie
 
-internal final class HorizontalStarsView: View, ViewSetupable {
-    
+final class HorizontalStarsView: View, ViewSetupable {
+
     private var starCount: Int
-    
+
     private var isLocked: Bool
-    
+
     private let numberOfStars = 5
-    
+
     private lazy var animationView = LOTAnimationView(name: "horizontal-stars").layoutable()
-    
+
     /// Initializes the view with given parameters
     ///
     /// - Parameters:
@@ -30,7 +30,7 @@ internal final class HorizontalStarsView: View, ViewSetupable {
         super.init()
         setup(starCount: starCount, invalidateChartInstantly: invalidateChartInstantly)
     }
-    
+
     /// Setups the view with given parameters. Use only inside reusable views.
     ///
     /// - Parameters:
@@ -48,7 +48,7 @@ internal final class HorizontalStarsView: View, ViewSetupable {
             invalidateChart(animated: false)
         }
     }
-    
+
     /// Invalidates the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
@@ -59,19 +59,19 @@ internal final class HorizontalStarsView: View, ViewSetupable {
         }
         animationView.set(progress: CGFloat(progress), animated: animated)
     }
-    
+
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearChart(animated: Bool) {
         animationView.set(progress: 0, animated: animated)
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         addSubview(animationView)
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         animationView.constraintToSuperviewEdges()

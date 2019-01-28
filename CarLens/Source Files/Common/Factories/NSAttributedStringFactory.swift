@@ -6,15 +6,15 @@
 
 import UIKit.NSAttributedString
 
-internal final class NSAttributedStringFactory {
-    
+enum NSAttributedStringFactory {
+
     /// Available tracking types
     enum Tracking: CGFloat {
         case veryCondensed = -3
         case condensed = -0.5
         case normal = 0
     }
-    
+
     /// Creates attributed string with applied proper kerning calculated from given Adobe tracking value
     ///
     /// - Parameters:
@@ -28,7 +28,7 @@ internal final class NSAttributedStringFactory {
             string: text,
             attributes: [
                 .font: font,
-                .kern: tracking.rawValue,
+                .kern: tracking.rawValue
             ]
         )
     }

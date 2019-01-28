@@ -13,18 +13,18 @@ import ARKit
 /// - withCard: Recognition mode with card pn a view.
 /// - afterCardRemoval: Recognition mode after card was removed.
 /// - explore: Exploration mode of AR world. No active recognition.
-internal enum RecognitionViewMode {
+enum RecognitionViewMode {
     case basic
     case withCard
     case afterCardRemoval
     case explore
 }
 
-internal final class RecognitionView: View, ViewSetupable {
+final class RecognitionView: View, ViewSetupable {
 
     /// Container for augmented reality view controller content
     lazy var augmentedRealityContainer = UIView().layoutable()
-    
+
     /// Cars list button in the left bottom corner
     lazy var carsListButton: UIButton = {
         let view = UIButton(type: .system)
@@ -32,21 +32,21 @@ internal final class RecognitionView: View, ViewSetupable {
         view.accessibilityIdentifier = "recognition/button/cars"
         return view.layoutable()
     }()
-    
+
     /// Close list button in the right bottom corner
     lazy var closeButton: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "button-close"), for: .normal)
         return view.layoutable()
     }()
-    
+
     /// Cars recognisition button in the center of the bottom part of the view
     lazy var scanButton: UIButton = {
         let view = UIButton(type: .system)
         view.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
         return view.layoutable()
     }()
-    
+
     /// Label with analyzed car model
     lazy var detectedModelLabel: UILabel = {
         let view = UILabel()
@@ -56,7 +56,7 @@ internal final class RecognitionView: View, ViewSetupable {
         view.textAlignment = .center
         return view
     }()
-    
+
     /// Label with time interval of last analyze
     lazy var analyzeTimeLabel: UILabel = {
         let view = UILabel()
@@ -66,7 +66,7 @@ internal final class RecognitionView: View, ViewSetupable {
         view.textAlignment = .center
         return view
     }()
-    
+
     private lazy var modelStackView = UIStackView.make(
         axis: .vertical,
         with: [
@@ -75,7 +75,7 @@ internal final class RecognitionView: View, ViewSetupable {
         ],
         spacing: 5
     ).layoutable()
-    
+
     var mode: RecognitionViewMode = .basic {
         didSet {
             switch mode {
@@ -102,17 +102,18 @@ internal final class RecognitionView: View, ViewSetupable {
             }
         }
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [augmentedRealityContainer, modelStackView, carsListButton, closeButton, scanButton].forEach(addSubview)
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         augmentedRealityContainer.constraintToSuperviewEdges()
         carsListButton.constraintToConstant(.init(width: 45, height: 45))
-        modelStackView.constraintToSuperviewEdges(excludingAnchors: [.top], withInsets: .init(top: 0, left: 8, bottom: 8, right: 8))
+        modelStackView.constraintToSuperviewEdges(excludingAnchors: [.top],
+                                                  withInsets: .init(top: 0, left: 8, bottom: 8, right: 8))
         NSLayoutConstraint.activate([
             carsListButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             carsListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
@@ -122,7 +123,7 @@ internal final class RecognitionView: View, ViewSetupable {
             scanButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0)
         ])
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupProperties() {
         mode = .basic

@@ -7,22 +7,22 @@
 import UIKit
 import Lottie
 
-internal final class HorizontalProgressChartView: View, ViewSetupable {
-    
+final class HorizontalProgressChartView: View, ViewSetupable {
+
     /// States available to display by this view
     enum State {
         case power(Int)
         case engine(Int)
     }
-    
+
     private var state: State
-    
+
     private var isLocked: Bool
-    
+
     private let chartConfig = CarSpecificationChartConfiguration()
-    
+
     private lazy var animationView = LOTAnimationView(name: "horizontal-progress-chart").layoutable()
-    
+
     private lazy var valueLabel: UILabel = {
         let view = UILabel()
         view.font = .gliscorGothicFont(ofSize: 20)
@@ -31,7 +31,7 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         view.textAlignment = .left
         return view.layoutable()
     }()
-    
+
     private lazy var titleLabel: UILabel = {
         let view = UILabel()
         view.font = .gliscorGothicFont(ofSize: 12)
@@ -40,7 +40,7 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         view.textAlignment = .left
         return view.layoutable()
     }()
-    
+
     /// Initializes the view with given state
     ///
     /// - Parameters:
@@ -54,7 +54,7 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         super.init()
         setup(state: state, invalidateChartInstantly: invalidateChartInstantly, isLocked: isLocked)
     }
-    
+
     /// Setups the view with given state. Use only inside reusable views.
     ///
     /// - Parameters:
@@ -69,12 +69,24 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
         switch state {
         case .power(let power):
             let valueText = String(power) + "\(Localizable.CarCard.hp)"
-            valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: .condensed)
-            titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(Localizable.CarCard.power.uppercased(), font: titleLabel.font, tracking: .condensed)
+            valueLabel.attributedText = NSAttributedStringFactory
+                .trackingApplied(valueText,
+                                 font: valueLabel.font,
+                                 tracking: .condensed)
+            titleLabel.attributedText = NSAttributedStringFactory
+                .trackingApplied(Localizable.CarCard.power.uppercased(),
+                                 font: titleLabel.font,
+                                 tracking: .condensed)
         case .engine(let engine):
             let valueText = "\(engine)\(Localizable.CarCard.cc)"
-            valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: .condensed)
-            titleLabel.attributedText = NSAttributedStringFactory.trackingApplied(Localizable.CarCard.engine.uppercased(), font: titleLabel.font, tracking: .condensed)
+            valueLabel.attributedText = NSAttributedStringFactory
+                .trackingApplied(valueText,
+                                 font: valueLabel.font,
+                                 tracking: .condensed)
+            titleLabel.attributedText = NSAttributedStringFactory
+                .trackingApplied(Localizable.CarCard.engine.uppercased(),
+                                 font: titleLabel.font,
+                                 tracking: .condensed)
         }
         if invalidateChartInstantly {
             invalidateChart(animated: false)
@@ -84,19 +96,19 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
             valueLabel.text = "?"
         }
     }
-    
+
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearChart(animated: Bool) {
         animationView.set(progress: 0, animated: animated)
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [animationView, valueLabel, titleLabel].forEach(addSubview)
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         titleLabel.constraintToSuperviewEdges(excludingAnchors: [.bottom])
@@ -110,7 +122,7 @@ internal final class HorizontalProgressChartView: View, ViewSetupable {
 }
 
 extension HorizontalProgressChartView: ViewProgressable {
-    
+
     /// - SeeAlso: ViewProgressable
     func invalidateChart(animated: Bool) {
         var progress: Double

@@ -9,9 +9,9 @@ import AVKit
 
 /// Enum indicating the state of the transition between pages.
 enum OnboardingTransitionAnimationState {
-    
+
     case onFirst, fromFirstToSecond, fromSecondToThird, fromThirdToSecond, fromSecondToFirst
-    
+
     var startingTime: CMTime {
         let value: Int64
         switch self {
@@ -26,7 +26,7 @@ enum OnboardingTransitionAnimationState {
         }
         return CMTimeMake(value: value, timescale: 60)
     }
-    
+
     var endingTime: CMTime {
         let value: Int64
         switch self {
@@ -41,7 +41,7 @@ enum OnboardingTransitionAnimationState {
         }
         return CMTimeMake(value: value, timescale: 60)
     }
-    
+
     /// Initializing the OnboardingTransitionAnimationState instance.
     ///
     /// - Parameters:
@@ -64,5 +64,5 @@ enum OnboardingTransitionAnimationState {
             return nil
         }
     }
-    
+
 }

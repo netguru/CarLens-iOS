@@ -6,8 +6,8 @@
 
 import ARKit
 
-internal extension ARAnchor {
-    
+extension ARAnchor {
+
     /// Initializes Augemnted Reality anchor from given parameters
     ///
     /// - Parameters:
@@ -21,7 +21,7 @@ internal extension ARAnchor {
         let transform = simd_mul(camera.transform, translation)
         self.init(transform: transform)
     }
-    
+
     /// Calculates distance between current anchor and given one
     ///
     /// - Parameter anchor: Anchor to calculate distance to

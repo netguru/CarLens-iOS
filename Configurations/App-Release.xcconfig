@@ -4,6 +4,7 @@
 //
 #include "../Carthage/Checkouts/xcconfigs/Targets/Application.xcconfig"
 #include "../Carthage/Checkouts/xcconfigs/Configurations/Release.xcconfig"
+#include "Pods/Target Support Files/Pods-CarLens/Pods-CarLens.release.xcconfig"
 #include "App-Common.xcconfig"
 
 _ENVIRONMENTS = ENV_PRODUCTION

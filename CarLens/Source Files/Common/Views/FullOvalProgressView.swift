@@ -7,10 +7,10 @@
 import UIKit
 import Lottie
 
-internal final class FullOvalProgressView: View, ViewSetupable {
-    
+final class FullOvalProgressView: View, ViewSetupable {
+
     /// Struct with dimensions
-    struct Dimensions {
+    enum Dimensions {
         static let startAngle: CGFloat = 3/2 * .pi
         static let endAngle: CGFloat = 7/2 * .pi
         static let lineWidth: CGFloat = 4
@@ -31,11 +31,11 @@ internal final class FullOvalProgressView: View, ViewSetupable {
         view.textAlignment = .center
         return view.layoutable()
     }()
-    
+
     private var currentNumber: Int
-    
+
     private var maximumNumber: Int
-    
+
     /// Initializes the view with given parameters
     ///
     /// - Parameters:
@@ -47,10 +47,12 @@ internal final class FullOvalProgressView: View, ViewSetupable {
         self.currentNumber = currentNumber
         self.maximumNumber = maximumNumber
         super.init()
-        setup(currentNumber: currentNumber, maximumNumber: maximumNumber, invalidateChartInstantly: invalidateChartInstantly)
+        setup(currentNumber: currentNumber,
+              maximumNumber: maximumNumber,
+              invalidateChartInstantly: invalidateChartInstantly)
         accessibilityIdentifier = "carsList/view/ovalProgress"
     }
-    
+
     /// Setups the view with given parameters. Use only inside reusable views.
     ///
     /// - Parameters:
@@ -62,30 +64,33 @@ internal final class FullOvalProgressView: View, ViewSetupable {
         fullOvalLayerView.set(progress: 0, animated: false)
         self.currentNumber = currentNumber
         self.maximumNumber = maximumNumber
-        
+
         let valueText = "\(currentNumber)/\(maximumNumber)"
-        valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText, font: valueLabel.font, tracking: .condensed)
+        valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText,
+                                                                              font: valueLabel.font,
+                                                                              tracking: .condensed)
         if invalidateChartInstantly {
             invalidateChart(animated: false)
         }
     }
-    
+
     /// Clear the progress shown on the chart
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearChart(animated: Bool) {
         fullOvalLayerView.set(progress: 0, animated: animated)
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         [fullOvalLayerView, valueLabel].forEach(addSubview)
     }
-    
+
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         fullOvalLayerView.constraintToSuperviewEdges()
-        valueLabel.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom], withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
+        valueLabel.constraintToSuperviewEdges(excludingAnchors: [.top, .bottom],
+                                              withInsets: .init(top: 0, left: 8, bottom: 0, right: 8))
         NSLayoutConstraint.activate([
             valueLabel.centerYAnchor.constraint(equalTo: fullOvalLayerView.centerYAnchor)
         ])
@@ -93,7 +98,7 @@ internal final class FullOvalProgressView: View, ViewSetupable {
 }
 
 extension FullOvalProgressView: ViewProgressable {
-    
+
     /// - SeeAlso: ViewProgressable
     func invalidateChart(animated: Bool) {
         let progress = Double(currentNumber) / Double(maximumNumber)

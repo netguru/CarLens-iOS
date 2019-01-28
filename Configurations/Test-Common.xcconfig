@@ -4,6 +4,9 @@
 //
 
 #include "../Carthage/Checkouts/xcconfigs/Targets/Tests.xcconfig"
+#include "Pods/Target Support Files/Pods-CarLensTests/Pods-CarLensTests.development.xcconfig"
+#include "Pods/Target Support Files/Pods-CarLensTests/Pods-CarLensTests.staging.xcconfig"
+#include "Pods/Target Support Files/Pods-CarLensTests/Pods-CarLensTests.release.xcconfig"
 #include "App-Common.xcconfig"
 
 __PRODUCT_BUNDLE_IDENTIFIER_SUFFIX = .test

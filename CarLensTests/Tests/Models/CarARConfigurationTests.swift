@@ -3,13 +3,12 @@
 //  CarLensTests
 //
 
-
 @testable import CarLens
 import XCTest
 
 final class CarARConfigurationTests: XCTestCase {
-    
-    private struct DesiredParameters {
+
+    private enum DesiredParameters {
         static let pointForHitTest = CGPoint(x: 0.5, y: 0.5)
         static let neededConfidenceToPinLabel = 0.96
         static let normalizationCount = 10
@@ -25,22 +24,35 @@ final class CarARConfigurationTests: XCTestCase {
         super.setUp()
         sut = CarARConfiguration()
     }
-    
+
     override func tearDown() {
         super.tearDown()
         sut = nil
     }
 
     func testConfigurationParameters() {
-        XCTAssertEqual(sut.pointForHitTest, DesiredParameters.pointForHitTest, "Point for hit test should be equal to \(DesiredParameters.pointForHitTest)")
+        XCTAssertEqual(sut.pointForHitTest,
+                       DesiredParameters.pointForHitTest,
+                       "Point for hit test should be equal to \(DesiredParameters.pointForHitTest)")
     }
 
     func testEnvironmentVariables() {
         #if ENV_TESTS
-            XCTAssertEqual(sut.nodeShift, DesiredParameters.nodeShift, "Node shift should be equal to \(DesiredParameters.nodeShift)")
-            XCTAssertEqual(sut.minimumDistanceFromDevice, DesiredParameters.minimumDistanceFromDevice, "Minimal distance from device should be equal to \(DesiredParameters.minimumDistanceFromDevice)")
-            XCTAssertEqual(sut.minimumDistanceBetweenNodes, DesiredParameters.minimumDistanceBetweenNodes, "Minimal distance between nodes should be equal to \(DesiredParameters.minimumDistanceBetweenNodes)")
-            XCTAssertEqual(sut.maximumDistanceFromDevice, DesiredParameters.maximumDistanceFromDevice, "Maximal distance from device should be equal to \(DesiredParameters.maximumDistanceFromDevice)")
+            XCTAssertEqual(sut.nodeShift,
+                           DesiredParameters.nodeShift,
+                           "Node shift should be equal to \(DesiredParameters.nodeShift)")
+            XCTAssertEqual(sut.minimumDistanceFromDevice,
+                           DesiredParameters.minimumDistanceFromDevice,
+                           "Minimal distance from device should be equal to" +
+                            "\(DesiredParameters.minimumDistanceFromDevice)")
+            XCTAssertEqual(sut.minimumDistanceBetweenNodes,
+                           DesiredParameters.minimumDistanceBetweenNodes,
+                           "Minimal distance between nodes should be equal to" +
+                           "\(DesiredParameters.minimumDistanceBetweenNodes)")
+            XCTAssertEqual(sut.maximumDistanceFromDevice,
+                           DesiredParameters.maximumDistanceFromDevice,
+                           "Maximal distance from device should be equal to" +
+                           "\(DesiredParameters.maximumDistanceFromDevice)")
         #endif
     }
 }

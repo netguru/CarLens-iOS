@@ -7,16 +7,16 @@
 import UIKit
 import Lottie
 
-internal final class CarCardView: View, ViewSetupable {
+final class CarCardView: View, ViewSetupable {
 
     /// Struct that holds informations about view's dimensions and constants
-    struct Constants {
+    enum Constants {
         static let topBeamHorizontalInset = UIScreen.main.bounds.width * 0.4
         static let stackViewHeight: CGFloat = 65
         static let regularButtonDimension = 45.0
         static let bigButtonDimension = 70.0
         static let gradientHeight: CGFloat = 140.0
-        static let mechanicalTopOffset: CGFloat = UIDevice.screenSizeBiggerThan4_7Inches ? 20 : 30
+        static let mechanicalTopOffset: CGFloat = UIDevice.screenSizeBiggerThan4Point7Inches ? 20 : 30
         static let rippleInitialFrame: NSNumber = 61
         static let rippleLastFrame: NSNumber = 122
     }
@@ -74,9 +74,11 @@ internal final class CarCardView: View, ViewSetupable {
         return imageView.layoutable()
     }()
 
-    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed), invalidateChartInstantly: false)
+    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed),
+                                                                 invalidateChartInstantly: false)
 
-    private lazy var accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration), invalidateChartInstantly: false)
+    private lazy var accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration),
+                                                                         invalidateChartInstantly: false)
 
     /// StackView with performance informations
     private lazy var performanceStackView = UIStackView.make(
@@ -86,21 +88,23 @@ internal final class CarCardView: View, ViewSetupable {
         distribution: .fillEqually
     )
 
-    private lazy var engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine), invalidateChartInstantly: false)
+    private lazy var engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine),
+                                                                                invalidateChartInstantly: false)
 
-    private lazy var powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power), invalidateChartInstantly: false)
+    private lazy var powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power),
+                                                                               invalidateChartInstantly: false)
 
     /// StackView with mechanical informations
     private lazy var mechanicalStackView = UIStackView.make(
         axis: .horizontal,
         with: [powerHorizontalProgressView,
-        engineHorizontalProgressView],
+               engineHorizontalProgressView],
         spacing: 30.0,
         distribution: .fillEqually
     )
 
     /// Google button in bottom right corner
-    internal var googleButton: UIButton = {
+    var googleButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-google"), for: .normal)
         button.imageView?.contentMode = .scaleToFill
@@ -111,7 +115,7 @@ internal final class CarCardView: View, ViewSetupable {
     }()
 
     /// Car list button visible in bottom left corner
-    internal var carListButton: UIButton = {
+    var carListButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-car-list-white"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
@@ -122,7 +126,7 @@ internal final class CarCardView: View, ViewSetupable {
     }()
 
     /// Recognize button visible at the bottom
-    internal var scanButton: UIButton = {
+    var scanButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "button-scan-primary"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFill
@@ -132,7 +136,7 @@ internal final class CarCardView: View, ViewSetupable {
         button.layer.shadowOffset = CGSize(width: 0, height: 12)
         return button.layoutable()
     }()
-    
+
     private lazy var rippleAnimationView: LOTAnimationView = {
         let view = LOTAnimationView(name: "button-ripple")
         view.animationSpeed = 0.8
@@ -149,7 +153,7 @@ internal final class CarCardView: View, ViewSetupable {
         self.car = car
         super.init()
     }
-    
+
     /// Hides ripple effect around car list button
     func hideRippleEffect() {
         rippleAnimationView.isHidden = true
@@ -157,12 +161,13 @@ internal final class CarCardView: View, ViewSetupable {
 
     /// Animates all the progress views
     func animateCharts() {
-        [topSpeedProgressView, accelerationOvalProgressView, engineHorizontalProgressView, powerHorizontalProgressView].forEach { view in
+        [topSpeedProgressView, accelerationOvalProgressView,
+         engineHorizontalProgressView, powerHorizontalProgressView].forEach { view in
             guard let view = view as? ViewProgressable else { return }
             view.invalidateChart(animated: true)
         }
     }
-    
+
     /// Animates attach pin error label
     func animateAttachPinError() {
         ToastDisplayer.show(in: containerView,
@@ -172,25 +177,34 @@ internal final class CarCardView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
         addSubview(containerView)
-        [gradientView, topBeamView, modelStackView, performanceStackView, mechanicalStackView, rippleAnimationView, scanButton, googleButton, carListButton].forEach(containerView.addSubview)
+        [gradientView, topBeamView, modelStackView, performanceStackView, mechanicalStackView,
+         rippleAnimationView, scanButton, googleButton, carListButton].forEach(containerView.addSubview)
     }
 
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         containerView.constraintToSuperviewEdges()
 
-        topBeamView.constraintToSuperviewEdges(excludingAnchors: [.bottom], withInsets: .init(top: 11, left: Constants.topBeamHorizontalInset, bottom: 0, right: Constants.topBeamHorizontalInset))
+        topBeamView.constraintToSuperviewEdges(excludingAnchors: [.bottom],
+                                               withInsets: .init(top: 11, left: Constants.topBeamHorizontalInset,
+                                                                 bottom: 0, right: Constants.topBeamHorizontalInset))
 
-        modelStackView.constraintToEdges(of: containerView, excludingAnchors: [.bottom], withInsets: .init(top: 37, left: 35, bottom: 0, right: 35))
+        modelStackView.constraintToEdges(of: containerView,
+                                         excludingAnchors: [.bottom],
+                                         withInsets: .init(top: 37, left: 35, bottom: 0, right: 35))
 
         [performanceStackView, mechanicalStackView].forEach { stackView in
-            stackView.constraintToEdges(of: containerView, excludingAnchors: [.top, .bottom], withInsets: .init(top: 0, left: 35, bottom: 0, right: 35))
+            stackView.constraintToEdges(of: containerView,
+                                        excludingAnchors: [.top, .bottom],
+                                        withInsets: .init(top: 0, left: 35, bottom: 0, right: 35))
         }
 
         [googleButton, carListButton].forEach { button in
-            button.constraintToConstant(.init(width: Constants.regularButtonDimension, height: Constants.regularButtonDimension))
+            button.constraintToConstant(.init(width: Constants.regularButtonDimension,
+                                              height: Constants.regularButtonDimension))
         }
-        scanButton.constraintToConstant(.init(width: Constants.bigButtonDimension, height: Constants.bigButtonDimension))
+        scanButton.constraintToConstant(.init(width: Constants.bigButtonDimension,
+                                              height: Constants.bigButtonDimension))
 
         gradientView.constraintToConstant(.init(width: UIScreen.main.bounds.width, height: 140))
         gradientView.constraintToEdges(of: containerView, excludingAnchors: [.top])
@@ -199,7 +213,8 @@ internal final class CarCardView: View, ViewSetupable {
         NSLayoutConstraint.activate([
             topBeamView.heightAnchor.constraint(equalToConstant: 3),
             performanceStackView.topAnchor.constraint(equalTo: modelStackView.bottomAnchor, constant: 20),
-            mechanicalStackView.topAnchor.constraint(equalTo: performanceStackView.bottomAnchor, constant: Constants.mechanicalTopOffset),
+            mechanicalStackView.topAnchor.constraint(equalTo: performanceStackView.bottomAnchor,
+                                                     constant: Constants.mechanicalTopOffset),
             scanButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -8),
             scanButton.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
             carListButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),

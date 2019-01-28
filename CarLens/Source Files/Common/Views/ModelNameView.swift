@@ -5,8 +5,8 @@
 
 import UIKit
 
-internal final class ModelNameView: View, ViewSetupable {
-    
+final class ModelNameView: View, ViewSetupable {
+
     /// Car object used to initlaize labels
     private let car: Car
 
@@ -34,7 +34,7 @@ internal final class ModelNameView: View, ViewSetupable {
         label.clipsToBounds = false
         return label.layoutable()
     }()
-    
+
     /// Initializes the model view with given car parameter
     ///
     /// - Parameter car: Car instance used to instantiate labels

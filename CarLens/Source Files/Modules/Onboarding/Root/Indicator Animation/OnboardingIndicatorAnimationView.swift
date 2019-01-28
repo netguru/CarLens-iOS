@@ -7,23 +7,23 @@
 import Foundation
 import UIKit
 
-internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
-    
-    private struct Constants {
+class OnboardingIndicatorAnimationView: View, ViewSetupable {
+
+    private enum Constants {
         static let dotWidth: CGFloat = 5
         static let dotExtendedWidth = dotWidth * 4
         static let spacing: CGFloat = 5
         static let animationTime = 0.5
     }
-    
+
     private let dotViews = [UIView().layoutable(), UIView().layoutable(), UIView().layoutable()]
-    
+
     /// The view width depending on the dots' sizes.
     private(set) var viewWidth = Constants.dotExtendedWidth + (Constants.dotWidth + Constants.spacing) * 2
-    
+
     /// The view height depending on the dots' sizes.
     private(set) var viewHeight = Constants.dotWidth
-    
+
     /// Animating the indicator dots on changing of the pages.
     ///
     /// - Parameters:
@@ -34,29 +34,31 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
         UIView.animate(withDuration: Constants.animationTime) {
             self.dotViews[previousPageIndex].backgroundColor = .crOnboardingLightOrange
             self.dotViews[currentPageIndex].backgroundColor = .crOnboardingDeepOrange
-            self.dotViews[previousPageIndex].frame = self.initialFrame(forDot: previousPageIndex, extendedDot: currentPageIndex)
+            self.dotViews[previousPageIndex].frame = self.initialFrame(forDot: previousPageIndex,
+                                                                       extendedDot: currentPageIndex)
             self.dotViews[currentPageIndex].frame = self.extendedFrame(forDot: currentPageIndex)
         }
     }
-    
+
     func setupViewHierarchy() {
         dotViews.forEach { addSubview($0) }
     }
-    
+
     func setupConstraints() {
         dotViews[0].frame = extendedFrame(forDot: 0)
         dotViews[1].frame = initialFrame(forDot: 1, extendedDot: 0)
         dotViews[2].frame = initialFrame(forDot: 2)
     }
-    
+
     func setupProperties() {
         for (i, view) in dotViews.enumerated() {
             view.layer.cornerRadius = Constants.dotWidth / 2
             view.backgroundColor = (i == 0) ? .crOnboardingDeepOrange : .crOnboardingLightOrange
         }
     }
-    
-    /// The frame for an extended dot which is going to be animated. The dot indicating the page on which the user is now.
+
+    /// The frame for an extended dot which is going to be animated.
+    /// The dot indicating the page on which the user is now.
     private func extendedFrame(forDot dot: Int) -> CGRect {
         let dotWidthWithSpacing = Constants.dotWidth + Constants.spacing
         let x: CGFloat
@@ -72,7 +74,7 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
         }
         return frame(forX: x, width: Constants.dotExtendedWidth)
     }
-    
+
      /// The initial frame of a dot.
     private func initialFrame(forDot dot: Int, extendedDot: Int? = nil) -> CGRect {
         let dotWidthWithSpacing = Constants.dotWidth + Constants.spacing
@@ -91,7 +93,7 @@ internal class OnboardingIndicatorAnimationView: View, ViewSetupable {
         }
         return frame(forX: x, width: Constants.dotWidth)
     }
-    
+
     /// Helper method for a dot's frame.
     private func frame(forX x: CGFloat, width: CGFloat) -> CGRect {
         return CGRect(x: x, y: 0, width: width, height: Constants.dotWidth)

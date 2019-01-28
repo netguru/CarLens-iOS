@@ -3,7 +3,6 @@
 //  CarLensTests
 //
 
-
 final class JSON {
     static func readFile(name: String) -> Data? {
         let bundle = Bundle(for: self)

@@ -4,7 +4,7 @@
 //
 
 
-internal struct NodeShift: Equatable {
+struct NodeShift: Equatable {
 
     let depth: Float
     let elevation: Float

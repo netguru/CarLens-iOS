@@ -4,11 +4,11 @@
 //
 
 
-internal final class LocalCarsDataService {
-    
+final class LocalCarsDataService {
+
     /// Array of local car objects
     var cars: [Car] = []
-    
+
     /// Initializes the service feeding `localCars` parameter with fetched data
     init(with jsonPath: String? = Bundle.main.path(forResource: "cars", ofType: "json")) {
         guard
