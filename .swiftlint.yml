@@ -1,0 +1,175 @@
+# Style in which SwiftLint reports notes, warnings and errors.
+reporter: xcode
+
+# Paths to exclude from linting, e.g. your dependencies.
+excluded:
+  - Carthage
+  - Pods
+
+# Enabled rules.
+opt_in_rules:
+
+  # Controversial rules. Think twice before enabling or disabling them. 
+  # Check which are enabled by default and add to opt_in or disabled rules!
+  # - explicit_acl
+  # - explicit_top_level_acl
+  # - extension_access_modifier
+  # - line_length
+  # - missing_docs
+  # - private_action
+  # - private_outlet
+  # - prohibited_interface_builder
+  # - switch_case_alignment
+  # - todo
+  # - trailing_comma
+
+  # Highest importance rules.
+  - anyobject_protocol
+  - block_based_kvo
+  - class_delegate_protocol
+  - compiler_protocol_init
+  - contains_over_first_not_nil
+  - discarded_notification_center_observer
+  - dynamic_inline
+  - empty_count
+  - empty_parameters
+  - empty_string
+  - identical_operands
+  - inert_defer
+  - legacy_cggeometry_functions
+  - legacy_constructor
+  - legacy_nsgeometry_functions
+  - no_fallthrough_only
+  - operator_usage_whitespace
+  - private_unit_test
+  - redundant_nil_coalescing
+  - redundant_set_access_control
+  - redundant_void_return
+  - trailing_newline
+  - trailing_semicolon
+  - unneeded_break_in_switch
+  - void_return
+  - weak_delegate
+
+  # Medium importance rules
+  - array_init
+  - closing_brace
+  - closure_end_indentation
+  - closure_parameter_position
+  - closure_spacing
+  - collection_alignment
+  - colon
+  - comma
+  - control_statement
+  - empty_parentheses_with_trailing_closure
+  - generic_type_name
+  - identifier_name
+  - implicitly_unwrapped_optional
+  - leading_whitespace
+  - literal_expression_end_indentation
+  - lower_acl_than_parent
+  - multiline_arguments
+  - multiline_parameters
+  - opening_brace
+  - operator_whitespace
+  - return_arrow_whitespace
+  - statement_position
+  - syntactic_sugar
+  - trailing_whitespace
+  - type_name
+  - unneeded_parentheses_in_closure_argument
+  - unused_import
+  - valid_ibinspectable
+  - vertical_parameter_alignment
+  - vertical_parameter_alignment_on_call
+  - vertical_whitespace
+  - xctfail_message
+  - yoda_condition
+
+  # Lowest importance rules
+  - convenience_type
+  - first_where
+  - implicit_getter
+  - is_disjoint
+  - mark
+  - protocol_property_accessors_order
+  - redundant_optional_initialization
+  - sorted_first_last
+  - toggle_bool
+  - unused_enumerated
+
+# Configuration of rule that lints length of type names.
+type_name:
+  min_length: 1
+  max_length: 99
+
+# Configuration of rule that lints length of identifier (properties, variables) names.
+identifier_name:
+  min_length: 1
+  max_length: 99
+
+# Disabled rules.
+disabled_rules:
+  - attributes
+  - closure_body_length
+  - conditional_returns_on_newline
+  - cyclomatic_complexity
+  - discouraged_direct_init
+  - discouraged_object_literal
+  - discouraged_optional_boolean
+  - discouraged_optional_collection
+  - empty_enum_arguments
+  - empty_xctest_method
+  - explicit_enum_raw_value
+  - explicit_self 
+  - explicit_type_interface
+  - fallthrough
+  - fatal_error_message
+  - file_header
+  - file_length
+  - file_name
+  - for_where
+  - force_cast
+  - force_try
+  - force_unwrapping
+  - function_body_length
+  - function_default_parameter_at_end
+  - function_parameter_count
+  - implicit_return
+  - joined_default_parameter
+  - large_tuple
+  - let_var_whitespace
+  - multiline_function_chains
+  - multiple_closures_with_trailing_closure
+  - nesting
+  - nimble_operator
+  - no_extension_access_modifier
+  - no_grouping_extension
+  - notification_center_detachment
+  - number_separator
+  - object_literal
+  - overridden_super_call
+  - override_in_extension
+  - pattern_matching_keywords
+  - prefixed_toplevel_constant
+  - private_over_fileprivate
+  - prohibited_super_call
+  - redundant_string_enum_value
+  - redundant_type_annotation
+  - required_enum_case
+  - single_test_class
+  - static_operator
+  - strict_fileprivate
+  - switch_case_on_newline
+  - trailing_closure
+  - type_body_length
+  - unavailable_function
+  - untyped_error_in_catch
+  - unused_closure_parameter
+  - unused_optional_binding
+  - unused_private_declaration
+  - quick_discouraged_call
+  - quick_discouraged_focused_test
+  - quick_discouraged_pending_test
+
+# Remember that you can customize this configuration file as much as you want.

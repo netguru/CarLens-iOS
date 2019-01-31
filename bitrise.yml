@@ -34,7 +34,7 @@ trigger_map:
 
 app:
   envs:
-    - XCODEBUILD_PROJECT: ./CarRecognition.xcodeproj
+    - XCODEBUILD_PROJECT: ./CarLens.xcworkspace
     - XCODEBUILD_OPTIONS: _BUILD_NUMBER=$BITRISE_BUILD_NUMBER
 
 

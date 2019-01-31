@@ -1,10 +1,11 @@
 //
 //  App-Development.xcconfig
-//  CarRecognition
+//  CarLens
 //
 
 #include "../Carthage/Checkouts/xcconfigs/Targets/Application.xcconfig"
 #include "../Carthage/Checkouts/xcconfigs/Configurations/Debug.xcconfig"
+#include "Pods/Target Support Files/Pods-CarLens/Pods-CarLens.development.xcconfig"
 #include "App-Common.xcconfig"
 
 __PRODUCT_BUNDLE_IDENTIFIER_SUFFIX = .development

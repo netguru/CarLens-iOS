@@ -4,24 +4,21 @@
 
 platform :ios, '11.0'
 inhibit_all_warnings!
-install! 'cocoapods', integrate_targets: false
+use_frameworks!
 
-def pods
 
-end
+target 'CarLens' do
+    pod 'SwiftLint', '~> 0.29.0'
 
-target 'CarRecognition' do
-    pods
-end
-
-target 'CarRecognitionTests' do
-    pods
+	target 'CarLensTests' do
+	    inherit! :search_paths
+	end
 end
 
 plugin 'cocoapods-keys', {
-    project: 'CarRecognition',
+    project: 'CarLens',
     keys: [
         'HOCKEYAPP_APP_ID_STAGING',	
-	'HOCKEYAPP_APP_ID_PRODUCTION'
+		'HOCKEYAPP_APP_ID_PRODUCTION'
     ]
 }
