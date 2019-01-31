@@ -80,29 +80,22 @@ extension CarsListTestCase {
         verifyView("initial_view")
     }
 
-    func testToyotaCorollaScreenLook() {
+    func testFordFiestaScreenLook() {
         swipeLeft()
         verifyView("after_1_swipe_left")
     }
 
-    func testFordFiestaScreenLook() {
+    func testNissanQashqaiScreenLook() {
         for _ in 1...2 {
             swipeLeft()
         }
         verifyView("after_2_swipe_left")
     }
 
-    func testNissanQashqaiScreenLook() {
+    func testVolkswagenPassatScreenLook() {
         for _ in 1...3 {
             swipeLeft()
         }
         verifyView("after_3_swipe_left")
-    }
-
-    func testVolkswagenPassatScreenLook() {
-        for _ in 1...4 {
-            swipeLeft()
-        }
-        verifyView("after_4_swipe_left")
     }
 }
