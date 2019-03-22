@@ -101,6 +101,7 @@ workflows:
       - bootstrap-carthage
       - bootstrap-cocoapods-keys
       - test-xcode
+      - danger-run
     after_run:
       - cache-push
       - deploy-bitriseio
@@ -199,3 +200,11 @@ workflows:
           inputs:
             - notify_user_groups: none
             - is_enable_public_page: false
+  
+  # Run Danger
+  
+  danger-run:
+    steps:
+      - script:
+          inputs:
+            - content: bundle exec danger
