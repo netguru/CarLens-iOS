@@ -109,6 +109,7 @@ All contributions are welcome! Feel free to create issues and PRs. Please, respe
 ### Read More About CarLens
 
 - [How We Built CarLens](https://www.netguru.com/blog/machine-learning-and-augmented-reality-combined-in-one-sleek-mobile-app-how-we-built-car-lens)
+- [Increasing the Accuracy of the Machine Learning Model in CarLens](https://www.netguru.com/blog/improving-machine-learning-model-carlens-case-study)
 
 ### Related Links
 
