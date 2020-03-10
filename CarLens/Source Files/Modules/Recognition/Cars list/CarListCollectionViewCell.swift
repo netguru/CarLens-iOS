@@ -9,7 +9,7 @@ import UIKit.UICollectionView
 final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupable {
 
     /// Indicates if the cell is currently displayed as primary cell
-    var isCurrentlyPrimary = false
+    private var isCurrentlyPrimary = false
 
     private let topViewHeight: CGFloat = UIDevice.screenSizeBiggerThan4Inches ? 200 : 170
 
@@ -41,18 +41,12 @@ final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupable {
         cardView.setup(with: car)
     }
 
-    /// Invalidates the charts visible on the cell
-    ///
-    /// - Parameter animated: Indicating if invalidation should be animated
-    func invalidateCharts(animated: Bool) {
-        cardView.invalidateCharts(animated: animated)
-    }
+    /// Sets values for charts in the cell. Animates setting
+    func setChartsValues() {
+        let animated = isCurrentlyPrimary
+        let toZero = !isCurrentlyPrimary
 
-    /// Clear the progress shown on charts
-    ///
-    /// - Parameter animated: Indicating if progress change should be animated
-    func clearCharts(animated: Bool) {
-        cardView.clearCharts(animated: false)
+        cardView.setCharts(animated: animated, toZero: toZero)
     }
 
     private func animateViews(toProgress progress: Double) {
@@ -86,6 +80,6 @@ final class CarListCollectionViewCell: UICollectionViewCell, ViewSetupable {
     /// - SeeAlso: UICollectionViewCell
     override func prepareForReuse() {
         super.prepareForReuse()
-        clearCharts(animated: false)
+        cardView.setCharts(animated: false, toZero: true)
     }
 }

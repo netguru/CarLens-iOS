@@ -93,6 +93,12 @@ final class CarCardView: View, ViewSetupable {
 
     private lazy var powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power),
                                                                                invalidateChartInstantly: false)
+	private lazy var progressableViews: [ViewProgressable] = [
+		topSpeedProgressView,
+		accelerationOvalProgressView,
+		engineHorizontalProgressView,
+		powerHorizontalProgressView
+	]
 
     /// StackView with mechanical informations
     private lazy var mechanicalStackView = UIStackView.make(
@@ -159,13 +165,13 @@ final class CarCardView: View, ViewSetupable {
         rippleAnimationView.isHidden = true
     }
 
-    /// Animates all the progress views
-    func animateCharts() {
-        [topSpeedProgressView, accelerationOvalProgressView,
-         engineHorizontalProgressView, powerHorizontalProgressView].forEach { view in
-            guard let view = view as? ViewProgressable else { return }
-			view.setChart(animated: true, toZero: false)
-        }
+    /// Sets all charts of the view
+    ///
+    /// - Parameters:
+    ///   - animated: Indicating if the change should be animated
+    ///   - toZero: Indicating if charts should be cleared
+    func setCharts(animated: Bool, toZero: Bool) {
+		progressableViews.forEach { $0.setChart(animated: animated, toZero: toZero) }
     }
 
     /// Animates attach pin error label

@@ -26,6 +26,14 @@ final class CarListCardView: View, ViewSetupable {
         return view.layoutable()
     }()
 
+	private lazy var progressableViews: [ViewProgressable] = [
+		topSpeedProgressView,
+		accelerationProgressView,
+		engineProgressView,
+		powerProgressView,
+		starsProgressView
+	]
+
     private lazy var descriptionLabel: UILabel = {
         let view = UILabel()
         view.textColor = .crFontLightGray
@@ -100,26 +108,13 @@ final class CarListCardView: View, ViewSetupable {
                                                                                     tracking: .condensed)
     }
 
-    /// Invalidates the charts visible on the view
+	/// Sets all charts of the view
     ///
-    /// - Parameter animated: Indicating if invalidation should be animated
-    func invalidateCharts(animated: Bool) {
-		topSpeedProgressView.setChart(animated: animated, toZero: false)
-        accelerationProgressView.setChart(animated: animated, toZero: false)
-        engineProgressView.setChart(animated: animated, toZero: false)
-        powerProgressView.setChart(animated: animated, toZero: false)
-		starsProgressView.invalidateChart(animated: animated)
-    }
-
-    /// Clear the progress shown on charts
-    ///
-    /// - Parameter animated: Indicating if progress change should be animated
-    func clearCharts(animated: Bool) {
-		topSpeedProgressView.setChart(animated: animated, toZero: true)
-        accelerationProgressView.setChart(animated: animated, toZero: true)
-        engineProgressView.setChart(animated: animated, toZero: true)
-        powerProgressView.setChart(animated: animated, toZero: true)
-        starsProgressView.clearChart(animated: animated)
+    /// - Parameters:
+    ///   - animated: Indicating if the change should be animated
+    ///   - toZero: Indicating if charts should be cleared
+	func setCharts(animated: Bool, toZero: Bool) {
+		progressableViews.forEach { $0.setChart(animated: animated, toZero: toZero) }
     }
 
     /// - SeeAlso: ViewSetupable

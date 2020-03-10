@@ -45,27 +45,9 @@ final class HorizontalStarsView: View, ViewSetupable {
         self.starCount = starCount
         self.isLocked = isLocked
         if invalidateChartInstantly {
-            invalidateChart(animated: false)
+            setChart(animated: false, toZero: false)
         }
-    }
-
-    /// Invalidates the progress shown on the chart
-    ///
-    /// - Parameter animated: Indicating if invalidation should be animated
-    func invalidateChart(animated: Bool) {
-        var progress = Double(starCount) / Double(numberOfStars + 1)
-        if isLocked {
-            progress = 0
-        }
-        animationView.set(progress: CGFloat(progress), animated: animated)
-    }
-
-    /// Clear the progress shown on the chart
-    ///
-    /// - Parameter animated: Indicating if progress change should be animated
-    func clearChart(animated: Bool) {
-        animationView.set(progress: 0, animated: animated)
-    }
+	}
 
     /// - SeeAlso: ViewSetupable
     func setupViewHierarchy() {
@@ -75,5 +57,17 @@ final class HorizontalStarsView: View, ViewSetupable {
     /// - SeeAlso: ViewSetupable
     func setupConstraints() {
         animationView.constraintToSuperviewEdges()
+    }
+}
+
+extension HorizontalStarsView: ViewProgressable {
+
+	/// - SeeAlso: ViewProgressable
+	func setChart(animated: Bool, toZero: Bool) {
+        var progress = Double(starCount) / Double(numberOfStars + 1)
+        if isLocked || toZero {
+            progress = 0
+        }
+        animationView.set(progress: CGFloat(progress), animated: animated)
     }
 }

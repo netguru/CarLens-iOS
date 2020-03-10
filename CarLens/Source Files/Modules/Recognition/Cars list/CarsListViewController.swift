@@ -91,11 +91,7 @@ final class CarsListViewController: TypedViewController<CarsListView>,
     private func animateVisibleCells() {
         let cells = customView.collectionView.visibleCells.compactMap { $0 as? CarListCollectionViewCell }
         cells.forEach {
-            if $0.isCurrentlyPrimary {
-                $0.invalidateCharts(animated: true)
-            } else {
-                $0.clearCharts(animated: false)
-            }
+            $0.setChartsValues()
         }
     }
 
