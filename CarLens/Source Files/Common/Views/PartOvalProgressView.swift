@@ -58,24 +58,24 @@ final class PartOvalProgressView: View, ViewSetupable {
     ///
     /// - Parameters:
     ///   - state: State to be shown by the view
-    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
-    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
+    ///   - setChartWithoutAnimation: Chart will be updated instantly without animation if this value indicates true.
+    ///                               When passing true, remember to use method `setChart(animated:toZero:)` also
     ///   - isLocked: Indicating if the info should be locked
-    init(state: State, invalidateChartInstantly: Bool, isLocked: Bool = false) {
+    init(state: State, setChartWithoutAnimation: Bool = false, isLocked: Bool = false) {
         self.state = state
         self.isLocked = isLocked
         super.init()
-        setup(state: state, invalidateChartInstantly: invalidateChartInstantly, isLocked: isLocked)
+        setup(state: state, setChartWithoutAnimation: setChartWithoutAnimation, isLocked: isLocked)
     }
 
     /// Setups the view with given state. Use only inside reusable views.
     ///
     /// - Parameters:
     ///   - state: State to be shown by the view
-    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
-    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
+    ///   - setChartWithoutAnimation: Chart will be updated instantly without animation if this value indicates true.
+    ///                               When passing true, remember to use method `setChart(animated:toZero:)` also
     ///   - isLocked: Indicating if the info should be locked
-    func setup(state: State, invalidateChartInstantly: Bool, isLocked: Bool = false) {
+    func setup(state: State, setChartWithoutAnimation: Bool, isLocked: Bool = false) {
         ovalLayerView.set(progress: 0, animated: false)
         self.state = state
         self.isLocked = isLocked
@@ -113,7 +113,7 @@ final class PartOvalProgressView: View, ViewSetupable {
                                                                                   font: titleLabel.font,
                                                                                   tracking: .condensed)
         }
-        if invalidateChartInstantly {
+        if setChartWithoutAnimation {
 			setChart(animated: false, toZero: false)
         }
         valueLabel.textColor = isLocked ? .crFontGrayLocked : .crFontDark

@@ -74,11 +74,9 @@ final class CarCardView: View, ViewSetupable {
         return imageView.layoutable()
     }()
 
-    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed),
-                                                                 invalidateChartInstantly: false)
+    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed))
 
-    private lazy var accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration),
-                                                                         invalidateChartInstantly: false)
+    private lazy var accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration))
 
     /// StackView with performance informations
     private lazy var performanceStackView = UIStackView.make(
@@ -88,11 +86,10 @@ final class CarCardView: View, ViewSetupable {
         distribution: .fillEqually
     )
 
-    private lazy var engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine),
-                                                                                invalidateChartInstantly: false)
+    private lazy var engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine))
 
-    private lazy var powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power),
-                                                                               invalidateChartInstantly: false)
+    private lazy var powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power))
+	
 	private lazy var progressableViews: [ViewProgressable] = [
 		topSpeedProgressView,
 		accelerationOvalProgressView,

@@ -100,7 +100,7 @@ final class CarsListViewController: TypedViewController<CarsListView>,
         let availableCars = carsDataService.getNumberOfCars()
         customView.topView.progressView.setup(currentNumber: discoveredCars,
                                               maximumNumber: availableCars,
-                                              invalidateChartInstantly: false)
+                                              setChartWithoutAnimation: false)
     }
 
     /// SeeAlso: UICollectionViewDataSource

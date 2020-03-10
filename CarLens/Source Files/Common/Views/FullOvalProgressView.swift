@@ -41,15 +41,15 @@ final class FullOvalProgressView: View, ViewSetupable {
     /// - Parameters:
     ///   - currentNumber: Currently achieved number
     ///   - maximumNumber: Maximum available number
-    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
-    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
-    init(currentNumber: Int, maximumNumber: Int, invalidateChartInstantly: Bool) {
+    ///   - setChartWithoutAnimation: Chart will be updated instantly without animation if this value indicates true.
+    ///                               When passing true, remember to use method `setChart(animated:toZero:)` also
+    init(currentNumber: Int, maximumNumber: Int, setChartWithoutAnimation: Bool = false) {
         self.currentNumber = currentNumber
         self.maximumNumber = maximumNumber
         super.init()
         setup(currentNumber: currentNumber,
               maximumNumber: maximumNumber,
-              invalidateChartInstantly: invalidateChartInstantly)
+              setChartWithoutAnimation: setChartWithoutAnimation)
         accessibilityIdentifier = "carsList/view/ovalProgress"
     }
 
@@ -58,9 +58,9 @@ final class FullOvalProgressView: View, ViewSetupable {
     /// - Parameters:
     ///   - currentNumber: Currently achieved number
     ///   - maximumNumber: Maximum available number
-    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
-    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
-    func setup(currentNumber: Int, maximumNumber: Int, invalidateChartInstantly: Bool) {
+    ///   - setChartWithoutAnimation: Chart will be updated instantly without animation if this value indicates true.
+    ///                               When passing true, remember to use method `setChart(animated:toZero:)` also
+    func setup(currentNumber: Int, maximumNumber: Int, setChartWithoutAnimation: Bool) {
         fullOvalLayerView.set(progress: 0, animated: false)
         self.currentNumber = currentNumber
         self.maximumNumber = maximumNumber
@@ -69,7 +69,7 @@ final class FullOvalProgressView: View, ViewSetupable {
         valueLabel.attributedText = NSAttributedStringFactory.trackingApplied(valueText,
                                                                               font: valueLabel.font,
                                                                               tracking: .condensed)
-        if invalidateChartInstantly {
+        if setChartWithoutAnimation {
             setChart(animated: false, toZero: false)
         }
     }

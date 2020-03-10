@@ -21,30 +21,30 @@ final class HorizontalStarsView: View, ViewSetupable {
     ///
     /// - Parameters:
     ///   - starCount: Count of achieved stars
-    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
-    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
+    ///   - setChartWithoutAnimation: Chart will be updated instantly without animation if this value indicates true.
+    ///                               When passing true, remember to use method `setChart(animated:toZero:)` also
     ///   - isLocked: Indicating if the info should be locked
-    init(starCount: Int, invalidateChartInstantly: Bool, isLocked: Bool = false) {
+    init(starCount: Int, setChartWithoutAnimation: Bool = false, isLocked: Bool = false) {
         self.starCount = starCount
         self.isLocked = isLocked
         super.init()
-        setup(starCount: starCount, invalidateChartInstantly: invalidateChartInstantly)
+        setup(starCount: starCount, setChartWithoutAnimation: setChartWithoutAnimation)
     }
 
     /// Setups the view with given parameters. Use only inside reusable views.
     ///
     /// - Parameters:
     ///   - starCount: Count of achieved stars
-    ///   - invalidateChartInstantly: Chart will be updated instantly without animation if this value indicates false.
-    ///                               When passing false, remember to use method `invalidatChart(animated:)` also
-    func setup(starCount: Int, invalidateChartInstantly: Bool, isLocked: Bool = false) {
+    ///   - setChartWithoutAnimation: Chart will be updated instantly without animation if this value indicates true.
+    ///                               When passing true, remember to use method `setChart(animated:toZero:)` also
+    func setup(starCount: Int, setChartWithoutAnimation: Bool, isLocked: Bool = false) {
         guard starCount >= 0, starCount <= 5 else {
             fatalError("Wrong input provided for stars chart")
         }
         animationView.set(progress: 0, animated: false)
         self.starCount = starCount
         self.isLocked = isLocked
-        if invalidateChartInstantly {
+        if setChartWithoutAnimation {
             setChart(animated: false, toZero: false)
         }
 	}

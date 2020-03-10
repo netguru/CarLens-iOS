@@ -8,20 +8,16 @@ import UIKit
 
 final class CarListCardView: View, ViewSetupable {
 
-    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(0),
-                                                                 invalidateChartInstantly: false)
+    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(0))
 
-    private lazy var accelerationProgressView = PartOvalProgressView(state: .accelerate(0),
-                                                                     invalidateChartInstantly: false)
+    private lazy var accelerationProgressView = PartOvalProgressView(state: .accelerate(0))
 
-    private lazy var engineProgressView = HorizontalProgressChartView(state: .engine(0),
-                                                                      invalidateChartInstantly: false)
+    private lazy var engineProgressView = HorizontalProgressChartView(state: .engine(0))
 
-    private lazy var powerProgressView = HorizontalProgressChartView(state: .power(0),
-                                                                     invalidateChartInstantly: false)
+    private lazy var powerProgressView = HorizontalProgressChartView(state: .power(0))
 
     private lazy var starsProgressView: HorizontalStarsView = {
-        let view = HorizontalStarsView(starCount: 3, invalidateChartInstantly: false)
+        let view = HorizontalStarsView(starCount: 3)
         view.backgroundColor = .white
         return view.layoutable()
     }()
@@ -91,17 +87,17 @@ final class CarListCardView: View, ViewSetupable {
     func setup(with car: Car) {
         makeImageView.image = car.isDiscovered ? car.image.logoUnlocked : car.image.logoLocked
         topSpeedProgressView.setup(state: .topSpeed(car.speed),
-                                   invalidateChartInstantly: false,
+                                   setChartWithoutAnimation: false,
                                    isLocked: !car.isDiscovered)
         accelerationProgressView.setup(state: .accelerate(car.acceleration),
-                                       invalidateChartInstantly: false,
+                                       setChartWithoutAnimation: false,
                                        isLocked: !car.isDiscovered)
         engineProgressView.setup(state: .engine(car.engine),
-                                 invalidateChartInstantly: false,
+                                 setChartWithoutAnimation: false,
                                  isLocked: !car.isDiscovered)
-        powerProgressView.setup(state: .power(car.power), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
-        starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false, isLocked: !car.isDiscovered)
-        descriptionLabel.textColor =  car.isDiscovered ? .crFontLightGray : .crBackgroundLightGray
+        powerProgressView.setup(state: .power(car.power), setChartWithoutAnimation: false, isLocked: !car.isDiscovered)
+        starsProgressView.setup(starCount: car.stars, setChartWithoutAnimation: false, isLocked: !car.isDiscovered)
+        descriptionLabel.textColor = car.isDiscovered ? .crFontLightGray : .crBackgroundLightGray
         let descriptionFont = car.isDiscovered ? UIFont.systemFont(ofSize: 12) : .blokkNeueFont(ofSize: 12)
         descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description,
                                                                                     font: descriptionFont,
