@@ -63,7 +63,7 @@ final class CarsListViewController: TypedViewController<CarsListView>,
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateVisibleCells()
-        customView.topView.progressView.invalidateChart(animated: true)
+		customView.topView.progressView.setChart(animated: true, toZero: false)
     }
 
     /// SeeAlso: UIViewController

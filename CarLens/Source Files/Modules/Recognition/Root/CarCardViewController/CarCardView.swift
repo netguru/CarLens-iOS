@@ -164,7 +164,7 @@ final class CarCardView: View, ViewSetupable {
         [topSpeedProgressView, accelerationOvalProgressView,
          engineHorizontalProgressView, powerHorizontalProgressView].forEach { view in
             guard let view = view as? ViewProgressable else { return }
-            view.invalidateChart(animated: true)
+			view.setChart(animated: true, toZero: false)
         }
     }
 

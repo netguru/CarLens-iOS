@@ -104,21 +104,21 @@ final class CarListCardView: View, ViewSetupable {
     ///
     /// - Parameter animated: Indicating if invalidation should be animated
     func invalidateCharts(animated: Bool) {
-        topSpeedProgressView.invalidateChart(animated: animated)
-        accelerationProgressView.invalidateChart(animated: animated)
-        engineProgressView.invalidateChart(animated: animated)
-        powerProgressView.invalidateChart(animated: animated)
-        starsProgressView.invalidateChart(animated: animated)
+		topSpeedProgressView.setChart(animated: animated, toZero: false)
+        accelerationProgressView.setChart(animated: animated, toZero: false)
+        engineProgressView.setChart(animated: animated, toZero: false)
+        powerProgressView.setChart(animated: animated, toZero: false)
+		starsProgressView.invalidateChart(animated: animated)
     }
 
     /// Clear the progress shown on charts
     ///
     /// - Parameter animated: Indicating if progress change should be animated
     func clearCharts(animated: Bool) {
-        topSpeedProgressView.clearChart(animated: animated)
-        accelerationProgressView.clearChart(animated: animated)
-        engineProgressView.clearChart(animated: animated)
-        powerProgressView.clearChart(animated: animated)
+		topSpeedProgressView.setChart(animated: animated, toZero: true)
+        accelerationProgressView.setChart(animated: animated, toZero: true)
+        engineProgressView.setChart(animated: animated, toZero: true)
+        powerProgressView.setChart(animated: animated, toZero: true)
         starsProgressView.clearChart(animated: animated)
     }
 

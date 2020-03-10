@@ -89,19 +89,12 @@ final class HorizontalProgressChartView: View, ViewSetupable {
                                  tracking: .condensed)
         }
         if invalidateChartInstantly {
-            invalidateChart(animated: false)
+			setChart(animated: false, toZero: false)
         }
         valueLabel.textColor = isLocked ? .crFontGrayLocked : .crFontDark
         if isLocked {
             valueLabel.text = "?"
         }
-    }
-
-    /// Clear the progress shown on the chart
-    ///
-    /// - Parameter animated: Indicating if progress change should be animated
-    func clearChart(animated: Bool) {
-        animationView.set(progress: 0, animated: animated)
     }
 
     /// - SeeAlso: ViewSetupable
@@ -124,7 +117,7 @@ final class HorizontalProgressChartView: View, ViewSetupable {
 extension HorizontalProgressChartView: ViewProgressable {
 
     /// - SeeAlso: ViewProgressable
-    func invalidateChart(animated: Bool) {
+	func setChart(animated: Bool, toZero: Bool) {
         var progress: Double
         switch state {
         case .power(let power):
@@ -132,7 +125,7 @@ extension HorizontalProgressChartView: ViewProgressable {
         case .engine(let engine):
             progress = Double(engine) / Double(chartConfig.referenceEngineVolume)
         }
-        if isLocked {
+        if isLocked || toZero {
             progress = 0
         }
         animationView.set(progress: CGFloat(progress), animated: animated)

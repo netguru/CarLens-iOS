@@ -70,15 +70,8 @@ final class FullOvalProgressView: View, ViewSetupable {
                                                                               font: valueLabel.font,
                                                                               tracking: .condensed)
         if invalidateChartInstantly {
-            invalidateChart(animated: false)
+            setChart(animated: false, toZero: false)
         }
-    }
-
-    /// Clear the progress shown on the chart
-    ///
-    /// - Parameter animated: Indicating if progress change should be animated
-    func clearChart(animated: Bool) {
-        fullOvalLayerView.set(progress: 0, animated: animated)
     }
 
     /// - SeeAlso: ViewSetupable
@@ -100,8 +93,8 @@ final class FullOvalProgressView: View, ViewSetupable {
 extension FullOvalProgressView: ViewProgressable {
 
     /// - SeeAlso: ViewProgressable
-    func invalidateChart(animated: Bool) {
-        let progress = Double(currentNumber) / Double(maximumNumber)
-        fullOvalLayerView.set(progress: progress, animated: animated)
+	func setChart(animated: Bool, toZero: Bool) {
+		let progress = toZero ? 0 : Double(currentNumber) / Double(maximumNumber)
+		fullOvalLayerView.set(progress: progress, animated: animated)
     }
 }

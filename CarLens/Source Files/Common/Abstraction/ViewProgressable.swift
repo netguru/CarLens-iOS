@@ -6,8 +6,10 @@
 /// Interface for progressing the view
 protocol ViewProgressable {
 
-    /// Invalidates the progress shown on the chart
+    /// Sets values for the chart
     ///
-    /// - Parameter animated: Indicating if invalidation should be animated
-    func invalidateChart(animated: Bool)
+    /// - Parameters:
+    ///   - animated: Indicating if the change should be animated
+    ///   - toZero: Indicating if charts should be cleared
+	func setChart(animated: Bool, toZero: Bool)
 }
