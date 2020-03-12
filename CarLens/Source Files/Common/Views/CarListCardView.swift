@@ -8,23 +8,27 @@ import UIKit
 
 final class CarListCardView: View, ViewSetupable {
 
-    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(0),
-                                                                 invalidateChartInstantly: false)
+    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(0))
 
-    private lazy var accelerationProgressView = PartOvalProgressView(state: .accelerate(0),
-                                                                     invalidateChartInstantly: false)
+    private lazy var accelerationProgressView = PartOvalProgressView(state: .accelerate(0))
 
-    private lazy var engineProgressView = HorizontalProgressChartView(state: .engine(0),
-                                                                      invalidateChartInstantly: false)
+    private lazy var engineProgressView = HorizontalProgressChartView(state: .engine(0))
 
-    private lazy var powerProgressView = HorizontalProgressChartView(state: .power(0),
-                                                                     invalidateChartInstantly: false)
+    private lazy var powerProgressView = HorizontalProgressChartView(state: .power(0))
 
     private lazy var starsProgressView: HorizontalStarsView = {
-        let view = HorizontalStarsView(starCount: 3, invalidateChartInstantly: false)
+        let view = HorizontalStarsView(starCount: 3)
         view.backgroundColor = .white
         return view.layoutable()
     }()
+
+	private lazy var progressableViews: [ViewProgressable] = [
+		topSpeedProgressView,
+		accelerationProgressView,
+		engineProgressView,
+		powerProgressView,
+		starsProgressView
+	]
 
     private lazy var descriptionLabel: UILabel = {
         let view = UILabel()
@@ -83,43 +87,30 @@ final class CarListCardView: View, ViewSetupable {
     func setup(with car: Car) {
         makeImageView.image = car.isDiscovered ? car.image.logoUnlocked : car.image.logoLocked
         topSpeedProgressView.setup(state: .topSpeed(car.speed),
-                                   invalidateChartInstantly: false,
+                                   setChartWithoutAnimation: false,
                                    isLocked: !car.isDiscovered)
         accelerationProgressView.setup(state: .accelerate(car.acceleration),
-                                       invalidateChartInstantly: false,
+                                       setChartWithoutAnimation: false,
                                        isLocked: !car.isDiscovered)
         engineProgressView.setup(state: .engine(car.engine),
-                                 invalidateChartInstantly: false,
+                                 setChartWithoutAnimation: false,
                                  isLocked: !car.isDiscovered)
-        powerProgressView.setup(state: .power(car.power), invalidateChartInstantly: false, isLocked: !car.isDiscovered)
-        starsProgressView.setup(starCount: car.stars, invalidateChartInstantly: false, isLocked: !car.isDiscovered)
-        descriptionLabel.textColor =  car.isDiscovered ? .crFontLightGray : .crBackgroundLightGray
+        powerProgressView.setup(state: .power(car.power), setChartWithoutAnimation: false, isLocked: !car.isDiscovered)
+        starsProgressView.setup(starCount: car.stars, setChartWithoutAnimation: false, isLocked: !car.isDiscovered)
+        descriptionLabel.textColor = car.isDiscovered ? .crFontLightGray : .crBackgroundLightGray
         let descriptionFont = car.isDiscovered ? UIFont.systemFont(ofSize: 12) : .blokkNeueFont(ofSize: 12)
         descriptionLabel.attributedText = NSAttributedStringFactory.trackingApplied(car.description,
                                                                                     font: descriptionFont,
                                                                                     tracking: .condensed)
     }
 
-    /// Invalidates the charts visible on the view
+	/// Sets all charts of the view
     ///
-    /// - Parameter animated: Indicating if invalidation should be animated
-    func invalidateCharts(animated: Bool) {
-        topSpeedProgressView.invalidateChart(animated: animated)
-        accelerationProgressView.invalidateChart(animated: animated)
-        engineProgressView.invalidateChart(animated: animated)
-        powerProgressView.invalidateChart(animated: animated)
-        starsProgressView.invalidateChart(animated: animated)
-    }
-
-    /// Clear the progress shown on charts
-    ///
-    /// - Parameter animated: Indicating if progress change should be animated
-    func clearCharts(animated: Bool) {
-        topSpeedProgressView.clearChart(animated: animated)
-        accelerationProgressView.clearChart(animated: animated)
-        engineProgressView.clearChart(animated: animated)
-        powerProgressView.clearChart(animated: animated)
-        starsProgressView.clearChart(animated: animated)
+    /// - Parameters:
+    ///   - animated: Indicating if the change should be animated
+    ///   - toZero: Indicating if charts should be cleared
+	func setCharts(animated: Bool, toZero: Bool) {
+		progressableViews.forEach { $0.setChart(animated: animated, toZero: toZero) }
     }
 
     /// - SeeAlso: ViewSetupable

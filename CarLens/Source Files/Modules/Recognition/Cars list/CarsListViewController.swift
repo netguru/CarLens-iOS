@@ -56,14 +56,14 @@ final class CarsListViewController: TypedViewController<CarsListView>,
     /// SeeAlso: UIViewController
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        invalidateDiscoveredProgressView()
+        setupDiscoveredProgressView()
     }
 
     /// SeeAlso: UIViewController
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateVisibleCells()
-        customView.topView.progressView.invalidateChart(animated: true)
+        setChartsValuesForVisibleCells()
+		customView.topView.progressView.setChart(animated: true, toZero: false)
     }
 
     /// SeeAlso: UIViewController
@@ -88,23 +88,19 @@ final class CarsListViewController: TypedViewController<CarsListView>,
         customView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
     }
 
-    private func animateVisibleCells() {
+    private func setChartsValuesForVisibleCells() {
         let cells = customView.collectionView.visibleCells.compactMap { $0 as? CarListCollectionViewCell }
         cells.forEach {
-            if $0.isCurrentlyPrimary {
-                $0.invalidateCharts(animated: true)
-            } else {
-                $0.clearCharts(animated: false)
-            }
+            $0.setChartsValues()
         }
     }
 
-    private func invalidateDiscoveredProgressView() {
+    private func setupDiscoveredProgressView() {
         let discoveredCars = carsDataService.getNumberOfDiscoveredCars()
         let availableCars = carsDataService.getNumberOfCars()
         customView.topView.progressView.setup(currentNumber: discoveredCars,
                                               maximumNumber: availableCars,
-                                              invalidateChartInstantly: false)
+                                              setChartWithoutAnimation: false)
     }
 
     /// SeeAlso: UICollectionViewDataSource
@@ -124,11 +120,11 @@ final class CarsListViewController: TypedViewController<CarsListView>,
 
     /// SeeAlso: UICollectionViewDelegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        animateVisibleCells()
+        setChartsValuesForVisibleCells()
     }
 
     /// SeeAlso: UICollectionViewDelegate
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        animateVisibleCells()
+        setChartsValuesForVisibleCells()
     }
 }

@@ -36,8 +36,6 @@ enum ToastDisplayer {
             toastLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
             toastLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
         ])
-        toastLabel.heightAnchor.constraint(equalToConstant: Constants.attachPinErrorLabelHeight)
-        toastLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
 
         UIView.animate(withDuration: Constants.animationDuration,
                        delay: 1.0,

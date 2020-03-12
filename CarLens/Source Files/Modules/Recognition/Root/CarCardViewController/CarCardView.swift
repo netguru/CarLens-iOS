@@ -74,11 +74,9 @@ final class CarCardView: View, ViewSetupable {
         return imageView.layoutable()
     }()
 
-    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed),
-                                                                 invalidateChartInstantly: false)
+    private lazy var topSpeedProgressView = PartOvalProgressView(state: .topSpeed(car.speed))
 
-    private lazy var accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration),
-                                                                         invalidateChartInstantly: false)
+    private lazy var accelerationOvalProgressView = PartOvalProgressView(state: .accelerate(car.acceleration))
 
     /// StackView with performance informations
     private lazy var performanceStackView = UIStackView.make(
@@ -88,11 +86,16 @@ final class CarCardView: View, ViewSetupable {
         distribution: .fillEqually
     )
 
-    private lazy var engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine),
-                                                                                invalidateChartInstantly: false)
+    private lazy var engineHorizontalProgressView = HorizontalProgressChartView(state: .engine(car.engine))
 
-    private lazy var powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power),
-                                                                               invalidateChartInstantly: false)
+    private lazy var powerHorizontalProgressView = HorizontalProgressChartView(state: .power(car.power))
+	
+	private lazy var progressableViews: [ViewProgressable] = [
+		topSpeedProgressView,
+		accelerationOvalProgressView,
+		engineHorizontalProgressView,
+		powerHorizontalProgressView
+	]
 
     /// StackView with mechanical informations
     private lazy var mechanicalStackView = UIStackView.make(
@@ -159,13 +162,13 @@ final class CarCardView: View, ViewSetupable {
         rippleAnimationView.isHidden = true
     }
 
-    /// Animates all the progress views
-    func animateCharts() {
-        [topSpeedProgressView, accelerationOvalProgressView,
-         engineHorizontalProgressView, powerHorizontalProgressView].forEach { view in
-            guard let view = view as? ViewProgressable else { return }
-            view.invalidateChart(animated: true)
-        }
+    /// Sets all charts of the view
+    ///
+    /// - Parameters:
+    ///   - animated: Indicating if the change should be animated
+    ///   - toZero: Indicating if charts should be cleared
+    func setCharts(animated: Bool, toZero: Bool) {
+		progressableViews.forEach { $0.setChart(animated: animated, toZero: toZero) }
     }
 
     /// Animates attach pin error label

@@ -53,7 +53,7 @@ final class CarCardViewController: TypedViewController<CarCardView> {
     /// Animates card view from bottom of screen to desired position
     func animateIn() {
         entryAnimator.addCompletion { [unowned self] _ in
-            self.customView.animateCharts()
+			self.customView.setCharts(animated: true, toZero: false)
         }
         entryAnimator.addAnimations {
             let frame = self.view.frame
